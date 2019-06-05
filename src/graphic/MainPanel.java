@@ -43,6 +43,12 @@ public class MainPanel {
     }
 
     private void initPanelSizeAndColors(){
+        textArea1.setBackground(Color.lightGray);
+        textArea2.setBackground(Color.lightGray);
+        textArea3.setBackground(Color.lightGray);
+        textArea4.setBackground(Color.lightGray);
+
+
         int width = mainPanel.getWidth() - mainPanel.getWidth()/10;
         int height = mainPanel.getHeight() - mainPanel.getHeight()/10;
 
