@@ -42,7 +42,7 @@ public class MainPanel {
         }
     }
 
-    private void initPanelSizes(){
+    private void initPanelSizeAndColors(){
         int width = mainPanel.getWidth() - mainPanel.getWidth()/10;
         int height = mainPanel.getHeight() - mainPanel.getHeight()/10;
 
@@ -106,7 +106,7 @@ public class MainPanel {
         int y = screenSize.height / 2 - frame.getHeight() / 2;
         frame.setLocation(x, y);
 
-        initPanelSizes();
+        initPanelSizeAndColors();
         frame.setJMenuBar(initMenus());
     }
 
