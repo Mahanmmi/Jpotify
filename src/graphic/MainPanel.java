@@ -2,6 +2,7 @@ package graphic;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 public class MainPanel {
     private JPanel mainPanel;
@@ -13,23 +14,24 @@ public class MainPanel {
     private JTextArea textArea2;
     private JTextArea textArea3;
     private JTextArea textArea4;
+    private JTextArea refreshHandler;
     private JFrame frame;
 
-    private void initDarkTheme(){
-        UIManager.put( "control", new Color( 128, 128, 128) );
-        UIManager.put( "info", new Color(128,128,128) );
-        UIManager.put( "nimbusBase", new Color( 18, 30, 49) );
-        UIManager.put( "nimbusAlertYellow", new Color( 248, 187, 0) );
-        UIManager.put( "nimbusDisabledText", new Color( 128, 128, 128) );
-        UIManager.put( "nimbusFocus", new Color(115,164,209) );
-        UIManager.put( "nimbusGreen", new Color(176,179,50) );
-        UIManager.put( "nimbusInfoBlue", new Color( 66, 139, 221) );
-        UIManager.put( "nimbusLightBackground", new Color( 18, 30, 49) );
-        UIManager.put( "nimbusOrange", new Color(191,98,4) );
-        UIManager.put( "nimbusRed", new Color(169,46,34) );
-        UIManager.put( "nimbusSelectedText", new Color( 255, 255, 255) );
-        UIManager.put( "nimbusSelectionBackground", new Color( 104, 93, 156) );
-        UIManager.put( "text", new Color( 230, 230, 230) );
+    private void initDarkTheme() {
+        UIManager.put("control", new Color(128, 128, 128));
+        UIManager.put("info", new Color(128, 128, 128));
+        UIManager.put("nimbusBase", new Color(18, 30, 49));
+        UIManager.put("nimbusAlertYellow", new Color(248, 187, 0));
+        UIManager.put("nimbusDisabledText", new Color(128, 128, 128));
+        UIManager.put("nimbusFocus", new Color(115, 164, 209));
+        UIManager.put("nimbusGreen", new Color(176, 179, 50));
+        UIManager.put("nimbusInfoBlue", new Color(66, 139, 221));
+        UIManager.put("nimbusLightBackground", new Color(18, 30, 49));
+        UIManager.put("nimbusOrange", new Color(191, 98, 4));
+        UIManager.put("nimbusRed", new Color(169, 46, 34));
+        UIManager.put("nimbusSelectedText", new Color(255, 255, 255));
+        UIManager.put("nimbusSelectionBackground", new Color(104, 93, 156));
+        UIManager.put("text", new Color(230, 230, 230));
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -42,41 +44,46 @@ public class MainPanel {
         }
     }
 
-    private void initPanelSizeAndColors(){
+    private void updatePanelSizeAndColors() {
         textArea1.setBackground(Color.lightGray);
         textArea2.setBackground(Color.lightGray);
         textArea3.setBackground(Color.lightGray);
         textArea4.setBackground(Color.lightGray);
 
 
-        int width = mainPanel.getWidth() - mainPanel.getWidth()/10;
-        int height = mainPanel.getHeight() - mainPanel.getHeight()/10;
+        mainPanel.setPreferredSize(new Dimension(frame.getWidth() - frame.getWidth() / 8, frame.getHeight() - frame.getHeight() / 8));
+        mainPanel.setMaximumSize(new Dimension(frame.getWidth() - frame.getWidth() / 8, frame.getHeight() - frame.getHeight() / 8));
+        mainPanel.setMinimumSize(new Dimension(frame.getWidth() - frame.getWidth() / 8, frame.getHeight() - frame.getHeight() / 8));
 
 
         mainPanel.setBackground(Color.BLACK);
-        musicPanel.setBackground(new Color(51,51,51));
+        musicPanel.setBackground(new Color(51, 51, 51));
         listsPanel.setBackground(Color.BLACK);
         middlePanel.setBackground(Color.darkGray);
         friendPanel.setBackground(Color.BLACK);
 
-        musicPanel.setPreferredSize(new Dimension (width,height/7));
-        musicPanel.setMaximumSize(new Dimension (width,height/7));
-        musicPanel.setMinimumSize(new Dimension (width,height/7));
 
-        listsPanel.setPreferredSize(new Dimension(width/5,(height*6)/7));
-        listsPanel.setMaximumSize(new Dimension(width/5,(height*6)/7));
-        listsPanel.setMinimumSize(new Dimension(width/5,(height*6)/7));
+        int width = mainPanel.getWidth() - mainPanel.getWidth() / 10;
+        int height = mainPanel.getHeight() - mainPanel.getHeight() / 10;
 
-        friendPanel.setPreferredSize(new Dimension(width/5,(height*6)/7));
-        friendPanel.setMaximumSize(new Dimension(width/5,(height*6)/7));
-        friendPanel.setMinimumSize(new Dimension(width/5,(height*6)/7));
+        musicPanel.setPreferredSize(new Dimension(width, height / 6));
+        musicPanel.setMaximumSize(new Dimension(width, height / 6));
+        musicPanel.setMinimumSize(new Dimension(width, height / 6));
 
-        middlePanel.setPreferredSize(new Dimension((width*3)/5,(height*6)/7));
-        middlePanel.setMaximumSize(new Dimension((width*3)/5,(height*6)/7));
-        middlePanel.setMinimumSize(new Dimension((width*3)/5,(height*6)/7));
+        listsPanel.setPreferredSize(new Dimension(width / 5, (height * 6) / 7));
+        listsPanel.setMaximumSize(new Dimension(width / 5, (height * 6) / 7));
+        listsPanel.setMinimumSize(new Dimension(width / 5, (height * 6) / 7));
+
+        friendPanel.setPreferredSize(new Dimension(width / 5, (height * 6) / 7));
+        friendPanel.setMaximumSize(new Dimension(width / 5, (height * 6) / 7));
+        friendPanel.setMinimumSize(new Dimension(width / 5, (height * 6) / 7));
+
+        middlePanel.setPreferredSize(new Dimension((width * 3) / 5, (height * 6) / 7));
+        middlePanel.setMaximumSize(new Dimension((width * 3) / 5, (height * 6) / 7));
+        middlePanel.setMinimumSize(new Dimension((width * 3) / 5, (height * 6) / 7));
     }
 
-    private JMenuBar initMenus(){
+    private JMenuBar initMenus() {
         JMenuBar menuBar = new JMenuBar();
 
         JMenu menu = new JMenu("Menu");
@@ -112,7 +119,33 @@ public class MainPanel {
         int y = screenSize.height / 2 - frame.getHeight() / 2;
         frame.setLocation(x, y);
 
-        initPanelSizeAndColors();
+
+        frame.addWindowStateListener(event -> {
+            if(event.getNewState() == 6 || event.getOldState() == 6) {
+                updatePanelSizeAndColors();
+                try {
+                    Robot robot = new Robot();
+                    refreshHandler.grabFocus();
+                    robot.delay(50);
+                    robot.keyPress(KeyEvent.VK_0);
+                    robot.keyRelease(KeyEvent.VK_0);
+                    robot.keyPress(KeyEvent.VK_BACK_SPACE);
+                    robot.keyRelease(KeyEvent.VK_BACK_SPACE);
+                    refreshHandler.transferFocus();
+                } catch (AWTException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        frame.addComponentListener(new ComponentAdapter() {
+            public void componentResized(ComponentEvent componentEvent) {
+                updatePanelSizeAndColors();
+            }
+        });
+
+
+        updatePanelSizeAndColors();
         frame.setJMenuBar(initMenus());
     }
 
