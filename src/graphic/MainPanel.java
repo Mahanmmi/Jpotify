@@ -45,6 +45,14 @@ public class MainPanel {
     private void initPanelSizes(){
         int width = mainPanel.getWidth() - mainPanel.getWidth()/10;
         int height = mainPanel.getHeight() - mainPanel.getHeight()/10;
+
+
+        mainPanel.setBackground(Color.darkGray);
+        musicPanel.setBackground(Color.darkGray);
+        listsPanel.setBackground(Color.darkGray);
+        middlePanel.setBackground(Color.darkGray);
+        friendPanel.setBackground(Color.darkGray);
+
         musicPanel.setPreferredSize(new Dimension (width,height/7));
         musicPanel.setMaximumSize(new Dimension (width,height/7));
         musicPanel.setMinimumSize(new Dimension (width,height/7));
