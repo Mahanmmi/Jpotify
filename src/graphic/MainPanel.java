@@ -47,11 +47,11 @@ public class MainPanel {
         int height = mainPanel.getHeight() - mainPanel.getHeight()/10;
 
 
-        mainPanel.setBackground(Color.darkGray);
-        musicPanel.setBackground(Color.darkGray);
-        listsPanel.setBackground(Color.darkGray);
+        mainPanel.setBackground(Color.BLACK);
+        musicPanel.setBackground(new Color(51,51,51));
+        listsPanel.setBackground(Color.BLACK);
         middlePanel.setBackground(Color.darkGray);
-        friendPanel.setBackground(Color.darkGray);
+        friendPanel.setBackground(Color.BLACK);
 
         musicPanel.setPreferredSize(new Dimension (width,height/7));
         musicPanel.setMaximumSize(new Dimension (width,height/7));
