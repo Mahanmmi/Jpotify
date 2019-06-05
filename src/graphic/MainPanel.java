@@ -5,9 +5,17 @@ import java.awt.*;
 
 public class MainPanel {
     private JPanel mainPanel;
+    private JPanel musicPanel;
+    private JPanel listsPanel;
+    private JPanel middlePanel;
+    private JPanel friendPanel;
+    private JTextArea textArea1;
+    private JTextArea textArea2;
+    private JTextArea textArea3;
+    private JTextArea textArea4;
     private JFrame frame;
 
-    private void setDarkTheme(){
+    private void initDarkTheme(){
         UIManager.put( "control", new Color( 128, 128, 128) );
         UIManager.put( "info", new Color(128,128,128) );
         UIManager.put( "nimbusBase", new Color( 18, 30, 49) );
@@ -34,6 +42,26 @@ public class MainPanel {
         }
     }
 
+    private void initPanelSizes(){
+        int width = mainPanel.getWidth() - mainPanel.getWidth()/10;
+        int height = mainPanel.getHeight() - mainPanel.getHeight()/10;
+        musicPanel.setPreferredSize(new Dimension (width,height/7));
+        musicPanel.setMaximumSize(new Dimension (width,height/7));
+        musicPanel.setMinimumSize(new Dimension (width,height/7));
+
+        listsPanel.setPreferredSize(new Dimension(width/5,(height*6)/7));
+        listsPanel.setMaximumSize(new Dimension(width/5,(height*6)/7));
+        listsPanel.setMinimumSize(new Dimension(width/5,(height*6)/7));
+
+        friendPanel.setPreferredSize(new Dimension(width/5,(height*6)/7));
+        friendPanel.setMaximumSize(new Dimension(width/5,(height*6)/7));
+        friendPanel.setMinimumSize(new Dimension(width/5,(height*6)/7));
+
+        middlePanel.setPreferredSize(new Dimension((width*3)/5,(height*6)/7));
+        middlePanel.setMaximumSize(new Dimension((width*3)/5,(height*6)/7));
+        middlePanel.setMinimumSize(new Dimension((width*3)/5,(height*6)/7));
+    }
+
     private JMenuBar initMenus(){
         JMenuBar menuBar = new JMenuBar();
 
@@ -58,6 +86,8 @@ public class MainPanel {
 
     private void initFrame() {
         frame = new JFrame("Jpotify");
+        ImageIcon frameIcon = new ImageIcon("./resources/JpotifyIcon.png");
+        frame.setIconImage(frameIcon.getImage());
         frame.setContentPane(mainPanel);
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -68,11 +98,12 @@ public class MainPanel {
         int y = screenSize.height / 2 - frame.getHeight() / 2;
         frame.setLocation(x, y);
 
+        initPanelSizes();
         frame.setJMenuBar(initMenus());
     }
 
     public MainPanel() {
-        setDarkTheme();
+        initDarkTheme();
         initFrame();
         frame.setVisible(true);
     }
