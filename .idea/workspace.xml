@@ -1,7 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1a95d4ed-33b3-4a73-8eac-43d2f1007de0" name="Default Changelist" comment="">
+    <list default="true" id="1a95d4ed-33b3-4a73-8eac-43d2f1007de0" name="Default Changelist" comment="Mp3 Libraries added.">
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/AbstractID3v2FrameData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/AbstractID3v2Tag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/BaseException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/BufferTools.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ByteBufferUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/EncodedText.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/FileWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ID3Wrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ID3v1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ID3v1Genres.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ID3v1Tag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ID3v2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ID3v22Tag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ID3v23Tag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ID3v24Frame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ID3v24Tag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ID3v2ChapterFrameData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ID3v2ChapterTOCFrameData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ID3v2CommentFrameData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ID3v2Frame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ID3v2FrameSet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ID3v2ObseleteFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ID3v2ObseletePictureFrameData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ID3v2PictureFrameData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ID3v2PopmFrameData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ID3v2TagFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ID3v2TextFrameData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ID3v2UrlFrameData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/ID3v2WWWFrameData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/InvalidDataException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/Mp3File.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/MpegFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/MutableInteger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/NoSuchTagException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/NotSupportedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/UnsupportedTagException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mpatric/mp3agic/Version.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/converter/Converter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/converter/RiffFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/converter/WaveFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/converter/WaveFileObuffer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/converter/jlc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/BitReserve.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/Bitstream.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/BitstreamErrors.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/BitstreamException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/Control.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/Crc16.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/Decoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/DecoderErrors.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/DecoderException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/Equalizer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/FrameDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/Header.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/InputStreamSource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/JavaLayerError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/JavaLayerErrors.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/JavaLayerException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/JavaLayerHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/JavaLayerUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/LayerIDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/LayerIIDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/LayerIIIDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/Manager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/Obuffer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/OutputChannels.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/SampleBuffer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/Source.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/SynthesisFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/au2lin.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/huffcodetab.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/l3reorder.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/lin2au.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/decoder/sfd.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/player/AudioDevice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/player/AudioDeviceBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/player/AudioDeviceFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/player/FactoryRegistry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/player/JavaSoundAudioDevice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/player/JavaSoundAudioDeviceFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/player/NullAudioDevice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/player/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/player/PlayerApplet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/player/advanced/AdvancedPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/player/advanced/PlaybackEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/player/advanced/PlaybackListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/player/advanced/jlap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/javazoom/jl/player/jlp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -12,20 +101,21 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="133" column="51" selection-start-line="133" selection-start-column="51" selection-end-line="133" selection-end-column="51" />
+            <state relative-caret-position="80">
+              <caret line="109" column="75" selection-start-line="109" selection-start-column="75" selection-end-line="109" selection-end-column="75" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#setDarkTheme#0;class#MainPanel#0" />
+                <element signature="method#initDarkTheme#0;class#MainPanel#0" />
+                <element signature="method#updatePanelSizeAndColors#0;class#MainPanel#0" />
                 <element signature="method#initMenus#0;class#MainPanel#0" />
+                <element signature="e#6156#6157#0" expanded="true" />
                 <element signature="e#6187#6188#0" expanded="true" />
               </folding>
             </state>
@@ -59,8 +149,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-63" />
-    <option name="y" value="545" />
+    <option name="x" value="70" />
+    <option name="y" value="30" />
     <option name="width" value="1745" />
     <option name="height" value="980" />
   </component>
@@ -70,6 +160,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -83,17 +174,25 @@
               <item name="Jpotify" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Jpotify" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Jpotify" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="graphic" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -145,6 +244,8 @@
       <option name="presentableId" value="Default" />
       <updated>1559743794982</updated>
       <workItem from="1559743797928" duration="12417000" />
+      <workItem from="1559988938140" duration="255000" />
+      <workItem from="1560059878944" duration="1603000" />
     </task>
     <task id="LOCAL-00001" summary="Main Panels size set.">
       <created>1559747766216</created>
@@ -192,24 +293,18 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12417000" />
+    <option name="totallyTimeSpent" value="14275000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12885906" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15503356" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" weight="0.3286119" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
@@ -217,15 +312,21 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" visible="true" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,7 +336,8 @@
     <MESSAGE value="Main Panels size set." />
     <MESSAGE value="Main Panels color set." />
     <MESSAGE value="Resize bug fixed!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resize bug fixed!" />
+    <MESSAGE value="Mp3 Libraries added." />
+    <option name="LAST_COMMIT_MESSAGE" value="Mp3 Libraries added." />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/javax/swing/JFrame.java">
@@ -245,20 +347,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphic/ComponentUpdater.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphic/ComponentUpdater.java" />
     <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/mp3agic-master/main/java/com/mpatric/mp3agic/AbstractID3v2FrameData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="73" selection-start-line="10" selection-start-column="73" selection-end-line="10" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mpatric/mp3agic/AbstractID3v2FrameData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="10" selection-start-column="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="133" column="51" selection-start-line="133" selection-start-column="51" selection-end-line="133" selection-end-column="51" />
+        <state relative-caret-position="80">
+          <caret line="109" column="75" selection-start-line="109" selection-start-column="75" selection-end-line="109" selection-end-column="75" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#setDarkTheme#0;class#MainPanel#0" />
+            <element signature="method#initDarkTheme#0;class#MainPanel#0" />
+            <element signature="method#updatePanelSizeAndColors#0;class#MainPanel#0" />
             <element signature="method#initMenus#0;class#MainPanel#0" />
+            <element signature="e#6156#6157#0" expanded="true" />
             <element signature="e#6187#6188#0" expanded="true" />
           </folding>
         </state>
