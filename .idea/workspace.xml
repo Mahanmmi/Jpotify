@@ -2,28 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a95d4ed-33b3-4a73-8eac-43d2f1007de0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jl1_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/tritonus_share.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/services/javax.sound.sampled.spi.AudioFileReader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/services/javax.sound.sampled.spi.FormatConversionProvider" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/PropertiesContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/convert/DecodedMpegAudioInputStream.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/convert/MpegFormatConversionProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/IcyListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/MpegAudioFileFormat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/MpegAudioFileReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/MpegAudioFormat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/MpegEncoding.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/MpegFileFormatType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/tag/IcyInputStream.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/tag/IcyTag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/tag/MP3MetadataParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/tag/MP3Tag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/tag/MP3TagParseSupport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/tag/StringableTag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/tag/TagParseEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/tag/TagParseListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logic/media/Media.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Jpotify.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Jpotify.iml" afterDir="false" />
     </list>
@@ -37,12 +16,22 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="491188681">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.53" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
+            <state relative-caret-position="425">
               <caret line="107" column="29" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -58,10 +47,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Jpotify.iml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/logic/media/Media.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="21" column="66" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
+            <state relative-caret-position="340">
+              <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,6 +92,12 @@
       </list>
     </option>
   </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="163" />
     <option name="width" value="1745" />
@@ -110,7 +110,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -133,20 +132,20 @@
               <item name="Jpotify" type="b2602c69:ProjectViewProjectNode" />
               <item name="Jpotify" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="graphic" type="462c0819:PsiDirectoryNode" />
-              <item name="MainPanel" type="e9f4de52:FormNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/jl1.0.1.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/tritonus_share.jar!/" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -200,6 +199,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.MainPanel" />
+      <item itemvalue="Application.Media" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainPanel" />
@@ -220,6 +223,7 @@
       <workItem from="1559743797928" duration="12417000" />
       <workItem from="1559988938140" duration="255000" />
       <workItem from="1560059878944" duration="9757000" />
+      <workItem from="1560080640179" duration="959000" />
     </task>
     <task id="LOCAL-00001" summary="Main Panels size set.">
       <created>1559747766216</created>
@@ -274,13 +278,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22429000" />
+    <option name="totallyTimeSpent" value="23388000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15503356" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15733737" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -296,10 +300,11 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="11" side_tool="true" visible="true" weight="0.3295082" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.3286119" />
+      <window_info anchor="right" id="Maven Projects" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -313,6 +318,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Main Panels size set." />
@@ -330,13 +338,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/graphic/ComponentUpdater.java" />
-    <entry file="file://$PROJECT_DIR$/src/mp3agic-master/main/java/com/mpatric/mp3agic/AbstractID3v2FrameData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="73" selection-start-line="10" selection-start-column="73" selection-end-line="10" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mp3agic-master/main/java/com/mpatric/mp3agic/AbstractID3v2FrameData.java" />
     <entry file="file://$PROJECT_DIR$/src/com/mpatric/mp3agic/AbstractID3v2FrameData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -407,22 +409,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/media/Media.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="21" column="66" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
+        <state relative-caret-position="425">
           <caret line="107" column="29" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -432,6 +421,22 @@
             <element signature="method#initFrame#0;class#MainPanel#0" />
             <element signature="e#6156#6157#0" expanded="true" />
             <element signature="e#6187#6188#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Jpotify.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/media/Media.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -453,6 +458,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
+          <last-edited>No facets are configured</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -475,6 +481,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
+          <last-edited>11</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -486,10 +493,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
+          <last-edited>Jpotify</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -509,7 +518,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>jl1.0.1</last-edited>
+          <last-edited>tritonus_share</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
