@@ -2,30 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a95d4ed-33b3-4a73-8eac-43d2f1007de0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jl1_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/tritonus_share.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/services/javax.sound.sampled.spi.AudioFileReader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/services/javax.sound.sampled.spi.FormatConversionProvider" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/PropertiesContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/convert/DecodedMpegAudioInputStream.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/convert/MpegFormatConversionProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/IcyListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/MpegAudioFileFormat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/MpegAudioFileReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/MpegAudioFormat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/MpegEncoding.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/MpegFileFormatType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/tag/IcyInputStream.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/tag/IcyTag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/tag/MP3MetadataParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/tag/MP3Tag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/tag/MP3TagParseSupport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/tag/StringableTag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/tag/TagParseEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/tag/TagParseListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logic/media/Media.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jpotify.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Jpotify.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,10 +16,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
+            <state relative-caret-position="425">
               <caret line="107" column="29" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -57,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/logic/media/Media.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="21" column="66" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
+            <state relative-caret-position="204">
+              <caret line="18" column="52" lean-forward="true" selection-start-line="18" selection-start-column="52" selection-end-line="18" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -121,20 +98,18 @@
             <path>
               <item name="Jpotify" type="b2602c69:ProjectViewProjectNode" />
               <item name="Jpotify" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Jpotify" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Jpotify" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Jpotify" type="b2602c69:ProjectViewProjectNode" />
               <item name="Jpotify" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="graphic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Jpotify" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Jpotify" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="graphic" type="462c0819:PsiDirectoryNode" />
-              <item name="MainPanel" type="e9f4de52:FormNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -146,7 +121,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/jl1.0.1.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/mp3spi1.9.5.jar!/" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -274,13 +249,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22429000" />
+    <option name="totallyTimeSpent" value="22727000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15503356" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15704697" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -330,13 +305,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/graphic/ComponentUpdater.java" />
-    <entry file="file://$PROJECT_DIR$/src/mp3agic-master/main/java/com/mpatric/mp3agic/AbstractID3v2FrameData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="73" selection-start-line="10" selection-start-column="73" selection-end-line="10" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mp3agic-master/main/java/com/mpatric/mp3agic/AbstractID3v2FrameData.java" />
     <entry file="file://$PROJECT_DIR$/src/com/mpatric/mp3agic/AbstractID3v2FrameData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -409,8 +378,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/media/Media.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="21" column="66" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
+        <state relative-caret-position="204">
+          <caret line="18" column="52" lean-forward="true" selection-start-line="18" selection-start-column="52" selection-end-line="18" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -422,7 +391,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
+        <state relative-caret-position="425">
           <caret line="107" column="29" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
