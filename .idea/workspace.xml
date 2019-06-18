@@ -27,14 +27,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="528" />
-          <entry key="txt" value="60" />
+          <entry key="java" value="694" />
+          <entry key="txt" value="97" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="528" />
-          <entry key="PLAIN_TEXT" value="60" />
+          <entry key="JAVA" value="694" />
+          <entry key="PLAIN_TEXT" value="97" />
         </counts>
       </usages-collector>
     </session>
@@ -67,12 +67,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/logic/media/Media.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="122" column="9" selection-start-line="122" selection-start-column="9" selection-end-line="122" selection-end-column="9" />
+            <state relative-caret-position="109">
+              <caret line="78" column="44" selection-start-line="78" selection-start-column="44" selection-end-line="78" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3604#3813#0" expanded="true" />
-                <element signature="e#3812#3813#0" expanded="true" />
+                <element signature="e#4165#4369#0" expanded="true" />
+                <element signature="e#4368#4369#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -115,9 +115,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="163" />
-    <option name="width" value="1745" />
-    <option name="height" value="980" />
+    <option name="x" value="676" />
+    <option name="width" value="697" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -179,7 +179,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560863566169" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560865704217" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/mp3spi1.9.5.jar!/" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -259,7 +259,7 @@
       <workItem from="1559988938140" duration="255000" />
       <workItem from="1560059878944" duration="9757000" />
       <workItem from="1560112008952" duration="70000" />
-      <workItem from="1560854648304" duration="7400000" />
+      <workItem from="1560854648304" duration="8543000" />
     </task>
     <task id="LOCAL-00001" summary="Main Panels size set.">
       <created>1559747766216</created>
@@ -324,11 +324,18 @@
       <option name="project" value="LOCAL" />
       <updated>1560859955339</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="method playFile(just play) added">
+      <created>1560864462718</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1560864462718</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30807000" />
+    <option name="totallyTimeSpent" value="31950000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -379,7 +386,8 @@
     <MESSAGE value="Mp3 Libraries added." />
     <MESSAGE value="class media update with mp3file using mp3agic" />
     <MESSAGE value="class media update with mp3file using mp3agic(for id3v2)" />
-    <option name="LAST_COMMIT_MESSAGE" value="class media update with mp3file using mp3agic(for id3v2)" />
+    <MESSAGE value="method playFile(just play) added" />
+    <option name="LAST_COMMIT_MESSAGE" value="method playFile(just play) added" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/javax/swing/JFrame.java">
@@ -485,12 +493,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/media/Media.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="122" column="9" selection-start-line="122" selection-start-column="9" selection-end-line="122" selection-end-column="9" />
+        <state relative-caret-position="109">
+          <caret line="78" column="44" selection-start-line="78" selection-start-column="44" selection-end-line="78" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3604#3813#0" expanded="true" />
-            <element signature="e#3812#3813#0" expanded="true" />
+            <element signature="e#4165#4369#0" expanded="true" />
+            <element signature="e#4368#4369#0" expanded="true" />
           </folding>
         </state>
       </provider>

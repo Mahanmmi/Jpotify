@@ -1,20 +1,26 @@
 package logic.media;
 
+import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioSystem;
+import javax.swing.*;
 
 import com.mpatric.mp3agic.ID3v1;
+import com.mpatric.mp3agic.ID3v2;
 import com.mpatric.mp3agic.Mp3File;
 import javazoom.jl.player.advanced.AdvancedPlayer;
 import javazoom.jl.player.advanced.PlaybackEvent;
 import javazoom.jl.player.advanced.PlaybackListener;
 import org.tritonus.share.sampled.file.TAudioFileFormat;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.Calendar;
 import java.util.Map;
 
 public class Media {
-    private int  pausedOnFrame = 0;
+    private int pausedOnFrame = 0;
     private String address;
     private Mp3File mp3File;
     private String title;
@@ -40,35 +46,45 @@ public class Media {
     }*/
 
     public Media(String address) {
+
         try {
             mp3File = new Mp3File(address);
-            this.time=(int)mp3File.getLengthInSeconds();
+            this.time = (int) mp3File.getLengthInSeconds();
 
-            if(mp3File.hasId3v1Tag()){
-                ID3v1 id3v1=mp3File.getId3v1Tag();
-                this.title=id3v1.getTitle();
-                this.artist=id3v1.getArtist();
-                this.album=id3v1.getAlbum();
-                this.genre=id3v1.getGenre();
-                this.year=id3v1.getYear();
+            if (mp3File.hasId3v1Tag()) {
+                ID3v1 id3v1 = mp3File.getId3v1Tag();
+                this.title = id3v1.getTitle();
+                this.artist = id3v1.getArtist();
+                this.album = id3v1.getAlbum();
+                this.genre = id3v1.getGenre();
+                this.year = id3v1.getYear();
             }
-            if(mp3File.hasId3v2Tag()){
-                ID3v1 id3v2=mp3File.getId3v2Tag();
-                this.title=id3v2.getTitle();
-                this.artist=id3v2.getArtist();
-                this.album=id3v2.getAlbum();
-                this.genre=id3v2.getGenre();
-                this.year=id3v2.getYear();
+            if (mp3File.hasId3v2Tag()) {
+                ID3v2 id3v2 = mp3File.getId3v2Tag();
+                this.title = id3v2.getTitle();
+                this.artist = id3v2.getArtist();
+                this.album = id3v2.getAlbum();
+                this.genre = id3v2.getGenre();
+                this.year = id3v2.getYear();
+
+                byte[] imageData = id3v2.getAlbumImage();
+                if (imageData != null) {
+                    System.out.println("debug:: imageData is not null");
+                    BufferedImage img = ImageIO.read(new ByteArrayInputStream(imageData));
+                    ImageIcon icon = new ImageIcon(img);
+
+                }
             }
 
-        }catch ( Exception e){
+
+        } catch (Exception e) {
             System.out.println("s");
 
         }
-        System.out.println("artist: "+artist);
-        System.out.println("album: "+album);
-        System.out.println("title: "+title);
-        System.out.println("time: "+ time);
+        System.out.println("artist: " + artist);
+        System.out.println("album: " + album);
+        System.out.println("title: " + title);
+        System.out.println("time: " + time);
        /* this.address = address;
         file = new File(address);
         System.out.println(file.getName());
@@ -95,30 +111,29 @@ public class Media {
 */
     }
 
-     public void playfile(String address){
+    public void playfile(String address) {
 
-         try {
-             FileInputStream fis = new FileInputStream(address);
-             AdvancedPlayer player = new AdvancedPlayer(fis);
-             player.setPlayBackListener(new PlaybackListener() {
-                 @Override
-                 public void playbackFinished(PlaybackEvent event) {
-                     pausedOnFrame = event.getFrame();
-                 }
-             });
-             player.play();
-         }
-         catch(Exception exc){
-             exc.printStackTrace();
-             System.out.println("Failed to play the file.");
-         }
-     }
+        try {
+            FileInputStream fis = new FileInputStream(address);
+            AdvancedPlayer player = new AdvancedPlayer(fis);
+            player.setPlayBackListener(new PlaybackListener() {
+                @Override
+                public void playbackFinished(PlaybackEvent event) {
+                    pausedOnFrame = event.getFrame();
+                }
+            });
+            player.play();
+        } catch (Exception exc) {
+            exc.printStackTrace();
+            System.out.println("Failed to play the file.");
+        }
+    }
 
     public static void main(String[] args) {
-     //   new Media("./resources/media/Imagine-Dragons-Digital-128.mp3");
-     //
+        //   new Media("./resources/media/Imagine-Dragons-Digital-128.mp3");
+        //
         //   new Media("./resources/media/Barobax - Shervin - www.telegram.me~IranSongs.mp3");
-       Media media= new Media("1.mp3");
+        Media media = new Media("1.mp3");
         media.playfile("1.mp3");
 
 
