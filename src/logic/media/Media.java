@@ -39,6 +39,7 @@ public class Media {
         try {
             mp3File = new Mp3File(address);
             this.time=(int)mp3File.getLengthInSeconds();
+
             if(mp3File.hasId3v1Tag()){
                 ID3v1 id3v1=mp3File.getId3v1Tag();
                 this.title=id3v1.getTitle();
@@ -46,6 +47,14 @@ public class Media {
                 this.album=id3v1.getAlbum();
                 this.genre=id3v1.getGenre();
                 this.year=id3v1.getYear();
+            }
+            if(mp3File.hasId3v2Tag()){
+                ID3v1 id3v2=mp3File.getId3v2Tag();
+                this.title=id3v2.getTitle();
+                this.artist=id3v2.getArtist();
+                this.album=id3v2.getAlbum();
+                this.genre=id3v2.getGenre();
+                this.year=id3v2.getYear();
             }
 
         }catch ( Exception e){
