@@ -39,7 +39,7 @@ public class StorageManager {
         }
     }
 
-    private static void
+  //  private static void
 
     public static ArrayList<Media> getMediaArrayList() {
         return mediaArrayList;

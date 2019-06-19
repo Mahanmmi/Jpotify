@@ -1,8 +1,8 @@
 package logic.media;
 
 import javax.imageio.ImageIO;
-import javax.sound.sampled.AudioFileFormat;
-import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import javax.swing.*;
 
 import com.mpatric.mp3agic.ID3v1;
@@ -11,13 +11,9 @@ import com.mpatric.mp3agic.Mp3File;
 import javazoom.jl.player.advanced.AdvancedPlayer;
 import javazoom.jl.player.advanced.PlaybackEvent;
 import javazoom.jl.player.advanced.PlaybackListener;
-import org.tritonus.share.sampled.file.TAudioFileFormat;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
-import java.util.Calendar;
-import java.util.Map;
 
 public class Media {
     private int pausedOnFrame = 0;
@@ -45,8 +41,12 @@ public class Media {
         return null;
     }*/
 
-    public Media(String address) {
+    public String getAddress() {
+        return address;
+    }
 
+    public Media(String address) {
+        this.address = address;
         try {
             mp3File = new Mp3File(address);
             this.time = (int) mp3File.getLengthInSeconds();
@@ -110,22 +110,41 @@ public class Media {
 //        myByteReader(404, 100);
 */
     }
+  /*  public float getVolume() {
+        FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+        return (float) Math.pow(10f, gainControl.getValue() / 20f);
+    }*/
 
-    public void playfile(String address) {
+    public void setVolume(float volume) {
+        if (volume < 0f || volume > 1f)
+            throw new IllegalArgumentException("Volume not valid: " + volume);
+        FloatControl gainControl = (FloatControl) ((Clip) mp3File).getControl(FloatControl.Type.MASTER_GAIN);
+        gainControl.setValue(20f * (float) Math.log10(volume));
+    }
 
-        try {
-            FileInputStream fis = new FileInputStream(address);
-            AdvancedPlayer player = new AdvancedPlayer(fis);
-            player.setPlayBackListener(new PlaybackListener() {
-                @Override
-                public void playbackFinished(PlaybackEvent event) {
-                    pausedOnFrame = event.getFrame();
-                }
-            });
-            player.play();
-        } catch (Exception exc) {
-            exc.printStackTrace();
-            System.out.println("Failed to play the file.");
+    private void playFile() {
+        Thread playThread = new Thread(new FilePlayer());
+        playThread.start();
+    }
+
+    class FilePlayer implements Runnable {
+        @Override
+        public void run() {
+            try {
+                FileInputStream fis = new FileInputStream(address);
+                AdvancedPlayer player = new AdvancedPlayer(fis);
+                player.setPlayBackListener(new PlaybackListener() {
+                    @Override
+                    public void playbackFinished(PlaybackEvent event) {
+                        pausedOnFrame = event.getFrame();
+                    }
+                });
+                player.play();
+            } catch (Exception exc) {
+                exc.printStackTrace();
+                System.out.println("Failed to play the file.");
+            }
+
         }
     }
 
@@ -134,7 +153,9 @@ public class Media {
         //
         //   new Media("./resources/media/Barobax - Shervin - www.telegram.me~IranSongs.mp3");
         Media media = new Media("1.mp3");
-        media.playfile("1.mp3");
+        media.playFile();
+        System.out.println("ghsem");
+        media.setVolume(0.1f);
 
 
     }
