@@ -41,10 +41,6 @@ public class Media {
         return null;
     }*/
 
-    public String getAddress() {
-        return address;
-    }
-
     public Media(String address) {
         this.address = address;
         try {
@@ -160,7 +156,6 @@ public class Media {
         media.playFile();
         System.out.println("ghsem");
         media.setVolume(0.1f);
-
 
     }
 }
