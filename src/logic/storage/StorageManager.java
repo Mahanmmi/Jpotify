@@ -20,6 +20,10 @@ public class StorageManager {
         return ourInstance;
     }
 
+    public HashMap<String, MediaData> getMediaDataHashMap() {
+        return mediaDataHashMap;
+    }
+
     private StorageManager() {
         mediaAddresses = new File("./data/mediaAddresses.bin");
         mediaDataFile = new File("./data/mediaDataFile.bin");
