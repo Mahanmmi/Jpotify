@@ -148,6 +148,10 @@ public class Media {
         }
     }
 
+    public String getAddress() {
+        return address;
+    }
+
     public static void main(String[] args) {
         //   new Media("./resources/media/Imagine-Dragons-Digital-128.mp3");
         //

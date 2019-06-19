@@ -1,6 +1,9 @@
 package graphic;
 
+import logic.media.StorageManager;
+
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -91,7 +94,14 @@ public class MainPanel {
 
         JMenuItem i1 = new JMenuItem("Add song...");
         i1.addActionListener(event -> {
-
+            JFileChooser songChooser = new JFileChooser();
+            FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                    "Songs", "mp3");
+            songChooser.setFileFilter(filter);
+            int returnVal = songChooser.showOpenDialog(frame);
+            if(returnVal == JFileChooser.APPROVE_OPTION) {
+                StorageManager.getInstance().addMedia(songChooser.getSelectedFile());
+            }
         });
         JMenuItem i2 = new JMenuItem("Item 2");
         JMenuItem i3 = new JMenuItem("Item 3");
@@ -160,5 +170,6 @@ public class MainPanel {
 
     public static void main(String[] args) {
         new MainPanel();
+        System.out.println(StorageManager.getInstance().getMediaArrayList());
     }
 }
