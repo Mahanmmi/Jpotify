@@ -149,6 +149,10 @@ public class Media {
         return address;
     }
 
+    public String getAlbumName() {
+        return album;
+    }
+
     public static void main(String[] args) {
         //   new Media("./resources/media/Imagine-Dragons-Digital-128.mp3");
         //
