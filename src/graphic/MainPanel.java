@@ -89,7 +89,10 @@ public class MainPanel {
         JMenu menu = new JMenu("Menu");
         JMenu submenu = new JMenu("Sub Menu");
 
-        JMenuItem i1 = new JMenuItem("Item 1");
+        JMenuItem i1 = new JMenuItem("Add song...");
+        i1.addActionListener(event -> {
+
+        });
         JMenuItem i2 = new JMenuItem("Item 2");
         JMenuItem i3 = new JMenuItem("Item 3");
         JMenuItem i4 = new JMenuItem("Item 4");
@@ -121,7 +124,7 @@ public class MainPanel {
 
 
         frame.addWindowStateListener(event -> {
-            if(event.getNewState() == 6 || event.getOldState() == 6) {
+            if (event.getNewState() == 6 || event.getOldState() == 6) {
                 updatePanelSizeAndColors();
                 try {
                     Robot robot = new Robot();
