@@ -144,6 +144,17 @@ public class Media {
         }
     }
 
+    public String getArtist() {
+        return artist;
+    }
+
+    public String getAlbum() {
+        return album;
+    }
+
+    public String getTitle() {
+        return title;
+    }
 
     public String getAddress() {
         return address;
@@ -151,6 +162,15 @@ public class Media {
 
     public String getAlbumName() {
         return album;
+    }
+
+    @Override
+    public String toString() {
+        return "Media{" +
+                "title='" + title + '\'' +
+                ", artist='" + artist + '\'' +
+                ", album='" + album + '\'' +
+                '}';
     }
 
     public static void main(String[] args) {
