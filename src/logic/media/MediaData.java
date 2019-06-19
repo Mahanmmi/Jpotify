@@ -1,4 +1,6 @@
 package logic.media;
 
-public class MediaData {
+import java.io.Serializable;
+
+public class MediaData implements Serializable {
 }

@@ -7,10 +7,10 @@ import java.util.Scanner;
 
 public class StorageManager {
     private static StorageManager ourInstance = new StorageManager();
-    private static File mediaAddresses;
-    private static File mediaDataAddresses;
-    private static ArrayList<Media> mediaArrayList = new ArrayList<>();
-    private static HashMap<String,MediaData> mediaData = new HashMap<>();
+    private File mediaAddresses;
+    private File mediaDataAddresses;
+    private ArrayList<Media> mediaArrayList = new ArrayList<>();
+    private HashMap<String, MediaData> mediaData = new HashMap<>();
 
     public static StorageManager getInstance() {
         return ourInstance;
@@ -22,26 +22,43 @@ public class StorageManager {
         load();
     }
 
-    private static void load() {
+    private void load() {
         try {
             Scanner scanner = new Scanner(new FileReader(mediaAddresses));
-            while (scanner.hasNextLine()){
+            while (scanner.hasNextLine()) {
                 mediaArrayList.add(new Media(scanner.nextLine()));
             }
         } catch (FileNotFoundException e) {
+            System.out.println("FNF");
             return;
         }
         try {
-            FileInputStream inputStream = new FileInputStream(mediaDataAddresses);
-
-        } catch (FileNotFoundException e){
+            ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(mediaDataAddresses));
+            mediaData = (HashMap<String, MediaData>) inputStream.readObject();
+            //TODO
+        } catch (IOException | ClassNotFoundException e) {
             //Ignore
         }
     }
 
-    private static void
+    public void addMedia(File media){
+        for (Media savedMedia : mediaArrayList) {
+            if(savedMedia.getAddress().equals(media.getAbsolutePath())){
+                return;
+            }
+        }
+        try {
+            PrintWriter writer = new PrintWriter(new FileWriter(mediaAddresses,true));
+            System.out.println(media.getAbsolutePath());
+            writer.println(media.getAbsolutePath());
+            writer.flush();
+        } catch (IOException e){
+            System.out.println("Ridem amoo");
+        }
+        mediaArrayList.add(new Media(media.getAbsolutePath()));
+    }
 
-    public static ArrayList<Media> getMediaArrayList() {
+    public ArrayList<Media> getMediaArrayList() {
         return mediaArrayList;
     }
 }
