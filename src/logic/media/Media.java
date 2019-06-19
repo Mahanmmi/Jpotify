@@ -144,6 +144,7 @@ public class Media {
         }
     }
 
+
     public String getAddress() {
         return address;
     }
@@ -155,7 +156,7 @@ public class Media {
         Media media = new Media("1.mp3");
         media.playFile();
         System.out.println("ghsem");
-        media.setVolume(0.1f);
+        media.setVolume(0.5f);
 
     }
 }
