@@ -1,6 +1,8 @@
 package logic.media;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioFileFormat;
+import javax.sound.sampled.AudioSystem;
 import javax.swing.*;
 
 import com.mpatric.mp3agic.ID3v1;
@@ -9,10 +11,13 @@ import com.mpatric.mp3agic.Mp3File;
 import javazoom.jl.player.advanced.AdvancedPlayer;
 import javazoom.jl.player.advanced.PlaybackEvent;
 import javazoom.jl.player.advanced.PlaybackListener;
+import org.tritonus.share.sampled.file.TAudioFileFormat;
 
-
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.util.Calendar;
+import java.util.Map;
 
 public class Media {
     private int pausedOnFrame = 0;
@@ -41,7 +46,7 @@ public class Media {
     }*/
 
     public Media(String address) {
-        this.address = address;
+
         try {
             mp3File = new Mp3File(address);
             this.time = (int) mp3File.getLengthInSeconds();
@@ -106,7 +111,7 @@ public class Media {
 */
     }
 
-    public void playFile(String address) {
+    public void playfile(String address) {
 
         try {
             FileInputStream fis = new FileInputStream(address);
@@ -125,11 +130,11 @@ public class Media {
     }
 
     public static void main(String[] args) {
-        Media media = new Media("./resources/media/Imagine-Dragons-Digital-128.mp3");
+        //   new Media("./resources/media/Imagine-Dragons-Digital-128.mp3");
         //
         //   new Media("./resources/media/Barobax - Shervin - www.telegram.me~IranSongs.mp3");
-//        Media media = new Media("1.mp3");
-        media.playFile(media.address);
+        Media media = new Media("1.mp3");
+        media.playfile("1.mp3");
 
 
     }
