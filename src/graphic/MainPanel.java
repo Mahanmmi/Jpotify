@@ -92,9 +92,11 @@ public class MainPanel {
         JMenu menu = new JMenu("Menu");
         JMenu submenu = new JMenu("Sub Menu");
 
-        JMenuItem i1 = new JMenuItem("Add song...");
-        i1.addActionListener(event -> {
+
+        JMenuItem addSongMenuItem = new JMenuItem("Add song...");
+        addSongMenuItem.addActionListener(event -> {
             JFileChooser songChooser = new JFileChooser();
+            songChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
             FileNameExtensionFilter filter = new FileNameExtensionFilter(
                     "Songs", "mp3");
             songChooser.setFileFilter(filter);
@@ -103,12 +105,26 @@ public class MainPanel {
                 StorageManager.getInstance().addMedia(songChooser.getSelectedFile());
             }
         });
-        JMenuItem i2 = new JMenuItem("Item 2");
+
+
+
+        JMenuItem addDirectoryMenuItem = new JMenuItem("Add directory...");
+        addDirectoryMenuItem.addActionListener(event -> {
+            JFileChooser directoryChooser = new JFileChooser();
+            directoryChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            int returnVal = directoryChooser.showOpenDialog(frame);
+            if(returnVal == JFileChooser.APPROVE_OPTION) {
+                StorageManager.getInstance().addDirectory(directoryChooser.getSelectedFile());
+            }
+        });
+
+
+
         JMenuItem i3 = new JMenuItem("Item 3");
         JMenuItem i4 = new JMenuItem("Item 4");
         JMenuItem i5 = new JMenuItem("Item 5");
-        menu.add(i1);
-        menu.add(i2);
+        menu.add(addSongMenuItem);
+        menu.add(addDirectoryMenuItem);
         menu.add(i3);
         submenu.add(i4);
         submenu.add(i5);
