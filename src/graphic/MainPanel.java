@@ -1,6 +1,6 @@
 package graphic;
 
-import logic.media.StorageManager;
+import logic.storage.StorageManager;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
