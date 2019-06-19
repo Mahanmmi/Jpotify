@@ -90,7 +90,6 @@ public class MainPanel {
         JMenuBar menuBar = new JMenuBar();
 
         JMenu menu = new JMenu("Menu");
-        JMenu submenu = new JMenu("Sub Menu");
 
 
         JMenuItem addSongMenuItem = new JMenuItem("Add song...");
@@ -120,15 +119,18 @@ public class MainPanel {
 
 
 
-        JMenuItem i3 = new JMenuItem("Item 3");
+        JMenuItem addPlaylistMenuItem = new JMenuItem("Add playlist...");
+
+
+
+
+
         JMenuItem i4 = new JMenuItem("Item 4");
         JMenuItem i5 = new JMenuItem("Item 5");
         menu.add(addSongMenuItem);
         menu.add(addDirectoryMenuItem);
-        menu.add(i3);
-        submenu.add(i4);
-        submenu.add(i5);
-        menu.add(submenu);
+        menu.add(addPlaylistMenuItem);
+
         menuBar.add(menu);
 
         return menuBar;
