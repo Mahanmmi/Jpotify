@@ -4,6 +4,7 @@ import logic.media.Media;
 
 import java.util.ArrayList;
 
-public interface PlayListLinkable {
+public interface PlaylistLinkable {
     void doAddPlaylistLink(String name, ArrayList<Media> result);
+    void cancelPlaylistOperation();
 }

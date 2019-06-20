@@ -13,7 +13,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MainPanel implements PlayListLinkable {
+public class MainPanel implements PlaylistLinkable {
     private JPanel mainPanel;
     private JPanel musicPanel;
     private JPanel listsPanel;
@@ -54,6 +54,7 @@ public class MainPanel implements PlayListLinkable {
         }
     }
 
+    @SuppressWarnings("Duplicates")
     private void updatePanelSizeAndColors() {
         textArea1.setBackground(Color.lightGray);
         textArea2.setBackground(Color.lightGray);
@@ -131,8 +132,6 @@ public class MainPanel implements PlayListLinkable {
         });
 
 
-        JMenuItem i4 = new JMenuItem("Item 4");
-        JMenuItem i5 = new JMenuItem("Item 5");
         menu.add(addSongMenuItem);
         menu.add(addDirectoryMenuItem);
         menu.add(addPlaylistMenuItem);
@@ -142,11 +141,10 @@ public class MainPanel implements PlayListLinkable {
         return menuBar;
     }
 
-    private void initFrame() {
-        frame = new JFrame("Jpotify");
+    static void newFrameInitialSettings(JFrame frame, JPanel panel) {
         ImageIcon frameIcon = new ImageIcon("./resources/JpotifyIcon.png");
         frame.setIconImage(frameIcon.getImage());
-        frame.setContentPane(mainPanel);
+        frame.setContentPane(panel);
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.pack();
@@ -155,6 +153,11 @@ public class MainPanel implements PlayListLinkable {
         int x = screenSize.width / 2 - frame.getWidth() / 2;
         int y = screenSize.height / 2 - frame.getHeight() / 2;
         frame.setLocation(x, y);
+    }
+
+    private void initFrame() {
+        frame = new JFrame("Jpotify");
+        newFrameInitialSettings(frame, mainPanel);
 
 
         frame.addWindowStateListener(event -> {
@@ -186,7 +189,7 @@ public class MainPanel implements PlayListLinkable {
         frame.setJMenuBar(initMenus());
     }
 
-    public MainPanel() {
+    private MainPanel() {
         initDarkTheme();
         initFrame();
         frame.setVisible(true);
@@ -206,7 +209,13 @@ public class MainPanel implements PlayListLinkable {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) throws InterruptedException{
+    @Override
+    public void cancelPlaylistOperation() {
+        frame.setVisible(true);
+    }
+
+    public static void main(String[] args){
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> StorageManager.getInstance().saveAndQuit(), "Shutdown-thread"));
         new MainPanel();
         System.out.println(StorageManager.getInstance().getMediaArrayList());
     }

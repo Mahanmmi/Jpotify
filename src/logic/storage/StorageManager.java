@@ -9,6 +9,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class StorageManager {
@@ -26,16 +27,12 @@ public class StorageManager {
         return ourInstance;
     }
 
-    public HashMap<String, MediaData> getMediaDataHashMap() {
-        return mediaDataHashMap;
-    }
-
     private StorageManager() {
         mediaAddresses = new File("./data/mediaAddresses.bin");
         mediaDataFile = new File("./data/mediaDataFile.bin");
         load();
         generateAlbums();
-        gereratePlaylist();
+        generatePlaylists();
     }
 
     private void load() {
@@ -50,8 +47,8 @@ public class StorageManager {
         }
         try {
             ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(mediaDataFile));
+            //noinspection unchecked
             mediaDataHashMap = (HashMap<String, MediaData>) inputStream.readObject();
-            //TODO
         } catch (IOException | ClassNotFoundException e) {
             //Ignore
         }
@@ -66,7 +63,7 @@ public class StorageManager {
             return;
         }
         if (directory.listFiles() != null) {
-            for (File file : directory.listFiles()) {
+            for (File file : Objects.requireNonNull(directory.listFiles())) {
                 addDirectory(file);
             }
         }
@@ -96,6 +93,10 @@ public class StorageManager {
         return mediaArrayList;
     }
 
+    public HashMap<String, MediaData> getMediaDataHashMap() {
+        return mediaDataHashMap;
+    }
+
     public HashMap<String, Playlist> getPlaylistHashMap() {
         return playlistHashMap;
     }
@@ -113,7 +114,6 @@ public class StorageManager {
 
     private void generatePlaylists(){
         //TODO
-
     }
 
     public void updateMediaData(){
