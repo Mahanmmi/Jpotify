@@ -22,6 +22,7 @@ public class MainPanel implements PlayListLinkable {
     private JTextArea refreshHandler;
     private JFrame frame;
 
+
     private void initDarkTheme() {
         UIManager.put("control", new Color(128, 128, 128));
         UIManager.put("info", new Color(128, 128, 128));
@@ -193,6 +194,11 @@ public class MainPanel implements PlayListLinkable {
         System.out.print("HI ");
         System.out.println(result);
         //Inja resualt ro begir playlist kon bishoor
+        for(Media media:result){
+
+        }
+
+
         frame.setVisible(true);
     }
 
