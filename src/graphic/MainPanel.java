@@ -1,13 +1,15 @@
 package graphic;
 
+import logic.media.Media;
 import logic.storage.StorageManager;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
-public class MainPanel {
+public class MainPanel implements PlayListLinkable {
     private JPanel mainPanel;
     private JPanel musicPanel;
     private JPanel listsPanel;
@@ -100,11 +102,10 @@ public class MainPanel {
                     "Songs", "mp3");
             songChooser.setFileFilter(filter);
             int returnVal = songChooser.showOpenDialog(frame);
-            if(returnVal == JFileChooser.APPROVE_OPTION) {
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
                 StorageManager.getInstance().addMedia(songChooser.getSelectedFile());
             }
         });
-
 
 
         JMenuItem addDirectoryMenuItem = new JMenuItem("Add directory...");
@@ -112,17 +113,17 @@ public class MainPanel {
             JFileChooser directoryChooser = new JFileChooser();
             directoryChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
             int returnVal = directoryChooser.showOpenDialog(frame);
-            if(returnVal == JFileChooser.APPROVE_OPTION) {
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
                 StorageManager.getInstance().addDirectory(directoryChooser.getSelectedFile());
             }
         });
 
 
-
         JMenuItem addPlaylistMenuItem = new JMenuItem("Add playlist...");
-
-
-
+        addPlaylistMenuItem.addActionListener(event -> {
+            new AddPlaylistPanel(this);
+            frame.setVisible(false);
+        });
 
 
         JMenuItem i4 = new JMenuItem("Item 4");
@@ -186,7 +187,16 @@ public class MainPanel {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
+
+    @Override
+    public void doAddPlaylistLink(String name, ArrayList<Media> result) {
+        System.out.print("HI ");
+        System.out.println(result);
+        //Inja resualt ro begir playlist kon bishoor
+        frame.setVisible(true);
+    }
+
+    public static void main(String[] args) throws InterruptedException{
         new MainPanel();
         System.out.println(StorageManager.getInstance().getMediaArrayList());
     }
