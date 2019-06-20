@@ -5,6 +5,8 @@ import logic.storage.StorageManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class AddPlaylistPanel {
@@ -15,6 +17,7 @@ public class AddPlaylistPanel {
     private JButton addSongButton;
     private JButton DONEButton;
     private JTextField playlistName;
+    private JButton cancelButton;
     private JFrame frame;
     private ArrayList<Media> result = new ArrayList<>();
     private ArrayList<Media> mediaArrayList = StorageManager.getInstance().getMediaArrayList();
@@ -33,10 +36,11 @@ public class AddPlaylistPanel {
         }
         allSongsList.setListData(mediaTitles.toArray());
     }
-    private void addToChosenList(){
-        int index =allSongsList.getSelectedIndex();
+
+    private void addToChosenList() {
+        int index = allSongsList.getSelectedIndex();
         Media media = mediaArrayList.get(index);
-        if(!result.contains(media)) {
+        if (!result.contains(media)) {
             result.add(media);
             ArrayList<String> mediaTitles = new ArrayList<>();
             for (Media addedMedia : result) {
@@ -46,8 +50,8 @@ public class AddPlaylistPanel {
         }
     }
 
-    private void removeFromChosenList(){
-        int index =addedList.getSelectedIndex();
+    private void removeFromChosenList() {
+        int index = addedList.getSelectedIndex();
         result.remove(index);
         ArrayList<String> mediaTitles = new ArrayList<>();
         for (Media addedMedia : result) {
@@ -62,11 +66,30 @@ public class AddPlaylistPanel {
 
         frame.setVisible(true);
         DONEButton.addActionListener(event -> {
-            parent.doAddPlaylistLink(playlistName.getText(), result);
-            frame.dispose();
+            String name = playlistName.getText();
+            if (!name.equals("") && !StorageManager.getInstance().getPlaylistHashMap().containsKey(name) && result.size() != 0) {
+                parent.doAddPlaylistLink(playlistName.getText(), result);
+                frame.dispose();
+            } else {
+                if (name.equals("") || StorageManager.getInstance().getPlaylistHashMap().containsKey(name)) {
+                    playlistName.setBackground(Color.RED);
+                } else {
+                    playlistName.setBackground(new Color(18, 30, 49));
+                }
+                if(result.size()==0){
+                    addedList.setBackground(Color.RED);
+                } else {
+                    addedList.setBackground(new Color(18, 30, 49));
+                }
+            }
+
         });
         addSongButton.addActionListener(event -> addToChosenList());
         removeSongButton.addActionListener(event -> removeFromChosenList());
+        cancelButton.addActionListener(event -> {
+            frame.dispose();
+            parent.cancelPlaylistOperation();
+        });
     }
 
     private void initFrame() {

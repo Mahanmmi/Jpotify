@@ -33,7 +33,7 @@ public class StorageManager {
         mediaDataFile = new File("./data/mediaDataFile.bin");
         load();
         generateAlbums();
-        gereratePlaylist();
+        generatePlaylists();
     }
 
     private void load() {
@@ -49,7 +49,6 @@ public class StorageManager {
         try {
             ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(mediaDataFile));
             mediaDataHashMap = (HashMap<String, MediaData>) inputStream.readObject();
-            //TODO
         } catch (IOException | ClassNotFoundException e) {
             //Ignore
         }

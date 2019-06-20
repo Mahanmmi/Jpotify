@@ -203,6 +203,11 @@ public class MainPanel implements PlaylistLinkable {
         frame.setVisible(true);
     }
 
+    @Override
+    public void cancelPlaylistOperation() {
+        frame.setVisible(true);
+    }
+
     public static void main(String[] args) throws InterruptedException{
         new MainPanel();
         System.out.println(StorageManager.getInstance().getMediaArrayList());
