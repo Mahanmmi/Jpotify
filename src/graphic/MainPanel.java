@@ -1,6 +1,7 @@
 package graphic;
 
 import logic.media.Media;
+import logic.media.MediaData;
 import logic.playlist.Playlist;
 import logic.playlist.UserPlaylist;
 import logic.storage.StorageManager;
@@ -196,10 +197,12 @@ public class MainPanel implements PlayListLinkable {
     public void doAddPlaylistLink(String name, ArrayList<Media> result) {
         System.out.print("HI ");
         System.out.println(result);
-        //Inja resualt ro begir playlist kon bishoor
+
         HashMap<String, Playlist> playlistHashMap = StorageManager.getInstance().getPlaylistHashMap();
+        HashMap<String, MediaData> playListMediaDataHashMap=StorageManager.getInstance().getMediaDataHashMap();
         playlistHashMap.put(name,new UserPlaylist(name,result));
-        //
+        StorageManager.getInstance().updateMediaData();
+        //in ja fek konam kamel shod hamaaaal
         frame.setVisible(true);
     }
 

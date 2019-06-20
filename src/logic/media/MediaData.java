@@ -14,4 +14,8 @@ public class MediaData implements Serializable {
     public MediaData(ArrayList<PlaylistElement> elements) {
         this.elements = elements;
     }
+
+    public ArrayList<PlaylistElement> getElements() {
+        return elements;
+    }
 }

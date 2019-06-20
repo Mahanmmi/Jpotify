@@ -116,7 +116,7 @@ public class StorageManager {
 
     }
 
-    public void updateMediaData(Media media,String playlistName){
+    public void updateMediaData(){
         for (Map.Entry<String, Playlist> entry : playlistHashMap.entrySet()) {
             String playListName = entry.getKey();
             Playlist playlist=entry.getValue();
@@ -124,13 +124,24 @@ public class StorageManager {
             int index=0;
             for (Media media1:playlist.getPlaylistMedia()){
                 String mediaPath= media1.getAddress();
-                PlaylistElement playlistElement=new PlaylistElement(playlistName,mediaPath,index);
-                playlistElementArrayList.add(playlistElement);
-                index++;
-            }
-            MediaData mediaData=new MediaData(playlistElementArrayList);
-            mediaDataHashMap.put()
+                PlaylistElement playlistElement=new PlaylistElement(playListName,mediaPath,index);
+                if(mediaDataHashMap.containsKey(mediaPath)){
+                    mediaDataHashMap.get(mediaPath).getElements().add(playlistElement);
+                }
+                else {
+                    playlistElementArrayList.add(playlistElement);
+                    MediaData mediaData = new MediaData(playlistElementArrayList);
+                    mediaDataHashMap.put(mediaPath, mediaData);
+                }
+                    index++;
+           }
+
+
         }
+
+       // PlaylistElement playlistElement=new PlaylistElement(playlistName,media.getAddress(),index);
+        //ArrayList<PlaylistElement>playlistElementArrayList =new ArrayList<>();
+
 
     }
 
