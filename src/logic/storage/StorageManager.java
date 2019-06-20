@@ -7,6 +7,7 @@ import logic.playlist.Playlist;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class StorageManager {
@@ -22,10 +23,6 @@ public class StorageManager {
 
     public static StorageManager getInstance() {
         return ourInstance;
-    }
-
-    public HashMap<String, MediaData> getMediaDataHashMap() {
-        return mediaDataHashMap;
     }
 
     private StorageManager() {
@@ -48,6 +45,7 @@ public class StorageManager {
         }
         try {
             ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(mediaDataFile));
+            //noinspection unchecked
             mediaDataHashMap = (HashMap<String, MediaData>) inputStream.readObject();
         } catch (IOException | ClassNotFoundException e) {
             //Ignore
@@ -63,7 +61,7 @@ public class StorageManager {
             return;
         }
         if (directory.listFiles() != null) {
-            for (File file : directory.listFiles()) {
+            for (File file : Objects.requireNonNull(directory.listFiles())) {
                 addDirectory(file);
             }
         }
@@ -93,6 +91,10 @@ public class StorageManager {
         return mediaArrayList;
     }
 
+    public HashMap<String, MediaData> getMediaDataHashMap() {
+        return mediaDataHashMap;
+    }
+
     public HashMap<String, Playlist> getPlaylistHashMap() {
         return playlistHashMap;
     }
@@ -108,11 +110,11 @@ public class StorageManager {
         }
     }
 
-    private void generatePlaylists(){
+    private void generatePlaylists() {
         //TODO
     }
 
-    public void saveAndQuit(){
+    public void saveAndQuit() {
         //TODO
     }
 }

@@ -1,8 +1,7 @@
 package logic.media;
 
 import javax.imageio.ImageIO;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.FloatControl;
+import javax.sound.sampled.*;
 import javax.swing.*;
 
 import com.mpatric.mp3agic.ID3v1;
@@ -16,6 +15,8 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 
 public class Media {
+    private static AdvancedPlayer player;
+
     private int pausedOnFrame = 0;
     private String address;
     private Mp3File mp3File;
@@ -128,7 +129,7 @@ public class Media {
         public void run() {
             try {
                 FileInputStream fis = new FileInputStream(address);
-                AdvancedPlayer player = new AdvancedPlayer(fis);
+                player = new AdvancedPlayer(fis);
                 player.setPlayBackListener(new PlaybackListener() {
                     @Override
                     public void playbackFinished(PlaybackEvent event) {
@@ -173,11 +174,11 @@ public class Media {
                 '}';
     }
 
-    public static void main(String[] args) {
-        //   new Media("./resources/media/Imagine-Dragons-Digital-128.mp3");
-        //
-        //   new Media("./resources/media/Barobax - Shervin - www.telegram.me~IranSongs.mp3");
-        Media media = new Media("1.mp3");
+    public static void main(String[] args) throws InterruptedException{
+        Media media = new Media("./resources/media/Imagine-Dragons-Digital-128.mp3");
+//        new Media("./resources/media/Barobax - Shervin - www.telegram.me~IranSongs.mp3");
+//        Media media = new Media("1.mp3");
+
         media.playFile();
         System.out.println("ghsem");
         media.setVolume(0.5f);

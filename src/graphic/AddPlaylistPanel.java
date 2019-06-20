@@ -5,8 +5,6 @@ import logic.storage.StorageManager;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class AddPlaylistPanel {
@@ -34,6 +32,7 @@ public class AddPlaylistPanel {
         for (Media media : mediaArrayList) {
             mediaTitles.add(media.getTitle() + " - " + media.getArtist());
         }
+        //noinspection unchecked
         allSongsList.setListData(mediaTitles.toArray());
     }
 
@@ -47,6 +46,7 @@ public class AddPlaylistPanel {
                 for (Media addedMedia : result) {
                     mediaTitles.add(addedMedia.getTitle() + " - " + addedMedia.getArtist());
                 }
+                //noinspection unchecked
                 addedList.setListData(mediaTitles.toArray());
             }
         }
@@ -60,11 +60,12 @@ public class AddPlaylistPanel {
             for (Media addedMedia : result) {
                 mediaTitles.add(addedMedia.getTitle() + " - " + addedMedia.getArtist());
             }
+            //noinspection unchecked
             addedList.setListData(mediaTitles.toArray());
         }
     }
 
-    public AddPlaylistPanel(PlaylistLinkable parent) {
+    AddPlaylistPanel(PlaylistLinkable parent) {
         initFrame();
         generateAllSongsList();
 
@@ -98,17 +99,7 @@ public class AddPlaylistPanel {
 
     private void initFrame() {
         frame = new JFrame("Add Playlist");
-        ImageIcon frameIcon = new ImageIcon("./resources/JpotifyIcon.png");
-        frame.setIconImage(frameIcon.getImage());
-        frame.setContentPane(panel);
-
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.pack();
-
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = screenSize.width / 2 - frame.getWidth() / 2;
-        int y = screenSize.height / 2 - frame.getHeight() / 2;
-        frame.setLocation(x, y);
+        MainPanel.newFrameInitialSettings(frame, panel);
     }
 
 }
