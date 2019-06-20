@@ -1,6 +1,8 @@
 package graphic;
 
 import logic.media.Media;
+import logic.playlist.Playlist;
+import logic.playlist.UserPlaylist;
 import logic.storage.StorageManager;
 
 import javax.swing.*;
@@ -8,6 +10,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MainPanel implements PlayListLinkable {
     private JPanel mainPanel;
@@ -194,11 +197,9 @@ public class MainPanel implements PlayListLinkable {
         System.out.print("HI ");
         System.out.println(result);
         //Inja resualt ro begir playlist kon bishoor
-        for(Media media:result){
-
-        }
-
-
+        HashMap<String, Playlist> playlistHashMap = StorageManager.getInstance().getPlaylistHashMap();
+        playlistHashMap.put(name,new UserPlaylist(name,result));
+        //
         frame.setVisible(true);
     }
 

@@ -2,6 +2,7 @@ package logic.storage;
 
 import logic.media.Media;
 import logic.media.MediaData;
+import logic.playlist.Playlist;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -12,8 +13,11 @@ public class StorageManager {
     private static StorageManager ourInstance = new StorageManager();
     private File mediaAddresses;
     private File mediaDataFile;
+
     private ArrayList<Media> mediaArrayList = new ArrayList<>();
-    private HashMap<String,Album> albumHashMap= new HashMap<>();
+    private HashMap<String, Album> albumHashMap = new HashMap<>();
+    private HashMap<String, Playlist> playlistHashMap = new HashMap<>();
+
     private HashMap<String, MediaData> mediaDataHashMap = new HashMap<>();
 
     public static StorageManager getInstance() {
@@ -29,6 +33,7 @@ public class StorageManager {
         mediaDataFile = new File("./data/mediaDataFile.bin");
         load();
         generateAlbums();
+        gereratePlaylist();
     }
 
     private void load() {
@@ -59,14 +64,14 @@ public class StorageManager {
             return;
         }
         if (directory.listFiles() != null) {
-            for (File file : directory.listFiles()){
+            for (File file : directory.listFiles()) {
                 addDirectory(file);
             }
         }
     }
 
     public void addMedia(File media) {
-        if(!media.getName().endsWith(".mp3")){
+        if (!media.getName().endsWith(".mp3")) {
             return;
         }
         for (Media savedMedia : mediaArrayList) {
@@ -89,22 +94,24 @@ public class StorageManager {
         return mediaArrayList;
     }
 
+    public HashMap<String, Playlist> getPlaylistHashMap() {
+        return playlistHashMap;
+    }
 
-    public void generateAlbums(){
-        for (Media savedMedia:mediaArrayList) {
-            if(albumHashMap.containsKey(savedMedia.getAlbumName())){
+    private void generateAlbums() {
+        for (Media savedMedia : mediaArrayList) {
+            if (albumHashMap.containsKey(savedMedia.getAlbumName())) {
                 albumHashMap.get(savedMedia.getAlbumName()).addSong(savedMedia);
-            }
-            else {
-                albumHashMap.put(savedMedia.getAlbumName(),new Album(savedMedia.getAlbumName()));
+            } else {
+                albumHashMap.put(savedMedia.getAlbumName(), new Album(savedMedia.getAlbumName()));
             }
 
         }
-
-
-
     }
 
+    private void generatePlaylists(){
+        //TODO
+    }
 
 
 
