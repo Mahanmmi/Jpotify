@@ -12,7 +12,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MainPanel implements PlayListLinkable {
+public class MainPanel implements PlaylistLinkable {
     private JPanel mainPanel;
     private JPanel musicPanel;
     private JPanel listsPanel;
