@@ -10,4 +10,8 @@ public class MediaData implements Serializable {
     private ArrayList<PlaylistElement> elements;
     //needs another fields for lastPlayTime and number of play (should be static)
 
+
+    public MediaData(ArrayList<PlaylistElement> elements) {
+        this.elements = elements;
+    }
 }

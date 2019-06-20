@@ -17,4 +17,8 @@ public abstract class Playlist  implements Serializable {
     private void addMedia(Media media){
         playlistMedia.add(media);
     }
+
+    public ArrayList<Media> getPlaylistMedia() {
+        return playlistMedia;
+    }
 }

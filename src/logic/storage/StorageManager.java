@@ -3,10 +3,12 @@ package logic.storage;
 import logic.media.Media;
 import logic.media.MediaData;
 import logic.playlist.Playlist;
+import logic.playlist.PlaylistElement;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class StorageManager {
@@ -111,7 +113,27 @@ public class StorageManager {
 
     private void generatePlaylists(){
         //TODO
+
     }
+
+    public void updateMediaData(Media media,String playlistName){
+        for (Map.Entry<String, Playlist> entry : playlistHashMap.entrySet()) {
+            String playListName = entry.getKey();
+            Playlist playlist=entry.getValue();
+            ArrayList<PlaylistElement>playlistElementArrayList =new ArrayList<>();
+            int index=0;
+            for (Media media1:playlist.getPlaylistMedia()){
+                String mediaPath= media1.getAddress();
+                PlaylistElement playlistElement=new PlaylistElement(playlistName,mediaPath,index);
+                playlistElementArrayList.add(playlistElement);
+                index++;
+            }
+            MediaData mediaData=new MediaData(playlistElementArrayList);
+            mediaDataHashMap.put()
+        }
+
+    }
+
 
 
 
