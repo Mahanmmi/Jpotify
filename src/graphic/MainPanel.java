@@ -209,6 +209,7 @@ public class MainPanel implements PlaylistLinkable {
     }
 
     public static void main(String[] args) throws InterruptedException{
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> StorageManager.getInstance().saveAndQuit(), "Shutdown-thread"));
         new MainPanel();
         System.out.println(StorageManager.getInstance().getMediaArrayList());
     }

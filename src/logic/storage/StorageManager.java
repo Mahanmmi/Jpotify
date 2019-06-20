@@ -112,6 +112,7 @@ public class StorageManager {
         //TODO
     }
 
-
-
+    public void saveAndQuit(){
+        //TODO
+    }
 }

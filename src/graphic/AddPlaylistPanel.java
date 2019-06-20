@@ -38,26 +38,30 @@ public class AddPlaylistPanel {
     }
 
     private void addToChosenList() {
-        int index = allSongsList.getSelectedIndex();
-        Media media = mediaArrayList.get(index);
-        if (!result.contains(media)) {
-            result.add(media);
+        if(!allSongsList.isSelectionEmpty()) {
+            int index = allSongsList.getSelectedIndex();
+            Media media = mediaArrayList.get(index);
+            if (!result.contains(media)) {
+                result.add(media);
+                ArrayList<String> mediaTitles = new ArrayList<>();
+                for (Media addedMedia : result) {
+                    mediaTitles.add(addedMedia.getTitle() + " - " + addedMedia.getArtist());
+                }
+                addedList.setListData(mediaTitles.toArray());
+            }
+        }
+    }
+
+    private void removeFromChosenList() {
+        if(!addedList.isSelectionEmpty()) {
+            int index = addedList.getSelectedIndex();
+            result.remove(index);
             ArrayList<String> mediaTitles = new ArrayList<>();
             for (Media addedMedia : result) {
                 mediaTitles.add(addedMedia.getTitle() + " - " + addedMedia.getArtist());
             }
             addedList.setListData(mediaTitles.toArray());
         }
-    }
-
-    private void removeFromChosenList() {
-        int index = addedList.getSelectedIndex();
-        result.remove(index);
-        ArrayList<String> mediaTitles = new ArrayList<>();
-        for (Media addedMedia : result) {
-            mediaTitles.add(addedMedia.getTitle() + " - " + addedMedia.getArtist());
-        }
-        addedList.setListData(mediaTitles.toArray());
     }
 
     public AddPlaylistPanel(PlaylistLinkable parent) {

@@ -7,8 +7,8 @@
     </constraints>
     <properties>
       <focusable value="true"/>
-      <minimumSize width="800" height="450"/>
-      <preferredSize width="800" height="450"/>
+      <minimumSize width="800" height="500"/>
+      <preferredSize width="800" height="500"/>
     </properties>
     <border type="none"/>
     <children>
