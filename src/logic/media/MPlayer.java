@@ -1,5 +1,7 @@
 package logic.media;
 
+import javazoom.jl.player.AudioDevice;
+import javazoom.jl.player.Player;
 import javazoom.jl.player.advanced.AdvancedPlayer;
 import javazoom.jl.player.advanced.PlaybackEvent;
 import javazoom.jl.player.advanced.PlaybackListener;
@@ -10,8 +12,8 @@ import javax.sound.sampled.LineUnavailableException;
 import java.io.*;
 import java.nio.file.Files;
 
-/*public class MPlayer{
-    AdvancedPlayer player;
+public class MPlayer{
+    private static AdvancedPlayer player;
     private static int pausedOnFrame =0;
     private byte[] decrypted = null;
     private long audioLength;
@@ -24,9 +26,8 @@ import java.nio.file.Files;
         InputStream is = new ByteArrayInputStream(in);
         return is;
     }
-*/
-  /*  public MPlayer() {
-         here file is encrypted to variable byte[] decrypted and then:
+public MPlayer() {
+      //   here file is encrypted to variable byte[] decrypted and then:
         File file=new File("1.mp3");
         try {
             this.decrypted = Files.readAllBytes(file.toPath());
@@ -54,20 +55,24 @@ import java.nio.file.Files;
             System.out.println("e");
         }
     }
-    public void play() throws Exception {
+    public void play(int x)  {
         Thread th = new Thread() {
-            public void run() {
+           public void run() {
                 try {
-                    player.play(MPlayer.pausedOnFrame, Integer.MAX_VALUE);
+                    System.out.println(pausedOnFrame );
+                    player.play(x,Integer.MAX_VALUE);
+                   // player.play();
                 } catch (Exception e) {
-                    System.out.println("in play method");
+                    System.out.println(e.getCause());
+                    System.out.println(e.getMessage());
+                    System.out.println(e.getClass());
                 }
             }
         };
         th.start();
     }
 
-    public void fastforward()throws Exception {
+   /* public void fastforward()throws Exception {
         pausemusic();
         long nextFrame = (long) (pausedOnFrame+0.02*audioLength);
         if (nextFrame < audioLength)
@@ -78,12 +83,16 @@ import java.nio.file.Files;
         long nextFrame = (long) (pausedOnFrame-0.02*audioLength);
         if (nextFrame > 0)
             play();
-    }
+    }*/
 
 
-    public void pausemusic() throws LineUnavailableException  {
+    public void pausemusic() {
+        try {
+            player.stop();
 
-        player.stop();
+        } catch (Exception e) {
+            System.out.println("line is unavlible");
+        }
     }
     public void stopmusic() throws LineUnavailableException {
         player.stop();
@@ -93,100 +102,164 @@ import java.nio.file.Files;
 
 public static void main(String[]args)throws Exception{
         MPlayer mPlayer=new MPlayer();
-        mPlayer.play();
-        for(int i=0; i<99999999;i++){}
+        mPlayer.play(0);
+        Thread.sleep(5000);
         System.out.println("asas");
-      //  mPlayer.pausemusic();
+        mPlayer.pausemusic();
+        Thread.sleep(5000);
+        System.out.println("here");
+        mPlayer.play(4950);
 
 
 
         }
-}*/
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.advanced.AdvancedPlayer;
-import javazoom.jl.player.advanced.PlaybackEvent;
-import javazoom.jl.player.advanced.PlaybackListener;
-
-public class unisound implements Runnable {
-
-    static AdvancedPlayer mp3_player = null;
-    static FileInputStream mp3_in = null;
-    private int pausedOnFrame = 0;
-
-    private boolean looped = false;
-    private boolean stopped = true;
-    private String file = "";
-    private Thread thread;
-
-    private PlaybackListener pb = new PlaybackListener() {
-
-        @Override
-        public  void playbackFinished(PlaybackEvent event) {
-
-            thread.interrupt();
-
-            if( looped ){
-                play( file, looped );
-            }else{
-                stopped = true;
-            }
-
-        }
-
-    };
-
-
-
-    public  void play( String sFile, boolean bLoop ) {
-
-        file = sFile;
-        looped = bLoop;
-
-        try {
-            mp3_in=new FileInputStream(file);
-            mp3_player = new AdvancedPlayer(mp3_in);
-            mp3_player.setPlayBackListener(pb);
-
-            thread = new Thread( new unisound() );
-            thread.start();
-
-            stopped = false;
-
-            //(new Thread( new unisound())).start();
-
-        } catch (MalformedURLException ex) {
-            System.out.println("1");
-        } catch (IOException e) {
-        } catch (JavaLayerException e) {
-        } catch (NullPointerException ex) {
-        }
-
-    }
-
-    public  void isplaying(){
-
-    }
-
-    public  void stop() {
-        if(stopped) return;
-        System.out.println("Stop music playback");
-        looped = false;
-        mp3_player.stop();
-    }
-
-    @Override
-    public  void run() {
-        // TODO Auto-generated method stub
-
-        try {
-            mp3_player.play();
-        } catch (JavaLayerException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-    }
 }
+
+ /* public class PausablePlayer {
+
+      private final static int NOTSTARTED = 0;
+      private final static int PLAYING = 1;
+      private final static int PAUSED = 2;
+      private final static int FINISHED = 3;
+
+      // the player actually doing all the work
+      private final Player player;
+
+      // locking object used to communicate with player thread
+      private final Object playerLock = new Object();
+
+      // status variable what player thread is doing/supposed to do
+      private int playerStatus = NOTSTARTED;
+
+      public PausablePlayer(final InputStream inputStream) throws JavaLayerException {
+          this.player = new Player(inputStream);
+      }
+
+      public PausablePlayer(final InputStream inputStream, final AudioDevice audioDevice) throws JavaLayerException {
+          this.player = new Player(inputStream, audioDevice);
+      }
+
+      /**
+       * Starts playback (resumes if paused)
+       */
+    /*  public void play() throws JavaLayerException {
+          synchronized (playerLock) {
+              switch (playerStatus) {
+                  case NOTSTARTED:
+                      final Runnable r = new Runnable() {
+                          public void run() {
+                              playInternal();
+                          }
+                      };
+                      final Thread t = new Thread(r);
+                      t.setDaemon(true);
+                      t.setPriority(Thread.MAX_PRIORITY);
+                      playerStatus = PLAYING;
+                      t.start();
+                      break;
+                  case PAUSED:
+                      resume();
+                      break;
+                  default:
+                      break;
+              }
+          }
+      }
+
+      /**
+       * Pauses playback. Returns true if new state is PAUSED.
+       */
+    /*  public boolean pause() {
+          synchronized (playerLock) {
+              if (playerStatus == PLAYING) {
+                  playerStatus = PAUSED;
+              }
+              return playerStatus == PAUSED;
+          }
+      }
+
+      /**
+       * Resumes playback. Returns true if the new state is PLAYING.
+       */
+    /*  public boolean resume() {
+          synchronized (playerLock) {
+              if (playerStatus == PAUSED) {
+                  playerStatus = PLAYING;
+                  playerLock.notifyAll();
+              }
+              return playerStatus == PLAYING;
+          }
+      }
+
+      /**
+       * Stops playback. If not playing, does nothing
+       */
+    /*  public void stop() {
+          synchronized (playerLock) {
+              playerStatus = FINISHED;
+              playerLock.notifyAll();
+          }
+      }
+
+      private void playInternal() {
+          while (playerStatus != FINISHED) {
+              try {
+                  if (!player.play(1)) {
+                      break;
+                  }
+              } catch (final JavaLayerException e) {
+                  break;
+              }
+              // check if paused or terminated
+              synchronized (playerLock) {
+                  while (playerStatus == PAUSED) {
+                      try {
+                          playerLock.wait();
+                      } catch (final InterruptedException e) {
+                          // terminate player
+                          break;
+                      }
+                  }
+              }
+          }
+          close();
+      }
+
+      /**
+       * Closes the player, regardless of current state.
+       */
+  /*    public void close() {
+          synchronized (playerLock) {
+              playerStatus = FINISHED;
+          }
+          try {
+              player.close();
+          } catch (final Exception e) {
+              // ignore, we are terminating anyway
+          }
+      }
+
+      // demo how to use
+      public static void main(String[] argv) {
+          try {
+              FileInputStream input = new FileInputStream("1.mp3");
+              PausablePlayer player = new PausablePlayer(input);
+
+              // start playing
+              player.play();
+
+              // after 5 secs, pause
+              Thread.sleep(5000);
+              player.pause();
+
+              // after 5 secs, resume
+              Thread.sleep(5000);
+              player.resume();
+              System.out.println("akbar");
+
+          } catch (final Exception e) {
+              throw new RuntimeException(e);
+          }
+      }
+}
+*/
