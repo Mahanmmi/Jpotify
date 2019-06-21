@@ -122,6 +122,24 @@ public class Media {
     private void playFile() {
         Thread playThread = new Thread(new FilePlayer());
         playThread.start();
+        try {
+            playThread.join(10000);
+
+
+        } catch (Exception e) {
+            System.out.println("playFile");
+        }
+    }
+
+    private void pauseFile(){
+        player.stop();
+    }
+    private void resume() {
+        try {
+            player.play(pausedOnFrame);
+        } catch (Exception e) {
+            System.out.println("riidi ba resume");
+        }
     }
 
     class FilePlayer implements Runnable {
@@ -136,7 +154,6 @@ public class Media {
                         pausedOnFrame = event.getFrame();
                     }
                 });
-                player.play();
             } catch (Exception exc) {
                 exc.printStackTrace();
                 System.out.println("Failed to play the file.");
@@ -175,13 +192,15 @@ public class Media {
     }
 
     public static void main(String[] args) throws InterruptedException{
-        Media media = new Media("./resources/media/Imagine-Dragons-Digital-128.mp3");
+        Media media = new Media("1.mp3");
 //        new Media("./resources/media/Barobax - Shervin - www.telegram.me~IranSongs.mp3");
 //        Media media = new Media("1.mp3");
 
         media.playFile();
+       /// FilePlayer filePlayer=new FilePlayer();
+        Thread thread=new Thread();
         System.out.println("ghsem");
-        media.setVolume(0.5f);
+       // media.setVolume(0.5f);
 
     }
 }
