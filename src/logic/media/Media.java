@@ -7,6 +7,7 @@ import javax.swing.*;
 import com.mpatric.mp3agic.ID3v1;
 import com.mpatric.mp3agic.ID3v2;
 import com.mpatric.mp3agic.Mp3File;
+import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.advanced.AdvancedPlayer;
 import javazoom.jl.player.advanced.PlaybackEvent;
 import javazoom.jl.player.advanced.PlaybackListener;
@@ -15,8 +16,9 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 
 public class Media {
-    private static AdvancedPlayer player;
+    private static PauseablePlayer mainPlayer;
 
+    private PauseablePlayer player;
     private int pausedOnFrame = 0;
     private String address;
     private Mp3File mp3File;
@@ -47,6 +49,7 @@ public class Media {
         try {
             mp3File = new Mp3File(address);
             this.time = (int) mp3File.getLengthInSeconds();
+            player = new PauseablePlayer(new FileInputStream(address));
 
             if (mp3File.hasId3v1Tag()) {
                 ID3v1 id3v1 = mp3File.getId3v1Tag();
@@ -120,28 +123,14 @@ public class Media {
     }
 
     private void playFile() {
-        Thread playThread = new Thread(new FilePlayer());
-        playThread.start();
-    }
-
-    class FilePlayer implements Runnable {
-        @Override
-        public void run() {
-            try {
-                FileInputStream fis = new FileInputStream(address);
-                player = new AdvancedPlayer(fis);
-                player.setPlayBackListener(new PlaybackListener() {
-                    @Override
-                    public void playbackFinished(PlaybackEvent event) {
-                        pausedOnFrame = event.getFrame();
-                    }
-                });
-                player.play();
-            } catch (Exception exc) {
-                exc.printStackTrace();
-                System.out.println("Failed to play the file.");
-            }
-
+        if(mainPlayer!=null){
+            mainPlayer.stop();
+        }
+        mainPlayer = player;
+        try {
+            player.play();
+        } catch (JavaLayerException e){
+            System.out.println("JL rid");
         }
     }
 
