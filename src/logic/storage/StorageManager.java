@@ -3,8 +3,10 @@ package logic.storage;
 import graphic.MainPanel;
 import logic.media.Media;
 import logic.media.MediaData;
+import logic.playlist.AutoPlayList;
 import logic.playlist.Playlist;
 import logic.playlist.PlaylistElement;
+import logic.playlist.UserPlaylist;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -15,8 +17,8 @@ import java.util.Scanner;
 
 public class StorageManager {
     private static StorageManager ourInstance = new StorageManager();
-    private File mediaAddresses;
-    private File mediaDataFile;
+    private final File MEDIA_ADDRESSES;
+    private final File MEDIA_DATAFILE;
 
     private ArrayList<Media> mediaArrayList = new ArrayList<>();
     private HashMap<String, Album> albumHashMap = new HashMap<>();
@@ -29,18 +31,22 @@ public class StorageManager {
     }
 
     private StorageManager() {
-        mediaAddresses = new File("./data/mediaAddresses.bin");
-        mediaDataFile = new File("./data/mediaDataFile.bin");
+        MEDIA_ADDRESSES = new File("./data/MEDIA_ADDRESSES.bin");
+        MEDIA_DATAFILE = new File("./data/MEDIA_DATAFILE.bin");
         load();
         generateAlbums();
         generatePlaylists();
+
+        for (String s : playlistHashMap.keySet()) {
+            System.out.println(s + " : " + playlistHashMap.get(s));
+        }
 
         new MainPanel();
     }
 
     private void load() {
         try {
-            Scanner scanner = new Scanner(new FileReader(mediaAddresses));
+            Scanner scanner = new Scanner(new FileReader(MEDIA_ADDRESSES));
             while (scanner.hasNextLine()) {
                 mediaArrayList.add(new Media(scanner.nextLine()));
             }
@@ -49,7 +55,7 @@ public class StorageManager {
             return;
         }
         try {
-            ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(mediaDataFile));
+            ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(MEDIA_DATAFILE));
             //noinspection unchecked
             mediaDataHashMap = (HashMap<String, MediaData>) inputStream.readObject();
             for (String s : mediaDataHashMap.keySet()) {
@@ -79,13 +85,16 @@ public class StorageManager {
         if (!media.getName().endsWith(".mp3")) {
             return;
         }
+        if(new File(media.getParent()+"/.nomedia").exists()){
+            return;
+        }
         for (Media savedMedia : mediaArrayList) {
             if (savedMedia.getAddress().equals(media.getAbsolutePath())) {
                 return;
             }
         }
         try {
-            PrintWriter writer = new PrintWriter(new FileWriter(mediaAddresses, true));
+            PrintWriter writer = new PrintWriter(new FileWriter(MEDIA_ADDRESSES, true));
             System.out.println(media.getAbsolutePath());
             writer.println(media.getAbsolutePath());
             writer.flush();
@@ -118,8 +127,60 @@ public class StorageManager {
         }
     }
 
+    private Media findMediaByAddress(String address) {
+        for (Media media : mediaArrayList) {
+            if (media.getAddress().equals(address)) {
+                return media;
+            }
+        }
+        return null;
+    }
+
     private void generatePlaylists() {
-        //TODO
+        for (String address : mediaDataHashMap.keySet()) {
+            Media media = findMediaByAddress(address);
+            ArrayList<PlaylistElement> playlistElements = mediaDataHashMap.get(address).getElements();
+            for (PlaylistElement playlistElement : playlistElements) {
+                String playlistName = playlistElement.getPlaylistName();
+                Playlist playlist;
+                if (!playlistHashMap.containsKey(playlistName)) {
+                    if (!playlistName.equals("Shared") && !playlistName.equals("Favorite")) {
+                        playlist = new UserPlaylist(playlistName, new ArrayList<>());
+                    } else {
+                        playlist = new AutoPlayList(playlistName);
+                    }
+                    playlistHashMap.put(playlistName, playlist);
+                } else {
+                    playlist = playlistHashMap.get(playlistName);
+                }
+                playlist.addMedia(media);
+            }
+        }
+        for (Playlist playlist : playlistHashMap.values()) {
+            playlist.getPlaylistMedia().sort((a, b) -> {
+                PlaylistElement aElement = null;
+                for (PlaylistElement element : mediaDataHashMap.get(a.getAddress()).getElements()) {
+                    if(element.getPlaylistName().equals(playlist.getName())){
+                        aElement = element;
+                        break;
+                    }
+                }
+                PlaylistElement bElement = null;
+                for (PlaylistElement element : mediaDataHashMap.get(b.getAddress()).getElements()) {
+                    if(element.getPlaylistName().equals(playlist.getName())){
+                        bElement = element;
+                        break;
+                    }
+                }
+                if(aElement == null){
+                    return 1;
+                }
+                if(bElement == null){
+                    return -1;
+                }
+                return Integer.compare(aElement.getIndex(),bElement.getIndex());
+            });
+        }
     }
 
     public void updateMediaData() {
@@ -127,17 +188,18 @@ public class StorageManager {
             String playListName = entry.getKey();
             Playlist playlist = entry.getValue();
             int index = 0;
-            for (Media media1 : playlist.getPlaylistMedia()) {
-                String mediaPath = media1.getAddress();
+            for (Media media : playlist.getPlaylistMedia()) {
+                String mediaPath = media.getAddress();
                 PlaylistElement playlistElement = new PlaylistElement(playListName, mediaPath, index);
+                System.out.println(playlistElement);
                 if (mediaDataHashMap.containsKey(mediaPath)) {
-                    if(!mediaDataHashMap.get(mediaPath).getElements().contains(playlistElement)) {
+                    if (!mediaDataHashMap.get(mediaPath).getElements().contains(playlistElement)) {
                         mediaDataHashMap.get(mediaPath).getElements().add(playlistElement);
                     }
                 } else {
                     ArrayList<PlaylistElement> playlistElementArrayList = new ArrayList<>();
                     playlistElementArrayList.add(playlistElement);
-                    MediaData mediaData = new MediaData(mediaPath,playlistElementArrayList);
+                    MediaData mediaData = new MediaData(mediaPath, playlistElementArrayList);
                     mediaDataHashMap.put(mediaPath, mediaData);
                 }
                 index++;
@@ -154,10 +216,9 @@ public class StorageManager {
 
     public void saveAndQuit() {
         try {
-            ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(mediaDataFile));
-
+            ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(MEDIA_DATAFILE));
             outputStream.writeObject(mediaDataHashMap);
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
             System.out.println("ne nashod");
         }

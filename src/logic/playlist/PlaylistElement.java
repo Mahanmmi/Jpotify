@@ -26,6 +26,15 @@ public class PlaylistElement implements Serializable {
     }
 
     @Override
+    public String toString() {
+        return "PlaylistElement{" +
+                "playlistName='" + playlistName + '\'' +
+                ", songAddress='" + songAddress + '\'' +
+                ", index=" + index +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if(obj instanceof PlaylistElement){
             return playlistName.equals(((PlaylistElement) obj).playlistName) && songAddress.equals(((PlaylistElement) obj).songAddress);

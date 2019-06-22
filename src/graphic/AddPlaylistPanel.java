@@ -72,11 +72,11 @@ public class AddPlaylistPanel {
         frame.setVisible(true);
         DONEButton.addActionListener(event -> {
             String name = playlistName.getText();
-            if (!name.equals("") && !StorageManager.getInstance().getPlaylistHashMap().containsKey(name) && result.size() != 0) {
+            if (!name.equals("Favorite") && !name.equals("Shared") && !name.equals("") && !StorageManager.getInstance().getPlaylistHashMap().containsKey(name) && result.size() != 0) {
                 parent.doAddPlaylistLink(playlistName.getText(), result);
                 frame.dispose();
             } else {
-                if (name.equals("") || StorageManager.getInstance().getPlaylistHashMap().containsKey(name)) {
+                if (name.equals("Favorite") || name.equals("Shared") || name.equals("") || StorageManager.getInstance().getPlaylistHashMap().containsKey(name)) {
                     playlistName.setBackground(Color.RED);
                 } else {
                     playlistName.setBackground(new Color(18, 30, 49));

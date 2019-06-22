@@ -1,10 +1,8 @@
 package logic.media;
 
 import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.AudioDevice;
 import javazoom.jl.player.Player;
 
-import java.io.FileInputStream;
 import java.io.InputStream;
 
 public class PauseablePlayer {
@@ -16,19 +14,15 @@ public class PauseablePlayer {
     private final Player player;
     private final Object playerLock = new Object();
     private int playerStatus = NOTSTARTED;
-    public PauseablePlayer(final InputStream inputStream) throws JavaLayerException {
+    PauseablePlayer(final InputStream inputStream) throws JavaLayerException {
         this.player = new Player(inputStream);
     }
 
-    public void play(){
+    void play(){
         synchronized (playerLock) {
             switch (playerStatus) {
                 case NOTSTARTED:
-                    final Runnable r = new Runnable() {
-                        public void run() {
-                            playInternal();
-                        }
-                    };
+                    final Runnable r = this::playInternal;
                     final Thread t = new Thread(r);
                     //  t.setDaemon(true);
                     t.setPriority(Thread.MAX_PRIORITY);
@@ -44,7 +38,7 @@ public class PauseablePlayer {
         }
     }
 
-    public void pause() {
+    void pause() {
         synchronized (playerLock) {
             if (playerStatus == PLAYING) {
                 playerStatus = PAUSED;
@@ -52,7 +46,7 @@ public class PauseablePlayer {
         }
     }
 
-    public void resume() {
+    void resume() {
         synchronized (playerLock) {
             if (playerStatus == PAUSED) {
                 playerStatus = PLAYING;
@@ -61,7 +55,7 @@ public class PauseablePlayer {
         }
     }
 
-    public void stop() {
+    void stop() {
         synchronized (playerLock) {
             playerStatus = FINISHED;
             playerLock.notifyAll();
@@ -90,7 +84,7 @@ public class PauseablePlayer {
         close();
     }
 
-    public void close() {
+    private void close() {
         synchronized (playerLock) {
             playerStatus = FINISHED;
         }
