@@ -189,7 +189,7 @@ public class MainPanel implements PlaylistLinkable {
         frame.setJMenuBar(initMenus());
     }
 
-    private MainPanel() {
+    public MainPanel() {
         initDarkTheme();
         initFrame();
         frame.setVisible(true);
@@ -215,8 +215,7 @@ public class MainPanel implements PlaylistLinkable {
     }
 
     public static void main(String[] args){
-      //  Runtime.getRuntime().addShutdownHook(new Thread(() -> StorageManager.getInstance().saveAndQuit(), "Shutdown-thread"));
-        new MainPanel();
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> StorageManager.getInstance().saveAndQuit(), "Shutdown-thread"));
         System.out.println(StorageManager.getInstance().getMediaArrayList());
     }
 }

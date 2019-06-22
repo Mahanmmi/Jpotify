@@ -1,11 +1,8 @@
 package logic.playlist;
 
-import logic.storage.StorageManager;
-
 import java.io.Serializable;
 
 public class PlaylistElement implements Serializable {
-    private StorageManager manager = StorageManager.getInstance();
     private String playlistName;
     private String songAddress;
     private int index;
@@ -26,5 +23,13 @@ public class PlaylistElement implements Serializable {
 
     public int getIndex() {
         return index;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof PlaylistElement){
+            return playlistName.equals(((PlaylistElement) obj).playlistName) && songAddress.equals(((PlaylistElement) obj).songAddress);
+        }
+        return false;
     }
 }

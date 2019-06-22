@@ -1,5 +1,6 @@
 package logic.storage;
 
+import graphic.MainPanel;
 import logic.media.Media;
 import logic.media.MediaData;
 import logic.playlist.Playlist;
@@ -33,6 +34,8 @@ public class StorageManager {
         load();
         generateAlbums();
         generatePlaylists();
+
+        new MainPanel();
     }
 
     private void load() {
@@ -49,6 +52,9 @@ public class StorageManager {
             ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(mediaDataFile));
             //noinspection unchecked
             mediaDataHashMap = (HashMap<String, MediaData>) inputStream.readObject();
+            for (String s : mediaDataHashMap.keySet()) {
+                System.out.println("s = " + s + " : " + mediaDataHashMap.get(s));
+            }
         } catch (IOException | ClassNotFoundException e) {
             //Ignore
         }
@@ -112,40 +118,50 @@ public class StorageManager {
         }
     }
 
-    private void generatePlaylists(){
+    private void generatePlaylists() {
         //TODO
     }
 
-    public void updateMediaData(){
+    public void updateMediaData() {
         for (Map.Entry<String, Playlist> entry : playlistHashMap.entrySet()) {
             String playListName = entry.getKey();
-            Playlist playlist=entry.getValue();
-            ArrayList<PlaylistElement>playlistElementArrayList =new ArrayList<>();
-            int index=0;
-            for (Media media1:playlist.getPlaylistMedia()){
-                String mediaPath= media1.getAddress();
-                PlaylistElement playlistElement=new PlaylistElement(playListName,mediaPath,index);
-                if(mediaDataHashMap.containsKey(mediaPath)){
-                    mediaDataHashMap.get(mediaPath).getElements().add(playlistElement);
-                }
-                else {
+            Playlist playlist = entry.getValue();
+            int index = 0;
+            for (Media media1 : playlist.getPlaylistMedia()) {
+                String mediaPath = media1.getAddress();
+                PlaylistElement playlistElement = new PlaylistElement(playListName, mediaPath, index);
+                if (mediaDataHashMap.containsKey(mediaPath)) {
+                    if(!mediaDataHashMap.get(mediaPath).getElements().contains(playlistElement)) {
+                        mediaDataHashMap.get(mediaPath).getElements().add(playlistElement);
+                    }
+                } else {
+                    ArrayList<PlaylistElement> playlistElementArrayList = new ArrayList<>();
                     playlistElementArrayList.add(playlistElement);
-                    MediaData mediaData = new MediaData(playlistElementArrayList);
+                    MediaData mediaData = new MediaData(mediaPath,playlistElementArrayList);
                     mediaDataHashMap.put(mediaPath, mediaData);
                 }
-                    index++;
-           }
+                index++;
+            }
 
 
         }
 
-       // PlaylistElement playlistElement=new PlaylistElement(playlistName,media.getAddress(),index);
+        // PlaylistElement playlistElement=new PlaylistElement(playlistName,media.getAddress(),index);
         //ArrayList<PlaylistElement>playlistElementArrayList =new ArrayList<>();
 
 
     }
 
+    public void saveAndQuit() {
+        try {
+            ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(mediaDataFile));
 
+            outputStream.writeObject(mediaDataHashMap);
+        } catch (IOException e){
+            e.printStackTrace();
+            System.out.println("ne nashod");
+        }
+    }
 
 
 }
