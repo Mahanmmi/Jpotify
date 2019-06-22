@@ -1,32 +1,36 @@
 package logic.media;
 
 import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.AudioDevice;
 import javazoom.jl.player.Player;
 
+import java.io.FileInputStream;
 import java.io.InputStream;
 
 public class PauseablePlayer {
+
     private final static int NOTSTARTED = 0;
     private final static int PLAYING = 1;
     private final static int PAUSED = 2;
     private final static int FINISHED = 3;
-
     private final Player player;
-
     private final Object playerLock = new Object();
-
     private int playerStatus = NOTSTARTED;
-
     public PauseablePlayer(final InputStream inputStream) throws JavaLayerException {
         this.player = new Player(inputStream);
     }
 
-    public void play() {
+    public void play(){
         synchronized (playerLock) {
             switch (playerStatus) {
                 case NOTSTARTED:
-                    Runnable r = this::playInternal;
+                    final Runnable r = new Runnable() {
+                        public void run() {
+                            playInternal();
+                        }
+                    };
                     final Thread t = new Thread(r);
+                    //  t.setDaemon(true);
                     t.setPriority(Thread.MAX_PRIORITY);
                     playerStatus = PLAYING;
                     t.start();
@@ -40,20 +44,22 @@ public class PauseablePlayer {
         }
     }
 
-    public void pause() {
+    public boolean pause() {
         synchronized (playerLock) {
             if (playerStatus == PLAYING) {
                 playerStatus = PAUSED;
             }
+            return playerStatus == PAUSED;
         }
     }
 
-    public void resume() {
+    public boolean resume() {
         synchronized (playerLock) {
             if (playerStatus == PAUSED) {
                 playerStatus = PLAYING;
                 playerLock.notifyAll();
             }
+            return playerStatus == PLAYING;
         }
     }
 
@@ -77,8 +83,7 @@ public class PauseablePlayer {
                 while (playerStatus == PAUSED) {
                     try {
                         playerLock.wait();
-                    } catch (InterruptedException e) {
-                        System.out.println("System f***ed up");
+                    } catch (final InterruptedException e) {
                         break;
                     }
                 }
@@ -93,8 +98,8 @@ public class PauseablePlayer {
         }
         try {
             player.close();
-        } catch (Exception e) {
-            //Ignore
+        } catch (final Exception e) {
+            System.out.println( e.getMessage());
         }
     }
 
