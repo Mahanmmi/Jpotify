@@ -40,7 +40,6 @@ public class StorageManager {
         for (String s : playlistHashMap.keySet()) {
             System.out.println(s + " : " + playlistHashMap.get(s));
         }
-
         new MainPanel();
     }
 
@@ -82,7 +81,7 @@ public class StorageManager {
     }
 
     public void addMedia(File media) {
-        if (!media.getName().endsWith(".mp3")) {
+        if (!media.getName().endsWith(".mp3") || !media.exists()) {
             return;
         }
         if(new File(media.getParent()+"/.nomedia").exists()){
@@ -139,6 +138,9 @@ public class StorageManager {
     private void generatePlaylists() {
         for (String address : mediaDataHashMap.keySet()) {
             Media media = findMediaByAddress(address);
+            if(media == null){
+                continue;
+            }
             ArrayList<PlaylistElement> playlistElements = mediaDataHashMap.get(address).getElements();
             for (PlaylistElement playlistElement : playlistElements) {
                 String playlistName = playlistElement.getPlaylistName();
