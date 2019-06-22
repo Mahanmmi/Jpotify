@@ -44,22 +44,20 @@ public class PauseablePlayer {
         }
     }
 
-    public boolean pause() {
+    public void pause() {
         synchronized (playerLock) {
             if (playerStatus == PLAYING) {
                 playerStatus = PAUSED;
             }
-            return playerStatus == PAUSED;
         }
     }
 
-    public boolean resume() {
+    public void resume() {
         synchronized (playerLock) {
             if (playerStatus == PAUSED) {
                 playerStatus = PLAYING;
                 playerLock.notifyAll();
             }
-            return playerStatus == PLAYING;
         }
     }
 
