@@ -86,21 +86,21 @@ public class MainPanel implements PlaylistLinkable {
         int width = mainPanel.getWidth() - mainPanel.getWidth() / 10;
         int height = mainPanel.getHeight() - mainPanel.getHeight() / 10;
 
-        musicPanel.setPreferredSize(new Dimension(width, height / 6));
-        musicPanel.setMaximumSize(new Dimension(width, height / 6));
-        musicPanel.setMinimumSize(new Dimension(width, height / 6));
+        musicPanel.setPreferredSize(new Dimension(0, height / 5));
+        musicPanel.setMaximumSize(new Dimension(0, height / 5));
+        musicPanel.setMinimumSize(new Dimension(0, height / 5));
 
-        listsPanel.setPreferredSize(new Dimension(width / 5, (height * 6) / 7));
-        listsPanel.setMaximumSize(new Dimension(width / 5, (height * 6) / 7));
-        listsPanel.setMinimumSize(new Dimension(width / 5, (height * 6) / 7));
+        listsPanel.setPreferredSize(new Dimension(width / 5, (height * 5) / 7));
+        listsPanel.setMaximumSize(new Dimension(width / 5, (height * 5) / 7));
+        listsPanel.setMinimumSize(new Dimension(width / 5, (height * 5) / 7));
 
-        friendPanel.setPreferredSize(new Dimension(width / 5, (height * 6) / 7));
-        friendPanel.setMaximumSize(new Dimension(width / 5, (height * 6) / 7));
-        friendPanel.setMinimumSize(new Dimension(width / 5, (height * 6) / 7));
+        friendPanel.setPreferredSize(new Dimension(width / 5, (height * 5) / 7));
+        friendPanel.setMaximumSize(new Dimension(width / 5, (height * 5) / 7));
+        friendPanel.setMinimumSize(new Dimension(width / 5, (height * 5) / 7));
 
-        middlePanel.setPreferredSize(new Dimension((width * 3) / 5, (height * 6) / 7));
-        middlePanel.setMaximumSize(new Dimension((width * 3) / 5, (height * 6) / 7));
-        middlePanel.setMinimumSize(new Dimension((width * 3) / 5, (height * 6) / 7));
+        middlePanel.setPreferredSize(new Dimension((width * 3) / 5, (height * 5) / 7));
+        middlePanel.setMaximumSize(new Dimension((width * 3) / 5, (height * 5) / 7));
+        middlePanel.setMinimumSize(new Dimension((width * 3) / 5, (height * 5) / 7));
     }
 
     private void setMusicPanelIconsAndColors(){
