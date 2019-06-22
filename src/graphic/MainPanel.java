@@ -22,8 +22,15 @@ public class MainPanel implements PlaylistLinkable {
     private JTextArea textArea1;
     private JTextArea textArea2;
     private JTextArea textArea3;
-    private JTextArea textArea4;
     private JTextArea refreshHandler;
+    private JSlider volumeSlider;
+    private JButton button1;
+    private JButton button2;
+    private JButton button3;
+    private JButton button4;
+    private JSlider musicSlider;
+    private JButton musicName;
+    private JButton artist;
     private JFrame frame;
 
 
@@ -59,7 +66,6 @@ public class MainPanel implements PlaylistLinkable {
         textArea1.setBackground(Color.lightGray);
         textArea2.setBackground(Color.lightGray);
         textArea3.setBackground(Color.lightGray);
-        textArea4.setBackground(Color.lightGray);
 
 
         mainPanel.setPreferredSize(new Dimension(frame.getWidth() - frame.getWidth() / 8, frame.getHeight() - frame.getHeight() / 8));

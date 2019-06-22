@@ -119,7 +119,6 @@ public class StorageManager {
     }
 
     private void generatePlaylists() {
-        //TODO
     }
 
     public void updateMediaData() {
