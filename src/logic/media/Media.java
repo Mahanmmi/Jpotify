@@ -16,7 +16,7 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 
 public class Media {
-    private static PauseablePlayer mainPlayer;
+    private static PauseablePlayer mainPlayer=null;
 
     private int pausedOnFrame = 0;
     private String address;
@@ -163,13 +163,19 @@ public class Media {
 
     public static void main(String[] args) throws InterruptedException {
         Media media = new Media("./resources/media/Imagine-Dragons-Digital-128.mp3");
-//        new Media("./resources/media/Barobax - Shervin - www.telegram.me~IranSongs.mp3");
-//        Media media = new Media("1.mp3");
+
+//      new Media("./resources/media/Barobax - Shervin - www.telegram.me~IranSongs.mp3");
+//      Media media = new Media("1.mp3");
 
         media.playFile();
 
         System.out.println("ghsem");
-//        media.setVolume(0.5f);
 
+        Thread.sleep(5000);
+        mainPlayer.pause();
+        Thread.sleep(2000);
+        mainPlayer.resume();
+       // Thread.sleep(10000);
+       // media.setVolume(0.5f);
     }
 }
