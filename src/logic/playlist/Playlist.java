@@ -14,11 +14,23 @@ public abstract class Playlist  implements Serializable {
         this.playlistMedia = playlistMedia;
     }
 
-    private void addMedia(Media media){
+    public void addMedia(Media media){
         playlistMedia.add(media);
     }
 
     public ArrayList<Media> getPlaylistMedia() {
         return playlistMedia;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return "Playlist{" +
+                "name='" + name + '\'' +
+                ", playlistMedia=" + playlistMedia +
+                '}';
     }
 }
