@@ -24,13 +24,15 @@ public class MainPanel implements PlaylistLinkable {
     private JTextArea textArea3;
     private JTextArea refreshHandler;
     private JSlider volumeSlider;
-    private JButton button1;
-    private JButton button2;
-    private JButton button3;
-    private JButton button4;
+    private JButton lastTrackIcon;
+    private JButton volumeIcon;
+    private JButton nextTrackIcon;
+    private JButton play_pusse;
     private JSlider musicSlider;
     private JButton musicName;
     private JButton artist;
+    private JButton favorite;
+    private JButton shared;
     private JFrame frame;
 
 
@@ -74,7 +76,8 @@ public class MainPanel implements PlaylistLinkable {
 
 
         mainPanel.setBackground(Color.BLACK);
-        musicPanel.setBackground(new Color(51, 51, 51));
+      //  musicPanel.setBackground(new Color(51, 51, 51));
+            musicPanel.setBackground(Color.BLACK);
         listsPanel.setBackground(Color.BLACK);
         middlePanel.setBackground(Color.darkGray);
         friendPanel.setBackground(Color.BLACK);
@@ -98,6 +101,20 @@ public class MainPanel implements PlaylistLinkable {
         middlePanel.setPreferredSize(new Dimension((width * 3) / 5, (height * 6) / 7));
         middlePanel.setMaximumSize(new Dimension((width * 3) / 5, (height * 6) / 7));
         middlePanel.setMinimumSize(new Dimension((width * 3) / 5, (height * 6) / 7));
+    }
+
+    private void setMusicPanelIconsAndColors(){
+        nextTrackIcon.setIcon(new ImageIcon(new ImageIcon("./resources/nt.png").getImage().getScaledInstance(nextTrackIcon.getWidth()-5,nextTrackIcon.getHeight()+7,Image.SCALE_SMOOTH)));
+        lastTrackIcon.setIcon(new ImageIcon(new ImageIcon("./resources/lt.png").getImage().getScaledInstance(lastTrackIcon.getWidth()-5,lastTrackIcon.getHeight()+7,Image.SCALE_SMOOTH)));
+        volumeIcon.setIcon(new ImageIcon(new ImageIcon("./resources/v.png").getImage().getScaledInstance(volumeIcon.getWidth()-5,volumeIcon.getHeight()+7,Image.SCALE_SMOOTH)));
+        play_pusse.setIcon( new ImageIcon(new  ImageIcon("./resources/play.png").getImage().getScaledInstance(play_pusse.getWidth()-5,play_pusse.getHeight()+7,Image.SCALE_SMOOTH)));
+        nextTrackIcon.setBackground(Color.black);
+        lastTrackIcon.setBackground(Color.black);
+        play_pusse.setBackground(Color.black);
+        volumeIcon.setBackground(Color.black);
+
+
+
     }
 
     private JMenuBar initMenus() {
@@ -196,8 +213,10 @@ public class MainPanel implements PlaylistLinkable {
     }
 
     public MainPanel() {
+
         initDarkTheme();
         initFrame();
+        setMusicPanelIconsAndColors();
         frame.setVisible(true);
     }
 
