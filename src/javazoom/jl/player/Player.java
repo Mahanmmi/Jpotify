@@ -196,7 +196,7 @@ public class Player
 	 * 
 	 * @return true if there are no more frames to decode, false otherwise.
 	 */
-	protected boolean decodeFrame() throws JavaLayerException
+    public boolean decodeFrame() throws JavaLayerException
 	{		
 		try
 		{

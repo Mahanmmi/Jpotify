@@ -18,7 +18,6 @@ import java.io.*;
 public class Media {
     private static PauseablePlayer mainPlayer;
 
-    private PauseablePlayer player;
     private int pausedOnFrame = 0;
     private String address;
     private Mp3File mp3File;
@@ -49,7 +48,6 @@ public class Media {
         try {
             mp3File = new Mp3File(address);
             this.time = (int) mp3File.getLengthInSeconds();
-            player = new PauseablePlayer(new FileInputStream(address));
 
             if (mp3File.hasId3v1Tag()) {
                 ID3v1 id3v1 = mp3File.getId3v1Tag();
@@ -123,14 +121,14 @@ public class Media {
     }
 
     private void playFile() {
-        if(mainPlayer!=null){
+        if (mainPlayer != null) {
             mainPlayer.stop();
         }
-        mainPlayer = player;
         try {
-            player.play();
-        } catch (JavaLayerException e){
-            System.out.println("JL rid");
+            mainPlayer = new PauseablePlayer(new FileInputStream(address));
+            mainPlayer.play();
+        } catch (FileNotFoundException | JavaLayerException e){
+            System.out.println("File not found for playing!");
         }
     }
 
@@ -163,14 +161,15 @@ public class Media {
                 '}';
     }
 
-    public static void main(String[] args) throws InterruptedException{
+    public static void main(String[] args) throws InterruptedException {
         Media media = new Media("./resources/media/Imagine-Dragons-Digital-128.mp3");
 //        new Media("./resources/media/Barobax - Shervin - www.telegram.me~IranSongs.mp3");
 //        Media media = new Media("1.mp3");
 
         media.playFile();
+
         System.out.println("ghsem");
-        media.setVolume(0.5f);
+//        media.setVolume(0.5f);
 
     }
 }
