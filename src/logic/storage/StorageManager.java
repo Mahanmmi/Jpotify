@@ -145,7 +145,9 @@ public class StorageManager {
 
     }
 
-
+    public void saveAndQuit(){
+        //TODO
+    }
 
 
 }
