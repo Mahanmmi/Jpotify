@@ -82,16 +82,20 @@ public class MainPanel implements PlaylistLinkable {
 
     private void setMusicPanelIconsAndColors() {
         nextTrackButton.setSize(nextTrackButton.getWidth(), nextTrackButton.getHeight() + 10);
-        nextTrackButton.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/Actions-media-seek-forward-icon.png").getImage().getScaledInstance(nextTrackButton.getHeight() + 4, nextTrackButton.getHeight() + 4, Image.SCALE_DEFAULT)));
+        nextTrackButton.setIcon(new ImageIcon("./resources/New Icons/Actions-media-seek-forward-icon.png"));
+//        nextTrackButton.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/Actions-media-seek-forward-icon.png").getImage().getScaledInstance(nextTrackButton.getHeight() + 4, nextTrackButton.getHeight() + 4, Image.SCALE_DEFAULT)));
 
         lastTrackButton.setSize(lastTrackButton.getWidth(), lastTrackButton.getHeight() + 10);
-        lastTrackButton.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/Actions-media-seek-backward-icon.png").getImage().getScaledInstance(lastTrackButton.getHeight() + 4, lastTrackButton.getHeight() + 4, Image.SCALE_DEFAULT)));
+        lastTrackButton.setIcon(new ImageIcon("./resources/New Icons/Actions-media-seek-backward-icon.png"));
+//        lastTrackButton.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/Actions-media-seek-backward-icon.png").getImage().getScaledInstance(lastTrackButton.getHeight() + 4, lastTrackButton.getHeight() + 4, Image.SCALE_DEFAULT)));
 
         volumeButtun.setSize(volumeButtun.getWidth(), volumeButtun.getHeight() + 10);
-        System.out.println(volumeButtun.getSize());
-        volumeButtun.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/speaker-icon.png").getImage().getScaledInstance(volumeButtun.getHeight() + 4, volumeButtun.getHeight() + 4, Image.SCALE_DEFAULT)));
+        volumeButtun.setIcon(new ImageIcon("./resources/New Icons/speaker-icon.png"));
+//        volumeButtun.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/speaker-icon.png").getImage().getScaledInstance(volumeButtun.getHeight() + 4, volumeButtun.getHeight() + 4, Image.SCALE_DEFAULT)));
+
         play_pause.setSize(play_pause.getWidth(), play_pause.getHeight() + 10);
-        play_pause.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-start-icon.png").getImage().getScaledInstance(play_pause.getHeight() + 4, play_pause.getHeight() + 4, Image.SCALE_DEFAULT)));
+        play_pause.setIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-start-icon.png"));
+//        play_pause.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-start-icon.png").getImage().getScaledInstance(play_pause.getHeight() + 4, play_pause.getHeight() + 4, Image.SCALE_DEFAULT)));
     }
 
     private JMenuBar initMenus() {
