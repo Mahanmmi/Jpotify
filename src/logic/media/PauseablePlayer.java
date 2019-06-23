@@ -82,9 +82,7 @@ public class PauseablePlayer {
                     JSlider slider = StorageManager.getInstance().getMainPanel().getMusicSlider();
                     int totalFrames = mp3File.getFrameCount();
                     currentFrame++;
-                    System.out.println(currentFrame*100/totalFrames);
                     slider.setValue(currentFrame*100/totalFrames);
-//                    StorageManager.getInstance().getMainPanel().getMainPanel().revalidate();
                 }
             } catch (final JavaLayerException e) {
                 break;
