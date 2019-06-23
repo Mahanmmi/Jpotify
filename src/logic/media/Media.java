@@ -9,17 +9,12 @@ import com.mpatric.mp3agic.ID3v1;
 import com.mpatric.mp3agic.ID3v2;
 import com.mpatric.mp3agic.Mp3File;
 import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.advanced.AdvancedPlayer;
-import javazoom.jl.player.advanced.PlaybackEvent;
-import javazoom.jl.player.advanced.PlaybackListener;
 
 import java.awt.image.BufferedImage;
 import java.io.*;
 
 public class Media {
-    private static PauseablePlayer mainPlayer=null;
-
-    private int pausedOnFrame = 0;
+    private static PauseablePlayer mainPlayer = null;
     private String address;
     private static Mp3File mp3File;
     private String title;
@@ -103,12 +98,12 @@ public class Media {
         System.out.println("Album : " + album);
         System.out.println("mp3.framerate.fps : " + myPropertiesReader("mp3.framerate.fps"));
 
-//        myByteReader(0, 4);
-//        myByteReader(4, 100);
-//        myByteReader(104, 100);
-//        myByteReader(204, 100);
-//        myByteReader(304, 100);
-//        myByteReader(404, 100);
+        myByteReader(0, 4);
+        myByteReader(4, 100);
+        myByteReader(104, 100);
+        myByteReader(204, 100);
+        myByteReader(304, 100);
+        myByteReader(404, 100);
 */
     }
   /*  public float getVolume() {
@@ -131,7 +126,6 @@ public class Media {
             mainPlayer.play();}
             else
                 mainPlayer=new PauseablePlayer(new FileInputStream(address),startingFrame);
-
     }
 
     private void playFile() {
@@ -139,7 +133,7 @@ public class Media {
             mainPlayer.stop();
         }
         try {
-            mainPlayer = new PauseablePlayer(new FileInputStream(address),0);
+            mainPlayer = new PauseablePlayer(new FileInputStream(address), 0);
             mainPlayer.play();
             isPlaying=true;
         } catch (FileNotFoundException | JavaLayerException e){
@@ -178,18 +172,18 @@ public class Media {
 
 
     public static void main(String[] args) throws InterruptedException, JavaLayerException {
-       // Media media = new Media("./resources/media/Imagine-Dragons-Digital-128.mp3");
+        Media media = new Media("E:/Music/Imagine-Dragons-Digital-128.mp3");
 
 //      new Media("./resources/media/Barobax - Shervin - www.telegram.me~IranSongs.mp3");
-       Media media = new Media("1.mp3");
-        media.playFile(5000);
-       // mainPlayer.play();
+//       Media media = new Media("1.mp3");
+        media.playFile();
+        // mainPlayer.play();
         System.out.println("fffuck");
-        System.out.println("---"+mp3File.getFrameCount());
+//        System.out.println("---"+mp3File.getFrameCount());
         Thread.sleep(5000);
 
 
-      //  mainPlayer.moveSlider(60,  mp3File.getFrameCount());
+        //  mainPlayer.moveSlider(60,  mp3File.getFrameCount());
 
 
 

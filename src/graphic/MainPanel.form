@@ -30,7 +30,16 @@
                 <constraints/>
                 <properties>
                   <background color="-11974327"/>
-                  <borderPainted value="true"/>
+                  <borderPainted value="false"/>
+                  <focusable value="false"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="ac522" class="javax.swing.JButton" binding="play_pause">
+                <constraints/>
+                <properties>
+                  <background color="-11974327"/>
+                  <borderPainted value="false"/>
                   <focusable value="false"/>
                   <text value=""/>
                 </properties>
@@ -45,15 +54,6 @@
                 </properties>
               </component>
               <component id="44a96" class="javax.swing.JButton" binding="volumeButtun">
-                <constraints/>
-                <properties>
-                  <background color="-11974327"/>
-                  <borderPainted value="false"/>
-                  <focusable value="false"/>
-                  <text value=""/>
-                </properties>
-              </component>
-              <component id="ac522" class="javax.swing.JButton" binding="play_pause">
                 <constraints/>
                 <properties>
                   <background color="-11974327"/>
@@ -119,6 +119,8 @@
                     </constraints>
                     <properties>
                       <background color="-16777216"/>
+                      <borderPainted value="false"/>
+                      <focusable value="false"/>
                       <text value=""/>
                     </properties>
                   </component>
@@ -128,6 +130,8 @@
                     </constraints>
                     <properties>
                       <background color="-16777216"/>
+                      <borderPainted value="false"/>
+                      <focusable value="false"/>
                       <text value=""/>
                     </properties>
                   </component>
