@@ -8,6 +8,8 @@ import logic.playlist.UserPlaylist;
 import logic.storage.StorageManager;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
@@ -41,6 +43,7 @@ public class MainPanel implements PlaylistLinkable {
     private JButton shared;
     private JSlider musicSlider;
     private JFrame frame;
+    private  int sliderPosition;
 
 
     private void initDarkTheme() {
@@ -207,6 +210,18 @@ public class MainPanel implements PlaylistLinkable {
         updatePanelSizeAndColors();
         frame.setJMenuBar(initMenus());
     }
+    public void setActionListenerToSlider(){
+
+      musicSlider.addChangeListener(new ChangeListener() {
+          @Override
+          public void stateChanged(ChangeEvent e) {
+              musicSlider.getValue();
+          }
+      });
+    }
+
+
+
 
     public MainPanel() {
 
