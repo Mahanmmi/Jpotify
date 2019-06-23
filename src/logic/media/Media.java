@@ -3,8 +3,6 @@ package logic.media;
 import javax.imageio.ImageIO;
 import javax.sound.sampled.*;
 import javax.swing.*;
-
-import com.mpatric.mp3agic.FileWrapper;
 import com.mpatric.mp3agic.ID3v1;
 import com.mpatric.mp3agic.ID3v2;
 import com.mpatric.mp3agic.Mp3File;
@@ -15,6 +13,7 @@ import java.io.*;
 
 public class Media {
     private static PauseablePlayer mainPlayer = null;
+
     private String address;
     private static Mp3File mp3File;
     private String title;
