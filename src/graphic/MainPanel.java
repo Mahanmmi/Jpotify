@@ -81,6 +81,12 @@ public class MainPanel implements PlaylistLinkable {
     }
 
     private void setMusicPanelIconsAndColors() {
+        favorite.setSize(favorite.getWidth(),favorite.getHeight()+10);
+        favorite.setIcon(new ImageIcon("./resources/New Icons/heart-icon.png"));
+
+        shared.setSize(shared.getWidth(),shared.getHeight()+10);
+        shared.setIcon(new ImageIcon("./resources/New Icons/share-icon.png"));
+
         nextTrackButton.setSize(nextTrackButton.getWidth(), nextTrackButton.getHeight() + 10);
         nextTrackButton.setIcon(new ImageIcon("./resources/New Icons/Actions-media-seek-forward-icon.png"));
 //        nextTrackButton.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/Actions-media-seek-forward-icon.png").getImage().getScaledInstance(nextTrackButton.getHeight() + 4, nextTrackButton.getHeight() + 4, Image.SCALE_DEFAULT)));
