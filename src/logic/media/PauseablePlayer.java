@@ -2,6 +2,7 @@ package logic.media;
 
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
+import javazoom.jl.player.advanced.AdvancedPlayer;
 
 import java.io.InputStream;
 
@@ -11,14 +12,18 @@ public class PauseablePlayer {
     private final static int PLAYING = 1;
     private final static int PAUSED = 2;
     private final static int FINISHED = 3;
-    private final Player player;
+    private final AdvancedPlayer player;
     private final Object playerLock = new Object();
     private int playerStatus = NOTSTARTED;
-    PauseablePlayer(final InputStream inputStream) throws JavaLayerException {
-        this.player = new Player(inputStream);
+    private int startingFrame;
+
+    PauseablePlayer(final InputStream inputStream, int startingFrame) throws JavaLayerException {
+        this.player = new AdvancedPlayer(inputStream);
+        this.startingFrame = startingFrame;
+        player.play(startingFrame,startingFrame);
     }
 
-    void play(){
+    void play() {
         synchronized (playerLock) {
             switch (playerStatus) {
                 case NOTSTARTED:
@@ -91,8 +96,9 @@ public class PauseablePlayer {
         try {
             player.close();
         } catch (final Exception e) {
-            System.out.println( e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
+
 
 }

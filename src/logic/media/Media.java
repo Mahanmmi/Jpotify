@@ -4,6 +4,7 @@ import javax.imageio.ImageIO;
 import javax.sound.sampled.*;
 import javax.swing.*;
 
+import com.mpatric.mp3agic.FileWrapper;
 import com.mpatric.mp3agic.ID3v1;
 import com.mpatric.mp3agic.ID3v2;
 import com.mpatric.mp3agic.Mp3File;
@@ -20,13 +21,14 @@ public class Media {
 
     private int pausedOnFrame = 0;
     private String address;
-    private Mp3File mp3File;
+    private static Mp3File mp3File;
     private String title;
     private String artist;
     private String album;
     private String year;
     private int genre;
     private int time;
+
 
  /*   private Object myPropertiesReader(String prop) {
         try {
@@ -120,12 +122,17 @@ public class Media {
         gainControl.setValue(20f * (float) Math.log10(volume));
     }
 
+    public void seekTo(int startingFrame){
+
+
+    }
+
     private void playFile() {
         if (mainPlayer != null) {
             mainPlayer.stop();
         }
         try {
-            mainPlayer = new PauseablePlayer(new FileInputStream(address));
+            mainPlayer = new PauseablePlayer(new FileInputStream(address),0);
             mainPlayer.play();
         } catch (FileNotFoundException | JavaLayerException e){
             System.out.println("File not found for playing!");
@@ -161,13 +168,24 @@ public class Media {
                 '}';
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        Media media = new Media("./resources/media/Imagine-Dragons-Digital-128.mp3");
+
+    public static void main(String[] args) throws InterruptedException, JavaLayerException {
+       // Media media = new Media("./resources/media/Imagine-Dragons-Digital-128.mp3");
 
 //      new Media("./resources/media/Barobax - Shervin - www.telegram.me~IranSongs.mp3");
-//      Media media = new Media("1.mp3");
+       Media media = new Media("1.mp3");
+        media.playFile(5000);
+       // mainPlayer.play();
+        System.out.println("fffuck");
+        System.out.println("---"+mp3File.getFrameCount());
+        Thread.sleep(5000);
 
-        media.playFile();
+
+      //  mainPlayer.moveSlider(60,  mp3File.getFrameCount());
+
+
+
+    /*   media.playFile();
 
         System.out.println("ghsem");
 
@@ -175,7 +193,7 @@ public class Media {
         mainPlayer.pause();
         Thread.sleep(2000);
         mainPlayer.resume();
-       // Thread.sleep(10000);
-       // media.setVolume(0.5f);
+        Thread.sleep(10000);
+       // media.setVolume(0.5f);*/
     }
 }

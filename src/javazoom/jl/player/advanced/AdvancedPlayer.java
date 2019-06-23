@@ -142,7 +142,7 @@ public class AdvancedPlayer
 	 *
 	 * @return true if there are no more frames to decode, false otherwise.
 	 */
-	protected boolean decodeFrame() throws JavaLayerException
+    public boolean decodeFrame() throws JavaLayerException
 	{
 		try
 		{
@@ -177,7 +177,7 @@ public class AdvancedPlayer
 	 * skips over a single frame
 	 * @return false	if there are no more frames to decode, true otherwise.
 	 */
-	protected boolean skipFrame() throws JavaLayerException
+    public boolean skipFrame() throws JavaLayerException
 	{
 		Header h = bitstream.readFrame();
 		if (h == null) return false;
