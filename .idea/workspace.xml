@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1a95d4ed-33b3-4a73-8eac-43d2f1007de0" name="Default Changelist" comment="GUI Reworked">
+    <list default="true" id="1a95d4ed-33b3-4a73-8eac-43d2f1007de0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/media/PauseablePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/media/PauseablePlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphic/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphic/MainPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/storage/StorageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/storage/StorageManager.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,10 +33,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/logic/storage/StorageManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+            <state relative-caret-position="391">
+              <caret line="43" column="22" lean-forward="true" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
               <folding>
-                <element signature="e#1226#1305#1" />
+                <element signature="e#1423#1424#0" expanded="true" />
                 <element signature="e#1455#1456#0" expanded="true" />
                 <element signature="method#load#0;class#StorageManager#0" />
                 <element signature="method#addDirectory#0;class#StorageManager#0" />
@@ -73,21 +74,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="855">
-              <caret line="275" column="30" selection-start-line="275" selection-start-column="30" selection-end-line="275" selection-end-column="30" />
+            <state relative-caret-position="397">
+              <caret line="276" column="5" lean-forward="true" selection-start-line="276" selection-start-column="5" selection-end-line="276" selection-end-column="5" />
               <folding>
                 <element signature="e#1450#1451#0" expanded="true" />
                 <element signature="e#1482#1483#0" expanded="true" />
                 <element signature="e#1453#1454#0" expanded="true" />
                 <element signature="e#1487#1488#0" expanded="true" />
-                <element signature="e#1947#1978#0" expanded="true" />
+                <element signature="e#2027#2058#0" expanded="true" />
                 <element signature="method#newFrameInitialSettings#0;class#MainPanel#0" />
                 <element signature="method#initFrame#0;class#MainPanel#0" />
-                <element signature="e#10533#10699#0" expanded="true" />
-                <element signature="e#10698#10699#0" expanded="true" />
+                <element signature="e#10613#10779#0" expanded="true" />
+                <element signature="e#10778#10779#0" expanded="true" />
+                <element signature="e#10950#11406#0" expanded="true" />
+                <element signature="e#11405#11406#0" expanded="true" />
                 <element signature="e#11750#11751#0" expanded="true" />
                 <element signature="e#11788#11789#0" expanded="true" />
               </folding>
@@ -95,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/logic/media/PauseablePlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="83" column="35" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
+            <state relative-caret-position="345">
+              <caret line="85" column="17" lean-forward="true" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,8 +118,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/logic/media/Media.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="159" column="99" selection-start-line="159" selection-start-column="99" selection-end-line="159" selection-end-column="99" />
+            <state relative-caret-position="-158">
+              <caret line="159" column="64" lean-forward="true" selection-start-line="159" selection-start-column="64" selection-end-line="159" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#5659#5660#0" expanded="true" />
@@ -174,10 +177,10 @@
         <option value="$PROJECT_DIR$/src/logic/playlist/PlaylistElement.java" />
         <option value="$PROJECT_DIR$/src/graphic/AddPlaylistPanel.java" />
         <option value="$PROJECT_DIR$/src/graphic/MainPanel.form" />
-        <option value="$PROJECT_DIR$/src/logic/storage/StorageManager.java" />
-        <option value="$PROJECT_DIR$/src/graphic/MainPanel.java" />
         <option value="$PROJECT_DIR$/src/logic/media/Media.java" />
         <option value="$PROJECT_DIR$/src/logic/media/PauseablePlayer.java" />
+        <option value="$PROJECT_DIR$/src/logic/storage/StorageManager.java" />
+        <option value="$PROJECT_DIR$/src/graphic/MainPanel.java" />
       </list>
     </option>
   </component>
@@ -374,7 +377,7 @@
       <workItem from="1561115468544" duration="1083000" />
       <workItem from="1561188048008" duration="15863000" />
       <workItem from="1561273162850" duration="9286000" />
-      <workItem from="1561287153923" duration="8922000" />
+      <workItem from="1561287153923" duration="9911000" />
     </task>
     <task id="LOCAL-00001" summary="Main Panels size set.">
       <created>1559747766216</created>
@@ -635,17 +638,24 @@
       <option name="project" value="LOCAL" />
       <updated>1561296145478</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Musicslidebar updated">
+      <created>1561296182091</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1561296182091</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85285000" />
+    <option name="totallyTimeSpent" value="86274000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22483222" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.22483222" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -701,10 +711,11 @@
     <MESSAGE value="Icons added" />
     <MESSAGE value="Icon added" />
     <MESSAGE value="Play pause button linked to player&#10;Auto playlists added!" />
-    <MESSAGE value="GUI Reworked" />
     <MESSAGE value="names updated" />
     <MESSAGE value="Slidebar linked" />
-    <option name="LAST_COMMIT_MESSAGE" value="Slidebar linked" />
+    <MESSAGE value="GUI Reworked" />
+    <MESSAGE value="Musicslidebar updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Musicslidebar updated" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/javax/swing/JFrame.java">
@@ -900,29 +911,20 @@
     <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/storage/StorageManager.java">
+    <entry file="file://$PROJECT_DIR$/src/logic/media/PauseablePlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+        <state relative-caret-position="345">
+          <caret line="85" column="17" lean-forward="true" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
           <folding>
-            <element signature="e#1226#1305#1" />
-            <element signature="e#1455#1456#0" expanded="true" />
-            <element signature="method#load#0;class#StorageManager#0" />
-            <element signature="method#addDirectory#0;class#StorageManager#0" />
-            <element signature="method#addMedia#0;class#StorageManager#0" />
-            <element signature="method#generateAlbums#0;class#StorageManager#0" />
-            <element signature="method#findMediaByAddress#0;class#StorageManager#0" />
-            <element signature="method#generatePlaylists#0;class#StorageManager#0" />
-            <element signature="method#updateMediaData#0;class#StorageManager#0" />
-            <element signature="method#saveAndQuit#0;class#StorageManager#0" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/media/Media.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="159" column="99" selection-start-line="159" selection-start-column="99" selection-end-line="159" selection-end-column="99" />
+        <state relative-caret-position="-158">
+          <caret line="159" column="64" lean-forward="true" selection-start-line="159" selection-start-column="64" selection-end-line="159" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#5659#5660#0" expanded="true" />
@@ -938,32 +940,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/storage/StorageManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="43" column="22" lean-forward="true" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
+          <folding>
+            <element signature="e#1423#1424#0" expanded="true" />
+            <element signature="e#1455#1456#0" expanded="true" />
+            <element signature="method#load#0;class#StorageManager#0" />
+            <element signature="method#addDirectory#0;class#StorageManager#0" />
+            <element signature="method#addMedia#0;class#StorageManager#0" />
+            <element signature="method#generateAlbums#0;class#StorageManager#0" />
+            <element signature="method#findMediaByAddress#0;class#StorageManager#0" />
+            <element signature="method#generatePlaylists#0;class#StorageManager#0" />
+            <element signature="method#updateMediaData#0;class#StorageManager#0" />
+            <element signature="method#saveAndQuit#0;class#StorageManager#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="275" column="30" selection-start-line="275" selection-start-column="30" selection-end-line="275" selection-end-column="30" />
+        <state relative-caret-position="397">
+          <caret line="276" column="5" lean-forward="true" selection-start-line="276" selection-start-column="5" selection-end-line="276" selection-end-column="5" />
           <folding>
             <element signature="e#1450#1451#0" expanded="true" />
             <element signature="e#1482#1483#0" expanded="true" />
             <element signature="e#1453#1454#0" expanded="true" />
             <element signature="e#1487#1488#0" expanded="true" />
-            <element signature="e#1947#1978#0" expanded="true" />
+            <element signature="e#2027#2058#0" expanded="true" />
             <element signature="method#newFrameInitialSettings#0;class#MainPanel#0" />
             <element signature="method#initFrame#0;class#MainPanel#0" />
-            <element signature="e#10533#10699#0" expanded="true" />
-            <element signature="e#10698#10699#0" expanded="true" />
+            <element signature="e#10613#10779#0" expanded="true" />
+            <element signature="e#10778#10779#0" expanded="true" />
+            <element signature="e#10950#11406#0" expanded="true" />
+            <element signature="e#11405#11406#0" expanded="true" />
             <element signature="e#11750#11751#0" expanded="true" />
             <element signature="e#11788#11789#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/media/PauseablePlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="83" column="35" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

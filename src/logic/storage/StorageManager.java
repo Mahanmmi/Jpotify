@@ -38,9 +38,6 @@ public class StorageManager {
         generateAlbums();
         generatePlaylists();
 
-        for (String s : playlistHashMap.keySet()) {
-            System.out.println(s + " : " + playlistHashMap.get(s));
-        }
         mainPanel = new MainPanel();
     }
 

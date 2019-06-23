@@ -259,14 +259,25 @@ public class MainPanel implements PlaylistLinkable {
     }
 
     public void setActionListenerToSlider() {
-        musicSlider.addChangeListener(e -> {
-            try {
-//                  System.out.println(musicSlider.getValue());
-                Media.getNowPlaying().seekTo(musicSlider.getValue());
-            } catch (FileNotFoundException | JavaLayerException e1) {
-                e1.printStackTrace();
+        musicSlider.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                Media.getNowPlaying().pauseFile();
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                try {
+                    System.out.println();
+                    System.out.println(musicSlider.getValue());
+                    Media.getNowPlaying().seekTo(musicSlider.getValue());
+                } catch (FileNotFoundException | JavaLayerException e1) {
+                    e1.printStackTrace();
+                }
             }
         });
+//        musicSlider.addChangeListener(e -> {
+//
+//        });
     }
 
 
