@@ -175,7 +175,7 @@
           </component>
         </children>
       </grid>
-      <grid id="a227e" binding="upperPannel" layout-manager="BorderLayout" hgap="0" vgap="0">
+      <grid id="a227e" binding="upperPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints border-constraint="Center"/>
         <properties>
           <background color="-16777216"/>

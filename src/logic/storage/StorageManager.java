@@ -84,7 +84,7 @@ public class StorageManager {
         if (!media.getName().endsWith(".mp3") || !media.exists()) {
             return;
         }
-        if(new File(media.getParent()+"/.nomedia").exists()){
+        if (new File(media.getParent() + "/.nomedia").exists()) {
             return;
         }
         for (Media savedMedia : mediaArrayList) {
@@ -138,7 +138,7 @@ public class StorageManager {
     private void generatePlaylists() {
         for (String address : mediaDataHashMap.keySet()) {
             Media media = findMediaByAddress(address);
-            if(media == null){
+            if (media == null) {
                 continue;
             }
             ArrayList<PlaylistElement> playlistElements = mediaDataHashMap.get(address).getElements();
@@ -158,29 +158,37 @@ public class StorageManager {
                 playlist.addMedia(media);
             }
         }
+
+        if (!playlistHashMap.containsKey("Shared")) {
+            playlistHashMap.put("Shared", new AutoPlayList("Shared"));
+        }
+        if (!playlistHashMap.containsKey("Favorite")) {
+            playlistHashMap.put("Favorite", new AutoPlayList("Favorite"));
+        }
+
         for (Playlist playlist : playlistHashMap.values()) {
             playlist.getPlaylistMedia().sort((a, b) -> {
                 PlaylistElement aElement = null;
                 for (PlaylistElement element : mediaDataHashMap.get(a.getAddress()).getElements()) {
-                    if(element.getPlaylistName().equals(playlist.getName())){
+                    if (element.getPlaylistName().equals(playlist.getName())) {
                         aElement = element;
                         break;
                     }
                 }
                 PlaylistElement bElement = null;
                 for (PlaylistElement element : mediaDataHashMap.get(b.getAddress()).getElements()) {
-                    if(element.getPlaylistName().equals(playlist.getName())){
+                    if (element.getPlaylistName().equals(playlist.getName())) {
                         bElement = element;
                         break;
                     }
                 }
-                if(aElement == null){
+                if (aElement == null) {
                     return 1;
                 }
-                if(bElement == null){
+                if (bElement == null) {
                     return -1;
                 }
-                return Integer.compare(aElement.getIndex(),bElement.getIndex());
+                return Integer.compare(aElement.getIndex(), bElement.getIndex());
             });
         }
     }
@@ -206,8 +214,16 @@ public class StorageManager {
                 }
                 index++;
             }
-
-
+        }
+        for (MediaData mediaData : mediaDataHashMap.values()) {
+            for(int i=0;i<mediaData.getElements().size();i++){
+                PlaylistElement element = mediaData.getElements().get(i);
+                Media media = findMediaByAddress(element.getSongAddress());
+                if(!playlistHashMap.get(element.getPlaylistName()).getPlaylistMedia().contains(media)){
+                    mediaData.getElements().remove(i);
+                    i--;
+                }
+            }
         }
 
         // PlaylistElement playlistElement=new PlaylistElement(playlistName,media.getAddress(),index);

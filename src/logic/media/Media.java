@@ -3,26 +3,59 @@ package logic.media;
 import javax.imageio.ImageIO;
 import javax.sound.sampled.*;
 import javax.swing.*;
+
 import com.mpatric.mp3agic.ID3v1;
 import com.mpatric.mp3agic.ID3v2;
 import com.mpatric.mp3agic.Mp3File;
 import javazoom.jl.decoder.JavaLayerException;
+import logic.storage.StorageManager;
 
 import java.awt.image.BufferedImage;
 import java.io.*;
 
 public class Media {
     private static PauseablePlayer mainPlayer = null;
+    private static Media nowPlaying = null;
+    private static boolean isPlaying = false;
+    private static boolean isMute = false;
+    private static Mp3File mp3File;
+
+    public static Media getNowPlaying() {
+        return nowPlaying;
+    }
+
+    public static boolean isPlaying() {
+        return isPlaying;
+    }
+
+    public static void setPlaying(boolean isPlaying) {
+        Media.isPlaying = isPlaying;
+    }
+
+    public static boolean isMute() {
+        return isMute;
+    }
+
+    public static void setMute(boolean isMute) {
+        Media.isMute = isMute;
+    }
 
     private String address;
-    private static Mp3File mp3File;
     private String title;
     private String artist;
     private String album;
     private String year;
     private int genre;
     private int time;
-    private static Boolean isPlaying;
+
+    public boolean isFave() {
+        return StorageManager.getInstance().getPlaylistHashMap().get("Favorite").getPlaylistMedia().contains(this);
+    }
+
+    public boolean isShared() {
+        return StorageManager.getInstance().getPlaylistHashMap().get("Shared").getPlaylistMedia().contains(this);
+    }
+
 
 
  /*   private Object myPropertiesReader(String prop) {
@@ -118,24 +151,33 @@ public class Media {
     }
 
     public void seekTo(int sliderPosition) throws FileNotFoundException, JavaLayerException {
-        int startingFrame=(int)(sliderPosition*mp3File.getFrameCount()/100.0);
+        int startingFrame = (int) (sliderPosition * mp3File.getFrameCount() / 100.0);
         mainPlayer.close();
-        if(isPlaying){
-            mainPlayer = new PauseablePlayer(new FileInputStream(address),startingFrame);
-            mainPlayer.play();}
-            else
-                mainPlayer=new PauseablePlayer(new FileInputStream(address),startingFrame);
+        if (isPlaying) {
+            mainPlayer = new PauseablePlayer(new FileInputStream(address), startingFrame);
+            mainPlayer.play();
+        } else
+            mainPlayer = new PauseablePlayer(new FileInputStream(address), startingFrame);
     }
 
-    private void playFile() {
+    public void pauseFile(){
+        mainPlayer.pause();
+    }
+
+    public void resumeFile(){
+        mainPlayer.resume();
+    }
+
+    public void playFile() {
         if (mainPlayer != null) {
             mainPlayer.stop();
         }
         try {
             mainPlayer = new PauseablePlayer(new FileInputStream(address), 0);
+            nowPlaying = this;
             mainPlayer.play();
-            isPlaying=true;
-        } catch (FileNotFoundException | JavaLayerException e){
+            isPlaying = true;
+        } catch (FileNotFoundException | JavaLayerException e) {
             System.out.println("File not found for playing!");
         }
     }
