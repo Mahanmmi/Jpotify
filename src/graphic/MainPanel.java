@@ -1,5 +1,8 @@
 package graphic;
 
+import ch.randelshofer.quaqua.QuaquaButtonUI;
+import ch.randelshofer.quaqua.QuaquaManager;
+import ch.randelshofer.quaqua.jaguar.Quaqua15JaguarLookAndFeel;
 import logic.media.Media;
 import logic.media.MediaData;
 import logic.playlist.Playlist;
@@ -12,6 +15,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class MainPanel implements PlaylistLinkable {
     private JPanel mainPanel;
@@ -27,7 +32,7 @@ public class MainPanel implements PlaylistLinkable {
     private JButton lastTrackIcon;
     private JButton volumeIcon;
     private JButton nextTrackIcon;
-    private JButton play_pusse;
+    private JButton play_pause;
     private JSlider musicSlider;
     private JButton musicName;
     private JButton artist;
@@ -37,27 +42,17 @@ public class MainPanel implements PlaylistLinkable {
 
 
     private void initDarkTheme() {
-        UIManager.put("control", new Color(128, 128, 128));
-        UIManager.put("info", new Color(128, 128, 128));
-        UIManager.put("nimbusBase", new Color(18, 30, 49));
-        UIManager.put("nimbusAlertYellow", new Color(248, 187, 0));
-        UIManager.put("nimbusDisabledText", new Color(128, 128, 128));
-        UIManager.put("nimbusFocus", new Color(115, 164, 209));
-        UIManager.put("nimbusGreen", new Color(176, 179, 50));
-        UIManager.put("nimbusInfoBlue", new Color(66, 139, 221));
-        UIManager.put("nimbusLightBackground", new Color(18, 30, 49));
-        UIManager.put("nimbusOrange", new Color(191, 98, 4));
-        UIManager.put("nimbusRed", new Color(169, 46, 34));
-        UIManager.put("nimbusSelectedText", new Color(255, 255, 255));
-        UIManager.put("nimbusSelectionBackground", new Color(104, 93, 156));
-        UIManager.put("text", new Color(230, 230, 230));
+        System.setProperty(
+                "Quaqua.design","lion"
+
+        );
+        Set<String> excludes = new HashSet<>();
+        excludes.add("RootPane");
+        excludes.add("TextField");
+        excludes.add("FileChooser");
+        QuaquaManager.setExcludedUIs(excludes);
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
+            UIManager.setLookAndFeel(QuaquaManager.getLookAndFeelClassName());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -76,8 +71,7 @@ public class MainPanel implements PlaylistLinkable {
 
 
         mainPanel.setBackground(Color.BLACK);
-      //  musicPanel.setBackground(new Color(51, 51, 51));
-            musicPanel.setBackground(Color.BLACK);
+        musicPanel.setBackground(Color.BLACK);
         listsPanel.setBackground(Color.BLACK);
         middlePanel.setBackground(Color.darkGray);
         friendPanel.setBackground(Color.BLACK);
@@ -103,16 +97,15 @@ public class MainPanel implements PlaylistLinkable {
         middlePanel.setMinimumSize(new Dimension((width * 3) / 5, (height * 5) / 7));
     }
 
-    private void setMusicPanelIconsAndColors(){
-        nextTrackIcon.setIcon(new ImageIcon(new ImageIcon("./resources/nt.png").getImage().getScaledInstance(nextTrackIcon.getWidth()-5,nextTrackIcon.getHeight()+7,Image.SCALE_SMOOTH)));
-        lastTrackIcon.setIcon(new ImageIcon(new ImageIcon("./resources/lt.png").getImage().getScaledInstance(lastTrackIcon.getWidth()-5,lastTrackIcon.getHeight()+7,Image.SCALE_SMOOTH)));
-        volumeIcon.setIcon(new ImageIcon(new ImageIcon("./resources/v.png").getImage().getScaledInstance(volumeIcon.getWidth()-5,volumeIcon.getHeight()+7,Image.SCALE_SMOOTH)));
-        play_pusse.setIcon( new ImageIcon(new  ImageIcon("./resources/play.png").getImage().getScaledInstance(play_pusse.getWidth()-5,play_pusse.getHeight()+7,Image.SCALE_SMOOTH)));
+    private void setMusicPanelIconsAndColors() {
+        nextTrackIcon.setIcon(new ImageIcon(new ImageIcon("./resources/nt.png").getImage().getScaledInstance(nextTrackIcon.getWidth() - 5, nextTrackIcon.getHeight() + 7, Image.SCALE_SMOOTH)));
+        lastTrackIcon.setIcon(new ImageIcon(new ImageIcon("./resources/lt.png").getImage().getScaledInstance(lastTrackIcon.getWidth() - 5, lastTrackIcon.getHeight() + 7, Image.SCALE_SMOOTH)));
+        volumeIcon.setIcon(new ImageIcon(new ImageIcon("./resources/v.png").getImage().getScaledInstance(volumeIcon.getWidth() - 5, volumeIcon.getHeight() + 7, Image.SCALE_SMOOTH)));
+        play_pause.setIcon(new ImageIcon(new ImageIcon("./resources/play.png").getImage().getScaledInstance(play_pause.getWidth() - 5, play_pause.getHeight() + 7, Image.SCALE_SMOOTH)));
         nextTrackIcon.setBackground(Color.black);
         lastTrackIcon.setBackground(Color.black);
-        play_pusse.setBackground(Color.black);
+        play_pause.setBackground(Color.black);
         volumeIcon.setBackground(Color.black);
-
 
 
     }
@@ -182,7 +175,6 @@ public class MainPanel implements PlaylistLinkable {
         frame = new JFrame("Jpotify");
         newFrameInitialSettings(frame, mainPanel);
 
-
         frame.addWindowStateListener(event -> {
             if (event.getNewState() == 6 || event.getOldState() == 6) {
                 updatePanelSizeAndColors();
@@ -194,7 +186,9 @@ public class MainPanel implements PlaylistLinkable {
                     robot.keyRelease(KeyEvent.VK_0);
                     robot.keyPress(KeyEvent.VK_BACK_SPACE);
                     robot.keyRelease(KeyEvent.VK_BACK_SPACE);
-                    refreshHandler.transferFocus();
+                    frame.revalidate();
+                    mainPanel.revalidate();
+                    mainPanel.grabFocus();
                 } catch (AWTException e) {
                     e.printStackTrace();
                 }
@@ -227,8 +221,8 @@ public class MainPanel implements PlaylistLinkable {
         System.out.println(result);
 
         HashMap<String, Playlist> playlistHashMap = StorageManager.getInstance().getPlaylistHashMap();
-        HashMap<String, MediaData> playListMediaDataHashMap=StorageManager.getInstance().getMediaDataHashMap();
-        playlistHashMap.put(name,new UserPlaylist(name,result));
+        HashMap<String, MediaData> playListMediaDataHashMap = StorageManager.getInstance().getMediaDataHashMap();
+        playlistHashMap.put(name, new UserPlaylist(name, result));
         StorageManager.getInstance().updateMediaData();
         //in ja fek konam kamel shod hamaaaal
         frame.setVisible(true);
@@ -239,7 +233,7 @@ public class MainPanel implements PlaylistLinkable {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> StorageManager.getInstance().saveAndQuit(), "Shutdown-thread"));
         System.out.println(StorageManager.getInstance().getMediaArrayList());
     }

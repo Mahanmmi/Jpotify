@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="quaqua">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/quaqua.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/swing-layout.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <NATIVE>
+      <root url="file://$PROJECT_DIR$/lib" />
+    </NATIVE>
+    <SOURCES />
+    <jarDirectory url="jar://$PROJECT_DIR$/lib/swing-layout.jar!/" recursive="false" />
+  </library>
+</component>

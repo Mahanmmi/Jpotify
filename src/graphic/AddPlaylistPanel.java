@@ -79,12 +79,12 @@ public class AddPlaylistPanel {
                 if (name.equals("Favorite") || name.equals("Shared") || name.equals("") || StorageManager.getInstance().getPlaylistHashMap().containsKey(name)) {
                     playlistName.setBackground(Color.RED);
                 } else {
-                    playlistName.setBackground(new Color(18, 30, 49));
+                    playlistName.setBackground(Color.WHITE);
                 }
                 if(result.size()==0){
                     addedList.setBackground(Color.RED);
                 } else {
-                    addedList.setBackground(new Color(18, 30, 49));
+                    addedList.setBackground(Color.WHITE);
                 }
             }
 
