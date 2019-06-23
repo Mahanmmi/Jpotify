@@ -28,6 +28,7 @@ public class Media {
     private String year;
     private int genre;
     private int time;
+    private static Boolean isPlaying;
 
 
  /*   private Object myPropertiesReader(String prop) {
@@ -122,8 +123,14 @@ public class Media {
         gainControl.setValue(20f * (float) Math.log10(volume));
     }
 
-    public void seekTo(int startingFrame){
-
+    public void seekTo(int sliderPosition) throws FileNotFoundException, JavaLayerException {
+        int startingFrame=(int)(sliderPosition*mp3File.getFrameCount()/100.0);
+        mainPlayer.close();
+        if(isPlaying){
+            mainPlayer = new PauseablePlayer(new FileInputStream(address),startingFrame);
+            mainPlayer.play();}
+            else
+                mainPlayer=new PauseablePlayer(new FileInputStream(address),startingFrame);
 
     }
 
@@ -134,6 +141,7 @@ public class Media {
         try {
             mainPlayer = new PauseablePlayer(new FileInputStream(address),0);
             mainPlayer.play();
+            isPlaying=true;
         } catch (FileNotFoundException | JavaLayerException e){
             System.out.println("File not found for playing!");
         }

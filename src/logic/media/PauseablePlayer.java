@@ -89,7 +89,7 @@ public class PauseablePlayer {
         close();
     }
 
-    private void close() {
+    public void close() {
         synchronized (playerLock) {
             playerStatus = FINISHED;
         }
