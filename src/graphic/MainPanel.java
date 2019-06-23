@@ -1,6 +1,7 @@
 package graphic;
 
 import ch.randelshofer.quaqua.QuaquaManager;
+import javazoom.jl.decoder.JavaLayerException;
 import logic.media.Media;
 import logic.playlist.Playlist;
 import logic.playlist.UserPlaylist;
@@ -12,6 +13,7 @@ import javax.swing.event.ChangeListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -133,6 +135,7 @@ public class MainPanel implements PlaylistLinkable {
 
     private void addMusicPanelListeners() {
         addAutoPlaylistsListeners();
+        setActionListenerToSlider();
         play_pause.addActionListener(event -> {
             Media nowPlaying = Media.getNowPlaying();
             if (Media.isPlaying()) {
@@ -251,11 +254,12 @@ public class MainPanel implements PlaylistLinkable {
         frame.setJMenuBar(initMenus());
     }
     public void setActionListenerToSlider(){
-
-      musicSlider.addChangeListener(new ChangeListener() {
-          @Override
-          public void stateChanged(ChangeEvent e) {
-              musicSlider.getValue();
+      musicSlider.addChangeListener(e -> {
+          try {
+//                  System.out.println(musicSlider.getValue());
+              Media.getNowPlaying().seekTo(musicSlider.getValue());
+          } catch (FileNotFoundException | JavaLayerException e1) {
+              e1.printStackTrace();
           }
       });
     }
@@ -286,7 +290,7 @@ public class MainPanel implements PlaylistLinkable {
 
     public static void main(String[] args) {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> StorageManager.getInstance().saveAndQuit(), "Shutdown-thread"));
-        StorageManager.getInstance().getMediaArrayList().get(0).playFile();
+        StorageManager.getInstance().getMediaArrayList().get(1).playFile();
         System.out.println(StorageManager.getInstance().getMediaArrayList());
     }
 }

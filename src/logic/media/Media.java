@@ -156,8 +156,11 @@ public class Media {
         if (isPlaying) {
             mainPlayer = new PauseablePlayer(new FileInputStream(address), startingFrame);
             mainPlayer.play();
-        } else
+        } else {
             mainPlayer = new PauseablePlayer(new FileInputStream(address), startingFrame);
+            mainPlayer.play();
+            mainPlayer.pause();
+        }
     }
 
     public void pauseFile(){
