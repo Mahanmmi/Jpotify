@@ -2,7 +2,6 @@ package graphic;
 
 import ch.randelshofer.quaqua.QuaquaManager;
 import logic.media.Media;
-import logic.media.MediaData;
 import logic.playlist.Playlist;
 import logic.playlist.UserPlaylist;
 import logic.storage.StorageManager;
@@ -21,7 +20,7 @@ public class MainPanel implements PlaylistLinkable {
     private JPanel listsPanel;
     private JPanel middlePanel;
     private JPanel friendPanel;
-    private JPanel upperPannel;
+    private JPanel upperPanel;
     private JPanel bottomPanel;
     private JPanel detailsPanel;
     private JPanel autoPlaylistsPanel;
@@ -66,9 +65,9 @@ public class MainPanel implements PlaylistLinkable {
         textArea2.setBackground(Color.lightGray);
         textArea3.setBackground(Color.lightGray);
 
-        upperPannel.setMinimumSize(new Dimension(mainPanel.getWidth(), mainPanel.getHeight() * 4 / 6));
-        upperPannel.setMaximumSize(new Dimension(mainPanel.getWidth(), mainPanel.getHeight() * 4 / 6));
-        upperPannel.setPreferredSize(new Dimension(mainPanel.getWidth(), mainPanel.getHeight() * 4 / 6));
+        upperPanel.setMinimumSize(new Dimension(mainPanel.getWidth(), mainPanel.getHeight() * 4 / 6));
+        upperPanel.setMaximumSize(new Dimension(mainPanel.getWidth(), mainPanel.getHeight() * 4 / 6));
+        upperPanel.setPreferredSize(new Dimension(mainPanel.getWidth(), mainPanel.getHeight() * 4 / 6));
         bottomPanel.setMinimumSize(new Dimension(mainPanel.getWidth() - 5, mainPanel.getHeight() / 6));
         bottomPanel.setMaximumSize(new Dimension(mainPanel.getWidth() - 5, mainPanel.getHeight() / 6));
         bottomPanel.setPreferredSize(new Dimension(mainPanel.getWidth() - 5, mainPanel.getHeight() / 6));
@@ -81,10 +80,10 @@ public class MainPanel implements PlaylistLinkable {
     }
 
     private void setMusicPanelIconsAndColors() {
-        favorite.setSize(favorite.getWidth(),favorite.getHeight()+10);
+        favorite.setSize(favorite.getWidth(), favorite.getHeight() + 10);
         favorite.setIcon(new ImageIcon("./resources/New Icons/heart-icon.png"));
 
-        shared.setSize(shared.getWidth(),shared.getHeight()+10);
+        shared.setSize(shared.getWidth(), shared.getHeight() + 10);
         shared.setIcon(new ImageIcon("./resources/New Icons/share-icon.png"));
 
         nextTrackButton.setSize(nextTrackButton.getWidth(), nextTrackButton.getHeight() + 10);
@@ -100,8 +99,49 @@ public class MainPanel implements PlaylistLinkable {
 //        volumeButtun.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/speaker-icon.png").getImage().getScaledInstance(volumeButtun.getHeight() + 4, volumeButtun.getHeight() + 4, Image.SCALE_DEFAULT)));
 
         play_pause.setSize(play_pause.getWidth(), play_pause.getHeight() + 10);
-        play_pause.setIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-start-icon.png"));
+        play_pause.setIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-pause-icon.png"));
 //        play_pause.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-start-icon.png").getImage().getScaledInstance(play_pause.getHeight() + 4, play_pause.getHeight() + 4, Image.SCALE_DEFAULT)));
+    }
+
+    private void addAutoPlaylistsListeners() {
+        favorite.addActionListener(event -> {
+            Media nowPlaying = Media.getNowPlaying();
+            if (nowPlaying.isFave()) {
+                StorageManager.getInstance().getPlaylistHashMap().get("Favorite").getPlaylistMedia().remove(nowPlaying);
+                favorite.setIcon(new ImageIcon("./resources/New Icons/heart-icon-disabled.png"));
+            } else {
+                StorageManager.getInstance().getPlaylistHashMap().get("Favorite").getPlaylistMedia().add(nowPlaying);
+                favorite.setIcon(new ImageIcon("./resources/New Icons/heart-icon.png"));
+            }
+            StorageManager.getInstance().updateMediaData();
+        });
+        shared.addActionListener(event -> {
+            Media nowPlaying = Media.getNowPlaying();
+            if (nowPlaying.isShared()) {
+                StorageManager.getInstance().getPlaylistHashMap().get("Shared").getPlaylistMedia().remove(nowPlaying);
+                shared.setIcon(new ImageIcon("./resources/New Icons/share-icon-disabled.png"));
+            } else {
+                StorageManager.getInstance().getPlaylistHashMap().get("Shared").getPlaylistMedia().add(nowPlaying);
+                shared.setIcon(new ImageIcon("./resources/New Icons/share-icon.png"));
+            }
+            StorageManager.getInstance().updateMediaData();
+        });
+    }
+
+    private void addMusicPanelListeners() {
+        addAutoPlaylistsListeners();
+        play_pause.addActionListener(event -> {
+            Media nowPlaying = Media.getNowPlaying();
+            if (Media.isPlaying()) {
+                nowPlaying.pauseFile();
+                Media.setPlaying(false);
+                play_pause.setIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-start-icon.png"));
+            } else {
+                nowPlaying.resumeFile();
+                Media.setPlaying(true);
+                play_pause.setIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-pause-icon.png"));
+            }
+        });
     }
 
     private JMenuBar initMenus() {
@@ -176,7 +216,7 @@ public class MainPanel implements PlaylistLinkable {
             listsPanel.repaint();
             middlePanel.repaint();
             friendPanel.repaint();
-            upperPannel.repaint();
+            upperPanel.repaint();
             bottomPanel.repaint();
             detailsPanel.repaint();
             autoPlaylistsPanel.repaint();
@@ -187,7 +227,7 @@ public class MainPanel implements PlaylistLinkable {
             listsPanel.validate();
             middlePanel.validate();
             friendPanel.validate();
-            upperPannel.validate();
+            upperPanel.validate();
             bottomPanel.validate();
             detailsPanel.validate();
             autoPlaylistsPanel.validate();
@@ -209,24 +249,18 @@ public class MainPanel implements PlaylistLinkable {
     }
 
     public MainPanel() {
-
         initDarkTheme();
         initFrame();
+        addMusicPanelListeners();
         setMusicPanelIconsAndColors();
         frame.setVisible(true);
     }
 
-
     @Override
     public void doAddPlaylistLink(String name, ArrayList<Media> result) {
-        System.out.print("HI ");
-        System.out.println(result);
-
         HashMap<String, Playlist> playlistHashMap = StorageManager.getInstance().getPlaylistHashMap();
-        HashMap<String, MediaData> playListMediaDataHashMap = StorageManager.getInstance().getMediaDataHashMap();
         playlistHashMap.put(name, new UserPlaylist(name, result));
         StorageManager.getInstance().updateMediaData();
-        //in ja fek konam kamel shod hamaaaal
         frame.setVisible(true);
     }
 
@@ -237,6 +271,7 @@ public class MainPanel implements PlaylistLinkable {
 
     public static void main(String[] args) {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> StorageManager.getInstance().saveAndQuit(), "Shutdown-thread"));
+        StorageManager.getInstance().getMediaArrayList().get(0).playFile();
         System.out.println(StorageManager.getInstance().getMediaArrayList());
     }
 }
