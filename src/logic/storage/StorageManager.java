@@ -23,8 +23,9 @@ public class StorageManager {
     private ArrayList<Media> mediaArrayList = new ArrayList<>();
     private HashMap<String, Album> albumHashMap = new HashMap<>();
     private HashMap<String, Playlist> playlistHashMap = new HashMap<>();
-
     private HashMap<String, MediaData> mediaDataHashMap = new HashMap<>();
+
+    private MainPanel mainPanel;
 
     public static StorageManager getInstance() {
         return ourInstance;
@@ -40,7 +41,11 @@ public class StorageManager {
         for (String s : playlistHashMap.keySet()) {
             System.out.println(s + " : " + playlistHashMap.get(s));
         }
-        new MainPanel();
+        mainPanel = new MainPanel();
+    }
+
+    public MainPanel getMainPanel() {
+        return mainPanel;
     }
 
     private void load() {

@@ -44,14 +44,17 @@ public class MainPanel implements PlaylistLinkable {
     private JButton shared;
     private JSlider musicSlider;
     private JFrame frame;
-    private  int sliderPosition;
 
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
+
+    public JSlider getMusicSlider() {
+        return musicSlider;
+    }
 
     private void initDarkTheme() {
-        System.setProperty(
-                "Quaqua.design", "lion"
-
-        );
+        System.setProperty("Quaqua.design", "lion");
         Set<String> excludes = new HashSet<>();
         excludes.add("RootPane");
         excludes.add("TextField");
@@ -254,23 +257,23 @@ public class MainPanel implements PlaylistLinkable {
         updatePanelSizeAndColors();
         frame.setJMenuBar(initMenus());
     }
-    public void setActionListenerToSlider(){
-      musicSlider.addChangeListener(e -> {
-          try {
+
+    public void setActionListenerToSlider() {
+        musicSlider.addChangeListener(e -> {
+            try {
 //                  System.out.println(musicSlider.getValue());
-              Media.getNowPlaying().seekTo(musicSlider.getValue());
-          } catch (FileNotFoundException | JavaLayerException e1) {
-              e1.printStackTrace();
-          }
-      });
+                Media.getNowPlaying().seekTo(musicSlider.getValue());
+            } catch (FileNotFoundException | JavaLayerException e1) {
+                e1.printStackTrace();
+            }
+        });
     }
-
-
 
 
     public MainPanel() {
         initDarkTheme();
         initFrame();
+        musicSlider.setValue(0);
         addMusicPanelListeners();
         setMusicPanelIconsAndColors();
         frame.setVisible(true);

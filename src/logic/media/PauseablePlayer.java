@@ -1,9 +1,13 @@
 package logic.media;
 
+import com.mpatric.mp3agic.Mp3File;
+import graphic.MainPanel;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 import javazoom.jl.player.advanced.AdvancedPlayer;
+import logic.storage.StorageManager;
 
+import javax.swing.*;
 import java.io.InputStream;
 
 public class PauseablePlayer {
@@ -15,12 +19,14 @@ public class PauseablePlayer {
     private final AdvancedPlayer player;
     private final Object playerLock = new Object();
     private int playerStatus = NOTSTARTED;
-    private int startingFrame;
+    private int currentFrame;
+    private Mp3File mp3File;
 
-    PauseablePlayer(final InputStream inputStream, int startingFrame) throws JavaLayerException {
+    PauseablePlayer(final InputStream inputStream, int startingFrame, Mp3File mp3File) throws JavaLayerException {
         this.player = new AdvancedPlayer(inputStream);
-        this.startingFrame = startingFrame;
+        this.mp3File = mp3File;
         player.play(startingFrame,startingFrame);
+        currentFrame = startingFrame;
     }
 
     void play() {
@@ -72,6 +78,13 @@ public class PauseablePlayer {
             try {
                 if (!player.decodeFrame()) {
                     break;
+                } else {
+                    JSlider slider = StorageManager.getInstance().getMainPanel().getMusicSlider();
+                    int totalFrames = mp3File.getFrameCount();
+                    currentFrame++;
+                    System.out.println(currentFrame*100/totalFrames);
+                    slider.setValue(currentFrame*100/totalFrames);
+//                    StorageManager.getInstance().getMainPanel().getMainPanel().revalidate();
                 }
             } catch (final JavaLayerException e) {
                 break;

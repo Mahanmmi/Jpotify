@@ -154,21 +154,19 @@ public class Media {
         int startingFrame = (int) (sliderPosition * mp3File.getFrameCount() / 100.0);
         mainPlayer.close();
         if (isPlaying) {
-            mainPlayer = new PauseablePlayer(new FileInputStream(address), startingFrame);
+            mainPlayer = new PauseablePlayer(new FileInputStream(address), startingFrame, mp3File);
             mainPlayer.play();
         } else {
-            mainPlayer = new PauseablePlayer(new FileInputStream(address), startingFrame);
-            mainPlayer.play();
-            mainPlayer.pause();
+            mainPlayer = new PauseablePlayer(new FileInputStream(address), startingFrame, mp3File);
         }
     }
 
-    public void pauseFile(){
+    public void pauseFile() {
         mainPlayer.pause();
     }
 
-    public void resumeFile(){
-        mainPlayer.resume();
+    public void resumeFile() {
+        mainPlayer.play();
     }
 
     public void playFile() {
@@ -176,7 +174,7 @@ public class Media {
             mainPlayer.stop();
         }
         try {
-            mainPlayer = new PauseablePlayer(new FileInputStream(address), 0);
+            mainPlayer = new PauseablePlayer(new FileInputStream(address), 0, mp3File);
             nowPlaying = this;
             mainPlayer.play();
             isPlaying = true;
