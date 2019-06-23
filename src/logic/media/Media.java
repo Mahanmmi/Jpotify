@@ -8,10 +8,12 @@ import com.mpatric.mp3agic.ID3v1;
 import com.mpatric.mp3agic.ID3v2;
 import com.mpatric.mp3agic.Mp3File;
 import javazoom.jl.decoder.JavaLayerException;
+import logic.playlist.Playlist;
 import logic.storage.StorageManager;
 
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.util.Date;
 
 public class Media {
     private static PauseablePlayer mainPlayer = null;
@@ -19,6 +21,19 @@ public class Media {
     private static boolean isPlaying = false;
     private static boolean isMute = false;
     private static Mp3File mp3File;
+    private static Playlist currentPlaylist;
+
+    public static Playlist getCurrentPlaylist() {
+        return currentPlaylist;
+    }
+
+    public static void setCurrentPlaylist(Playlist currentPlaylist) {
+        Media.currentPlaylist = currentPlaylist;
+    }
+
+    public static void setNowPlaying(Media nowPlaying) {
+        Media.nowPlaying = nowPlaying;
+    }
 
     public static Media getNowPlaying() {
         return nowPlaying;
@@ -166,6 +181,13 @@ public class Media {
     }
 
     public void resumeFile() {
+        if (mainPlayer == null) {
+            try {
+                mainPlayer = new PauseablePlayer(new FileInputStream(address), 0, mp3File);
+            } catch (FileNotFoundException | JavaLayerException e){
+                e.printStackTrace();
+            }
+        }
         mainPlayer.play();
     }
 
@@ -178,6 +200,7 @@ public class Media {
             nowPlaying = this;
             mainPlayer.play();
             isPlaying = true;
+            StorageManager.getInstance().getMediaDataHashMap().get(address).setLastPlayed(new Date());
         } catch (FileNotFoundException | JavaLayerException e) {
             System.out.println("File not found for playing!");
         }

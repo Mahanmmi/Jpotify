@@ -14,10 +14,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.io.Serializable;
+import java.util.*;
 
 public class MainPanel implements PlaylistLinkable {
     private JPanel mainPanel;
@@ -92,6 +90,7 @@ public class MainPanel implements PlaylistLinkable {
         favorite.setIcon(new ImageIcon("./resources/New Icons/heart-icon.png"));
 
         shared.setSize(shared.getWidth(), shared.getHeight() + 10);
+
         shared.setIcon(new ImageIcon("./resources/New Icons/share-icon.png"));
 
         nextTrackButton.setSize(nextTrackButton.getWidth(), nextTrackButton.getHeight() + 10);
@@ -107,7 +106,7 @@ public class MainPanel implements PlaylistLinkable {
 //        volumeButton.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/speaker-icon.png").getImage().getScaledInstance(volumeButton.getHeight() + 4, volumeButton.getHeight() + 4, Image.SCALE_DEFAULT)));
 
         play_pause.setSize(play_pause.getWidth(), play_pause.getHeight() + 10);
-        play_pause.setIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-pause-icon.png"));
+        play_pause.setIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-start-icon.png"));
 //        play_pause.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-start-icon.png").getImage().getScaledInstance(play_pause.getHeight() + 4, play_pause.getHeight() + 4, Image.SCALE_DEFAULT)));
     }
 
@@ -136,6 +135,29 @@ public class MainPanel implements PlaylistLinkable {
         });
     }
 
+    public void setActionListenerToSlider() {
+        musicSlider.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                Media.getNowPlaying().pauseFile();
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                try {
+                    System.out.println();
+                    System.out.println(musicSlider.getValue());
+                    Media.getNowPlaying().seekTo(musicSlider.getValue());
+                } catch (FileNotFoundException | JavaLayerException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
+//        musicSlider.addChangeListener(e -> {
+//
+//        });
+    }
+
     private void addMusicPanelListeners() {
         addAutoPlaylistsListeners();
         setActionListenerToSlider();
@@ -149,6 +171,16 @@ public class MainPanel implements PlaylistLinkable {
                 nowPlaying.resumeFile();
                 Media.setPlaying(true);
                 play_pause.setIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-pause-icon.png"));
+            }
+            if(nowPlaying.isFave()){
+                favorite.setIcon(new ImageIcon("./resources/New Icons/heart-icon.png"));
+            } else {
+                favorite.setIcon(new ImageIcon("./resources/New Icons/heart-icon-disabled.png"));
+            }
+            if(nowPlaying.isShared()){
+                shared.setIcon(new ImageIcon("./resources/New Icons/share-icon.png"));
+            } else {
+                shared.setIcon(new ImageIcon("./resources/New Icons/share-icon-disabled.png"));
             }
         });
 
@@ -258,28 +290,6 @@ public class MainPanel implements PlaylistLinkable {
         frame.setJMenuBar(initMenus());
     }
 
-    public void setActionListenerToSlider() {
-        musicSlider.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                Media.getNowPlaying().pauseFile();
-            }
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                try {
-                    System.out.println();
-                    System.out.println(musicSlider.getValue());
-                    Media.getNowPlaying().seekTo(musicSlider.getValue());
-                } catch (FileNotFoundException | JavaLayerException e1) {
-                    e1.printStackTrace();
-                }
-            }
-        });
-//        musicSlider.addChangeListener(e -> {
-//
-//        });
-    }
-
 
     public MainPanel() {
         initDarkTheme();
@@ -305,7 +315,6 @@ public class MainPanel implements PlaylistLinkable {
 
     public static void main(String[] args) {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> StorageManager.getInstance().saveAndQuit(), "Shutdown-thread"));
-        StorageManager.getInstance().getMediaArrayList().get(1).playFile();
         System.out.println(StorageManager.getInstance().getMediaArrayList());
     }
 }

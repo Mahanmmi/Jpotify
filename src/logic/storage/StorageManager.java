@@ -9,11 +9,7 @@ import logic.playlist.PlaylistElement;
 import logic.playlist.UserPlaylist;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 public class StorageManager {
     private static StorageManager ourInstance = new StorageManager();
@@ -37,12 +33,17 @@ public class StorageManager {
         load();
         generateAlbums();
         generatePlaylists();
-
+        setInitialPlaylist();
         mainPanel = new MainPanel();
     }
 
     public MainPanel getMainPanel() {
         return mainPanel;
+    }
+
+    private void setInitialPlaylist(){
+        Media.setCurrentPlaylist(new AutoPlayList("",mediaArrayList));
+        Media.setNowPlaying(Media.getCurrentPlaylist().getPlaylistMedia().get(0));
     }
 
     private void load() {
@@ -65,6 +66,19 @@ public class StorageManager {
         } catch (IOException | ClassNotFoundException e) {
             //Ignore
         }
+
+        System.out.println("HEY");
+        for (Media media : mediaArrayList) {
+            if(!mediaDataHashMap.containsKey(media.getAddress())){
+                mediaDataHashMap.put(media.getAddress(),new MediaData(media.getAddress(),new ArrayList<>()));
+            }
+        }
+
+        mediaArrayList.sort((a,b)->{
+            Date aDate = mediaDataHashMap.get(a.getAddress()).getLastPlayed();
+            Date bDate = mediaDataHashMap.get(b.getAddress()).getLastPlayed();
+            return aDate.compareTo(bDate);
+        });
     }
 
     public void addDirectory(File directory) {
