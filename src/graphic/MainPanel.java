@@ -30,8 +30,8 @@ public class MainPanel implements PlaylistLinkable {
     private JTextArea textArea2;
     private JTextArea textArea3;
     private JSlider volumeSlider;
+    private JButton volumeButton;
     private JButton lastTrackButton;
-    private JButton volumeButtun;
     private JButton nextTrackButton;
     private JButton play_pause;
     private JButton musicName;
@@ -94,9 +94,9 @@ public class MainPanel implements PlaylistLinkable {
         lastTrackButton.setIcon(new ImageIcon("./resources/New Icons/Actions-media-seek-backward-icon.png"));
 //        lastTrackButton.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/Actions-media-seek-backward-icon.png").getImage().getScaledInstance(lastTrackButton.getHeight() + 4, lastTrackButton.getHeight() + 4, Image.SCALE_DEFAULT)));
 
-        volumeButtun.setSize(volumeButtun.getWidth(), volumeButtun.getHeight() + 10);
-        volumeButtun.setIcon(new ImageIcon("./resources/New Icons/speaker-icon.png"));
-//        volumeButtun.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/speaker-icon.png").getImage().getScaledInstance(volumeButtun.getHeight() + 4, volumeButtun.getHeight() + 4, Image.SCALE_DEFAULT)));
+        volumeButton.setSize(volumeButton.getWidth(), volumeButton.getHeight() + 10);
+        volumeButton.setIcon(new ImageIcon("./resources/New Icons/speaker-icon.png"));
+//        volumeButton.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/speaker-icon.png").getImage().getScaledInstance(volumeButton.getHeight() + 4, volumeButton.getHeight() + 4, Image.SCALE_DEFAULT)));
 
         play_pause.setSize(play_pause.getWidth(), play_pause.getHeight() + 10);
         play_pause.setIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-pause-icon.png"));
@@ -142,6 +142,7 @@ public class MainPanel implements PlaylistLinkable {
                 play_pause.setIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-pause-icon.png"));
             }
         });
+
     }
 
     private JMenuBar initMenus() {

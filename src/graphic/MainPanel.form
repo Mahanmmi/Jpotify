@@ -53,7 +53,7 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="44a96" class="javax.swing.JButton" binding="volumeButtun">
+              <component id="44a96" class="javax.swing.JButton" binding="volumeButton">
                 <constraints/>
                 <properties>
                   <background color="-11974327"/>
