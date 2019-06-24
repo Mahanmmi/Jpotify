@@ -167,12 +167,31 @@
               </grid>
             </children>
           </grid>
-          <component id="4d737" class="javax.swing.JSlider" binding="musicSlider">
+          <grid id="c8d2b" layout-manager="BorderLayout" hgap="0" vgap="0">
             <constraints border-constraint="Center"/>
-            <properties>
-              <background color="-16777216"/>
-            </properties>
-          </component>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="7fa63" class="javax.swing.JLabel" binding="timerLable">
+                <constraints border-constraint="West"/>
+                <properties>
+                  <text value="Label"/>
+                </properties>
+              </component>
+              <component id="1951e" class="javax.swing.JLabel" binding="durationlable">
+                <constraints border-constraint="East"/>
+                <properties>
+                  <text value="Label"/>
+                </properties>
+              </component>
+              <component id="4d737" class="javax.swing.JSlider" binding="musicSlider">
+                <constraints border-constraint="Center"/>
+                <properties>
+                  <background color="-16777216"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
         </children>
       </grid>
       <grid id="a227e" binding="upperPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
@@ -183,28 +202,29 @@
         </properties>
         <border type="none"/>
         <children>
-          <grid id="c0721" binding="listsPanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="c0721" binding="listsPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="10" left="10" bottom="10" right="10"/>
             <constraints border-constraint="West"/>
             <properties/>
             <border type="none"/>
             <children>
-              <component id="9b921" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="50"/>
-                  </grid>
-                </constraints>
-                <properties/>
-              </component>
               <grid id="a81d0" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
-                <children/>
+                <children>
+                  <component id="3d62f" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="50"/>
+                      </grid>
+                    </constraints>
+                    <properties/>
+                  </component>
+                </children>
               </grid>
             </children>
           </grid>

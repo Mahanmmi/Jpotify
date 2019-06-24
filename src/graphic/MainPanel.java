@@ -16,6 +16,7 @@ import java.awt.event.*;
 import java.io.FileNotFoundException;
 import java.io.Serializable;
 import java.util.*;
+import java.util.Timer;
 
 public class MainPanel implements PlaylistLinkable {
     private JPanel mainPanel;
@@ -41,6 +42,9 @@ public class MainPanel implements PlaylistLinkable {
     private JButton favorite;
     private JButton shared;
     private JSlider musicSlider;
+    private JLabel timerLable;
+    private JLabel durationlable;
+    private JPanel artWork;
     private JFrame frame;
 
     public JPanel getMainPanel() {
@@ -134,6 +138,46 @@ public class MainPanel implements PlaylistLinkable {
             StorageManager.getInstance().updateMediaData();
         });
     }
+
+    public void setjLabelText(int time) {
+        if (time < 10)
+            timerLable.setText("00:0" + time);
+        if (time >= 10)
+            timerLable.setText("00:" + time);
+        if (time >= 60){
+            if (time / 60 > 9) {
+                if (time % 60 > 9)
+                    timerLable.setText("" + (time / 60) + ":" + (time % 60));
+                if (time % 60 < 10)
+                    timerLable.setText("" + (time / 60) + ":0" + (time % 60));
+            }
+           if (time / 60 < 10) {
+                if (time % 60 > 9)
+                    timerLable.setText("0" + (time / 60) + ":" + (time % 60));
+                if (time % 60 < 10)
+                    timerLable.setText("0" + (time / 60) + ":0" + (time % 60));
+        }
+    }
+}
+
+class MusicTimer extends TimerTask {
+    int StartingSecond = 0;
+
+    @Override
+    public void run() {
+        setjLabelText(++StartingSecond);
+    }
+
+}
+
+    public void musicTimer() {
+        TimerTask timerTask = new MusicTimer();
+        Timer timer = new Timer();
+        timer.schedule(timerTask, 1000, 1000);
+
+
+    }
+
 
     public void setActionListenerToSlider() {
         musicSlider.addMouseListener(new MouseAdapter() {
