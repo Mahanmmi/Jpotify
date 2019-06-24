@@ -14,6 +14,7 @@ import logic.storage.StorageManager;
 
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
@@ -220,6 +221,7 @@ public class Media implements Showable {
         }
         mainPlayer.play();
         StorageManager.getInstance().getMediaDataHashMap().get(address).setLastPlayed(new Date());
+        StorageManager.getInstance().getMainPanel().setShowcaseContent(new ArrayList<>(getCurrentPlaylist().getPlaylistMedia()));
     }
 
     static void goNext() {
@@ -255,6 +257,7 @@ public class Media implements Showable {
             mainPlayer.play();
             isPlaying = true;
             StorageManager.getInstance().getMediaDataHashMap().get(address).setLastPlayed(new Date());
+            StorageManager.getInstance().getMainPanel().setShowcaseContent(new ArrayList<>(getCurrentPlaylist().getPlaylistMedia()));
         } catch (FileNotFoundException | JavaLayerException e) {
             System.out.println("File not found for playing!");
         }

@@ -20,7 +20,7 @@ public class ManagePlaylistPanel {
     private JFrame frame;
 
     @SuppressWarnings("unchecked")
-    public ManagePlaylistPanel(PlaylistLinkable parent) {
+    ManagePlaylistPanel(PlaylistLinkable parent) {
         frame = new JFrame("Manage playlists...");
         MainPanel.newFrameInitialSettings(frame,panel);
         HashMap<String, Playlist> playlists = StorageManager.getInstance().getPlaylistHashMap();
@@ -30,9 +30,22 @@ public class ManagePlaylistPanel {
                 listData.add(s);
             }
         }
+        playlistList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        playlistList.setLayoutOrientation(JList.VERTICAL_WRAP);
+        playlistList.setVisibleRowCount(-1);
         playlistList.setListData(listData.toArray());
-        cancelButton.addActionListener(event -> parent.cancelPlaylistOperation());
-        removeButton.addActionListener(event -> parent.doRemovePlaylist((String) playlistList.getSelectedValue()));
+        cancelButton.addActionListener(event -> {
+            parent.cancelPlaylistOperation();
+            frame.dispose();
+        });
+        removeButton.addActionListener(event -> {
+            parent.doRemovePlaylist((String) playlistList.getSelectedValue());
+            frame.dispose();
+        });
+        editButton.addActionListener(event -> {
+            new EditPlaylist(parent,playlists.get(playlistList.getSelectedValue()));
+            frame.dispose();
+        });
         frame.setVisible(true);
     }
 }

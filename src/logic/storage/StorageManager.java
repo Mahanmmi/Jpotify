@@ -124,8 +124,9 @@ public class StorageManager {
             System.out.println("Ridem amoo");
         }
         mediaArrayList.add(new Media(media.getAbsolutePath()));
-        sortMediaArrayList();
         mediaDataHashMap.put(media.getAbsolutePath(), new MediaData(media.getAbsolutePath(), new ArrayList<>()));
+        mediaDataHashMap.get(media.getAbsolutePath()).setLastPlayed(new Date(2000,Calendar.JANUARY,1));
+        sortMediaArrayList();
     }
 
     public ArrayList<Media> getMediaArrayList() {
