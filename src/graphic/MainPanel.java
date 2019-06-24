@@ -5,6 +5,7 @@ import javazoom.jl.decoder.JavaLayerException;
 import logic.media.Media;
 import logic.media.MediaData;
 import logic.playlist.Playlist;
+import logic.playlist.PlaylistElement;
 import logic.playlist.UserPlaylist;
 import logic.storage.Album;
 import logic.storage.StorageManager;
@@ -387,10 +388,17 @@ public class MainPanel implements PlaylistLinkable {
             frame.setVisible(false);
         });
 
+        JMenuItem managePlaylistMenuItem = new JMenuItem("Manage playlists...");
+        managePlaylistMenuItem.addActionListener(event -> {
+            new ManagePlaylistPanel(this);
+            frame.setVisible(false);
+        });
+
 
         menu.add(addSongMenuItem);
         menu.add(addDirectoryMenuItem);
         menu.add(addPlaylistMenuItem);
+        menu.add(managePlaylistMenuItem);
 
         menuBar.add(menu);
 
@@ -474,7 +482,24 @@ public class MainPanel implements PlaylistLinkable {
     }
 
     @Override
+    public void doRemovePlaylist(String name) {
+        for (MediaData data : StorageManager.getInstance().getMediaDataHashMap().values()) {
+            for (int i = 0; i < data.getElements().size(); i++) {
+                PlaylistElement element = data.getElements().get(i);
+                if(element.getPlaylistName().equals(name)){
+                    data.getElements().remove(i);
+                    i--;
+                }
+            }
+        }
+        StorageManager.getInstance().getPlaylistHashMap().remove(name);
+        updateGUISongDetails();
+        frame.setVisible(true);
+    }
+
+    @Override
     public void cancelPlaylistOperation() {
+        updateGUISongDetails();
         frame.setVisible(true);
     }
 

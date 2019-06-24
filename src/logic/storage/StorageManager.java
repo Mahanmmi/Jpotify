@@ -257,11 +257,6 @@ public class StorageManager {
                 }
             }
         }
-
-        // PlaylistElement playlistElement=new PlaylistElement(playlistName,media.getAddress(),index);
-        //ArrayList<PlaylistElement>playlistElementArrayList =new ArrayList<>();
-
-
     }
 
     public void saveAndQuit() {
