@@ -293,7 +293,7 @@ public class MainPanel implements PlaylistLinkable {
     public void findSongBySearch(){
         textFieldConsept=searchField.getText();
         for(Media  media: StorageManager.getInstance().getMediaArrayList()){
-            if(media.getArtist().contains(textFieldConsept)){
+            if(media.getArtist().contains(textFieldConsept) || media.getAlbum().contains(textFieldConsept) || media.getTitle().contains(textFieldConsept)){
                 //TODO
             }
         }
