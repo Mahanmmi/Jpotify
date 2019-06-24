@@ -234,7 +234,7 @@ public class Media implements Showable {
             next = random.nextInt(currentPlaylist.getPlaylistMedia().size());
         } else {
             next = currentPlaylist.getPlaylistMedia().indexOf(Media.getNowPlaying()) + 1;
-            if (next == currentPlaylist.getPlaylistMedia().size()) {
+            if (next >= currentPlaylist.getPlaylistMedia().size()) {
                 next = 0;
             }
         }
@@ -282,6 +282,9 @@ public class Media implements Showable {
 
     @Override
     public void getClicked() {
+        if(!currentPlaylist.getPlaylistMedia().contains(this)) {
+            setCurrentPlaylist(StorageManager.getInstance().getDefaultPlaylist());
+        }
         playFile();
         StorageManager.getInstance().getMainPanel().updateGUISongDetails();
     }

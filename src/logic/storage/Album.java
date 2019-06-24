@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 public class Album implements Showable {
     private String albumName;
-    private String Artist;
     private ArrayList<Media> albumSongs = new ArrayList<>();
 
     public Album(String albumName) {
@@ -16,8 +15,8 @@ public class Album implements Showable {
     }
 
     public void addSong(Media media) {
+        System.out.println(albumName + " lol " + media);
         albumSongs.add(media);
-
     }
 
     @Override
@@ -32,6 +31,7 @@ public class Album implements Showable {
 
     @Override
     public void getClicked() {
+        System.out.println(albumName + " " + albumSongs);
         StorageManager.getInstance().getMainPanel().setShowcaseContent(new ArrayList<>(albumSongs));
     }
 

@@ -6,6 +6,7 @@ import logic.media.Media;
 import logic.media.MediaData;
 import logic.playlist.Playlist;
 import logic.playlist.UserPlaylist;
+import logic.storage.Album;
 import logic.storage.StorageManager;
 
 import javax.swing.*;
@@ -181,6 +182,15 @@ public class MainPanel implements PlaylistLinkable {
 //        });
     }
 
+    @SuppressWarnings("unchecked")
+    private void setListsComponents() {
+        ArrayList<String> albumNames = new ArrayList<>(StorageManager.getInstance().getAlbumHashMap().keySet());
+        albumList.setListData(albumNames.toArray());
+
+        ArrayList<String> playlistNames = new ArrayList<>(StorageManager.getInstance().getPlaylistHashMap().keySet());
+        playlistList.setListData(playlistNames.toArray());
+    }
+
     public void updateGUISongDetails() {
         Media nowPlaying = Media.getNowPlaying();
         if (nowPlaying != null) {
@@ -213,6 +223,7 @@ public class MainPanel implements PlaylistLinkable {
             musicTitle.setText(nowPlaying.getTitle());
             artist.setText(nowPlaying.getArtist());
             setArtWorkLAbel();
+            setListsComponents();
         }
     }
 
@@ -296,6 +307,18 @@ public class MainPanel implements PlaylistLinkable {
         setListPanelListener();
         searchButton.setIcon(new ImageIcon("./resources/New Icons/magnifying-glass-icon.png"));
         searchField.setBackground(Color.LIGHT_GRAY);
+        albumList.addListSelectionListener(event -> {
+            if(!albumList.isSelectionEmpty()) {
+                StorageManager.getInstance().getAlbumHashMap().get(albumList.getSelectedValue()).getClicked();
+                albumList.clearSelection();
+            }
+        });
+        playlistList.addListSelectionListener(event -> {
+            if(!playlistList.isSelectionEmpty()) {
+                StorageManager.getInstance().getPlaylistHashMap().get(playlistList.getSelectedValue()).getClicked();
+                playlistList.clearSelection();
+            }
+        });
     }
 
     private ArrayList<Media> findSongBySearch() {
@@ -323,10 +346,7 @@ public class MainPanel implements PlaylistLinkable {
                 }
             }
         });
-        searchButton.addActionListener(e -> {
-            setShowcaseContent(new ArrayList<>(findSongBySearch()));
-        });
-
+        searchButton.addActionListener(e -> setShowcaseContent(new ArrayList<>(findSongBySearch())));
     }
 
 
@@ -449,6 +469,7 @@ public class MainPanel implements PlaylistLinkable {
         HashMap<String, Playlist> playlistHashMap = StorageManager.getInstance().getPlaylistHashMap();
         playlistHashMap.put(name, new UserPlaylist(name, result));
         StorageManager.getInstance().updateMediaData();
+        updateGUISongDetails();
         frame.setVisible(true);
     }
 

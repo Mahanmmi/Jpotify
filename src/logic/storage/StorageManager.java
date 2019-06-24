@@ -20,6 +20,7 @@ public class StorageManager {
     private HashMap<String, Album> albumHashMap = new HashMap<>();
     private HashMap<String, Playlist> playlistHashMap = new HashMap<>();
     private HashMap<String, MediaData> mediaDataHashMap = new HashMap<>();
+    private Playlist defaultPlaylist;
 
     private MainPanel mainPanel;
 
@@ -42,7 +43,8 @@ public class StorageManager {
     }
 
     private void setInitialPlaylist() {
-        Media.setCurrentPlaylist(new AutoPlayList("", mediaArrayList));
+        defaultPlaylist = new AutoPlayList("", mediaArrayList);
+        Media.setCurrentPlaylist(defaultPlaylist);
         if (Media.getCurrentPlaylist().getPlaylistMedia().size() != 0) {
             Media.setNowPlaying(Media.getCurrentPlaylist().getPlaylistMedia().get(0));
         }
@@ -78,7 +80,7 @@ public class StorageManager {
         sortMediaArrayList();
     }
 
-    public void sortMediaArrayList(){
+    public void sortMediaArrayList() {
         mediaArrayList.sort((a, b) -> {
             Date aDate = mediaDataHashMap.get(a.getAddress()).getLastPlayed();
             Date bDate = mediaDataHashMap.get(b.getAddress()).getLastPlayed();
@@ -123,7 +125,7 @@ public class StorageManager {
         }
         mediaArrayList.add(new Media(media.getAbsolutePath()));
         sortMediaArrayList();
-        mediaDataHashMap.put(media.getAbsolutePath(),new MediaData(media.getAbsolutePath(),new ArrayList<>()));
+        mediaDataHashMap.put(media.getAbsolutePath(), new MediaData(media.getAbsolutePath(), new ArrayList<>()));
     }
 
     public ArrayList<Media> getMediaArrayList() {
@@ -138,14 +140,21 @@ public class StorageManager {
         return playlistHashMap;
     }
 
+    public Playlist getDefaultPlaylist() {
+        return defaultPlaylist;
+    }
+
+    public HashMap<String, Album> getAlbumHashMap() {
+        return albumHashMap;
+    }
+
     private void generateAlbums() {
         for (Media savedMedia : mediaArrayList) {
-            if (albumHashMap.containsKey(savedMedia.getAlbumName())) {
-                albumHashMap.get(savedMedia.getAlbumName()).addSong(savedMedia);
-            } else {
+            if (!albumHashMap.containsKey(savedMedia.getAlbumName())) {
                 albumHashMap.put(savedMedia.getAlbumName(), new Album(savedMedia.getAlbumName()));
-            }
 
+            }
+            albumHashMap.get(savedMedia.getAlbumName()).addSong(savedMedia);
         }
     }
 

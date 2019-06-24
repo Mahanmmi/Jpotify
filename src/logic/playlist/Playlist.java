@@ -29,6 +29,7 @@ public abstract class Playlist implements Serializable, Showable {
 
     @Override
     public void getClicked() {
+        Media.setCurrentPlaylist(this);
         StorageManager.getInstance().getMainPanel().setShowcaseContent(new ArrayList<>(playlistMedia));
     }
 
