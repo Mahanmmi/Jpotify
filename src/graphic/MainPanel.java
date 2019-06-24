@@ -58,15 +58,12 @@ public class MainPanel implements PlaylistLinkable {
     private JScrollPane showcasePane;
     private JPanel showcasePanel;
     private JFrame frame;
-    private String textFieldConsept;
-    private ArrayList<Media>searchedSong;
 
-    public void setArtWorkLAbel(){
-        if(Media.getNowPlaying().getIcon() == null){
-            artWorkLAbel.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/Music-icon.png").getImage().getScaledInstance(120,120,Image.SCALE_DEFAULT)));
-        }
-        else {
-            artWorkLAbel.setIcon(new ImageIcon(Media.getNowPlaying().getIcon().getImage().getScaledInstance(160,160,Image.SCALE_DEFAULT)));
+    public void setArtWorkLAbel() {
+        if (Media.getNowPlaying().getIcon() == null) {
+            artWorkLAbel.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/Music-icon.png").getImage().getScaledInstance(120, 120, Image.SCALE_DEFAULT)));
+        } else {
+            artWorkLAbel.setIcon(new ImageIcon(Media.getNowPlaying().getIcon().getImage().getScaledInstance(160, 160, Image.SCALE_DEFAULT)));
         }
     }
 
@@ -191,7 +188,7 @@ public class MainPanel implements PlaylistLinkable {
     public void updateGUISongDetails() {
         Media nowPlaying = Media.getNowPlaying();
         if (nowPlaying != null) {
-            if(Media.isPlaying()){
+            if (Media.isPlaying()) {
                 play_pause.setIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-pause-icon.png"));
             } else {
                 play_pause.setIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-start-icon.png"));
@@ -223,9 +220,9 @@ public class MainPanel implements PlaylistLinkable {
         }
     }
 
-    public void setShowcaseContent(ArrayList<Showable> content){
+    public void setShowcaseContent(ArrayList<Showable> content) {
         showcasePanel.removeAll();
-        showcasePanel.setLayout(new GridLayout(content.size(),1));
+        showcasePanel.setLayout(new GridLayout(content.size(), 1));
         System.out.println(content);
         for (Showable showable : content) {
             ShowcaseButton showcase = new ShowcaseButton(showable);
@@ -300,38 +297,42 @@ public class MainPanel implements PlaylistLinkable {
     }
 
     private void setListsPanelSetting() {
+        setListPanelListener();
         searchButton.setIcon(new ImageIcon("./resources/New Icons/magnifying-glass-icon.png"));
         searchField.setBackground(Color.LIGHT_GRAY);
     }
 
-    public ArrayList<Media> findSongBySearch(){
-        textFieldConsept=searchField.getText().trim().toLowerCase();
-        for(Media  media: StorageManager.getInstance().getMediaArrayList()){
-            if(media.getArtist().trim().toLowerCase().contains(textFieldConsept) || media.getAlbum().contains(textFieldConsept) || media.getTitle().contains(textFieldConsept)){
+    private ArrayList<Media> findSongBySearch() {
+        String textFieldConcept = searchField.getText().trim().toLowerCase();
+        System.out.println(textFieldConcept);
+        ArrayList<Media> searchedSong = new ArrayList<>();
+        for (Media media : StorageManager.getInstance().getMediaArrayList()) {
+            if ((media.getArtist() != null && media.getArtist().trim().toLowerCase().contains(textFieldConcept))
+                    || (media.getAlbum() != null && media.getAlbum().trim().toLowerCase().contains(textFieldConcept))
+                    || (media.getTitle() != null && media.getTitle().trim().toLowerCase().contains(textFieldConcept))) {
                 searchedSong.add(media);
             }
         }
-        return  searchedSong;
+        return searchedSong;
 
     }
+
     public void setListPanelListener() {
+        searchField.setFocusable(true);
         searchField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
-                if(e.getKeyCode() == KeyEvent.VK_ENTER){
-                    findSongBySearch();
+                if (e.getKeyChar() == KeyEvent.VK_ENTER) {
+                    System.out.println("Asghar");
+                    setShowcaseContent(new ArrayList<>(findSongBySearch()));
                 }
             }
         });
-
         searchButton.addActionListener(e -> {
-           findSongBySearch();
+            setShowcaseContent(new ArrayList<>(findSongBySearch()));
         });
 
     }
-
-
-
 
 
     private JMenuBar initMenus() {
