@@ -41,9 +41,11 @@ public class StorageManager {
         return mainPanel;
     }
 
-    private void setInitialPlaylist(){
-        Media.setCurrentPlaylist(new AutoPlayList("",mediaArrayList));
-        Media.setNowPlaying(Media.getCurrentPlaylist().getPlaylistMedia().get(0));
+    private void setInitialPlaylist() {
+        Media.setCurrentPlaylist(new AutoPlayList("", mediaArrayList));
+        if (Media.getCurrentPlaylist().getPlaylistMedia().size() != 0) {
+            Media.setNowPlaying(Media.getCurrentPlaylist().getPlaylistMedia().get(0));
+        }
     }
 
     private void load() {
@@ -69,12 +71,12 @@ public class StorageManager {
 
         System.out.println("HEY");
         for (Media media : mediaArrayList) {
-            if(!mediaDataHashMap.containsKey(media.getAddress())){
-                mediaDataHashMap.put(media.getAddress(),new MediaData(media.getAddress(),new ArrayList<>()));
+            if (!mediaDataHashMap.containsKey(media.getAddress())) {
+                mediaDataHashMap.put(media.getAddress(), new MediaData(media.getAddress(), new ArrayList<>()));
             }
         }
 
-        mediaArrayList.sort((a,b)->{
+        mediaArrayList.sort((a, b) -> {
             Date aDate = mediaDataHashMap.get(a.getAddress()).getLastPlayed();
             Date bDate = mediaDataHashMap.get(b.getAddress()).getLastPlayed();
             return aDate.compareTo(bDate);
@@ -232,10 +234,10 @@ public class StorageManager {
             }
         }
         for (MediaData mediaData : mediaDataHashMap.values()) {
-            for(int i=0;i<mediaData.getElements().size();i++){
+            for (int i = 0; i < mediaData.getElements().size(); i++) {
                 PlaylistElement element = mediaData.getElements().get(i);
                 Media media = findMediaByAddress(element.getSongAddress());
-                if(!playlistHashMap.get(element.getPlaylistName()).getPlaylistMedia().contains(media)){
+                if (!playlistHashMap.get(element.getPlaylistName()).getPlaylistMedia().contains(media)) {
                     mediaData.getElements().remove(i);
                     i--;
                 }
