@@ -54,7 +54,12 @@ public class MainPanel implements PlaylistLinkable {
     private JPanel sliderPanel;
     private JPanel timepanel;
     private JLabel timeLabel;
+    private JLabel artWorkLAbel;
     private JFrame frame;
+
+    public void setArtWorkLAbel(){
+        artWorkLAbel.setIcon(new ImageIcon(Media.getNowPlaying().getIcon().getImage().getScaledInstance(160,160,Image.SCALE_DEFAULT)));
+    }
 
     public JPanel getMainPanel() {
         return mainPanel;
@@ -201,8 +206,9 @@ public class MainPanel implements PlaylistLinkable {
             }
             musicTitle.setText(nowPlaying.getTitle());
             artist.setText(nowPlaying.getArtist());
-
+            setArtWorkLAbel();
             //TODO update artwork here
+
         }
     }
 
@@ -382,6 +388,8 @@ public class MainPanel implements PlaylistLinkable {
     }
 
     public MainPanel() {
+        //setArtWorkLAbel();
+
         initDarkTheme();
         initFrame();
         musicSlider.setValue(0);
