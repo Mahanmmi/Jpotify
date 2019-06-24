@@ -1,100 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1568b705-ce1f-4e4c-bd73-3d5cf63a7149" name="Default Changelist" comment="">
+    <list default="true" id="39b1e512-5875-4e30-9dc5-32c100d197e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphic/MainPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphic/MainPanel.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/graphic/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphic/MainPanel.java" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DefaultGradleProjectSettings">
-    <option name="isMigrated" value="true" />
+  <component name="FUSProjectUsageTrigger">
+    <session id="491188681">
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="xml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="XML" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="432" />
+          <entry key="txt" value="22" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="432" />
+          <entry key="PLAIN_TEXT" value="22" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/logic/storage/StorageManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="30" column="65" lean-forward="true" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
-              <folding>
-                <element signature="method#setInitialPlaylist#0;class#StorageManager#0" />
-                <element signature="method#load#0;class#StorageManager#0" />
-                <element signature="method#addDirectory#0;class#StorageManager#0" />
-                <element signature="method#addMedia#0;class#StorageManager#0" />
-                <element signature="e#4326#4327#0" expanded="true" />
-                <element signature="e#4363#4364#0" expanded="true" />
-                <element signature="e#4426#4427#0" expanded="true" />
-                <element signature="e#4465#4466#0" expanded="true" />
-                <element signature="e#4526#4527#0" expanded="true" />
-                <element signature="e#4564#4565#0" expanded="true" />
-                <element signature="method#generateAlbums#0;class#StorageManager#0" />
-                <element signature="method#findMediaByAddress#0;class#StorageManager#0" />
-                <element signature="method#generatePlaylists#0;class#StorageManager#0" />
-                <element signature="method#updateMediaData#0;class#StorageManager#0" />
-                <element signature="method#saveAndQuit#0;class#StorageManager#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/logic/playlist/AutoPlayList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="11" column="70" selection-start-line="11" selection-start-column="70" selection-end-line="11" selection-end-column="70" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#323#324#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/logic/media/MediaData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-561">
-              <caret line="192" column="113" selection-start-line="192" selection-start-column="113" selection-end-line="192" selection-end-column="113" />
+            <state relative-caret-position="208">
+              <caret line="300" column="5" selection-start-line="300" selection-start-column="5" selection-end-line="300" selection-end-column="5" />
               <folding>
-                <element signature="e#1815#2092#0" />
-                <element signature="e#2275#2276#0" expanded="true" />
-                <element signature="e#2343#2344#0" expanded="true" />
-                <element signature="e#2416#2417#0" expanded="true" />
-                <element signature="e#2307#2766#0" />
-                <element signature="e#2772#3775#0" />
-                <element signature="e#3781#5258#0" />
-                <element signature="e#5264#6648#0" />
-                <element signature="e#6654#7403#0" />
-                <element signature="e#16488#16489#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1782#2208#0" />
+                <element signature="e#2423#2882#0" />
+                <element signature="e#2888#2919#0" expanded="true" />
+                <element signature="e#2888#3838#0" />
+                <element signature="e#3844#5321#0" />
+                <element signature="e#5327#6711#0" />
+                <element signature="e#5405#6039#0" />
+                <element signature="e#6075#6703#0" />
+                <element signature="e#6717#7466#0" />
+                <element signature="e#6891#6892#0" expanded="true" />
+                <element signature="e#6956#6957#0" expanded="true" />
+                <element signature="e#7472#9146#0" />
+                <element signature="e#10894#11268#0" />
+                <element signature="e#12369#12536#0" expanded="true" />
+                <element signature="e#12535#12536#0" expanded="true" />
+                <element signature="e#11480#13166#0" />
+                <element signature="e#11705#12236#0" />
+                <element signature="e#12364#12767#0" />
+                <element signature="e#12892#12989#0" />
+                <element signature="e#13172#13734#0" />
+                <element signature="e#13740#15108#0" />
+                <element signature="e#14856#15022#0" expanded="true" />
+                <element signature="e#15021#15022#0" expanded="true" />
+                <element signature="e#15114#15356#0" />
+                <element signature="method#doAddPlaylistLink#0;class#MainPanel#0" />
+                <element signature="e#17219#17220#0" expanded="true" />
+                <element signature="e#17257#17258#0" expanded="true" />
+                <element signature="e#13713#13964#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/logic/media/PauseablePlayer.java">
+        <entry file="file://$PROJECT_DIR$/src/logic/storage/StorageManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="83" column="9" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+            <state relative-caret-position="119">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -108,36 +96,100 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/logic/media/Media.java">
+        <entry file="file://$PROJECT_DIR$/src/logic/media/MediaData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="38" column="33" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+            <state relative-caret-position="324">
+              <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2987#5593#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/logic/media/Media.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="114" column="32" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#892#893#0" expanded="true" />
+                <element signature="e#930#931#0" expanded="true" />
+                <element signature="e#1001#1002#0" expanded="true" />
+                <element signature="e#1056#1057#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/logic/playlist/AutoPlayList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/logic/playlist/Playlist.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
+              <folding>
+                <element signature="e#545#546#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/logic/playlist/UserPlaylist.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#258#259#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/logic/playlist/PlaylistElement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>searc</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/logic/media/PauseablePlayer.java" />
         <option value="$PROJECT_DIR$/src/graphic/MainPanel.form" />
         <option value="$PROJECT_DIR$/src/graphic/MainPanel.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="180" />
-    <option name="width" value="1745" />
-    <option name="height" value="980" />
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -145,7 +197,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -194,27 +246,125 @@
               <item name="logic" type="462c0819:PsiDirectoryNode" />
               <item name="playlist" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Jpotify" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Jpotify" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="logic" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561375950768" />
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/New Icons/Music-icon.png</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -230,6 +380,8 @@
   </component>
   <component name="RunManager">
     <configuration name="MainPanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="12" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="graphic.MainPanel" />
       <module name="Jpotify" />
       <extension name="coverage">
@@ -252,52 +404,268 @@
     <configuration />
   </component>
   <component name="TaskManager">
-    <task id="LOCAL-00001" summary="Timer fixed">
-      <created>1561368552407</created>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="671bdf57-8e7a-46f3-8159-ae61ffdc7225" name="Default Changelist" comment="code cleaned." />
+      <created>1559743794982</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1559743794982</updated>
+      <workItem from="1559743797928" duration="12417000" />
+      <workItem from="1559988938140" duration="255000" />
+      <workItem from="1560059878944" duration="9757000" />
+      <workItem from="1560112008952" duration="70000" />
+      <workItem from="1560854648304" duration="9144000" />
+      <workItem from="1560929932272" duration="705000" />
+      <workItem from="1561056617548" duration="1660000" />
+      <workItem from="1561101793826" duration="10066000" />
+      <workItem from="1561136890076" duration="13267000" />
+      <workItem from="1561185487978" duration="5393000" />
+      <workItem from="1561190898569" duration="9680000" />
+      <workItem from="1561277228399" duration="16928000" />
+      <workItem from="1561351771067" duration="871000" />
+      <workItem from="1561352661871" duration="2238000" />
+      <workItem from="1561360105434" duration="12615000" />
+    </task>
+    <task id="LOCAL-00001" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/graphic/MainPanel.java">
+      <created>1561372526868</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1561368552407</updated>
+      <updated>1561372526868</updated>
     </task>
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="1568b705-ce1f-4e4c-bd73-3d5cf63a7149" name="Default Changelist" comment="" />
-      <created>1561369390263</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1561369390263</updated>
-      <workItem from="1561369418648" duration="149000" />
-      <workItem from="1561372822197" duration="1820000" />
+    <task id="LOCAL-00002" summary="artwork label edited.">
+      <created>1561373245164</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1561373245164</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00003" summary="Main Panels color set.">
+      <created>1559748050546</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1559748050547</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Main Panels color set.">
+      <created>1559748378103</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1559748378103</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Main Panels color set.">
+      <created>1559749560347</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1559749560347</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Resize bug fixed!">
+      <created>1559756176657</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1559756176657</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Mp3 Libraries added.">
+      <created>1560068036586</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1560068036586</updated>
+    </task>
+    <task id="LOCAL-00008" summary="class media update with mp3file using mp3agic">
+      <created>1560859838911</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1560859838912</updated>
+    </task>
+    <task id="LOCAL-00009" summary="class media update with mp3file using mp3agic(for id3v2)">
+      <created>1560859955339</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1560859955339</updated>
+    </task>
+    <task id="LOCAL-00010" summary="method playFile(just play) added">
+      <created>1560864462718</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1560864462718</updated>
+    </task>
+    <task id="LOCAL-00011" summary="get artwork added">
+      <created>1560865765413</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1560865765413</updated>
+    </task>
+    <task id="LOCAL-00012" summary="playfile as thread added.">
+      <created>1560934573024</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1560934573024</updated>
+    </task>
+    <task id="LOCAL-00013" summary="class album in logic.storage pacage added">
+      <created>1560943852584</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1560943852584</updated>
+    </task>
+    <task id="LOCAL-00014" summary=" generateAlbums complete">
+      <created>1560945756669</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1560945756669</updated>
+    </task>
+    <task id="LOCAL-00015" summary=" generateAlbums complete">
+      <created>1560945791554</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1560945791554</updated>
+    </task>
+    <task id="LOCAL-00016" summary="mediaData edited.">
+      <created>1561023210333</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1561023210333</updated>
+    </task>
+    <task id="LOCAL-00017" summary="updateMediaData added in storageManager.">
+      <created>1561030703208</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1561030703208</updated>
+    </task>
+    <task id="LOCAL-00018" summary="MPlayer added to package media">
+      <created>1561120234859</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1561120234860</updated>
+    </task>
+    <task id="LOCAL-00019" summary="mplayer have 2 different class one of the is commented.(after 9 hour exactly reach nothing)">
+      <created>1561147775066</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1561147775066</updated>
+    </task>
+    <task id="LOCAL-00020" summary="pauseablePlayer cleaned.">
+      <created>1561192586825</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1561192586825</updated>
+    </task>
+    <task id="LOCAL-00021" summary="slider bar added">
+      <created>1561199945650</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1561199945650</updated>
+    </task>
+    <task id="LOCAL-00022" summary="slider bar added">
+      <created>1561205677410</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1561205677411</updated>
+    </task>
+    <task id="LOCAL-00023" summary="slider bar change to borderLayOut">
+      <created>1561207559616</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1561207559616</updated>
+    </task>
+    <task id="LOCAL-00024" summary="pausablePlayer changed">
+      <created>1561287727282</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1561287727283</updated>
+    </task>
+    <task id="LOCAL-00025" summary="seekTo added to media.">
+      <created>1561288352848</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1561288352848</updated>
+    </task>
+    <task id="LOCAL-00026" summary="changeListener added to musicSlider">
+      <created>1561293736218</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1561293736218</updated>
+    </task>
+    <task id="LOCAL-00027" summary="musicSlider play/pause change complete.">
+      <created>1561294731939</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1561294731939</updated>
+    </task>
+    <task id="LOCAL-00028" summary="TimerLabel and needed function added">
+      <created>1561364755317</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1561364755317</updated>
+    </task>
+    <task id="LOCAL-00029" summary="timerLabel without seeking complete.">
+      <created>1561366560084</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1561366560084</updated>
+    </task>
+    <task id="LOCAL-00030" summary="artWorkLabel complete.">
+      <created>1561370437541</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1561370437541</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4334000" />
+    <option name="totallyTimeSpent" value="4848000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23489933" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Image Layers" order="0" />
+      <window_info id="Designer" order="1" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="Structure" order="4" sideWeight="0.50242716" side_tool="true" weight="0.26096824" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="6" sideWeight="0.4975728" weight="0.19894099" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49731544" visible="true" weight="0.28186968" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49848714" visible="true" weight="0.33442622" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49924356" weight="0.3295082" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5026846" side_tool="true" weight="0.28186968" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49924356" weight="0.3295082" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5015129" side_tool="true" weight="0.32459018" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32786885" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -307,55 +675,94 @@
       <window_info anchor="right" id="Maven" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Maven Projects" order="9" />
     </layout>
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <layout-to-restore>
+      <window_info id="Image Layers" order="0" />
+      <window_info id="Designer" order="1" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="Structure" order="4" sideWeight="0.50242716" side_tool="true" weight="0.26096824" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="6" sideWeight="0.4975728" weight="0.19894099" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" visible="true" weight="0.33442622" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49924356" weight="0.3295082" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49924356" weight="0.3295082" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5015129" side_tool="true" weight="0.32459018" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32786885" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Maven Projects" order="9" />
+    </layout-to-restore>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Timer fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Timer fixed" />
+    <MESSAGE value="Mp3 Libraries added." />
+    <MESSAGE value="class media update with mp3file using mp3agic" />
+    <MESSAGE value="class media update with mp3file using mp3agic(for id3v2)" />
+    <MESSAGE value="method playFile(just play) added" />
+    <MESSAGE value="get artwork added" />
+    <MESSAGE value="playfile as thread added." />
+    <MESSAGE value="class album in logic.storage pacage added" />
+    <MESSAGE value=" generateAlbums complete" />
+    <MESSAGE value="mediaData edited." />
+    <MESSAGE value="updateMediaData added in storageManager." />
+    <MESSAGE value="MPlayer added to package media" />
+    <MESSAGE value="mplayer have 2 different class one of the is commented.(after 9 hour exactly reach nothing)" />
+    <MESSAGE value="pauseablePlayer cleaned." />
+    <MESSAGE value="slider bar added" />
+    <MESSAGE value="slider bar change to borderLayOut" />
+    <MESSAGE value="pausablePlayer changed" />
+    <MESSAGE value="seekTo added to media." />
+    <MESSAGE value="media updated" />
+    <MESSAGE value="changeListener added to musicSlider" />
+    <MESSAGE value="musicSlider play/pause change complete." />
+    <MESSAGE value="TimerLabel and needed function added" />
+    <MESSAGE value="timerLabel without seeking complete." />
+    <MESSAGE value="artWorkLabel complete." />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/graphic/MainPanel.java" />
+    <MESSAGE value="artwork label edited." />
+    <option name="LAST_COMMIT_MESSAGE" value="artwork label edited." />
   </component>
   <component name="editorHistoryManager">
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/io/BufferedInputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4471">
+          <caret line="288" selection-start-line="288" selection-end-line="288" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/playlist/AutoPlayList.java">
+    <entry file="file://$PROJECT_DIR$/src/logic/storage/StorageManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="11" column="70" selection-start-line="11" selection-start-column="70" selection-end-line="11" selection-end-column="70" />
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#323#324#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/media/MediaData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/media/Media.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="38" column="33" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2987#5593#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/media/PauseablePlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="83" column="9" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+        <state relative-caret-position="324">
+          <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -365,45 +772,40 @@
     <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/storage/StorageManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="30" column="65" lean-forward="true" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
-          <folding>
-            <element signature="method#setInitialPlaylist#0;class#StorageManager#0" />
-            <element signature="method#load#0;class#StorageManager#0" />
-            <element signature="method#addDirectory#0;class#StorageManager#0" />
-            <element signature="method#addMedia#0;class#StorageManager#0" />
-            <element signature="e#4326#4327#0" expanded="true" />
-            <element signature="e#4363#4364#0" expanded="true" />
-            <element signature="e#4426#4427#0" expanded="true" />
-            <element signature="e#4465#4466#0" expanded="true" />
-            <element signature="e#4526#4527#0" expanded="true" />
-            <element signature="e#4564#4565#0" expanded="true" />
-            <element signature="method#generateAlbums#0;class#StorageManager#0" />
-            <element signature="method#findMediaByAddress#0;class#StorageManager#0" />
-            <element signature="method#generatePlaylists#0;class#StorageManager#0" />
-            <element signature="method#updateMediaData#0;class#StorageManager#0" />
-            <element signature="method#saveAndQuit#0;class#StorageManager#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-561">
-          <caret line="192" column="113" selection-start-line="192" selection-start-column="113" selection-end-line="192" selection-end-column="113" />
+        <state relative-caret-position="208">
+          <caret line="300" column="5" selection-start-line="300" selection-start-column="5" selection-end-line="300" selection-end-column="5" />
           <folding>
-            <element signature="e#1815#2092#0" />
-            <element signature="e#2275#2276#0" expanded="true" />
-            <element signature="e#2343#2344#0" expanded="true" />
-            <element signature="e#2416#2417#0" expanded="true" />
-            <element signature="e#2307#2766#0" />
-            <element signature="e#2772#3775#0" />
-            <element signature="e#3781#5258#0" />
-            <element signature="e#5264#6648#0" />
-            <element signature="e#6654#7403#0" />
-            <element signature="e#16488#16489#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1782#2208#0" />
+            <element signature="e#2423#2882#0" />
+            <element signature="e#2888#2919#0" expanded="true" />
+            <element signature="e#2888#3838#0" />
+            <element signature="e#3844#5321#0" />
+            <element signature="e#5327#6711#0" />
+            <element signature="e#5405#6039#0" />
+            <element signature="e#6075#6703#0" />
+            <element signature="e#6717#7466#0" />
+            <element signature="e#6891#6892#0" expanded="true" />
+            <element signature="e#6956#6957#0" expanded="true" />
+            <element signature="e#7472#9146#0" />
+            <element signature="e#10894#11268#0" />
+            <element signature="e#12369#12536#0" expanded="true" />
+            <element signature="e#12535#12536#0" expanded="true" />
+            <element signature="e#11480#13166#0" />
+            <element signature="e#11705#12236#0" />
+            <element signature="e#12364#12767#0" />
+            <element signature="e#12892#12989#0" />
+            <element signature="e#13172#13734#0" />
+            <element signature="e#13740#15108#0" />
+            <element signature="e#14856#15022#0" expanded="true" />
+            <element signature="e#15021#15022#0" expanded="true" />
+            <element signature="e#15114#15356#0" />
+            <element signature="method#doAddPlaylistLink#0;class#MainPanel#0" />
+            <element signature="e#17219#17220#0" expanded="true" />
+            <element signature="e#17257#17258#0" expanded="true" />
+            <element signature="e#13713#13964#0" />
           </folding>
         </state>
       </provider>

@@ -55,6 +55,7 @@ public class MainPanel implements PlaylistLinkable {
     private JLabel timeLabel;
     private JLabel artWorkLAbel;
     private JFrame frame;
+    private String textFieldConsept;
 
     public void setArtWorkLAbel(){
         if(Media.getNowPlaying().getIcon() == null){
@@ -288,6 +289,35 @@ public class MainPanel implements PlaylistLinkable {
         searchButton.setIcon(new ImageIcon("./resources/New Icons/magnifying-glass-icon.png"));
         searchField.setBackground(Color.LIGHT_GRAY);
     }
+
+    public void findSongBySearch(){
+        textFieldConsept=searchField.getText();
+        for(Media  media: StorageManager.getInstance().getMediaArrayList()){
+            if(media.getArtist().contains(textFieldConsept)){
+                //TODO
+            }
+        }
+
+    }
+    public void setListPanelListener() {
+        searchField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if(e.getKeyCode() == KeyEvent.VK_ENTER){
+                    findSongBySearch();
+                }
+            }
+        });
+
+        searchButton.addActionListener(e -> {
+           findSongBySearch();
+        });
+
+    }
+
+
+
+
 
     private JMenuBar initMenus() {
         JMenuBar menuBar = new JMenuBar();
