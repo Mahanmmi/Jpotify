@@ -24,14 +24,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="432" />
-          <entry key="txt" value="22" />
+          <entry key="java" value="521" />
+          <entry key="txt" value="56" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="432" />
-          <entry key="PLAIN_TEXT" value="22" />
+          <entry key="JAVA" value="521" />
+          <entry key="PLAIN_TEXT" value="56" />
         </counts>
       </usages-collector>
     </session>
@@ -41,8 +41,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="300" column="5" selection-start-line="300" selection-start-column="5" selection-end-line="300" selection-end-column="5" />
+            <state relative-caret-position="106">
+              <caret line="296" column="39" selection-start-line="296" selection-start-column="39" selection-end-line="296" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1782#2208#0" />
@@ -58,6 +58,7 @@
                 <element signature="e#6956#6957#0" expanded="true" />
                 <element signature="e#7472#9146#0" />
                 <element signature="e#10894#11268#0" />
+                <element signature="e#11282#11474#0" />
                 <element signature="e#12369#12536#0" expanded="true" />
                 <element signature="e#12535#12536#0" expanded="true" />
                 <element signature="e#11480#13166#0" />
@@ -254,7 +255,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561377206323" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561377292962" />
   </component>
   <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
     <UpdatedFiles>
@@ -424,7 +425,7 @@
       <workItem from="1561277228399" duration="16928000" />
       <workItem from="1561351771067" duration="871000" />
       <workItem from="1561352661871" duration="2238000" />
-      <workItem from="1561360105434" duration="12615000" />
+      <workItem from="1561360105434" duration="13638000" />
     </task>
     <task id="LOCAL-00001" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/graphic/MainPanel.java">
       <created>1561372526868</created>
@@ -440,19 +441,19 @@
       <option name="project" value="LOCAL" />
       <updated>1561373245164</updated>
     </task>
-    <task id="LOCAL-00003" summary="Main Panels color set.">
-      <created>1559748050546</created>
+    <task id="LOCAL-00003" summary="findSongBySearch added.">
+      <created>1561377237566</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1559748050547</updated>
+      <updated>1561377237566</updated>
     </task>
-    <task id="LOCAL-00004" summary="Main Panels color set.">
-      <created>1559748378103</created>
+    <task id="LOCAL-00004" summary="findSongBySearch edited&#10;.">
+      <created>1561377306907</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1559748378103</updated>
+      <updated>1561377306907</updated>
     </task>
     <task id="LOCAL-00005" summary="Main Panels color set.">
       <created>1559749560347</created>
@@ -636,11 +637,11 @@
       <option name="project" value="LOCAL" />
       <updated>1561370437541</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4848000" />
+    <option name="totallyTimeSpent" value="5871000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -711,8 +712,6 @@
     </layout-to-restore>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Mp3 Libraries added." />
-    <MESSAGE value="class media update with mp3file using mp3agic" />
     <MESSAGE value="class media update with mp3file using mp3agic(for id3v2)" />
     <MESSAGE value="method playFile(just play) added" />
     <MESSAGE value="get artwork added" />
@@ -736,7 +735,9 @@
     <MESSAGE value="artWorkLabel complete." />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/graphic/MainPanel.java" />
     <MESSAGE value="artwork label edited." />
-    <option name="LAST_COMMIT_MESSAGE" value="artwork label edited." />
+    <MESSAGE value="findSongBySearch added." />
+    <MESSAGE value="findSongBySearch edited&#10;." />
+    <option name="LAST_COMMIT_MESSAGE" value="findSongBySearch edited&#10;." />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/io/BufferedInputStream.java">
@@ -774,8 +775,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="300" column="5" selection-start-line="300" selection-start-column="5" selection-end-line="300" selection-end-column="5" />
+        <state relative-caret-position="106">
+          <caret line="296" column="39" selection-start-line="296" selection-start-column="39" selection-end-line="296" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1782#2208#0" />
@@ -791,6 +792,7 @@
             <element signature="e#6956#6957#0" expanded="true" />
             <element signature="e#7472#9146#0" />
             <element signature="e#10894#11268#0" />
+            <element signature="e#11282#11474#0" />
             <element signature="e#12369#12536#0" expanded="true" />
             <element signature="e#12535#12536#0" expanded="true" />
             <element signature="e#11480#13166#0" />

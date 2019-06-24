@@ -56,6 +56,7 @@ public class MainPanel implements PlaylistLinkable {
     private JLabel artWorkLAbel;
     private JFrame frame;
     private String textFieldConsept;
+    private ArrayList<Media>searchedSong;
 
     public void setArtWorkLAbel(){
         if(Media.getNowPlaying().getIcon() == null){
@@ -290,13 +291,14 @@ public class MainPanel implements PlaylistLinkable {
         searchField.setBackground(Color.LIGHT_GRAY);
     }
 
-    public void findSongBySearch(){
-        textFieldConsept=searchField.getText();
+    public ArrayList<Media> findSongBySearch(){
+        textFieldConsept=searchField.getText().trim().toLowerCase();
         for(Media  media: StorageManager.getInstance().getMediaArrayList()){
-            if(media.getArtist().contains(textFieldConsept) || media.getAlbum().contains(textFieldConsept) || media.getTitle().contains(textFieldConsept)){
-                //TODO
+            if(media.getArtist().trim().toLowerCase().contains(textFieldConsept) || media.getAlbum().contains(textFieldConsept) || media.getTitle().contains(textFieldConsept)){
+                searchedSong.add(media);
             }
         }
+        return  searchedSong;
 
     }
     public void setListPanelListener() {
