@@ -172,12 +172,12 @@ public class MainPanel implements PlaylistLinkable {
                 Media.setPlaying(true);
                 play_pause.setIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-pause-icon.png"));
             }
-            if(nowPlaying.isFave()){
+            if (nowPlaying.isFave()) {
                 favorite.setIcon(new ImageIcon("./resources/New Icons/heart-icon.png"));
             } else {
                 favorite.setIcon(new ImageIcon("./resources/New Icons/heart-icon-disabled.png"));
             }
-            if(nowPlaying.isShared()){
+            if (nowPlaying.isShared()) {
                 shared.setIcon(new ImageIcon("./resources/New Icons/share-icon.png"));
             } else {
                 shared.setIcon(new ImageIcon("./resources/New Icons/share-icon-disabled.png"));
