@@ -58,6 +58,8 @@ public class MainPanel implements PlaylistLinkable {
     private JScrollPane showcasePane;
     private JPanel showcasePanel;
     private JFrame frame;
+    private String textFieldConsept;
+    private ArrayList<Media>searchedSong;
 
     public void setArtWorkLAbel(){
         if(Media.getNowPlaying().getIcon() == null){
@@ -301,6 +303,36 @@ public class MainPanel implements PlaylistLinkable {
         searchButton.setIcon(new ImageIcon("./resources/New Icons/magnifying-glass-icon.png"));
         searchField.setBackground(Color.LIGHT_GRAY);
     }
+
+    public ArrayList<Media> findSongBySearch(){
+        textFieldConsept=searchField.getText().trim().toLowerCase();
+        for(Media  media: StorageManager.getInstance().getMediaArrayList()){
+            if(media.getArtist().trim().toLowerCase().contains(textFieldConsept) || media.getAlbum().contains(textFieldConsept) || media.getTitle().contains(textFieldConsept)){
+                searchedSong.add(media);
+            }
+        }
+        return  searchedSong;
+
+    }
+    public void setListPanelListener() {
+        searchField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if(e.getKeyCode() == KeyEvent.VK_ENTER){
+                    findSongBySearch();
+                }
+            }
+        });
+
+        searchButton.addActionListener(e -> {
+           findSongBySearch();
+        });
+
+    }
+
+
+
+
 
     private JMenuBar initMenus() {
         JMenuBar menuBar = new JMenuBar();
