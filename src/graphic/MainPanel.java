@@ -3,6 +3,7 @@ package graphic;
 import ch.randelshofer.quaqua.QuaquaManager;
 import javazoom.jl.decoder.JavaLayerException;
 import logic.media.Media;
+import logic.media.MediaData;
 import logic.playlist.Playlist;
 import logic.playlist.UserPlaylist;
 import logic.storage.StorageManager;
@@ -28,7 +29,6 @@ public class MainPanel implements PlaylistLinkable {
     private JPanel autoPlaylistsPanel;
     private JPanel volumePanel;
     private JPanel musicButtonsPanel;
-    private JTextArea textArea1;
     private JTextArea textArea2;
     private JTextArea textArea3;
     private JSlider volumeSlider;
@@ -36,11 +36,20 @@ public class MainPanel implements PlaylistLinkable {
     private JButton lastTrackButton;
     private JButton nextTrackButton;
     private JButton play_pause;
-    private JButton musicName;
+    private JButton musicTitle;
     private JButton artist;
     private JButton favorite;
     private JButton shared;
     private JSlider musicSlider;
+    private JTextField searchField;
+    private JButton searchButton;
+    private JPanel artworkPanel;
+    private JPanel albumsPanel;
+    private JPanel playlistsPanel;
+    private JList playlistList;
+    private JList albumList;
+    private JButton replayButtun;
+    private JButton shuffleButton;
     private JFrame frame;
 
     public JPanel getMainPanel() {
@@ -67,7 +76,6 @@ public class MainPanel implements PlaylistLinkable {
 
     @SuppressWarnings("Duplicates")
     private void updatePanelSizeAndColors() {
-        textArea1.setBackground(Color.lightGray);
         textArea2.setBackground(Color.lightGray);
         textArea3.setBackground(Color.lightGray);
 
@@ -95,19 +103,21 @@ public class MainPanel implements PlaylistLinkable {
 
         nextTrackButton.setSize(nextTrackButton.getWidth(), nextTrackButton.getHeight() + 10);
         nextTrackButton.setIcon(new ImageIcon("./resources/New Icons/Actions-media-seek-forward-icon.png"));
-//        nextTrackButton.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/Actions-media-seek-forward-icon.png").getImage().getScaledInstance(nextTrackButton.getHeight() + 4, nextTrackButton.getHeight() + 4, Image.SCALE_DEFAULT)));
 
         lastTrackButton.setSize(lastTrackButton.getWidth(), lastTrackButton.getHeight() + 10);
         lastTrackButton.setIcon(new ImageIcon("./resources/New Icons/Actions-media-seek-backward-icon.png"));
-//        lastTrackButton.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/Actions-media-seek-backward-icon.png").getImage().getScaledInstance(lastTrackButton.getHeight() + 4, lastTrackButton.getHeight() + 4, Image.SCALE_DEFAULT)));
 
         volumeButton.setSize(volumeButton.getWidth(), volumeButton.getHeight() + 10);
         volumeButton.setIcon(new ImageIcon("./resources/New Icons/speaker-icon.png"));
-//        volumeButton.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/speaker-icon.png").getImage().getScaledInstance(volumeButton.getHeight() + 4, volumeButton.getHeight() + 4, Image.SCALE_DEFAULT)));
 
         play_pause.setSize(play_pause.getWidth(), play_pause.getHeight() + 10);
         play_pause.setIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-start-icon.png"));
-//        play_pause.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-start-icon.png").getImage().getScaledInstance(play_pause.getHeight() + 4, play_pause.getHeight() + 4, Image.SCALE_DEFAULT)));
+
+        shuffleButton.setSize(shuffleButton.getWidth(), shuffleButton.getHeight() + 10);
+        shuffleButton.setIcon(new ImageIcon("./resources/New Icons/shuffle-icon.png"));
+
+        replayButtun.setSize(replayButtun.getWidth(), replayButtun.getHeight() + 10);
+        replayButtun.setIcon(new ImageIcon("./resources/New Icons/replay-icon.png"));
     }
 
     private void addAutoPlaylistsListeners() {
@@ -135,7 +145,7 @@ public class MainPanel implements PlaylistLinkable {
         });
     }
 
-    public void setActionListenerToSlider() {
+    private void setActionListenerToSlider() {
         musicSlider.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -158,6 +168,36 @@ public class MainPanel implements PlaylistLinkable {
 //        });
     }
 
+    public void updateGUISongDetails() {
+        Media nowPlaying = Media.getNowPlaying();
+        if (nowPlaying != null) {
+            if (nowPlaying.isFave()) {
+                favorite.setIcon(new ImageIcon("./resources/New Icons/heart-icon.png"));
+            } else {
+                favorite.setIcon(new ImageIcon("./resources/New Icons/heart-icon-disabled.png"));
+            }
+            if (nowPlaying.isShared()) {
+                shared.setIcon(new ImageIcon("./resources/New Icons/share-icon.png"));
+            } else {
+                shared.setIcon(new ImageIcon("./resources/New Icons/share-icon-disabled.png"));
+            }
+            if(Media.isShuffling()){
+                shuffleButton.setIcon(new ImageIcon("./resources/New Icons/shuffle-icon-active.png"));
+            } else {
+                shuffleButton.setIcon(new ImageIcon("./resources/New Icons/shuffle-icon.png"));
+            }
+            if(Media.isReplaying()){
+                replayButtun.setIcon(new ImageIcon("./resources/New Icons/replay-icon-active.png"));
+            } else {
+                replayButtun.setIcon(new ImageIcon("./resources/New Icons/replay-icon.png"));
+            }
+            musicTitle.setText(nowPlaying.getTitle());
+            artist.setText(nowPlaying.getArtist());
+
+            //TODO update artwork here
+        }
+    }
+
     private void addMusicPanelListeners() {
         addAutoPlaylistsListeners();
         setActionListenerToSlider();
@@ -172,18 +212,61 @@ public class MainPanel implements PlaylistLinkable {
                 Media.setPlaying(true);
                 play_pause.setIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-pause-icon.png"));
             }
-            if (nowPlaying.isFave()) {
-                favorite.setIcon(new ImageIcon("./resources/New Icons/heart-icon.png"));
+            updateGUISongDetails();
+        });
+        nextTrackButton.addActionListener(event -> {
+            ArrayList<Media> currentPlaylist = Media.getCurrentPlaylist().getPlaylistMedia();
+            int next;
+            if (Media.isShuffling()) {
+                Random random = new Random();
+                next = random.nextInt(currentPlaylist.size());
             } else {
-                favorite.setIcon(new ImageIcon("./resources/New Icons/heart-icon-disabled.png"));
+                next = currentPlaylist.indexOf(Media.getNowPlaying()) + 1;
+                if (next == currentPlaylist.size()) {
+                    next = 0;
+                }
             }
-            if (nowPlaying.isShared()) {
-                shared.setIcon(new ImageIcon("./resources/New Icons/share-icon.png"));
+            Media.setNowPlaying(currentPlaylist.get(next));
+            if (Media.isPlaying()) {
+                Media.getNowPlaying().playFile();
+            }
+            updateGUISongDetails();
+        });
+        lastTrackButton.addActionListener(event -> {
+            ArrayList<Media> currentPlaylist = Media.getCurrentPlaylist().getPlaylistMedia();
+            int last = currentPlaylist.indexOf(Media.getNowPlaying()) - 1;
+            if (last == -1) {
+                last = currentPlaylist.size() - 1;
+            }
+            Media.setNowPlaying(currentPlaylist.get(last));
+            if (Media.isPlaying()) {
+                Media.getNowPlaying().playFile();
+            }
+            updateGUISongDetails();
+        });
+        shuffleButton.addActionListener(event ->{
+            if(Media.isShuffling()){
+                Media.setShuffling(false);
+                shuffleButton.setIcon(new ImageIcon("./resources/New Icons/shuffle-icon.png"));
             } else {
-                shared.setIcon(new ImageIcon("./resources/New Icons/share-icon-disabled.png"));
+                Media.setShuffling(true);
+                shuffleButton.setIcon(new ImageIcon("./resources/New Icons/shuffle-icon-active.png"));
             }
         });
+        replayButtun.addActionListener(event ->{
+            if(Media.isReplaying()){
+                Media.setReplaying(false);
+                replayButtun.setIcon(new ImageIcon("./resources/New Icons/replay-icon.png"));
+            } else {
+                Media.setReplaying(true);
+                replayButtun.setIcon(new ImageIcon("./resources/New Icons/replay-icon-active.png"));
+            }
+        });
+    }
 
+    private void setListsPanelSetting() {
+        searchButton.setIcon(new ImageIcon("./resources/New Icons/magnifying-glass-icon.png"));
+        searchField.setBackground(Color.LIGHT_GRAY);
     }
 
     private JMenuBar initMenus() {
@@ -290,13 +373,13 @@ public class MainPanel implements PlaylistLinkable {
         frame.setJMenuBar(initMenus());
     }
 
-
     public MainPanel() {
         initDarkTheme();
         initFrame();
         musicSlider.setValue(0);
         addMusicPanelListeners();
         setMusicPanelIconsAndColors();
+        setListsPanelSetting();
         frame.setVisible(true);
     }
 
