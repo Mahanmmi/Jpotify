@@ -1,10 +1,12 @@
 package logic.storage;
 
+import graphic.Showable;
 import logic.media.Media;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
-public class Album {
+public class Album implements Showable {
     private String albumName;
     private String Artist;
     private ArrayList<Media> albumSongs = new ArrayList<>();
@@ -18,5 +20,23 @@ public class Album {
 
     }
 
+    @Override
+    public ImageIcon getIcon() {
+        for (Media albumSong : albumSongs) {
+            if (albumSong.getIcon() != null) {
+                return albumSong.getIcon();
+            }
+        }
+        return null;
+    }
 
+    @Override
+    public void getClicked() {
+        StorageManager.getInstance().getMainPanel().setShowcaseContent(new ArrayList<>(albumSongs));
+    }
+
+    @Override
+    public String getTitle() {
+        return albumName;
+    }
 }

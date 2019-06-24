@@ -15,6 +15,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.FileNotFoundException;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.*;
 import java.util.Timer;
@@ -54,6 +55,8 @@ public class MainPanel implements PlaylistLinkable {
     private JPanel timepanel;
     private JLabel timeLabel;
     private JLabel artWorkLAbel;
+    private JScrollPane showcasePane;
+    private JPanel showcasePanel;
     private JFrame frame;
 
     public void setArtWorkLAbel(){
@@ -114,7 +117,6 @@ public class MainPanel implements PlaylistLinkable {
         favorite.setIcon(new ImageIcon("./resources/New Icons/heart-icon.png"));
 
         shared.setSize(shared.getWidth(), shared.getHeight() + 10);
-
         shared.setIcon(new ImageIcon("./resources/New Icons/share-icon.png"));
 
         nextTrackButton.setSize(nextTrackButton.getWidth(), nextTrackButton.getHeight() + 10);
@@ -212,12 +214,23 @@ public class MainPanel implements PlaylistLinkable {
             } else {
                 replayButtun.setIcon(new ImageIcon("./resources/New Icons/replay-icon.png"));
             }
+            setShowcaseContent(new ArrayList<>(Media.getCurrentPlaylist().getPlaylistMedia()));
             musicTitle.setText(nowPlaying.getTitle());
             artist.setText(nowPlaying.getArtist());
             setArtWorkLAbel();
-            //TODO update artwork here
-
         }
+    }
+
+    public void setShowcaseContent(ArrayList<Showable> content){
+        showcasePanel.removeAll();
+        showcasePanel.setLayout(new GridLayout(content.size(),1));
+        System.out.println(content);
+        for (Showable showable : content) {
+            ShowcaseButton showcase = new ShowcaseButton(showable);
+            System.out.println(showcase);
+            showcasePanel.add(showcase);
+        }
+        showcasePanel.revalidate();
     }
 
     private void addMusicPanelListeners() {
@@ -394,8 +407,6 @@ public class MainPanel implements PlaylistLinkable {
     }
 
     public MainPanel() {
-        //setArtWorkLAbel();
-
         initDarkTheme();
         initFrame();
         musicSlider.setValue(0);

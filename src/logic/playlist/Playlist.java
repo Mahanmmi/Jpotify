@@ -1,11 +1,14 @@
 package logic.playlist;
 
+import graphic.Showable;
 import logic.media.Media;
+import logic.storage.StorageManager;
 
+import javax.swing.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class Playlist  implements Serializable {
+public abstract class Playlist implements Serializable, Showable {
     private String name;
     private ArrayList<Media> playlistMedia;
 
@@ -14,7 +17,27 @@ public abstract class Playlist  implements Serializable {
         this.playlistMedia = playlistMedia;
     }
 
-    public void addMedia(Media media){
+    @Override
+    public ImageIcon getIcon() {
+        for (Media media : playlistMedia) {
+            if (media.getIcon() != null) {
+                return media.getIcon();
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void getClicked() {
+        StorageManager.getInstance().getMainPanel().setShowcaseContent(new ArrayList<>(playlistMedia));
+    }
+
+    @Override
+    public String getTitle() {
+        return name;
+    }
+
+    public void addMedia(Media media) {
         playlistMedia.add(media);
     }
 

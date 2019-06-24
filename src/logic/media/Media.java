@@ -7,6 +7,7 @@ import javax.swing.*;
 import com.mpatric.mp3agic.ID3v1;
 import com.mpatric.mp3agic.ID3v2;
 import com.mpatric.mp3agic.Mp3File;
+import graphic.Showable;
 import javazoom.jl.decoder.JavaLayerException;
 import logic.playlist.Playlist;
 import logic.storage.StorageManager;
@@ -16,7 +17,7 @@ import java.io.*;
 import java.util.Date;
 import java.util.Random;
 
-public class Media {
+public class Media implements Showable {
     //Player related fields
     private static PauseablePlayer mainPlayer = null;
     private static Media nowPlaying = null;
@@ -277,6 +278,12 @@ public class Media {
 
     public String getAlbumName() {
         return album;
+    }
+
+    @Override
+    public void getClicked() {
+        playFile();
+        StorageManager.getInstance().getMainPanel().updateGUISongDetails();
     }
 
     @Override

@@ -75,7 +75,10 @@ public class StorageManager {
                 mediaDataHashMap.put(media.getAddress(), new MediaData(media.getAddress(), new ArrayList<>()));
             }
         }
+        sortMediaArrayList();
+    }
 
+    public void sortMediaArrayList(){
         mediaArrayList.sort((a, b) -> {
             Date aDate = mediaDataHashMap.get(a.getAddress()).getLastPlayed();
             Date bDate = mediaDataHashMap.get(b.getAddress()).getLastPlayed();
@@ -119,6 +122,7 @@ public class StorageManager {
             System.out.println("Ridem amoo");
         }
         mediaArrayList.add(new Media(media.getAbsolutePath()));
+        sortMediaArrayList();
         mediaDataHashMap.put(media.getAbsolutePath(),new MediaData(media.getAbsolutePath(),new ArrayList<>()));
     }
 
