@@ -30,7 +30,6 @@ public class MainPanel implements PlaylistLinkable {
     private JPanel autoPlaylistsPanel;
     private JPanel volumePanel;
     private JPanel musicButtonsPanel;
-    private JTextArea textArea2;
     private JTextArea textArea3;
     private JSlider volumeSlider;
     private JButton volumeButton;
@@ -58,7 +57,12 @@ public class MainPanel implements PlaylistLinkable {
     private JFrame frame;
 
     public void setArtWorkLAbel(){
-        artWorkLAbel.setIcon(new ImageIcon(Media.getNowPlaying().getIcon().getImage().getScaledInstance(160,160,Image.SCALE_DEFAULT)));
+        if(Media.getNowPlaying().getIcon() == null){
+            artWorkLAbel.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/Music-icon.png").getImage().getScaledInstance(120,120,Image.SCALE_DEFAULT)));
+        }
+        else {
+            artWorkLAbel.setIcon(new ImageIcon(Media.getNowPlaying().getIcon().getImage().getScaledInstance(160,160,Image.SCALE_DEFAULT)));
+        }
     }
 
     public JPanel getMainPanel() {
@@ -89,7 +93,6 @@ public class MainPanel implements PlaylistLinkable {
 
     @SuppressWarnings("Duplicates")
     private void updatePanelSizeAndColors() {
-        textArea2.setBackground(Color.lightGray);
         textArea3.setBackground(Color.lightGray);
 
         upperPanel.setMinimumSize(new Dimension(mainPanel.getWidth(), mainPanel.getHeight() * 4 / 6));
@@ -102,7 +105,7 @@ public class MainPanel implements PlaylistLinkable {
 
         mainPanel.setBackground(Color.BLACK);
         listsPanel.setBackground(Color.BLACK);
-        middlePanel.setBackground(Color.darkGray);
+        middlePanel.setBackground(Color.BLACK);
         friendPanel.setBackground(Color.BLACK);
     }
 
@@ -184,6 +187,11 @@ public class MainPanel implements PlaylistLinkable {
     public void updateGUISongDetails() {
         Media nowPlaying = Media.getNowPlaying();
         if (nowPlaying != null) {
+            if(Media.isPlaying()){
+                play_pause.setIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-pause-icon.png"));
+            } else {
+                play_pause.setIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-start-icon.png"));
+            }
             if (nowPlaying.isFave()) {
                 favorite.setIcon(new ImageIcon("./resources/New Icons/heart-icon.png"));
             } else {
@@ -241,9 +249,7 @@ public class MainPanel implements PlaylistLinkable {
                 }
             }
             Media.setNowPlaying(currentPlaylist.get(next));
-            if (Media.isPlaying()) {
-                Media.getNowPlaying().playFile();
-            }
+            Media.getNowPlaying().playFile();
             updateGUISongDetails();
         });
         lastTrackButton.addActionListener(event -> {
