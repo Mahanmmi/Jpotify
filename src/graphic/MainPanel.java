@@ -323,7 +323,6 @@ public class MainPanel implements PlaylistLinkable {
             @Override
             public void keyTyped(KeyEvent e) {
                 if (e.getKeyChar() == KeyEvent.VK_ENTER) {
-                    System.out.println("Asghar");
                     setShowcaseContent(new ArrayList<>(findSongBySearch()));
                 }
             }
