@@ -17,6 +17,7 @@ import java.awt.event.*;
 import java.io.FileNotFoundException;
 import java.io.Serializable;
 import java.util.*;
+import java.util.Timer;
 
 public class MainPanel implements PlaylistLinkable {
     private JPanel mainPanel;
@@ -50,6 +51,8 @@ public class MainPanel implements PlaylistLinkable {
     private JList albumList;
     private JButton replayButtun;
     private JButton shuffleButton;
+    private JLabel timerLabel;
+    private JLabel durationLable;
     private JFrame frame;
 
     public JPanel getMainPanel() {
@@ -263,11 +266,52 @@ public class MainPanel implements PlaylistLinkable {
             }
         });
     }
-
     private void setListsPanelSetting() {
         searchButton.setIcon(new ImageIcon("./resources/New Icons/magnifying-glass-icon.png"));
         searchField.setBackground(Color.LIGHT_GRAY);
     }
+
+
+    public void setjLabelText(int time) {
+        if (time < 10)
+            timerLabel.setText("00:0" + time);
+        if (time >= 10)
+            timerLabel.setText("00:" + time);
+        if (time >= 60){
+            if (time / 60 > 9) {
+                if (time % 60 > 9)
+                    timerLabel.setText("" + (time / 60) + ":" + (time % 60));
+                if (time % 60 < 10)
+                    timerLabel.setText("" + (time / 60) + ":0" + (time % 60));
+            }
+            if (time / 60 < 10) {
+                if (time % 60 > 9)
+                    timerLabel.setText("0" + (time / 60) + ":" + (time % 60));
+                if (time % 60 < 10)
+                    timerLabel.setText("0" + (time / 60) + ":0" + (time % 60));
+            }
+        }
+    }
+
+    class MusicTimer extends TimerTask {
+        int StartingSecond = 0;
+
+        @Override
+        public void run() {
+            if(Media.isPlaying())
+            setjLabelText(++StartingSecond);
+        }
+
+    }
+
+    public void musicTimer() {
+        TimerTask timerTask = new MusicTimer();
+        Timer timer = new Timer();
+        timer.schedule(timerTask, 1000, 1000);
+
+
+    }
+
 
     private JMenuBar initMenus() {
         JMenuBar menuBar = new JMenuBar();
@@ -377,6 +421,7 @@ public class MainPanel implements PlaylistLinkable {
         initDarkTheme();
         initFrame();
         musicSlider.setValue(0);
+        musicTimer();
         addMusicPanelListeners();
         setMusicPanelIconsAndColors();
         setListsPanelSetting();
