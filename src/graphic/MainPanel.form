@@ -250,7 +250,7 @@
                 </properties>
                 <border type="none"/>
                 <children>
-                  <component id="e9329" class="javax.swing.JLabel" binding="artWorkLAbel">
+                  <component id="e9329" class="javax.swing.JLabel" binding="artWorkLabel">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -270,7 +270,7 @@
                 </properties>
                 <border type="none"/>
                 <children>
-                  <component id="a72b2" class="javax.swing.JLabel">
+                  <component id="a72b2" class="javax.swing.JLabel" binding="albumLabel">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -306,7 +306,7 @@
                 </properties>
                 <border type="none"/>
                 <children>
-                  <component id="73fc1" class="javax.swing.JLabel">
+                  <component id="73fc1" class="javax.swing.JLabel" binding="playlistLabel">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -332,7 +332,7 @@
                   </scrollpane>
                 </children>
               </grid>
-              <component id="e7503" class="javax.swing.JLabel">
+              <component id="e7503" class="javax.swing.JLabel" binding="allSongLabel">
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
