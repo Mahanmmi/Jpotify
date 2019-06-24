@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1568b705-ce1f-4e4c-bd73-3d5cf63a7149" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/graphic/Showable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graphic/ShowcaseButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/graphic/MainPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphic/MainPanel.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/graphic/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphic/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/media/Media.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/media/Media.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/playlist/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/playlist/Playlist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/storage/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/storage/Album.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/storage/StorageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/storage/StorageManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphic/ShowcaseButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphic/ShowcaseButton.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -78,11 +73,11 @@
           <provider selected="true" editor-type-id="ui-designer" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/graphic/ShowcaseButton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+            <state relative-caret-position="238">
+              <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -90,30 +85,37 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="232" column="35" selection-start-line="232" selection-start-column="35" selection-end-line="232" selection-end-column="35" />
+            <state relative-caret-position="340">
+              <caret line="294" column="41" selection-start-line="294" selection-start-column="41" selection-end-line="294" selection-end-column="41" />
               <folding>
-                <element signature="e#1815#2092#0" />
-                <element signature="e#2382#2383#0" expanded="true" />
-                <element signature="e#2450#2451#0" expanded="true" />
-                <element signature="e#2523#2524#0" expanded="true" />
-                <element signature="e#2307#2766#0" />
-                <element signature="e#2772#3775#0" />
-                <element signature="e#3781#5258#0" />
-                <element signature="e#5264#6648#0" />
-                <element signature="e#6654#7403#0" />
-                <element signature="e#11838#12030#0" />
+                <element signature="e#1968#2394#0" />
+                <element signature="e#2497#2498#0" expanded="true" />
+                <element signature="e#2529#2530#0" expanded="true" />
+                <element signature="e#2568#2569#0" expanded="true" />
+                <element signature="e#2602#2603#0" expanded="true" />
+                <element signature="e#2609#3068#0" />
+                <element signature="e#3074#3105#0" expanded="true" />
+                <element signature="e#3074#4024#0" />
+                <element signature="e#4030#5506#0" />
+                <element signature="e#5512#6896#0" />
+                <element signature="e#6902#7651#0" />
+                <element signature="e#7076#7077#0" expanded="true" />
+                <element signature="e#7141#7142#0" expanded="true" />
+                <element signature="e#7657#9387#0" />
+                <element signature="e#9393#9839#0" />
+                <element signature="e#9845#12622#0" />
+                <element signature="e#13371#13597#0" expanded="true" />
+                <element signature="e#13596#13597#0" expanded="true" />
                 <element signature="e#12036#13722#0" />
                 <element signature="e#13728#14290#0" />
                 <element signature="e#14296#15664#0" />
                 <element signature="e#14137#15059#0" />
-                <element signature="e#15670#15942#0" />
                 <element signature="e#15948#16295#0" />
                 <element signature="e#16121#16160#1" />
-                <element signature="e#17072#17073#0" expanded="true" />
+                <element signature="e#18326#18327#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -193,12 +195,12 @@
         <option value="$PROJECT_DIR$/src/logic/media/PauseablePlayer.java" />
         <option value="$PROJECT_DIR$/src/logic/media/Media.java" />
         <option value="$PROJECT_DIR$/src/logic/storage/StorageManager.java" />
-        <option value="$PROJECT_DIR$/src/graphic/MainPanel.form" />
-        <option value="$PROJECT_DIR$/src/graphic/MainPanel.java" />
         <option value="$PROJECT_DIR$/src/graphic/Showable.java" />
         <option value="$PROJECT_DIR$/src/logic/playlist/Playlist.java" />
         <option value="$PROJECT_DIR$/src/logic/storage/Album.java" />
         <option value="$PROJECT_DIR$/src/graphic/ShowcaseButton.java" />
+        <option value="$PROJECT_DIR$/src/graphic/MainPanel.form" />
+        <option value="$PROJECT_DIR$/src/graphic/MainPanel.java" />
       </list>
     </option>
   </component>
@@ -329,7 +331,7 @@
       <option name="presentableId" value="Default" />
       <updated>1561369390263</updated>
       <workItem from="1561369418648" duration="149000" />
-      <workItem from="1561372822197" duration="5658000" />
+      <workItem from="1561372822197" duration="6909000" />
     </task>
     <task id="LOCAL-00002" summary="some small bugs fixed">
       <created>1561374674043</created>
@@ -345,17 +347,38 @@
       <option name="project" value="LOCAL" />
       <updated>1561374736027</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Showcase added">
+      <created>1561378825552</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1561378825552</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Search added">
+      <created>1561379299077</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1561379299077</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Search added">
+      <created>1561379307183</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1561379307183</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8172000" />
+    <option name="totallyTimeSpent" value="9423000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23489933" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23489933" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -364,7 +387,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49731544" visible="true" weight="0.28186968" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49731544" visible="true" weight="0.28186968" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -392,7 +415,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Timer fixed" />
     <MESSAGE value="some small bugs fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="some small bugs fixed" />
+    <MESSAGE value="Showcase added" />
+    <MESSAGE value="Search added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Search added" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
@@ -449,42 +474,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/media/PauseablePlayer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="83" column="9" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="232" column="35" selection-start-line="232" selection-start-column="35" selection-end-line="232" selection-end-column="35" />
-          <folding>
-            <element signature="e#1815#2092#0" />
-            <element signature="e#2382#2383#0" expanded="true" />
-            <element signature="e#2450#2451#0" expanded="true" />
-            <element signature="e#2523#2524#0" expanded="true" />
-            <element signature="e#2307#2766#0" />
-            <element signature="e#2772#3775#0" />
-            <element signature="e#3781#5258#0" />
-            <element signature="e#5264#6648#0" />
-            <element signature="e#6654#7403#0" />
-            <element signature="e#11838#12030#0" />
-            <element signature="e#12036#13722#0" />
-            <element signature="e#13728#14290#0" />
-            <element signature="e#14296#15664#0" />
-            <element signature="e#14137#15059#0" />
-            <element signature="e#15670#15942#0" />
-            <element signature="e#15948#16295#0" />
-            <element signature="e#16121#16160#1" />
-            <element signature="e#17072#17073#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -519,6 +514,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphic/Showable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/storage/Album.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -529,19 +531,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphic/Showable.java">
+    <entry file="file://$PROJECT_DIR$/src/graphic/ShowcaseButton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        <state relative-caret-position="238">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphic/ShowcaseButton.java">
+    <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+        <state relative-caret-position="340">
+          <caret line="294" column="41" selection-start-line="294" selection-start-column="41" selection-end-line="294" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1968#2394#0" />
+            <element signature="e#2497#2498#0" expanded="true" />
+            <element signature="e#2529#2530#0" expanded="true" />
+            <element signature="e#2568#2569#0" expanded="true" />
+            <element signature="e#2602#2603#0" expanded="true" />
+            <element signature="e#2609#3068#0" />
+            <element signature="e#3074#3105#0" expanded="true" />
+            <element signature="e#3074#4024#0" />
+            <element signature="e#4030#5506#0" />
+            <element signature="e#5512#6896#0" />
+            <element signature="e#6902#7651#0" />
+            <element signature="e#7076#7077#0" expanded="true" />
+            <element signature="e#7141#7142#0" expanded="true" />
+            <element signature="e#7657#9387#0" />
+            <element signature="e#9393#9839#0" />
+            <element signature="e#9845#12622#0" />
+            <element signature="e#13371#13597#0" expanded="true" />
+            <element signature="e#13596#13597#0" expanded="true" />
+            <element signature="e#12036#13722#0" />
+            <element signature="e#13728#14290#0" />
+            <element signature="e#14296#15664#0" />
+            <element signature="e#14137#15059#0" />
+            <element signature="e#15948#16295#0" />
+            <element signature="e#16121#16160#1" />
+            <element signature="e#18326#18327#0" expanded="true" />
           </folding>
         </state>
       </provider>

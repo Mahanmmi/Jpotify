@@ -67,10 +67,6 @@ public class MainPanel implements PlaylistLinkable {
         }
     }
 
-    public JPanel getMainPanel() {
-        return mainPanel;
-    }
-
     public JLabel getTimeLabel() {
         return timeLabel;
     }
@@ -317,7 +313,7 @@ public class MainPanel implements PlaylistLinkable {
 
     }
 
-    public void setListPanelListener() {
+    private void setListPanelListener() {
         searchField.setFocusable(true);
         searchField.addKeyListener(new KeyAdapter() {
             @Override
