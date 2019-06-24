@@ -14,12 +14,16 @@ import logic.storage.StorageManager;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.Date;
+import java.util.Random;
 
 public class Media {
+    //Player related fields
     private static PauseablePlayer mainPlayer = null;
     private static Media nowPlaying = null;
     private static boolean isPlaying = false;
     private static boolean isMute = false;
+    private static boolean isShuffling = false;
+    private static boolean isReplaying = false;
     private static Mp3File mp3File;
     private static Playlist currentPlaylist;
 
@@ -32,6 +36,9 @@ public class Media {
     }
 
     public static void setNowPlaying(Media nowPlaying) {
+        if(mainPlayer!=null){
+            mainPlayer.close();
+        }
         Media.nowPlaying = nowPlaying;
     }
 
@@ -53,6 +60,22 @@ public class Media {
 
     public static void setMute(boolean isMute) {
         Media.isMute = isMute;
+    }
+
+    public static boolean isShuffling() {
+        return isShuffling;
+    }
+
+    public static void setShuffling(boolean isShuffling) {
+        Media.isShuffling = isShuffling;
+    }
+
+    public static boolean isReplaying() {
+        return isReplaying;
+    }
+
+    public static void setReplaying(boolean isReplaying) {
+        Media.isReplaying = isReplaying;
     }
 
     private String address;
@@ -191,9 +214,32 @@ public class Media {
         mainPlayer.play();
     }
 
+    public static void goNext(){
+        mainPlayer.close();
+        if(isReplaying()){
+            nowPlaying.playFile();
+            return;
+        }
+        int next;
+        if (Media.isShuffling()) {
+            Random random = new Random();
+            next = random.nextInt(currentPlaylist.getPlaylistMedia().size());
+        } else {
+            next = currentPlaylist.getPlaylistMedia().indexOf(Media.getNowPlaying()) + 1;
+            if (next == currentPlaylist.getPlaylistMedia().size()) {
+                next = 0;
+            }
+        }
+        setNowPlaying(currentPlaylist.getPlaylistMedia().get(next));
+        if (isPlaying()) {
+            nowPlaying.playFile();
+        }
+        StorageManager.getInstance().getMainPanel().updateGUISongDetails();
+    }
+
     public void playFile() {
         if (mainPlayer != null) {
-            mainPlayer.stop();
+            mainPlayer.close();
         }
         try {
             mainPlayer = new PauseablePlayer(new FileInputStream(address), 0, mp3File);

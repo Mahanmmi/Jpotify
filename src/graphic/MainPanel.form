@@ -26,6 +26,15 @@
             </properties>
             <border type="none"/>
             <children>
+              <component id="f5681" class="javax.swing.JButton" binding="shuffleButton">
+                <constraints/>
+                <properties>
+                  <background color="-11974327"/>
+                  <borderPainted value="false"/>
+                  <focusable value="false"/>
+                  <text value=""/>
+                </properties>
+              </component>
               <component id="a7dc7" class="javax.swing.JButton" binding="lastTrackButton">
                 <constraints/>
                 <properties>
@@ -53,6 +62,15 @@
                   <text value=""/>
                 </properties>
               </component>
+              <component id="84ed1" class="javax.swing.JButton" binding="replayButtun">
+                <constraints/>
+                <properties>
+                  <background color="-11974327"/>
+                  <borderPainted value="false"/>
+                  <focusable value="false"/>
+                  <text value=""/>
+                </properties>
+              </component>
               <component id="44a96" class="javax.swing.JButton" binding="volumeButton">
                 <constraints/>
                 <properties>
@@ -72,14 +90,14 @@
             </properties>
             <border type="none"/>
             <children>
-              <component id="fbd8" class="javax.swing.JButton" binding="musicName">
+              <component id="fbd8" class="javax.swing.JButton" binding="musicTitle">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <enabled value="false"/>
                   <focusable value="false"/>
-                  <text value="Button"/>
+                  <text value=""/>
                 </properties>
               </component>
               <component id="da9ba" class="javax.swing.JButton" binding="artist">
@@ -89,7 +107,7 @@
                 <properties>
                   <enabled value="false"/>
                   <focusable value="false"/>
-                  <text value="Button"/>
+                  <text value=""/>
                 </properties>
               </component>
             </children>
@@ -167,31 +185,12 @@
               </grid>
             </children>
           </grid>
-          <grid id="c8d2b" layout-manager="BorderLayout" hgap="0" vgap="0">
+          <component id="4d737" class="javax.swing.JSlider" binding="musicSlider">
             <constraints border-constraint="Center"/>
-            <properties/>
-            <border type="none"/>
-            <children>
-              <component id="7fa63" class="javax.swing.JLabel" binding="timerLable">
-                <constraints border-constraint="West"/>
-                <properties>
-                  <text value="Label"/>
-                </properties>
-              </component>
-              <component id="1951e" class="javax.swing.JLabel" binding="durationlable">
-                <constraints border-constraint="East"/>
-                <properties>
-                  <text value="Label"/>
-                </properties>
-              </component>
-              <component id="4d737" class="javax.swing.JSlider" binding="musicSlider">
-                <constraints border-constraint="Center"/>
-                <properties>
-                  <background color="-16777216"/>
-                </properties>
-              </component>
-            </children>
-          </grid>
+            <properties>
+              <background color="-16777216"/>
+            </properties>
+          </component>
         </children>
       </grid>
       <grid id="a227e" binding="upperPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
@@ -202,30 +201,136 @@
         </properties>
         <border type="none"/>
         <children>
-          <grid id="c0721" binding="listsPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="c0721" binding="listsPanel" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="10" left="10" bottom="10" right="10"/>
             <constraints border-constraint="West"/>
-            <properties/>
+            <properties>
+              <background color="-16777216"/>
+            </properties>
             <border type="none"/>
             <children>
-              <grid id="a81d0" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="3a068" binding="artworkPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <minimum-size width="-1" height="180"/>
+                    <preferred-size width="-1" height="180"/>
+                    <maximum-size width="-1" height="180"/>
+                  </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <background color="-16777216"/>
+                </properties>
+                <border type="none"/>
+                <children/>
+              </grid>
+              <grid id="448e7" binding="albumsPanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-16777216"/>
+                </properties>
                 <border type="none"/>
                 <children>
-                  <component id="3d62f" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
+                  <component id="a72b2" class="javax.swing.JLabel">
                     <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                        <preferred-size width="150" height="50"/>
-                      </grid>
+                      <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <foreground color="-1"/>
+                      <text value="Albums"/>
+                    </properties>
+                  </component>
+                  <scrollpane id="a963d">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties/>
-                  </component>
+                    <border type="none"/>
+                    <children>
+                      <component id="75673" class="javax.swing.JList" binding="albumList">
+                        <constraints/>
+                        <properties>
+                          <background color="-9803158"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </scrollpane>
                 </children>
               </grid>
+              <grid id="8e47" binding="playlistsPanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-16777216"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="73fc1" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <foreground color="-1"/>
+                      <text value="Playlists"/>
+                    </properties>
+                  </component>
+                  <scrollpane id="b51d6">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="36ebd" class="javax.swing.JList" binding="playlistList">
+                        <constraints/>
+                        <properties>
+                          <background color="-9803158"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </scrollpane>
+                </children>
+              </grid>
+              <component id="e58c0" class="javax.swing.JTextField" binding="searchField">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <autoscrolls value="true"/>
+                  <background color="-9803158"/>
+                </properties>
+              </component>
+              <component id="bf918" class="javax.swing.JButton" binding="searchButton">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="25" height="25"/>
+                    <maximum-size width="25" height="25"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <autoscrolls value="false"/>
+                  <background color="-16777216"/>
+                  <borderPainted value="false"/>
+                  <focusable value="false"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="e7503" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <foreground color="-1"/>
+                  <text value="All songs"/>
+                </properties>
+              </component>
             </children>
           </grid>
           <grid id="59133" binding="middlePanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
