@@ -51,20 +51,21 @@ public class MainPanel implements PlaylistLinkable {
     private JList albumList;
     private JButton replayButtun;
     private JButton shuffleButton;
-    private JLabel timerLabel;
-    private JLabel durationLable;
-    private JLabel artWorkLAbel;
+    private JPanel sliderPanel;
+    private JPanel timepanel;
+    private JLabel timeLabel;
     private JFrame frame;
 
     public JPanel getMainPanel() {
         return mainPanel;
     }
 
+    public JLabel getTimeLabel() {
+        return timeLabel;
+    }
+
     public JSlider getMusicSlider() {
         return musicSlider;
-    }
-    public void setArtWorkLable(){
-       artWorkLAbel.setIcon( Media.getNowPlaying().getIcon());
     }
 
     private void initDarkTheme() {
@@ -188,12 +189,12 @@ public class MainPanel implements PlaylistLinkable {
             } else {
                 shared.setIcon(new ImageIcon("./resources/New Icons/share-icon-disabled.png"));
             }
-            if(Media.isShuffling()){
+            if (Media.isShuffling()) {
                 shuffleButton.setIcon(new ImageIcon("./resources/New Icons/shuffle-icon-active.png"));
             } else {
                 shuffleButton.setIcon(new ImageIcon("./resources/New Icons/shuffle-icon.png"));
             }
-            if(Media.isReplaying()){
+            if (Media.isReplaying()) {
                 replayButtun.setIcon(new ImageIcon("./resources/New Icons/replay-icon-active.png"));
             } else {
                 replayButtun.setIcon(new ImageIcon("./resources/New Icons/replay-icon.png"));
@@ -251,8 +252,8 @@ public class MainPanel implements PlaylistLinkable {
             }
             updateGUISongDetails();
         });
-        shuffleButton.addActionListener(event ->{
-            if(Media.isShuffling()){
+        shuffleButton.addActionListener(event -> {
+            if (Media.isShuffling()) {
                 Media.setShuffling(false);
                 shuffleButton.setIcon(new ImageIcon("./resources/New Icons/shuffle-icon.png"));
             } else {
@@ -260,8 +261,8 @@ public class MainPanel implements PlaylistLinkable {
                 shuffleButton.setIcon(new ImageIcon("./resources/New Icons/shuffle-icon-active.png"));
             }
         });
-        replayButtun.addActionListener(event ->{
-            if(Media.isReplaying()){
+        replayButtun.addActionListener(event -> {
+            if (Media.isReplaying()) {
                 Media.setReplaying(false);
                 replayButtun.setIcon(new ImageIcon("./resources/New Icons/replay-icon.png"));
             } else {
@@ -270,52 +271,11 @@ public class MainPanel implements PlaylistLinkable {
             }
         });
     }
+
     private void setListsPanelSetting() {
         searchButton.setIcon(new ImageIcon("./resources/New Icons/magnifying-glass-icon.png"));
         searchField.setBackground(Color.LIGHT_GRAY);
     }
-
-
-    public void setjLabelText(int time) {
-        if (time < 10)
-            timerLabel.setText("00:0" + time);
-        if (time >= 10)
-            timerLabel.setText("00:" + time);
-        if (time >= 60){
-            if (time / 60 > 9) {
-                if (time % 60 > 9)
-                    timerLabel.setText("" + (time / 60) + ":" + (time % 60));
-                if (time % 60 < 10)
-                    timerLabel.setText("" + (time / 60) + ":0" + (time % 60));
-            }
-            if (time / 60 < 10) {
-                if (time % 60 > 9)
-                    timerLabel.setText("0" + (time / 60) + ":" + (time % 60));
-                if (time % 60 < 10)
-                    timerLabel.setText("0" + (time / 60) + ":0" + (time % 60));
-            }
-        }
-    }
-
-    class MusicTimer extends TimerTask {
-        int StartingSecond = 0;
-
-        @Override
-        public void run() {
-            if(Media.isPlaying())
-            setjLabelText(++StartingSecond);
-        }
-
-    }
-
-    public void musicTimer() {
-        TimerTask timerTask = new MusicTimer();
-        Timer timer = new Timer();
-        timer.schedule(timerTask, 1000, 1000);
-
-
-    }
-
 
     private JMenuBar initMenus() {
         JMenuBar menuBar = new JMenuBar();
@@ -423,10 +383,8 @@ public class MainPanel implements PlaylistLinkable {
 
     public MainPanel() {
         initDarkTheme();
-        setArtWorkLable();
         initFrame();
         musicSlider.setValue(0);
-        musicTimer();
         addMusicPanelListeners();
         setMusicPanelIconsAndColors();
         setListsPanelSetting();

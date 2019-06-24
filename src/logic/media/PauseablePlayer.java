@@ -25,7 +25,7 @@ public class PauseablePlayer {
     PauseablePlayer(final InputStream inputStream, int startingFrame, Mp3File mp3File) throws JavaLayerException {
         this.player = new AdvancedPlayer(inputStream);
         this.mp3File = mp3File;
-        player.play(startingFrame,startingFrame);
+        player.play(startingFrame, startingFrame);
         currentFrame = startingFrame;
     }
 
@@ -73,6 +73,18 @@ public class PauseablePlayer {
         }
     }
 
+    private String secToMinConverter(long secs) {
+        String min = Long.toString(secs / 60);
+        String sec = Long.toString(secs % 60);
+        if (secs / 60 < 10) {
+            min = "0" + min;
+        }
+        if (secs % 60 < 10) {
+            sec = "0" + sec;
+        }
+        return min + ":" + sec;
+    }
+
     private void playInternal() {
         while (playerStatus != FINISHED) {
             try {
@@ -80,10 +92,13 @@ public class PauseablePlayer {
                     break;
                 } else {
                     JSlider slider = StorageManager.getInstance().getMainPanel().getMusicSlider();
+                    JLabel time = StorageManager.getInstance().getMainPanel().getTimeLabel();
                     int totalFrames = mp3File.getFrameCount();
+                    long totalTime = mp3File.getLengthInSeconds();
                     currentFrame++;
-                    slider.setValue(currentFrame*100/totalFrames);
-                    if(slider.getValue() == 100){
+                    time.setText(secToMinConverter(currentFrame * totalTime / totalFrames));
+                    slider.setValue(currentFrame * 100 / totalFrames);
+                    if (slider.getValue() == 100) {
                         Media.goNext();
                     }
                 }
