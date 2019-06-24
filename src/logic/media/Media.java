@@ -85,6 +85,7 @@ public class Media {
     private String year;
     private int genre;
     private int time;
+    private ImageIcon icon;
 
     public boolean isFave() {
         return StorageManager.getInstance().getPlaylistHashMap().get("Favorite").getPlaylistMedia().contains(this);
@@ -110,6 +111,10 @@ public class Media {
         }
         return null;
     }*/
+
+    public ImageIcon getIcon() {
+        return icon;
+    }
 
     public Media(String address) {
         this.address = address;
@@ -137,10 +142,11 @@ public class Media {
                 if (imageData != null) {
                     System.out.println("debug:: imageData is not null");
                     BufferedImage img = ImageIO.read(new ByteArrayInputStream(imageData));
-                    ImageIcon icon = new ImageIcon(img);
+                    icon = new ImageIcon(img);
 
                 }
             }
+
 
 
         } catch (Exception e) {

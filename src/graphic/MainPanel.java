@@ -53,6 +53,7 @@ public class MainPanel implements PlaylistLinkable {
     private JButton shuffleButton;
     private JLabel timerLabel;
     private JLabel durationLable;
+    private JLabel artWorkLAbel;
     private JFrame frame;
 
     public JPanel getMainPanel() {
@@ -61,6 +62,9 @@ public class MainPanel implements PlaylistLinkable {
 
     public JSlider getMusicSlider() {
         return musicSlider;
+    }
+    public void setArtWorkLable(){
+       artWorkLAbel.setIcon( Media.getNowPlaying().getIcon());
     }
 
     private void initDarkTheme() {
@@ -419,6 +423,7 @@ public class MainPanel implements PlaylistLinkable {
 
     public MainPanel() {
         initDarkTheme();
+        setArtWorkLable();
         initFrame();
         musicSlider.setValue(0);
         musicTimer();
