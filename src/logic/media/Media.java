@@ -36,7 +36,7 @@ public class Media {
     }
 
     public static void setNowPlaying(Media nowPlaying) {
-        if(mainPlayer!=null){
+        if (mainPlayer != null) {
             mainPlayer.close();
         }
         Media.nowPlaying = nowPlaying;
@@ -207,16 +207,17 @@ public class Media {
         if (mainPlayer == null) {
             try {
                 mainPlayer = new PauseablePlayer(new FileInputStream(address), 0, mp3File);
-            } catch (FileNotFoundException | JavaLayerException e){
+            } catch (FileNotFoundException | JavaLayerException e) {
                 e.printStackTrace();
             }
         }
         mainPlayer.play();
+        StorageManager.getInstance().getMediaDataHashMap().get(address).setLastPlayed(new Date());
     }
 
-    public static void goNext(){
+    static void goNext() {
         mainPlayer.close();
-        if(isReplaying()){
+        if (isReplaying()) {
             nowPlaying.playFile();
             return;
         }
