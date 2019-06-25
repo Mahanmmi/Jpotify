@@ -53,6 +53,7 @@ public class StorageManager {
         try {
             client = new Client();
             client.initStreams();
+            new Thread(client).start();
         } catch (IOException e) {
             System.out.println("Cannot init client");
         }
@@ -96,7 +97,7 @@ public class StorageManager {
         sortMediaArrayList();
     }
 
-    public void sortMediaArrayList() {
+    public synchronized void sortMediaArrayList() {
         mediaArrayList.sort((a, b) -> {
             Date aDate = mediaDataHashMap.get(a.getAddress()).getLastPlayed();
             Date bDate = mediaDataHashMap.get(b.getAddress()).getLastPlayed();
@@ -122,7 +123,7 @@ public class StorageManager {
         }
     }
 
-    public void addMedia(File media) {
+    public synchronized void addMedia(File media) {
         if (!media.getName().endsWith(".mp3") || !media.exists()) {
             return;
         }
@@ -169,7 +170,7 @@ public class StorageManager {
         return albumHashMap;
     }
 
-    private void generateAlbums() {
+    private synchronized void generateAlbums() {
         albumHashMap = new HashMap<>();
         for (Media savedMedia : mediaArrayList) {
             if (!albumHashMap.containsKey(savedMedia.getAlbumName())) {
@@ -247,7 +248,7 @@ public class StorageManager {
         }
     }
 
-    public void updateMediaData() {
+    public synchronized void updateMediaData() {
         for (Map.Entry<String, Playlist> entry : playlistHashMap.entrySet()) {
             String playListName = entry.getKey();
             Playlist playlist = entry.getValue();
@@ -281,7 +282,7 @@ public class StorageManager {
         }
     }
 
-    public void saveAndQuit() {
+    public synchronized void saveAndQuit() {
         System.out.println(client);
         if (client != null) {
             try {

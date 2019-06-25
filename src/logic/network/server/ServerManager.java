@@ -6,6 +6,8 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -13,7 +15,8 @@ public class ServerManager {
     private static ServerManager ourInstance = new ServerManager();
     private ServerSocket server;
     private ExecutorService executorService;
-    private ArrayList<Socket> activeSockets;
+    private ArrayList<ClientManager> activeSockets;
+    private HashMap<String,String> allActivity;
 
     public static ServerManager getInstance() {
         return ourInstance;
@@ -24,6 +27,7 @@ public class ServerManager {
             server = new ServerSocket(18757);
             executorService = Executors.newCachedThreadPool();
             activeSockets = new ArrayList<>();
+            allActivity = new HashMap<>();
         } catch (IOException e) {
             System.out.println("Can't create server: " + e.getMessage());
         }
@@ -35,7 +39,6 @@ public class ServerManager {
         while (true) {
             try {
                 Socket client = server.accept();
-                activeSockets.add(client);
                 System.out.println(client + " JOINED");
                 ClientManager manager = new ClientManager(client);
                 executorService.submit(manager);
@@ -46,25 +49,50 @@ public class ServerManager {
     }
 
     private static class ClientManager implements Runnable {
-
         private Socket client;
+        private String name;
+        private String lastSong;
         private ObjectInputStream inputStream;
         private ObjectOutputStream outputStream;
 
+        public Socket getClient() {
+            return client;
+        }
+
         ClientManager(Socket client) throws IOException {
             this.client = client;
+            ServerManager.getInstance().activeSockets.add(this);
+        }
+
+        private void getNotified(String song, String srcName) {
+            try {
+                outputStream.writeObject(new ServerResponse(ServerResponseType.NOW_PLAYING_SONG, song, srcName));
+                outputStream.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        private void notifyAllClients(String song, String srcName) {
+            lastSong = song;
+            ServerManager.getInstance().allActivity.put(name,lastSong);
+            for (ClientManager activeSocket : ServerManager.getInstance().activeSockets) {
+//                if (activeSocket != this) {
+                activeSocket.getNotified(song, srcName);
+//                }
+            }
         }
 
         private void handleClientResponse(ClientResponse response) {
             switch (response.getType()) {
                 case NOW_PLAYING_SONG: {
-                    System.out.println(response.getSentData());
+                    notifyAllClients((String) response.getSentData(), response.getClientName());
                     break;
                 }
                 case CLOSE: {
                     try {
-                        System.out.println(client + " CLOSED");
-                        ServerManager.getInstance().activeSockets.remove(client);
+                        System.out.println(client + " : " + response.getClientName() + " : " + " CLOSED");
+                        ServerManager.getInstance().activeSockets.remove(this);
                         client.close();
                     } catch (IOException e) {
                         System.out.println("Cant close socket on server");
@@ -79,10 +107,19 @@ public class ServerManager {
             try {
                 inputStream = new ObjectInputStream(client.getInputStream());
                 outputStream = new ObjectOutputStream(client.getOutputStream());
-            } catch (IOException e) {
+                name = (String) inputStream.readObject();
+                HashMap<String, String> friendActivity = new HashMap<>();
+                for (Map.Entry<String, String> entry : ServerManager.getInstance().allActivity.entrySet()) {
+//                    if (activeSocket != this) {
+                        friendActivity.put(entry.getKey(),entry.getValue());
+//                    }
+                }
+                outputStream.writeObject(friendActivity);
+                outputStream.flush();
+            } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
-            while (ServerManager.getInstance().activeSockets.contains(client)) {
+            while (ServerManager.getInstance().activeSockets.contains(this)) {
                 try {
                     Object input = inputStream.readObject();
                     if (input instanceof ClientResponse) {
