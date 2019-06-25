@@ -13,7 +13,6 @@ public class ClientResponse implements Serializable {
         this.clientName = clientName;
     }
 
-
     public String getClientName() {
         return clientName;
     }

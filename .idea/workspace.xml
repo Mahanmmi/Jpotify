@@ -15,27 +15,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/logic/storage/StorageManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="55" column="25" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
-              <folding>
-                <element signature="method#addDirectory#0;class#StorageManager#0" />
-                <element signature="method#findMediaByAddress#0;class#StorageManager#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/logic/network/server/ServerManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
               <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
-              <folding>
-                <element signature="e#1710#1711#0" expanded="true" />
-                <element signature="e#1747#1748#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -52,10 +35,6 @@
               <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#332#333#0" expanded="true" />
-                <element signature="e#359#360#0" expanded="true" />
-                <element signature="e#390#391#0" expanded="true" />
-                <element signature="e#417#418#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -64,14 +43,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/logic/network/client/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="47" column="13" lean-forward="true" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+            <state relative-caret-position="85">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#566#567#0" expanded="true" />
-                <element signature="e#604#605#0" expanded="true" />
-                <element signature="e#1917#1959#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/logic/network/client/ClientResponse.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -85,28 +70,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/logic/network/client/ClientResponseType.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="21" />
-            </state>
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/logic/network/server/ServerResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
+            <state relative-caret-position="68">
               <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
-              <folding>
-                <element signature="e#357#358#0" expanded="true" />
-                <element signature="e#384#385#0" expanded="true" />
-                <element signature="e#305#306#0" expanded="true" />
-                <element signature="e#332#333#0" expanded="true" />
-                <element signature="e#367#368#0" expanded="true" />
-                <element signature="e#398#399#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -114,7 +87,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
+            <state relative-caret-position="1241">
               <caret line="92" column="45" selection-start-line="92" selection-start-column="45" selection-end-line="92" selection-end-column="45" />
             </state>
           </provider>
@@ -204,8 +177,10 @@
         <option value="$PROJECT_DIR$/src/logic/network/server/ServerResponse.java" />
         <option value="$PROJECT_DIR$/src/logic/network/server/ServerResponseType.java" />
         <option value="$PROJECT_DIR$/src/graphic/MainPanel.form" />
-        <option value="$PROJECT_DIR$/src/logic/network/client/Client.java" />
         <option value="$PROJECT_DIR$/src/logic/network/server/ServerManager.java" />
+        <option value="$PROJECT_DIR$/src/logic/network/client/Client.java" />
+        <option value="$PROJECT_DIR$/src/logic/network/client/ClientResponse.java" />
+        <option value="$PROJECT_DIR$/src/logic/network/client/ClientResponseType.java" />
       </list>
     </option>
   </component>
@@ -290,8 +265,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -375,6 +350,7 @@
       <workItem from="1561447727294" duration="9565000" />
       <workItem from="1561461143380" duration="17000" />
       <workItem from="1561461261492" duration="8670000" />
+      <workItem from="1561475104439" duration="506000" />
     </task>
     <task id="LOCAL-00002" summary="some small bugs fixed">
       <created>1561374674043</created>
@@ -467,11 +443,18 @@
       <option name="project" value="LOCAL" />
       <updated>1561472015767</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Server linked to GUI">
+      <created>1561475187439</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1561475187439</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34438000" />
+    <option name="totallyTimeSpent" value="34944000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -484,8 +467,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2442953" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24765101" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -696,16 +680,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/network/client/ClientResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="28" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="6" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/storage/StorageManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
+        <state relative-caret-position="663">
           <caret line="55" column="25" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
           <folding>
             <element signature="method#addDirectory#0;class#StorageManager#0" />
@@ -714,19 +691,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/network/client/ClientResponseType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="92" column="45" selection-start-line="92" selection-start-column="45" selection-end-line="92" selection-end-column="45" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.form">
+      <provider selected="true" editor-type-id="ui-designer" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/network/server/ServerRequest.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -734,10 +700,6 @@
           <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#332#333#0" expanded="true" />
-            <element signature="e#359#360#0" expanded="true" />
-            <element signature="e#390#391#0" expanded="true" />
-            <element signature="e#417#418#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -751,16 +713,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/network/server/ServerResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
+        <state relative-caret-position="68">
           <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
-          <folding>
-            <element signature="e#357#358#0" expanded="true" />
-            <element signature="e#384#385#0" expanded="true" />
-            <element signature="e#305#306#0" expanded="true" />
-            <element signature="e#332#333#0" expanded="true" />
-            <element signature="e#367#368#0" expanded="true" />
-            <element signature="e#398#399#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="92" column="45" selection-start-line="92" selection-start-column="45" selection-end-line="92" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -771,32 +732,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/network/client/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="47" column="13" lean-forward="true" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#566#567#0" expanded="true" />
-            <element signature="e#604#605#0" expanded="true" />
-            <element signature="e#1917#1959#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/network/server/ServerManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/network/client/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
           <folding>
-            <element signature="e#1710#1711#0" expanded="true" />
-            <element signature="e#1747#1748#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/network/client/ClientResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/network/client/ClientResponseType.java">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
