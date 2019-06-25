@@ -4,6 +4,7 @@ import ch.randelshofer.quaqua.QuaquaManager;
 import javazoom.jl.decoder.JavaLayerException;
 import logic.media.Media;
 import logic.media.MediaData;
+import logic.network.client.Client;
 import logic.storage.playlist.Playlist;
 import logic.storage.playlist.PlaylistElement;
 import logic.storage.playlist.UserPlaylist;
@@ -27,7 +28,6 @@ public class MainPanel implements PlaylistLinkable {
     private JPanel autoPlaylistsPanel;
     private JPanel volumePanel;
     private JPanel musicButtonsPanel;
-    private JTextArea textArea3;
     private JSlider volumeSlider;
     private JButton volumeButton;
     private JButton lastTrackButton;
@@ -56,6 +56,7 @@ public class MainPanel implements PlaylistLinkable {
     private JLabel allSongLabel;
     private JLabel playlistLabel;
     private JLabel albumLabel;
+    private JList friendActivityList;
     private JFrame frame;
 
     public void setArtWorkLAbel() {
@@ -90,8 +91,6 @@ public class MainPanel implements PlaylistLinkable {
 
     @SuppressWarnings("Duplicates")
     private void updatePanelSizeAndColors() {
-        textArea3.setBackground(Color.lightGray);
-
         upperPanel.setMinimumSize(new Dimension(mainPanel.getWidth(), mainPanel.getHeight() * 4 / 6));
         upperPanel.setMaximumSize(new Dimension(mainPanel.getWidth(), mainPanel.getHeight() * 4 / 6));
         upperPanel.setPreferredSize(new Dimension(mainPanel.getWidth(), mainPanel.getHeight() * 4 / 6));
@@ -190,7 +189,15 @@ public class MainPanel implements PlaylistLinkable {
         playlistList.setListData(playlistNames.toArray());
     }
 
-    public void updateGUISongDetails() {
+    private void setFriendActivityListComponents(){
+        ArrayList<String> listComps = new ArrayList<>();
+        for (Map.Entry<String, String> entry : StorageManager.getInstance().getClient().getFriendsActivity().entrySet()) {
+            listComps.add(entry.getKey() + " played " + entry.getValue());
+        }
+        friendActivityList.setListData(listComps.toArray());
+    }
+
+    public synchronized void updateGUISongDetails() {
         Media nowPlaying = Media.getNowPlaying();
         if (nowPlaying != null) {
             if (Media.isPlaying()) {
@@ -223,10 +230,11 @@ public class MainPanel implements PlaylistLinkable {
             artist.setText(nowPlaying.getArtist());
             setArtWorkLAbel();
             setListsComponents();
+            setFriendActivityListComponents();
         }
     }
 
-    public void setShowcaseContent(ArrayList<Showable> content) {
+    public synchronized void setShowcaseContent(ArrayList<Showable> content) {
         showcasePanel.removeAll();
         showcasePanel.setLayout(new GridLayout((content.size() + 1) / 2, 2));
         System.out.println(content);

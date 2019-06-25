@@ -2,24 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1568b705-ce1f-4e4c-bd73-3d5cf63a7149" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/logic/network/server/ServerRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logic/network/server/ServerRequestType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logic/network/server/ServerResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logic/network/server/ServerResponseType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphic/EditPlaylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphic/EditPlaylist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphic/MainPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphic/MainPanel.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/graphic/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphic/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphic/ManagePlaylistPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphic/ManagePlaylistPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/tag/IcyInputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javazoom/spi/mpeg/sampled/file/tag/IcyInputStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/Network/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/network/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/Network/Client/ClientRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/network/client/ClientRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/Network/Client/ClientRequestType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/network/client/ClientRequestType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/Network/Client/ClientResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/network/client/ClientResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/Network/Client/ClientResponseType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/network/client/ClientResponseType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/Network/Server/ServerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/network/server/ServerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/media/Media.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/media/Media.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/media/MediaData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/media/MediaData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/playlist/AutoPlayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/storage/playlist/AutoPlayList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/playlist/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/storage/playlist/Playlist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/playlist/PlaylistElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/storage/playlist/PlaylistElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/playlist/UserPlaylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/storage/playlist/UserPlaylist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/storage/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/storage/Album.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/network/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/network/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/network/client/ClientRequestType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/network/client/ClientRequestType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/network/server/ServerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/network/server/ServerManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/logic/storage/StorageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/storage/StorageManager.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -37,35 +29,45 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/logic/storage/StorageManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="287" column="33" selection-start-line="287" selection-start-column="33" selection-end-line="287" selection-end-column="33" />
+            <state relative-caret-position="207">
+              <caret line="55" column="25" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
               <folding>
                 <element signature="method#addDirectory#0;class#StorageManager#0" />
-                <element signature="e#5063#5064#0" expanded="true" />
-                <element signature="e#5100#5101#0" expanded="true" />
-                <element signature="e#5163#5164#0" expanded="true" />
-                <element signature="e#5202#5203#0" expanded="true" />
-                <element signature="e#5263#5264#0" expanded="true" />
-                <element signature="e#5301#5302#0" expanded="true" />
-                <element signature="e#5345#5346#0" expanded="true" />
-                <element signature="e#5383#5384#0" expanded="true" />
-                <element signature="e#5438#5439#0" expanded="true" />
-                <element signature="e#5473#5474#0" expanded="true" />
                 <element signature="method#findMediaByAddress#0;class#StorageManager#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/logic/media/MediaData.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/logic/network/server/ServerManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="27" column="56" lean-forward="true" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
+            <state relative-caret-position="34">
+              <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
+              <folding>
+                <element signature="e#1710#1711#0" expanded="true" />
+                <element signature="e#1747#1748#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.form">
+          <provider selected="true" editor-type-id="ui-designer" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/logic/network/server/ServerRequest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#517#518#0" expanded="true" />
-                <element signature="e#561#562#0" expanded="true" />
+                <element signature="e#332#333#0" expanded="true" />
+                <element signature="e#359#360#0" expanded="true" />
+                <element signature="e#390#391#0" expanded="true" />
+                <element signature="e#417#418#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -74,29 +76,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/logic/network/client/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="54" column="33" lean-forward="true" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="33" />
+            <state relative-caret-position="289">
+              <caret line="47" column="13" lean-forward="true" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#566#567#0" expanded="true" />
+                <element signature="e#604#605#0" expanded="true" />
+                <element signature="e#1917#1959#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/logic/network/client/ClientRequest.java">
+        <entry file="file://$PROJECT_DIR$/src/logic/network/server/ServerRequestType.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/logic/network/client/ClientResponse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+              <caret line="4" column="53" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -104,38 +100,43 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/logic/network/client/ClientResponseType.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+            <state relative-caret-position="119">
+              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/logic/network/client/ClientRequestType.java">
+        <entry file="file://$PROJECT_DIR$/src/logic/network/server/ServerResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+            <state relative-caret-position="34">
+              <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+              <folding>
+                <element signature="e#357#358#0" expanded="true" />
+                <element signature="e#384#385#0" expanded="true" />
+                <element signature="e#305#306#0" expanded="true" />
+                <element signature="e#332#333#0" expanded="true" />
+                <element signature="e#367#368#0" expanded="true" />
+                <element signature="e#398#399#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1391">
-              <caret line="436" lean-forward="true" selection-start-line="436" selection-end-line="436" />
+            <state relative-caret-position="108">
+              <caret line="92" column="45" selection-start-line="92" selection-start-column="45" selection-end-line="92" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/logic/network/server/ServerManager.java">
+        <entry file="file://$PROJECT_DIR$/src/logic/network/server/ServerResponseType.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="64" column="25" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="68">
+              <caret line="4" column="54" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -146,9 +147,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Singleton" />
         <option value="Class" />
         <option value="Enum" />
-        <option value="Singleton" />
       </list>
     </option>
   </component>
@@ -176,6 +177,7 @@
       <find>frame</find>
       <find>setLastPlayed</find>
       <find>sor</find>
+      <find>update</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -193,7 +195,6 @@
         <option value="$PROJECT_DIR$/src/graphic/ManagePlaylistPanel.java" />
         <option value="$PROJECT_DIR$/src/graphic/EditPlaylist.java" />
         <option value="$PROJECT_DIR$/src/logic/storage/Album.java" />
-        <option value="$PROJECT_DIR$/src/graphic/MainPanel.form" />
         <option value="$PROJECT_DIR$/src/logic/media/PauseablePlayer.java" />
         <option value="$PROJECT_DIR$/src/graphic/ShowcaseButton.java" />
         <option value="$PROJECT_DIR$/src/logic/Network/Network.java" />
@@ -207,10 +208,16 @@
         <option value="$PROJECT_DIR$/src/logic/Network/Client/Client.java" />
         <option value="$PROJECT_DIR$/src/logic/Network/Server/ServerManager.java" />
         <option value="$PROJECT_DIR$/src/logic/media/Media.java" />
-        <option value="$PROJECT_DIR$/src/logic/network/client/Client.java" />
+        <option value="$PROJECT_DIR$/src/logic/network/client/ClientRequestType.java" />
         <option value="$PROJECT_DIR$/src/logic/storage/StorageManager.java" />
-        <option value="$PROJECT_DIR$/src/logic/network/server/ServerManager.java" />
         <option value="$PROJECT_DIR$/src/graphic/MainPanel.java" />
+        <option value="$PROJECT_DIR$/src/logic/network/server/ServerRequest.java" />
+        <option value="$PROJECT_DIR$/src/logic/network/server/ServerRequestType.java" />
+        <option value="$PROJECT_DIR$/src/logic/network/server/ServerResponse.java" />
+        <option value="$PROJECT_DIR$/src/logic/network/server/ServerResponseType.java" />
+        <option value="$PROJECT_DIR$/src/graphic/MainPanel.form" />
+        <option value="$PROJECT_DIR$/src/logic/network/client/Client.java" />
+        <option value="$PROJECT_DIR$/src/logic/network/server/ServerManager.java" />
       </list>
     </option>
   </component>
@@ -246,14 +253,20 @@
               <item name="Jpotify" type="b2602c69:ProjectViewProjectNode" />
               <item name="Jpotify" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="logic" type="462c0819:PsiDirectoryNode" />
+              <item name="graphic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Jpotify" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Jpotify" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="graphic" type="462c0819:PsiDirectoryNode" />
+              <item name="MainPanel" type="e9f4de52:FormNode" />
             </path>
             <path>
               <item name="Jpotify" type="b2602c69:ProjectViewProjectNode" />
               <item name="Jpotify" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="logic" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Jpotify" type="b2602c69:ProjectViewProjectNode" />
@@ -261,6 +274,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="logic" type="462c0819:PsiDirectoryNode" />
               <item name="network" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Jpotify" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Jpotify" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="logic" type="462c0819:PsiDirectoryNode" />
+              <item name="network" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Jpotify" type="b2602c69:ProjectViewProjectNode" />
@@ -365,7 +386,7 @@
       <workItem from="1561372822197" duration="13672000" />
       <workItem from="1561447727294" duration="9565000" />
       <workItem from="1561461143380" duration="17000" />
-      <workItem from="1561461261492" duration="3217000" />
+      <workItem from="1561461261492" duration="8529000" />
     </task>
     <task id="LOCAL-00002" summary="some small bugs fixed">
       <created>1561374674043</created>
@@ -444,11 +465,27 @@
       <option name="project" value="LOCAL" />
       <updated>1561461303980</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="some server bugs fixed">
+      <created>1561464538886</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1561464538886</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28985000" />
+    <option name="totallyTimeSpent" value="34297000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -467,7 +504,7 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
@@ -499,7 +536,8 @@
     <MESSAGE value="edit playlist added" />
     <MESSAGE value="A bunch of small bugs fixed" />
     <MESSAGE value="Server added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Server added" />
+    <MESSAGE value="some server bugs fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="some server bugs fixed" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
@@ -603,9 +641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/Network/Network.java" />
     <entry file="file://$PROJECT_DIR$/src/graphic/ShowcaseButton.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -617,38 +652,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/network/client/ClientResponseType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/network/client/ClientRequestType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/util/Date.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
           <caret line="369" column="18" selection-start-line="369" selection-start-column="14" selection-end-line="369" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/network/client/ClientRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/network/client/ClientResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -668,37 +675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/storage/StorageManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="287" column="33" selection-start-line="287" selection-start-column="33" selection-end-line="287" selection-end-column="33" />
-          <folding>
-            <element signature="method#addDirectory#0;class#StorageManager#0" />
-            <element signature="e#5063#5064#0" expanded="true" />
-            <element signature="e#5100#5101#0" expanded="true" />
-            <element signature="e#5163#5164#0" expanded="true" />
-            <element signature="e#5202#5203#0" expanded="true" />
-            <element signature="e#5263#5264#0" expanded="true" />
-            <element signature="e#5301#5302#0" expanded="true" />
-            <element signature="e#5345#5346#0" expanded="true" />
-            <element signature="e#5383#5384#0" expanded="true" />
-            <element signature="e#5438#5439#0" expanded="true" />
-            <element signature="e#5473#5474#0" expanded="true" />
-            <element signature="method#findMediaByAddress#0;class#StorageManager#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/network/server/ServerManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="64" column="25" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/media/MediaData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -711,20 +687,119 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/network/client/Client.java">
+    <entry file="file://$PROJECT_DIR$/src/logic/network/client/ClientRequestType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="54" column="33" lean-forward="true" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="33" />
+        <state relative-caret-position="102">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/network/client/ClientRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="24" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="6" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/network/client/ClientResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="28" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="6" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/storage/StorageManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="55" column="25" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#addDirectory#0;class#StorageManager#0" />
+            <element signature="method#findMediaByAddress#0;class#StorageManager#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/network/client/ClientResponseType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1391">
-          <caret line="436" lean-forward="true" selection-start-line="436" selection-end-line="436" />
+        <state relative-caret-position="108">
+          <caret line="92" column="45" selection-start-line="92" selection-start-column="45" selection-end-line="92" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/network/server/ServerRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#332#333#0" expanded="true" />
+            <element signature="e#359#360#0" expanded="true" />
+            <element signature="e#390#391#0" expanded="true" />
+            <element signature="e#417#418#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/network/server/ServerRequestType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="53" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/network/server/ServerResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+          <folding>
+            <element signature="e#357#358#0" expanded="true" />
+            <element signature="e#384#385#0" expanded="true" />
+            <element signature="e#305#306#0" expanded="true" />
+            <element signature="e#332#333#0" expanded="true" />
+            <element signature="e#367#368#0" expanded="true" />
+            <element signature="e#398#399#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/network/server/ServerResponseType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="54" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/network/client/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="47" column="13" lean-forward="true" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#566#567#0" expanded="true" />
+            <element signature="e#604#605#0" expanded="true" />
+            <element signature="e#1917#1959#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/network/server/ServerManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
+          <folding>
+            <element signature="e#1710#1711#0" expanded="true" />
+            <element signature="e#1747#1748#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
