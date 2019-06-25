@@ -315,7 +315,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MainPanel">
+  <component name="RunManager" selected="Application.ServerManager">
     <configuration name="MainPanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="graphic.MainPanel" />
       <module name="Jpotify" />
@@ -348,8 +348,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainPanel" />
         <item itemvalue="Application.ServerManager" />
+        <item itemvalue="Application.MainPanel" />
       </list>
     </recent_temporary>
   </component>
