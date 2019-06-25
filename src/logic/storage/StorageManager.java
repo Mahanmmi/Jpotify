@@ -1,6 +1,7 @@
 package logic.storage;
 
 import graphic.MainPanel;
+import logic.Network.Client.Client;
 import logic.media.Media;
 import logic.media.MediaData;
 import logic.playlist.AutoPlayList;
@@ -21,6 +22,7 @@ public class StorageManager {
     private HashMap<String, Playlist> playlistHashMap = new HashMap<>();
     private HashMap<String, MediaData> mediaDataHashMap = new HashMap<>();
     private Playlist defaultPlaylist;
+    private Client client;
 
     private MainPanel mainPanel;
 
@@ -35,11 +37,25 @@ public class StorageManager {
         generateAlbums();
         generatePlaylists();
         setInitialPlaylist();
+        connectToServer();
         mainPanel = new MainPanel();
     }
 
     public MainPanel getMainPanel() {
         return mainPanel;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    private void connectToServer(){
+        try {
+            client = new Client();
+            client.initStreams();
+        } catch (IOException e){
+            System.out.println("Cannot init client");
+        }
     }
 
     private void setInitialPlaylist() {
@@ -65,7 +81,7 @@ public class StorageManager {
             //noinspection unchecked
             mediaDataHashMap = (HashMap<String, MediaData>) inputStream.readObject();
             for (String s : mediaDataHashMap.keySet()) {
-                System.out.println("s = " + s + " : " + mediaDataHashMap.get(s));
+//                System.out.println("s = " + s + " : " + mediaDataHashMap.get(s));
             }
         } catch (IOException | ClassNotFoundException e) {
             //Ignore
@@ -265,6 +281,7 @@ public class StorageManager {
 
     public void saveAndQuit() {
         try {
+            client.sendCloseSocket();
             ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(MEDIA_DATAFILE));
             outputStream.writeObject(mediaDataHashMap);
         } catch (IOException e) {

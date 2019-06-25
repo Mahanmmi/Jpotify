@@ -76,7 +76,7 @@ public class IcyInputStream
 	   ICY 200 OK\r\n
 	   then the tags are like
 	   icy-notice1:<BR>This stream requires <a href="http://www.winamp.com/">Winamp</a><BR>\r\n
-	   icy-notice2:SHOUTcast Distributed Network Audio Server/win32 v1.8.2<BR>\r\n
+	   icy-notice2:SHOUTcast Distributed Network Audio logic.Network.Server/win32 v1.8.2<BR>\r\n
 	   icy-name:Core-upt Radio\r\n
 	   icy-genre:Punk Ska Emo\r\n
 	   icy-url:http://www.core-uptrecords.com\r\n

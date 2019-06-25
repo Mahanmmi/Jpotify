@@ -177,7 +177,6 @@ public class Media implements Showable {
             }
 
 
-
         } catch (Exception e) {
             System.out.println("s");
 
@@ -246,6 +245,7 @@ public class Media implements Showable {
                 e.printStackTrace();
             }
         }
+
         mainPlayer.play();
         StorageManager.getInstance().getMediaDataHashMap().get(address).setLastPlayed(new Date());
         StorageManager.getInstance().getMainPanel().setShowcaseContent(new ArrayList<>(getCurrentPlaylist().getPlaylistMedia()));
@@ -285,6 +285,10 @@ public class Media implements Showable {
             isPlaying = true;
             StorageManager.getInstance().getMediaDataHashMap().get(address).setLastPlayed(new Date());
             StorageManager.getInstance().getMainPanel().setShowcaseContent(new ArrayList<>(getCurrentPlaylist().getPlaylistMedia()));
+            if (StorageManager.getInstance().getPlaylistHashMap().get("Shared").getPlaylistMedia().contains(nowPlaying)) {
+                System.out.println(StorageManager.getInstance().getClient());
+                StorageManager.getInstance().getClient().sendNowPlayingSong(nowPlaying);
+            }
         } catch (FileNotFoundException | JavaLayerException e) {
             System.out.println("File not found for playing!");
         }
@@ -312,7 +316,7 @@ public class Media implements Showable {
 
     @Override
     public void getClicked() {
-        if(!currentPlaylist.getPlaylistMedia().contains(this)) {
+        if (!currentPlaylist.getPlaylistMedia().contains(this)) {
             setCurrentPlaylist(StorageManager.getInstance().getDefaultPlaylist());
         }
         playFile();

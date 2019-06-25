@@ -160,6 +160,7 @@ public class MainPanel implements PlaylistLinkable {
     }
 
     private void setActionListenerToSlider() {
+        musicSlider.addChangeListener(e -> musicSlider.repaint());
         musicSlider.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -169,8 +170,6 @@ public class MainPanel implements PlaylistLinkable {
             @Override
             public void mouseReleased(MouseEvent e) {
                 try {
-                    System.out.println();
-                    System.out.println(musicSlider.getValue());
                     Media.getNowPlaying().seekTo(musicSlider.getValue());
                 } catch (FileNotFoundException | JavaLayerException e1) {
                     e1.printStackTrace();
