@@ -159,6 +159,7 @@ public class MainPanel implements PlaylistLinkable {
     }
 
     private void setActionListenerToVolumeSlider(){
+        volumeSlider.putClientProperty("JSlider.isFilled", Boolean.TRUE);
         volumeSlider.addChangeListener(e -> volumeSlider.repaint());
         volumeSlider.addMouseListener(new MouseAdapter() {
             @Override
@@ -564,5 +565,9 @@ public class MainPanel implements PlaylistLinkable {
         } catch (InterruptedException e) {
             System.out.println("Interrupted");
         }
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }

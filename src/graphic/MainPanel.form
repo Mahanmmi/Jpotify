@@ -175,8 +175,9 @@
                     <properties>
                       <background color="-16777216"/>
                       <extent value="0"/>
-                      <paintLabels value="true"/>
-                      <paintTicks value="true"/>
+                      <inverted value="false"/>
+                      <paintLabels value="false"/>
+                      <paintTicks value="false"/>
                       <valueIsAdjusting value="true"/>
                     </properties>
                     <clientProperties>
