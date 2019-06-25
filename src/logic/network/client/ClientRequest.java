@@ -2,7 +2,6 @@ package logic.network.client;
 
 import java.io.Serializable;
 
-
 public class ClientRequest implements Serializable {
     private ClientRequestType type;
     private String name;
