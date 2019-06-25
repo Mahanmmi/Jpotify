@@ -2,7 +2,6 @@ package logic.network.server;
 
 import java.io.Serializable;
 
-
 public class ServerResponse implements Serializable {
     private ServerResponseType type;
     private Object sentData;

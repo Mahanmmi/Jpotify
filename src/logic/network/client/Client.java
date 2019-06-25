@@ -30,6 +30,7 @@ public class Client implements Runnable {
         return "";
     }
 
+
     public Client() throws IOException {
         this.name = getIP();
         friendsActivity = new HashMap<>();
