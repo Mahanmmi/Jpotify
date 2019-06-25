@@ -237,6 +237,7 @@ public class MainPanel implements PlaylistLinkable {
             showcasePanel.add(showcase);
         }
         showcasePanel.revalidate();
+        showcasePanel.repaint();
     }
 
     private void addMusicPanelListeners() {
@@ -325,6 +326,7 @@ public class MainPanel implements PlaylistLinkable {
         allSongLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                Media.setCurrentPlaylist(StorageManager.getInstance().getDefaultPlaylist());
                 setShowcaseContent(new ArrayList<>(StorageManager.getInstance().getDefaultPlaylist().getPlaylistMedia()));
                 updateGUISongDetails();
             }
@@ -530,6 +532,7 @@ public class MainPanel implements PlaylistLinkable {
         System.out.println(StorageManager.getInstance().getDefaultPlaylist().getPlaylistMedia());
         try {
             Thread.sleep(1500);
+            StorageManager.getInstance().getMainPanel().setShowcaseContent(new ArrayList<>(StorageManager.getInstance().getDefaultPlaylist().getPlaylistMedia()));
             StorageManager.getInstance().getMainPanel().updateGUISongDetails();
         } catch (InterruptedException e){
             System.out.println("Interrupted");

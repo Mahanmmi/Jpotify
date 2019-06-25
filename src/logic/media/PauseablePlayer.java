@@ -89,6 +89,7 @@ public class PauseablePlayer {
         while (playerStatus != FINISHED) {
             try {
                 if (!player.decodeFrame()) {
+                    Media.goNext();
                     break;
                 } else {
                     JSlider slider = StorageManager.getInstance().getMainPanel().getMusicSlider();
