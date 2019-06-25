@@ -29,6 +29,7 @@ import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.decoder.SampleBuffer;
 import javazoom.jl.player.AudioDevice;
 import javazoom.jl.player.FactoryRegistry;
+import javazoom.jl.player.JavaSoundAudioDevice;
 
 /**
  * a hybrid of javazoom.jl.player.Player tweeked to include <code>play(startFrame, endFrame)</code>
@@ -221,6 +222,15 @@ public class AdvancedPlayer
 	public void setPlayBackListener(PlaybackListener listener)
 	{
 		this.listener = listener;
+	}
+
+	public void setVol(float val){
+		if (this.audio instanceof JavaSoundAudioDevice)
+		{
+			JavaSoundAudioDevice jsAudio = (JavaSoundAudioDevice) audio;
+			jsAudio.setLineGain(val);
+		}
+
 	}
 
 	/**

@@ -159,6 +159,23 @@ public class MainPanel implements PlaylistLinkable {
         });
     }
 
+    private void setActionListenerToVolumeSlider(){
+        volumeSlider.addChangeListener(e -> volumeSlider.repaint());
+        volumeSlider.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Media.getNowPlaying().adjustVolume(volumeSlider.getValue());
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                Media.getNowPlaying().adjustVolume(volumeSlider.getValue());
+            }
+        });
+
+
+    }
+
     private void setActionListenerToSlider() {
         musicSlider.addChangeListener(e -> musicSlider.repaint());
         musicSlider.addMouseListener(new MouseAdapter() {

@@ -215,15 +215,18 @@ public class Media implements Showable {
         return (float) Math.pow(10f, gainControl.getValue() / 20f);
     }*/
 
-    public void setVolume(float volume) {
+   /* public void setVolume(float volume) {
         if (volume < 0f || volume > 1f)
             throw new IllegalArgumentException("Volume not valid: " + volume);
         FloatControl gainControl = (FloatControl) ((Clip) mp3File).getControl(FloatControl.Type.MASTER_GAIN);
         gainControl.setValue(20f * (float) Math.log10(volume));
-    }
+    }*/
+   public void adjustVolume(float volumeSlidPosition){
+       mainPlayer.changeVolume(volumeSlidPosition);
+   }
 
-    public void seekTo(int sliderPosition) throws FileNotFoundException, JavaLayerException {
-        int startingFrame = (int) (sliderPosition * mp3File.getFrameCount() / 100.0);
+    public void seekTo(int MusicsliderPosition) throws FileNotFoundException, JavaLayerException {
+        int startingFrame = (int) (MusicsliderPosition * mp3File.getFrameCount() / 100.0);
         mainPlayer.close();
         if (isPlaying) {
             mainPlayer = new PauseablePlayer(new FileInputStream(address), startingFrame, mp3File);
