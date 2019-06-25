@@ -222,7 +222,8 @@ public class Media implements Showable {
         gainControl.setValue(20f * (float) Math.log10(volume));
     }*/
    public void adjustVolume(float volumeSlidPosition){
-       mainPlayer.changeVolume(volumeSlidPosition);
+       float volume=(float)(((6/10.0)*volumeSlidPosition)-20);
+       mainPlayer.changeVolume(volume);
    }
 
     public void seekTo(int MusicsliderPosition) throws FileNotFoundException, JavaLayerException {
