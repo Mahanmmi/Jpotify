@@ -27,7 +27,6 @@ public class Client implements Runnable {
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
-
         return "";
     }
 
