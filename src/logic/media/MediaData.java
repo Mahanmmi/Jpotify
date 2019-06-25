@@ -1,6 +1,6 @@
 package logic.media;
 
-import logic.playlist.PlaylistElement;
+import logic.storage.playlist.PlaylistElement;
 
 import java.io.Serializable;
 import java.util.ArrayList;

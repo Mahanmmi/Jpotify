@@ -1,6 +1,6 @@
-package logic.Network.Server;
+package logic.network.server;
 
-import logic.Network.Client.ClientResponse;
+import logic.network.client.ClientResponse;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -31,11 +31,12 @@ public class ServerManager {
 
     @SuppressWarnings("InfiniteLoopStatement")
     private void runServer() {
-        System.out.println("logic.Network.Server running");
+        System.out.println("logic.network.server running");
         while (true) {
             try {
                 Socket client = server.accept();
                 activeSockets.add(client);
+                System.out.println(client + " JOINED");
                 ClientManager manager = new ClientManager(client);
                 executorService.submit(manager);
             } catch (IOException e) {
@@ -54,18 +55,19 @@ public class ServerManager {
             this.client = client;
         }
 
-        private void handleClientResponse(ClientResponse response){
-            switch (response.getType()){
+        private void handleClientResponse(ClientResponse response) {
+            switch (response.getType()) {
                 case NOW_PLAYING_SONG: {
                     System.out.println(response.getSentData());
                     break;
                 }
-                case CLOSE:{
+                case CLOSE: {
                     try {
+                        System.out.println(client + " CLOSED");
                         ServerManager.getInstance().activeSockets.remove(client);
                         client.close();
                     } catch (IOException e) {
-                        //Ignore
+                        System.out.println("Cant close socket on server");
                     }
                     break;
                 }
@@ -89,7 +91,6 @@ public class ServerManager {
                 } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();
                 }
-
             }
         }
 

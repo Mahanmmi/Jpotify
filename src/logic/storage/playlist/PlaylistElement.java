@@ -1,4 +1,4 @@
-package logic.playlist;
+package logic.storage.playlist;
 
 import java.io.Serializable;
 

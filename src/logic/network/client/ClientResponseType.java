@@ -1,4 +1,4 @@
-package logic.Network.Client;
+package logic.network.client;
 
 import java.io.Serializable;
 

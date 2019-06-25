@@ -1,13 +1,13 @@
 package logic.storage;
 
 import graphic.MainPanel;
-import logic.Network.Client.Client;
+import logic.network.client.Client;
 import logic.media.Media;
 import logic.media.MediaData;
-import logic.playlist.AutoPlayList;
-import logic.playlist.Playlist;
-import logic.playlist.PlaylistElement;
-import logic.playlist.UserPlaylist;
+import logic.storage.playlist.AutoPlayList;
+import logic.storage.playlist.Playlist;
+import logic.storage.playlist.PlaylistElement;
+import logic.storage.playlist.UserPlaylist;
 
 import java.io.*;
 import java.util.*;
@@ -49,11 +49,11 @@ public class StorageManager {
         return client;
     }
 
-    private void connectToServer(){
+    private void connectToServer() {
         try {
             client = new Client();
             client.initStreams();
-        } catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Cannot init client");
         }
     }
@@ -102,6 +102,9 @@ public class StorageManager {
             Date bDate = mediaDataHashMap.get(b.getAddress()).getLastPlayed();
             return bDate.compareTo(aDate);
         });
+        for (Media media : mediaArrayList) {
+            System.out.println(media.getTitle() + " : " + media.getArtist() + mediaDataHashMap.get(media.getAddress()).getLastPlayed());
+        }
     }
 
     public void addDirectory(File directory) {
@@ -141,7 +144,6 @@ public class StorageManager {
         }
         mediaArrayList.add(new Media(media.getAbsolutePath()));
         mediaDataHashMap.put(media.getAbsolutePath(), new MediaData(media.getAbsolutePath(), new ArrayList<>()));
-        mediaDataHashMap.get(media.getAbsolutePath()).setLastPlayed(new Date(2000,Calendar.JANUARY,1));
         sortMediaArrayList();
         generateAlbums();
         mainPanel.updateGUISongDetails();
@@ -280,8 +282,15 @@ public class StorageManager {
     }
 
     public void saveAndQuit() {
+        System.out.println(client);
+        if (client != null) {
+            try {
+                client.sendCloseSocket();
+            } catch (Exception e){
+                System.out.println("can't send close socket");
+            }
+        }
         try {
-            client.sendCloseSocket();
             ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(MEDIA_DATAFILE));
             outputStream.writeObject(mediaDataHashMap);
         } catch (IOException e) {

@@ -4,9 +4,9 @@ import ch.randelshofer.quaqua.QuaquaManager;
 import javazoom.jl.decoder.JavaLayerException;
 import logic.media.Media;
 import logic.media.MediaData;
-import logic.playlist.Playlist;
-import logic.playlist.PlaylistElement;
-import logic.playlist.UserPlaylist;
+import logic.storage.playlist.Playlist;
+import logic.storage.playlist.PlaylistElement;
+import logic.storage.playlist.UserPlaylist;
 import logic.storage.StorageManager;
 
 import javax.swing.*;
@@ -228,7 +228,7 @@ public class MainPanel implements PlaylistLinkable {
 
     public void setShowcaseContent(ArrayList<Showable> content) {
         showcasePanel.removeAll();
-        showcasePanel.setLayout(new GridLayout((content.size()+1)/2, 2));
+        showcasePanel.setLayout(new GridLayout((content.size() + 1) / 2, 2));
         System.out.println(content);
         for (Showable showable : content) {
             ShowcaseButton showcase = new ShowcaseButton(showable);
@@ -533,7 +533,7 @@ public class MainPanel implements PlaylistLinkable {
             Thread.sleep(1500);
             StorageManager.getInstance().getMainPanel().setShowcaseContent(new ArrayList<>(StorageManager.getInstance().getDefaultPlaylist().getPlaylistMedia()));
             StorageManager.getInstance().getMainPanel().updateGUISongDetails();
-        } catch (InterruptedException e){
+        } catch (InterruptedException e) {
             System.out.println("Interrupted");
         }
     }

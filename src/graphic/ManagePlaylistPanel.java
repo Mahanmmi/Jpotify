@@ -1,13 +1,10 @@
 package graphic;
 
-import com.sun.tools.javac.Main;
-import logic.playlist.Playlist;
-import logic.playlist.UserPlaylist;
+import logic.storage.playlist.Playlist;
+import logic.storage.playlist.UserPlaylist;
 import logic.storage.StorageManager;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 

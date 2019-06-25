@@ -2,7 +2,7 @@ package logic.storage;
 
 import graphic.Showable;
 import logic.media.Media;
-import logic.playlist.AutoPlayList;
+import logic.storage.playlist.AutoPlayList;
 
 import javax.swing.*;
 import java.util.ArrayList;

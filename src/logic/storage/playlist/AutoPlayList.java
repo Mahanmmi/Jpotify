@@ -1,4 +1,4 @@
-package logic.playlist;
+package logic.storage.playlist;
 
 import logic.media.Media;
 

@@ -9,7 +9,7 @@ import com.mpatric.mp3agic.ID3v2;
 import com.mpatric.mp3agic.Mp3File;
 import graphic.Showable;
 import javazoom.jl.decoder.JavaLayerException;
-import logic.playlist.Playlist;
+import logic.storage.playlist.Playlist;
 import logic.storage.StorageManager;
 
 import java.awt.image.BufferedImage;
@@ -248,6 +248,7 @@ public class Media implements Showable {
 
         mainPlayer.play();
         StorageManager.getInstance().getMediaDataHashMap().get(address).setLastPlayed(new Date());
+        StorageManager.getInstance().sortMediaArrayList();
         StorageManager.getInstance().getMainPanel().setShowcaseContent(new ArrayList<>(getCurrentPlaylist().getPlaylistMedia()));
     }
 
@@ -284,10 +285,12 @@ public class Media implements Showable {
             mainPlayer.play();
             isPlaying = true;
             StorageManager.getInstance().getMediaDataHashMap().get(address).setLastPlayed(new Date());
+            StorageManager.getInstance().sortMediaArrayList();
             StorageManager.getInstance().getMainPanel().setShowcaseContent(new ArrayList<>(getCurrentPlaylist().getPlaylistMedia()));
             if (StorageManager.getInstance().getPlaylistHashMap().get("Shared").getPlaylistMedia().contains(nowPlaying)) {
-                System.out.println(StorageManager.getInstance().getClient());
-                StorageManager.getInstance().getClient().sendNowPlayingSong(nowPlaying);
+                if (StorageManager.getInstance().getClient() != null) {
+                    StorageManager.getInstance().getClient().sendNowPlayingSong(nowPlaying);
+                }
             }
         } catch (FileNotFoundException | JavaLayerException e) {
             System.out.println("File not found for playing!");

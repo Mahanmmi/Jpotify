@@ -1,4 +1,4 @@
-package logic.Network.Client;
+package logic.network.client;
 
 import logic.media.Media;
 
@@ -13,7 +13,7 @@ public class Client {
     private ObjectOutputStream outputStream;
     private String name;
 
-    private String getMACAddress() throws Exception {
+    private String getIP() throws Exception {
         InetAddress ip = InetAddress.getLocalHost();
         NetworkInterface network = NetworkInterface.getByInetAddress(ip);
         byte[] mac = network.getHardwareAddress();
