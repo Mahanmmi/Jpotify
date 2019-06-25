@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1568b705-ce1f-4e4c-bd73-3d5cf63a7149" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/logic/network/server/ServerRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logic/network/server/ServerRequestType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logic/network/server/ServerResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logic/network/server/ServerResponseType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphic/MainPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphic/MainPanel.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphic/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphic/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/network/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/network/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/network/client/ClientRequestType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/network/client/ClientRequestType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/network/server/ServerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/network/server/ServerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/storage/StorageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/storage/StorageManager.java" afterDir="false" />
-    </list>
+    <list default="true" id="1568b705-ce1f-4e4c-bd73-3d5cf63a7149" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -386,7 +374,7 @@
       <workItem from="1561372822197" duration="13672000" />
       <workItem from="1561447727294" duration="9565000" />
       <workItem from="1561461143380" duration="17000" />
-      <workItem from="1561461261492" duration="8529000" />
+      <workItem from="1561461261492" duration="8670000" />
     </task>
     <task id="LOCAL-00002" summary="some small bugs fixed">
       <created>1561374674043</created>
@@ -472,11 +460,18 @@
       <option name="project" value="LOCAL" />
       <updated>1561464538886</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Server linked to GUI">
+      <created>1561472015767</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1561472015767</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34297000" />
+    <option name="totallyTimeSpent" value="34438000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -489,7 +484,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2442953" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -500,7 +494,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49731544" visible="true" weight="0.28186968" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49731544" weight="0.28186968" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -537,7 +531,8 @@
     <MESSAGE value="A bunch of small bugs fixed" />
     <MESSAGE value="Server added" />
     <MESSAGE value="some server bugs fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="some server bugs fixed" />
+    <MESSAGE value="Server linked to GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Server linked to GUI" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
