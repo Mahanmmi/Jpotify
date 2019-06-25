@@ -125,6 +125,33 @@ public class Media implements Showable {
             this.time = (int) mp3File.getLengthInSeconds();
 
             if (mp3File.hasId3v1Tag()) {
+
+
+         /*         File file=new File("address");
+        byte metadata[]=new byte[128];
+        try {
+
+            RandomAccessFile raf = new RandomAccessFile(file, "r");
+            raf.seek(file.length()-128);
+            raf.read(metadata,0,128);
+
+        }catch (IOException e){
+            System.out.println("cant read file");
+
+        }
+
+
+        String id3=new String(metadata);
+            this.title= id3.substring(3, 33);
+
+            this.artist= id3.substring(33, 62);
+
+            this.album= id3.substring(63, 92);
+
+
+
+    }
+                 */
                 ID3v1 id3v1 = mp3File.getId3v1Tag();
                 this.title = id3v1.getTitle();
                 this.artist = id3v1.getArtist();
