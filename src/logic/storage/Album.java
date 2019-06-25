@@ -2,6 +2,7 @@ package logic.storage;
 
 import graphic.Showable;
 import logic.media.Media;
+import logic.playlist.AutoPlayList;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ public class Album implements Showable {
     @Override
     public void getClicked() {
         System.out.println(albumName + " " + albumSongs);
+        Media.setCurrentPlaylist(new AutoPlayList("Album",albumSongs));
         StorageManager.getInstance().getMainPanel().setShowcaseContent(new ArrayList<>(albumSongs));
     }
 

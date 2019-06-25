@@ -127,6 +127,8 @@ public class StorageManager {
         mediaDataHashMap.put(media.getAbsolutePath(), new MediaData(media.getAbsolutePath(), new ArrayList<>()));
         mediaDataHashMap.get(media.getAbsolutePath()).setLastPlayed(new Date(2000,Calendar.JANUARY,1));
         sortMediaArrayList();
+        generateAlbums();
+        mainPanel.updateGUISongDetails();
     }
 
     public ArrayList<Media> getMediaArrayList() {
@@ -150,6 +152,7 @@ public class StorageManager {
     }
 
     private void generateAlbums() {
+        albumHashMap = new HashMap<>();
         for (Media savedMedia : mediaArrayList) {
             if (!albumHashMap.containsKey(savedMedia.getAlbumName())) {
                 albumHashMap.put(savedMedia.getAlbumName(), new Album(savedMedia.getAlbumName()));
