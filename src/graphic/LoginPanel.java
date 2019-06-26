@@ -75,6 +75,7 @@ public class LoginPanel {
             if (username != null && password != null){
                 if(StorageManager.getInstance().getClient().getServerData().containsKey(username)){
                     JOptionPane.showMessageDialog(panel, "Username is already used!!", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
                 }{
                     StorageManager.getInstance().getClient().createNewUser(username,password);
                     frame.dispose();

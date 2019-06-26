@@ -45,6 +45,15 @@ class ClientResponseHandler {
         notifyAllClients(response.getClientName(), allActivity.get(response.getClientName()));
     }
 
+    private void sendPlaylist(){
+        for (ServerManager.ClientManager activeSocket : ServerManager.getInstance().getActiveSockets()) {
+            if(activeSocket.getName().equals(response.getClientName())){
+                ServerResponse serverResponse = new ServerResponse(ServerResponseType.PLAYLIST,response.getSentData(),response.getRequester());
+                activeSocket.sendResponse(serverResponse);
+            }
+        }
+    }
+
     void handle() {
         switch (response.getType()) {
             case NOW_PLAYING_SONG: {
@@ -63,6 +72,12 @@ class ClientResponseHandler {
                 System.out.println("Login User");
                 setUserOnline();
                 System.out.println("Login User Done");
+                break;
+            }
+            case PLAYLIST:{
+                System.out.println("Send Playlist");
+                sendPlaylist();
+                System.out.println("Send Playlist Done");
                 break;
             }
             case CLOSE: {

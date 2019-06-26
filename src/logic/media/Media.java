@@ -183,7 +183,7 @@ public class Media implements Showable {
         }
        /* this.address = address;
         file = new File(address);
-        System.out.println(file.getName());
+        System.out.println(file.getTargetName());
         //duration, title, author, album, date, comment, copyright, mp3.framerate.fps, mp3.length.frames, mp3.vbr.scale, mp3.id3tag.v2
         this.album=(String) myPropertiesReader("album");
         this.artist=(String) myPropertiesReader("author");

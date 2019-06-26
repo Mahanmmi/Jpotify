@@ -6,18 +6,24 @@ import java.io.Serializable;
 
 public class ServerRequest implements Serializable {
     private ServerRequestType type;
-    private String name;
+    private int targetInPlaylist;
+    private String srcName;
 
-    public ServerRequest(ServerRequestType type, String name) {
+    public ServerRequest(ServerRequestType type, int targetInPlaylist, String srcName) {
         this.type = type;
-        this.name = name;
+        this.targetInPlaylist = targetInPlaylist;
+        this.srcName = srcName;
     }
 
     public ServerRequestType getType() {
         return type;
     }
 
-    public String getName() {
-        return name;
+    public int getTargetInPlaylist() {
+        return targetInPlaylist;
+    }
+
+    public String getSrcName() {
+        return srcName;
     }
 }

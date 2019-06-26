@@ -2,6 +2,7 @@ package logic.network.client;
 
 import logic.media.Media;
 import logic.network.server.ServerData;
+import logic.network.server.ServerRequest;
 import logic.network.server.ServerResponse;
 
 import java.io.*;
@@ -46,12 +47,12 @@ public class Client implements Runnable {
         System.out.println("In2");
     }
 
-    public void createNewUser(String username, String password){
+    public void createNewUser(String username, String password) {
         name = username;
-        ServerData data = new ServerData(name,password);
+        ServerData data = new ServerData(name, password);
         data.setOnline(true);
         data.setLastOnline(new Date());
-        serverData.put(name,data);
+        serverData.put(name, data);
         ClientResponse response = new ClientResponse(ClientResponseType.NEW_USER, data, name);
         try {
             outputStream.writeObject(response);
@@ -61,7 +62,7 @@ public class Client implements Runnable {
         }
     }
 
-    public void setNameAndLogin(String username){
+    public void setNameAndLogin(String username) {
         name = username;
         ClientResponse response = new ClientResponse(ClientResponseType.LOGIN, null, name);
         try {
@@ -75,6 +76,25 @@ public class Client implements Runnable {
     public void sendNowPlayingSong(Media nowPlaying) {
         Object sentData = (nowPlaying.getTitle() + " - " + nowPlaying.getArtist());
         ClientResponse response = new ClientResponse(ClientResponseType.NOW_PLAYING_SONG, sentData, name);
+        try {
+            outputStream.writeObject(response);
+            outputStream.flush();
+        } catch (IOException e) {
+            System.out.println("ERROR: sendNowPlayingSong : " + e.getMessage());
+        }
+    }
+
+    public void requestGetPlaylist(String targetName) {
+        ClientRequest request = new ClientRequest(ClientRequestType.PLAYLIST,targetName,name,-1);
+        try {
+            outputStream.writeObject(request);
+            outputStream.flush();
+        } catch (IOException e) {
+            System.out.println("ERROR: sendCloseSocket : " + e.getMessage());
+        }
+    }
+
+    public void sendResponse(ClientResponse response){
         try {
             outputStream.writeObject(response);
             outputStream.flush();
@@ -101,6 +121,8 @@ public class Client implements Runnable {
                 Object input = inputStream.readObject();
                 if (input instanceof ServerResponse) {
                     new ServerResponseHandler((ServerResponse) input).handle();
+                } else if(input instanceof ServerRequest){
+                    new ServerRequestHandler((ServerRequest) input).handle();
                 }
             } catch (EOFException ignore) {
             } catch (IOException | ClassNotFoundException e) {

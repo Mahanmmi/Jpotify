@@ -1,9 +1,11 @@
 package logic.network.client;
 
+import graphic.SharedPlaylistPanel;
 import logic.network.server.ServerData;
 import logic.network.server.ServerResponse;
 import logic.storage.StorageManager;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ServerResponseHandler {
@@ -25,6 +27,12 @@ public class ServerResponseHandler {
                     System.out.println(e.getMessage());
                 }
                 System.out.println("Client update data Done");
+                break;
+            }
+            case PLAYLIST:{
+                //noinspection unchecked
+                new SharedPlaylistPanel(response.getName(),(ArrayList<String>) response.getSentData());
+                break;
             }
         }
     }

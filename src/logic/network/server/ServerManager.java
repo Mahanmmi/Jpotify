@@ -1,5 +1,6 @@
 package logic.network.server;
 
+import logic.network.client.ClientRequest;
 import logic.network.client.ClientResponse;
 
 import java.io.*;
@@ -90,6 +91,24 @@ public class ServerManager {
             }
         }
 
+        void sendRequest(ServerRequest request){
+            try {
+                outputStream.writeObject(request);
+                outputStream.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        void sendResponse(ServerResponse response){
+            try {
+                outputStream.writeObject(response);
+                outputStream.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
 
         @Override
         public void run() {
@@ -110,6 +129,8 @@ public class ServerManager {
                     Object input = inputStream.readObject();
                     if (input instanceof ClientResponse) {
                         new ClientResponseHandler(this, (ClientResponse) input).handle();
+                    } else if(input instanceof ClientRequest){
+                        new ClientRequestHandler(this,(ClientRequest) input).handle();
                     }
                 } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();

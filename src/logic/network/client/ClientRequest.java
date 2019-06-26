@@ -4,13 +4,15 @@ import java.io.Serializable;
 
 public class ClientRequest implements Serializable {
     private ClientRequestType type;
-    private String name;
+    private String targetName;
     private String clientName;
+    private int indexInPlaylist;
 
-    public ClientRequest(ClientRequestType type, String name, String clientName) {
+    public ClientRequest(ClientRequestType type, String targetName, String clientName, int indexInPlaylist) {
         this.type = type;
-        this.name = name;
+        this.targetName = targetName;
         this.clientName = clientName;
+        this.indexInPlaylist = indexInPlaylist;
     }
 
     public String getClientName() {
@@ -21,7 +23,11 @@ public class ClientRequest implements Serializable {
         return type;
     }
 
-    public String getName() {
-        return name;
+    public String getTargetName() {
+        return targetName;
+    }
+
+    public int getIndexInPlaylist() {
+        return indexInPlaylist;
     }
 }

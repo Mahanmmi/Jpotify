@@ -216,12 +216,12 @@ public class MainPanel implements PlaylistLinkable {
         for (Map.Entry<String, ServerData> entry : StorageManager.getInstance().getClient().getServerData().entrySet()) {
             String name = entry.getKey();
             ServerData data = entry.getValue();
-//            if(!name.equals(StorageManager.getInstance().getClient().getName())){
+//            if(!name.equals(StorageManager.getInstance().getClient().getTargetName())){
             String online;
             if (StorageManager.getInstance().getClient().getServerData().get(name).isOnline()) {
-                online = " is online and played: ";
+                online = ":::: is online and played: ";
             } else {
-                online = " was online at " + data.getLastOnline().toString() + " and played: ";
+                online = ":::: was online at " + data.getLastOnline().toString() + " and played: ";
             }
             listComps.add(entry.getKey() + online + data.getLastSong());
 //            }
@@ -229,6 +229,21 @@ public class MainPanel implements PlaylistLinkable {
         //noinspection unchecked
         friendActivityList.setListData(listComps.toArray());
         friendActivityList.repaint();
+    }
+
+    private void setNetworkPanelListeners() {
+        friendActivityList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        friendActivityList.setLayoutOrientation(JList.VERTICAL_WRAP);
+        friendActivityList.setVisibleRowCount(-1);
+        friendActivityList.addListSelectionListener(event -> {
+            if(!friendActivityList.isSelectionEmpty()){
+                String selectedName = ((String)friendActivityList.getSelectedValue()).split("::::")[0];
+                System.out.println(selectedName);
+                StorageManager.getInstance().getClient().requestGetPlaylist(selectedName);
+                System.out.println(selectedName);
+                friendActivityList.clearSelection();
+            }
+        });
     }
 
     public synchronized void updateGUISongDetails() {
@@ -350,6 +365,11 @@ public class MainPanel implements PlaylistLinkable {
         setListPanelListener();
         searchButton.setIcon(new ImageIcon("./resources/New Icons/magnifying-glass-icon.png"));
         searchField.setBackground(Color.LIGHT_GRAY);
+
+
+        albumList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        albumList.setLayoutOrientation(JList.VERTICAL_WRAP);
+        albumList.setVisibleRowCount(-1);
         albumList.addListSelectionListener(event -> {
             if (!albumList.isSelectionEmpty()) {
                 StorageManager.getInstance().getAlbumHashMap().get(albumList.getSelectedValue()).getClicked();
@@ -357,6 +377,10 @@ public class MainPanel implements PlaylistLinkable {
             }
         });
 
+
+        playlistList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        playlistList.setLayoutOrientation(JList.VERTICAL_WRAP);
+        playlistList.setVisibleRowCount(-1);
         playlistList.addListSelectionListener(event -> {
             if (!playlistList.isSelectionEmpty()) {
                 StorageManager.getInstance().getPlaylistHashMap().get(playlistList.getSelectedValue()).getClicked();
@@ -531,6 +555,7 @@ public class MainPanel implements PlaylistLinkable {
         addMusicPanelListeners();
         setMusicPanelIconsAndColors();
         setListsPanelSetting();
+        setNetworkPanelListeners();
         frame.setVisible(true);
 
     }
