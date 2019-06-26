@@ -160,7 +160,7 @@ public class MainPanel implements PlaylistLinkable {
         });
     }
 
-    private void setActionListenerToVolumeSlider(){
+    private void setActionListenerToVolumeSlider() {
         volumeSlider.putClientProperty("JSlider.isFilled", Boolean.TRUE);
         volumeSlider.addChangeListener(e -> volumeSlider.repaint());
         volumeSlider.addMouseListener(new MouseAdapter() {
@@ -172,7 +172,7 @@ public class MainPanel implements PlaylistLinkable {
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                System.out.println(""+volumeSlider.getValue());
+                System.out.println("" + volumeSlider.getValue());
                 Media.getNowPlaying().adjustVolume(volumeSlider.getValue());
             }
         });
@@ -211,22 +211,24 @@ public class MainPanel implements PlaylistLinkable {
         playlistList.setListData(playlistNames.toArray());
     }
 
-    private void setFriendActivityListComponents(){
+    private void setFriendActivityListComponents() {
         ArrayList<String> listComps = new ArrayList<>();
         for (Map.Entry<String, ServerData> entry : StorageManager.getInstance().getClient().getServerData().entrySet()) {
             String name = entry.getKey();
             ServerData data = entry.getValue();
-            if(!name.equals(StorageManager.getInstance().getClient().getName())){
-                String online;
-                if(ServerManager.getInstance().isOnline(name)){
-                    online = " is online and played: ";
-                }else {
-                    online = " was online at " + data.getLastOnline().toString() + " and played: ";
-                }
-                listComps.add(entry.getKey() + online + data.getLastSong());
+//            if(!name.equals(StorageManager.getInstance().getClient().getName())){
+            String online;
+            if (StorageManager.getInstance().getClient().getServerData().get(name).isOnline()) {
+                online = " is online and played: ";
+            } else {
+                online = " was online at " + data.getLastOnline().toString() + " and played: ";
             }
+            listComps.add(entry.getKey() + online + data.getLastSong());
+//            }
         }
+        //noinspection unchecked
         friendActivityList.setListData(listComps.toArray());
+        friendActivityList.repaint();
     }
 
     public synchronized void updateGUISongDetails() {
@@ -269,10 +271,8 @@ public class MainPanel implements PlaylistLinkable {
     public synchronized void setShowcaseContent(ArrayList<Showable> content) {
         showcasePanel.removeAll();
         showcasePanel.setLayout(new GridLayout((content.size() + 1) / 2, 2));
-        System.out.println(content);
         for (Showable showable : content) {
             ShowcaseButton showcase = new ShowcaseButton(showable);
-            System.out.println(showcase);
             showcasePanel.add(showcase);
         }
         showcasePanel.revalidate();
@@ -389,7 +389,6 @@ public class MainPanel implements PlaylistLinkable {
 
     private ArrayList<Media> findSongBySearch() {
         String textFieldConcept = searchField.getText().trim().toLowerCase();
-        System.out.println(textFieldConcept);
         ArrayList<Media> searchedSong = new ArrayList<>();
         for (Media media : StorageManager.getInstance().getMediaArrayList()) {
             if ((media.getArtist() != null && media.getArtist().trim().toLowerCase().contains(textFieldConcept))
@@ -569,17 +568,9 @@ public class MainPanel implements PlaylistLinkable {
 
     public static void main(String[] args) {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> StorageManager.getInstance().saveAndQuit(), "Shutdown-thread"));
-        System.out.println(StorageManager.getInstance().getDefaultPlaylist().getPlaylistMedia());
-        try {
-            Thread.sleep(1500);
-            StorageManager.getInstance().getMainPanel().setShowcaseContent(new ArrayList<>(StorageManager.getInstance().getDefaultPlaylist().getPlaylistMedia()));
-            StorageManager.getInstance().getMainPanel().updateGUISongDetails();
-        } catch (InterruptedException e) {
-            System.out.println("Interrupted");
-        }
+//        System.out.println(StorageManager.getInstance().getDefaultPlaylist().getPlaylistMedia());
+        new LoginPanel();
+
     }
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-    }
 }

@@ -181,10 +181,6 @@ public class Media implements Showable {
             System.out.println("s");
 
         }
-        System.out.println("artist: " + artist);
-        System.out.println("album: " + album);
-        System.out.println("title: " + title);
-        System.out.println("time: " + time);
        /* this.address = address;
         file = new File(address);
         System.out.println(file.getName());
@@ -251,9 +247,18 @@ public class Media implements Showable {
         }
 
         mainPlayer.play();
+        doPlayingSongUpdates();
+    }
+
+    private void doPlayingSongUpdates() {
         StorageManager.getInstance().getMediaDataHashMap().get(address).setLastPlayed(new Date());
         StorageManager.getInstance().sortMediaArrayList();
         StorageManager.getInstance().getMainPanel().setShowcaseContent(new ArrayList<>(getCurrentPlaylist().getPlaylistMedia()));
+        if (StorageManager.getInstance().getPlaylistHashMap().get("Shared").getPlaylistMedia().contains(nowPlaying)) {
+            if (StorageManager.getInstance().getClient() != null) {
+                StorageManager.getInstance().getClient().sendNowPlayingSong(nowPlaying);
+            }
+        }
     }
 
     static void goNext() {
@@ -288,14 +293,7 @@ public class Media implements Showable {
             nowPlaying = this;
             mainPlayer.play();
             isPlaying = true;
-            StorageManager.getInstance().getMediaDataHashMap().get(address).setLastPlayed(new Date());
-            StorageManager.getInstance().sortMediaArrayList();
-            StorageManager.getInstance().getMainPanel().setShowcaseContent(new ArrayList<>(getCurrentPlaylist().getPlaylistMedia()));
-            if (StorageManager.getInstance().getPlaylistHashMap().get("Shared").getPlaylistMedia().contains(nowPlaying)) {
-                if (StorageManager.getInstance().getClient() != null) {
-                    StorageManager.getInstance().getClient().sendNowPlayingSong(nowPlaying);
-                }
-            }
+            doPlayingSongUpdates();
         } catch (FileNotFoundException | JavaLayerException e) {
             System.out.println("File not found for playing!");
         }

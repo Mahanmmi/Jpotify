@@ -8,18 +8,23 @@ import java.util.HashMap;
 
 public class ServerResponseHandler {
     private ServerResponse response;
-    private HashMap<String, ServerData> serverData;
 
     public ServerResponseHandler(ServerResponse response) {
         this.response = response;
-        serverData = StorageManager.getInstance().getClient().getServerData();
     }
 
-    void handle(){
+    void handle() {
         switch (response.getType()) {
             case UPDATE_IN_DATA: {
-                serverData.replace(response.getName(),(ServerData) response.getSentData());
-                StorageManager.getInstance().getMainPanel().updateGUISongDetails();
+                System.out.println("Client update data in process");
+                System.out.println(response.getName() + "   " + response.getSentData());
+                StorageManager.getInstance().getClient().getServerData().put(response.getName(), new ServerData((String) response.getSentData()));
+                try {
+                    StorageManager.getInstance().getMainPanel().updateGUISongDetails();
+                } catch (NullPointerException e) {
+                    System.out.println(e.getMessage());
+                }
+                System.out.println("Client update data Done");
             }
         }
     }

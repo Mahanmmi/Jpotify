@@ -3,12 +3,10 @@ package logic.network.client;
 import logic.media.Media;
 import logic.network.server.ServerData;
 import logic.network.server.ServerResponse;
-import logic.storage.StorageManager;
 
 import java.io.*;
-import java.net.InetAddress;
 import java.net.Socket;
-import java.net.UnknownHostException;
+import java.util.Date;
 import java.util.HashMap;
 
 public class Client implements Runnable {
@@ -24,6 +22,10 @@ public class Client implements Runnable {
 
     public HashMap<String, ServerData> getServerData() {
         return serverData;
+    }
+
+    public void setServerData(HashMap<String, ServerData> serverData) {
+        this.serverData = serverData;
     }
 
     public Client() throws IOException {
@@ -47,6 +49,8 @@ public class Client implements Runnable {
     public void createNewUser(String username, String password){
         name = username;
         ServerData data = new ServerData(name,password);
+        data.setOnline(true);
+        data.setLastOnline(new Date());
         serverData.put(name,data);
         ClientResponse response = new ClientResponse(ClientResponseType.NEW_USER, data, name);
         try {

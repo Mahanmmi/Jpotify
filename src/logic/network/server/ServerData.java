@@ -1,8 +1,8 @@
 package logic.network.server;
 
-import logic.storage.playlist.AutoPlayList;
-
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ServerData implements Serializable {
@@ -10,11 +10,33 @@ public class ServerData implements Serializable {
     private String password;
     private String lastSong;
     private Date lastOnline;
-    private AutoPlayList sharedPlaylist;
+    private boolean isOnline;
+
+    public ServerData(String s) {
+        String[] data = s.split("<---->");
+        username = data[0];
+        password = data[1];
+        lastSong = data[2];
+        try {
+            lastOnline = new SimpleDateFormat("E MMM dd HH:mm:ss z yyyy").parse(data[3]);
+        } catch (ParseException e){
+            e.printStackTrace();
+        }
+        isOnline = Boolean.parseBoolean(data[4]);
+    }
 
     public ServerData(String username, String password) {
         this.username = username;
         this.password = password;
+//        this.lastSong = "";
+    }
+
+    public boolean isOnline() {
+        return isOnline;
+    }
+
+    public void setOnline(boolean online) {
+        isOnline = online;
     }
 
     public String getUsername() {
@@ -41,11 +63,15 @@ public class ServerData implements Serializable {
         this.lastOnline = lastOnline;
     }
 
-    public AutoPlayList getSharedPlaylist() {
-        return sharedPlaylist;
-    }
 
-    public void setSharedPlaylist(AutoPlayList sharedPlaylist) {
-        this.sharedPlaylist = sharedPlaylist;
+    @Override
+    public String toString() {
+        return "ServerData{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", lastSong='" + lastSong + '\'' +
+                ", lastOnline=" + lastOnline +
+                ", isOnline=" + isOnline +
+                '}';
     }
 }

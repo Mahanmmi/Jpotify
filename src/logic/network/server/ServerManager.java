@@ -11,11 +11,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class ServerManager {
-    private static ServerManager ourInstance = new ServerManager();
+    private static ServerManager ourInstance;
     private ServerSocket server;
     private ExecutorService executorService;
     private ArrayList<ClientManager> activeSockets;
-    private HashMap<String,ServerData> allActivity;
+    private HashMap<String, ServerData> allActivity;
 
     ArrayList<ClientManager> getActiveSockets() {
         return activeSockets;
@@ -27,15 +27,6 @@ public class ServerManager {
 
     public static ServerManager getInstance() {
         return ourInstance;
-    }
-
-    public boolean isOnline(String name){
-        for (ClientManager activeSocket : activeSockets) {
-            if(activeSocket.getName().equals(name)){
-                return true;
-            }
-        }
-        return false;
     }
 
     private ServerManager() {
@@ -89,13 +80,15 @@ public class ServerManager {
 
         void getNotified(String name, ServerData data) {
             try {
-                outputStream.writeObject(new ServerResponse(ServerResponseType.UPDATE_IN_DATA, data, name));
+                String send = data.getUsername() + "<---->" + data.getPassword() + "<---->"
+                        + data.getLastSong() + "<---->" + data.getLastOnline() + "<---->"
+                        + data.isOnline();
+                outputStream.writeObject(new ServerResponse(ServerResponseType.UPDATE_IN_DATA, send, name));
                 outputStream.flush();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
 
 
         @Override
@@ -116,7 +109,7 @@ public class ServerManager {
                 try {
                     Object input = inputStream.readObject();
                     if (input instanceof ClientResponse) {
-                        new ClientResponseHandler(this,(ClientResponse) input).handle();
+                        new ClientResponseHandler(this, (ClientResponse) input).handle();
                     }
                 } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();
@@ -127,6 +120,8 @@ public class ServerManager {
     }
 
     public static void main(String[] args) {
+        ourInstance = new ServerManager();
+        System.out.println(ourInstance);
         try {
             Thread.sleep(500);
             ServerManager.getInstance().runServer();

@@ -43,7 +43,6 @@ public class StorageManager {
         generatePlaylists();
         setInitialPlaylist();
         connectToServer();
-        new LoginPanel();
     }
 
     public MainPanel getMainPanel() {
@@ -108,9 +107,6 @@ public class StorageManager {
             Date bDate = mediaDataHashMap.get(b.getAddress()).getLastPlayed();
             return bDate.compareTo(aDate);
         });
-        for (Media media : mediaArrayList) {
-            System.out.println(media.getTitle() + " : " + media.getArtist() + mediaDataHashMap.get(media.getAddress()).getLastPlayed());
-        }
     }
 
     public void addDirectory(File directory) {
@@ -261,7 +257,7 @@ public class StorageManager {
             for (Media media : playlist.getPlaylistMedia()) {
                 String mediaPath = media.getAddress();
                 PlaylistElement playlistElement = new PlaylistElement(playListName, mediaPath, index);
-                System.out.println(playlistElement);
+//                System.out.println(playlistElement);
                 if (mediaDataHashMap.containsKey(mediaPath)) {
                     if (!mediaDataHashMap.get(mediaPath).getElements().contains(playlistElement)) {
                         mediaDataHashMap.get(mediaPath).getElements().add(playlistElement);
