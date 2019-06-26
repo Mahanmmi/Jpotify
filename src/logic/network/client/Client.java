@@ -1,6 +1,7 @@
 package logic.network.client;
 
 import logic.media.Media;
+import logic.network.server.ServerData;
 import logic.network.server.ServerResponse;
 import logic.storage.StorageManager;
 
@@ -15,25 +16,18 @@ public class Client implements Runnable {
     private ObjectInputStream inputStream;
     private ObjectOutputStream outputStream;
     private String name;
-    private HashMap<String, String> friendsActivity;
+    private HashMap<String, ServerData> serverData;
 
-    public HashMap<String, String> getFriendsActivity() {
-        return friendsActivity;
+    public String getName() {
+        return name;
     }
 
-    private String getIP() {
-        try {
-            return InetAddress.getLocalHost().toString();
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
-        return "";
+    public HashMap<String, ServerData> getServerData() {
+        return serverData;
     }
-
 
     public Client() throws IOException {
-        this.name = getIP();
-        friendsActivity = new HashMap<>();
+        serverData = new HashMap<>();
         socket = new Socket("127.0.0.1", 18757);
     }
 
@@ -41,14 +35,37 @@ public class Client implements Runnable {
         System.out.println("In1");
         outputStream = new ObjectOutputStream(socket.getOutputStream());
         inputStream = new ObjectInputStream(socket.getInputStream());
-        outputStream.writeObject(name);
         try {
             //noinspection unchecked
-            friendsActivity = (HashMap<String, String>) inputStream.readObject();
+            serverData = (HashMap<String, ServerData>) inputStream.readObject();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
         System.out.println("In2");
+    }
+
+    public void createNewUser(String username, String password){
+        name = username;
+        ServerData data = new ServerData(name,password);
+        serverData.put(name,data);
+        ClientResponse response = new ClientResponse(ClientResponseType.NEW_USER, data, name);
+        try {
+            outputStream.writeObject(response);
+            outputStream.flush();
+        } catch (IOException e) {
+            System.out.println("ERROR: setNameAndLogin : " + e.getMessage());
+        }
+    }
+
+    public void setNameAndLogin(String username){
+        name = username;
+        ClientResponse response = new ClientResponse(ClientResponseType.LOGIN, null, name);
+        try {
+            outputStream.writeObject(response);
+            outputStream.flush();
+        } catch (IOException e) {
+            System.out.println("ERROR: setNameAndLogin : " + e.getMessage());
+        }
     }
 
     public void sendNowPlayingSong(Media nowPlaying) {
@@ -72,15 +89,6 @@ public class Client implements Runnable {
         }
     }
 
-    private void handleServerResponse(ServerResponse response) {
-        switch (response.getType()) {
-            case NOW_PLAYING_SONG: {
-                friendsActivity.put(response.getName(), response.getSentData().toString());
-                StorageManager.getInstance().getMainPanel().updateGUISongDetails();
-            }
-        }
-    }
-
     @SuppressWarnings("InfiniteLoopStatement")
     @Override
     public void run() {
@@ -88,10 +96,9 @@ public class Client implements Runnable {
             try {
                 Object input = inputStream.readObject();
                 if (input instanceof ServerResponse) {
-                    handleServerResponse((ServerResponse) input);
+                    new ServerResponseHandler((ServerResponse) input).handle();
                 }
-            } catch (EOFException e) {
-                //Ignore
+            } catch (EOFException ignore) {
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             }

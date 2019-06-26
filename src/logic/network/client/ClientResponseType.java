@@ -7,5 +7,7 @@ public enum ClientResponseType implements Serializable {
     SONG,
     PLAYLIST,
     NOW_PLAYING_SONG,
+    LOGIN,
+    NEW_USER,
     CLOSE
 }

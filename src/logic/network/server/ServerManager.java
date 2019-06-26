@@ -16,7 +16,15 @@ public class ServerManager {
     private ServerSocket server;
     private ExecutorService executorService;
     private ArrayList<ClientManager> activeSockets;
-    private HashMap<String,String> allActivity;
+    private HashMap<String,ServerData> allActivity;
+
+    ArrayList<ClientManager> getActiveSockets() {
+        return activeSockets;
+    }
+
+    HashMap<String, ServerData> getAllActivity() {
+        return allActivity;
+    }
 
     public static ServerManager getInstance() {
         return ourInstance;
@@ -48,10 +56,8 @@ public class ServerManager {
         }
     }
 
-    private static class ClientManager implements Runnable {
+    static class ClientManager implements Runnable {
         private Socket client;
-        private String name;
-        private String lastSong;
         private ObjectInputStream inputStream;
         private ObjectOutputStream outputStream;
 
@@ -64,7 +70,7 @@ public class ServerManager {
             ServerManager.getInstance().activeSockets.add(this);
         }
 
-        private void getNotified(String song, String srcName) {
+        void getNotified(String song, String srcName) {
             try {
                 outputStream.writeObject(new ServerResponse(ServerResponseType.NOW_PLAYING_SONG, song, srcName));
                 outputStream.flush();
@@ -73,57 +79,27 @@ public class ServerManager {
             }
         }
 
-        private void notifyAllClients(String song, String srcName) {
-            lastSong = song;
-            ServerManager.getInstance().allActivity.put(name,lastSong);
-            for (ClientManager activeSocket : ServerManager.getInstance().activeSockets) {
-//                if (activeSocket != this) {
-                activeSocket.getNotified(song, srcName);
-//                }
-            }
-        }
 
-        private void handleClientResponse(ClientResponse response) {
-            switch (response.getType()) {
-                case NOW_PLAYING_SONG: {
-                    notifyAllClients((String) response.getSentData(), response.getClientName());
-                    break;
-                }
-                case CLOSE: {
-                    try {
-                        System.out.println(client + " : " + response.getClientName() + " : " + " CLOSED");
-                        ServerManager.getInstance().activeSockets.remove(this);
-                        client.close();
-                    } catch (IOException e) {
-                        System.out.println("Cant close socket on server");
-                    }
-                    break;
-                }
-            }
-        }
 
         @Override
         public void run() {
             try {
                 inputStream = new ObjectInputStream(client.getInputStream());
                 outputStream = new ObjectOutputStream(client.getOutputStream());
-                name = (String) inputStream.readObject();
-                HashMap<String, String> friendActivity = new HashMap<>();
-                for (Map.Entry<String, String> entry : ServerManager.getInstance().allActivity.entrySet()) {
-//                    if (activeSocket != this) {
-                        friendActivity.put(entry.getKey(),entry.getValue());
-//                    }
-                }
-                outputStream.writeObject(friendActivity);
+
+                //Initial data transfers
+                outputStream.writeObject(ServerManager.getInstance().getAllActivity());
                 outputStream.flush();
-            } catch (IOException | ClassNotFoundException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
+
+
             while (ServerManager.getInstance().activeSockets.contains(this)) {
                 try {
                     Object input = inputStream.readObject();
                     if (input instanceof ClientResponse) {
-                        handleClientResponse((ClientResponse) input);
+                        new ClientResponseHandler(this,(ClientResponse) input).handle();
                     }
                 } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();

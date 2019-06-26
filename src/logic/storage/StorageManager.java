@@ -1,5 +1,6 @@
 package logic.storage;
 
+import graphic.LoginPanel;
 import graphic.MainPanel;
 import logic.network.client.Client;
 import logic.media.Media;
@@ -26,6 +27,10 @@ public class StorageManager {
 
     private MainPanel mainPanel;
 
+    public void setMainPanel(MainPanel mainPanel) {
+        this.mainPanel = mainPanel;
+    }
+
     public static StorageManager getInstance() {
         return ourInstance;
     }
@@ -38,7 +43,7 @@ public class StorageManager {
         generatePlaylists();
         setInitialPlaylist();
         connectToServer();
-        mainPanel = new MainPanel();
+        new LoginPanel();
     }
 
     public MainPanel getMainPanel() {
