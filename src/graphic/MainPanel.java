@@ -239,8 +239,10 @@ public class MainPanel implements PlaylistLinkable {
             if(!friendActivityList.isSelectionEmpty()){
                 String selectedName = ((String)friendActivityList.getSelectedValue()).split("::::")[0];
                 System.out.println(selectedName);
-                StorageManager.getInstance().getClient().requestGetPlaylist(selectedName);
-                System.out.println(selectedName);
+                if(StorageManager.getInstance().getClient().getServerData().get(selectedName).isOnline()) {
+                    StorageManager.getInstance().getClient().requestGetPlaylist(selectedName);
+                    System.out.println(selectedName);
+                }
                 friendActivityList.clearSelection();
             }
         });
