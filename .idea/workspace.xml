@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1568b705-ce1f-4e4c-bd73-3d5cf63a7149" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/graphic/AddSongPlaylistPanel.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graphic/AddSongPlaylistPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphic/EditPlaylist.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphic/EditPlaylist.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphic/EditPlaylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphic/EditPlaylist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphic/LoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphic/LoginPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphic/ManagePlaylistPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphic/ManagePlaylistPanel.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphic/ManagePlaylistPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphic/ManagePlaylistPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphic/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphic/MainPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,99 +16,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="576" column="16" selection-start-line="576" selection-start-column="16" selection-end-line="576" selection-end-column="16" />
+            <state relative-caret-position="160">
+              <caret line="512" column="93" lean-forward="true" selection-start-line="512" selection-start-column="93" selection-end-line="512" selection-end-column="93" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#20873#21435#0" />
+                <element signature="e#23719#24325#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/graphic/SharedPlaylistPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/graphic/ManagePlaylistPanel.form">
-          <provider selected="true" editor-type-id="ui-designer" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/graphic/ManagePlaylistPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="48" column="28" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/graphic/AddSongPlaylistPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#496#526#0" expanded="true" />
-                <element signature="e#1695#2305#0" />
-                <element signature="e#2137#2320#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/graphic/AddPlaylistPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="51" column="9" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="51" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/graphic/AddSongPlaylistPanel.form">
-          <provider selected="true" editor-type-id="ui-designer" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/graphic/LoginPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="77" column="94" lean-forward="true" selection-start-line="77" selection-start-column="94" selection-end-line="77" selection-end-column="94" />
-              <folding>
-                <element signature="method#login#0;class#LoginPanel#0" />
-                <element signature="method#colorNull#0;class#LoginPanel#0" />
-                <element signature="e#2618#2833#0" expanded="true" />
-                <element signature="e#2832#2833#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/graphic/EditPlaylist.form">
-          <provider selected="true" editor-type-id="ui-designer" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/graphic/EditPlaylist.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="79" column="28" lean-forward="true" selection-start-line="77" selection-start-column="12" selection-end-line="79" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -184,7 +95,6 @@
         <option value="$PROJECT_DIR$/src/logic/network/server/ServerManager.java" />
         <option value="$PROJECT_DIR$/src/graphic/SharedPlaylistPanel.form" />
         <option value="$PROJECT_DIR$/src/graphic/LoginPanel.form" />
-        <option value="$PROJECT_DIR$/src/graphic/MainPanel.java" />
         <option value="$PROJECT_DIR$/src/logic/network/server/ClientResponseHandler.java" />
         <option value="$PROJECT_DIR$/src/logic/network/client/ServerResponseHandler.java" />
         <option value="$PROJECT_DIR$/src/logic/network/client/ServerRequestHandler.java" />
@@ -198,6 +108,7 @@
         <option value="$PROJECT_DIR$/src/graphic/AddSongPlaylistPanel.java" />
         <option value="$PROJECT_DIR$/src/graphic/AddSongPlaylistPanel.form" />
         <option value="$PROJECT_DIR$/src/graphic/LoginPanel.java" />
+        <option value="$PROJECT_DIR$/src/graphic/MainPanel.java" />
       </list>
     </option>
   </component>
@@ -458,12 +369,12 @@
       <option name="project" value="LOCAL" />
       <updated>1561565268635</updated>
     </task>
-    <task id="LOCAL-00008" summary="Album and playlist list showcase added">
-      <created>1561382118809</created>
+    <task id="LOCAL-00008" summary="Project core done!">
+      <created>1561566862922</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1561382118809</updated>
+      <updated>1561566862922</updated>
     </task>
     <task id="LOCAL-00009" summary="remove playlist added">
       <created>1561383287733</created>
@@ -493,17 +404,17 @@
       <option name="project" value="LOCAL" />
       <updated>1561461303980</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29507000" />
+    <option name="totallyTimeSpent" value="31520000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23624161" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23624161" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -512,7 +423,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32719547" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49731544" visible="true" weight="0.27903682" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49731544" visible="true" weight="0.27903682" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39836067" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -584,7 +495,8 @@
     <MESSAGE value="Server bugs fixed and 50% of server done" />
     <MESSAGE value="Get shared playlist done!" />
     <MESSAGE value="Get shared song done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Get shared song done" />
+    <MESSAGE value="Project core done!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project core done!" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.form">
@@ -747,51 +659,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphic/SharedPlaylistPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="576" column="16" selection-start-line="576" selection-start-column="16" selection-end-line="576" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#20873#21435#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/graphic/EditPlaylist.form">
       <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphic/ManagePlaylistPanel.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphic/ManagePlaylistPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="48" column="28" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphic/AddPlaylistPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="51" column="9" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="51" selection-end-column="9" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/graphic/EditPlaylist.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="257">
           <caret line="79" column="28" lean-forward="true" selection-start-line="77" selection-start-column="12" selection-end-line="79" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphic/LoginPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="77" column="94" lean-forward="true" selection-start-line="77" selection-start-column="94" selection-end-line="77" selection-end-column="94" />
+          <folding>
+            <element signature="method#login#0;class#LoginPanel#0" />
+            <element signature="method#colorNull#0;class#LoginPanel#0" />
+            <element signature="e#2618#2833#0" expanded="true" />
+            <element signature="e#2832#2833#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphic/AddSongPlaylistPanel.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphic/AddPlaylistPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="51" column="9" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="51" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -808,18 +705,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphic/AddSongPlaylistPanel.form">
+    <entry file="file://$PROJECT_DIR$/src/graphic/ManagePlaylistPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="48" column="28" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphic/ManagePlaylistPanel.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphic/LoginPanel.java">
+    <entry file="file://$PROJECT_DIR$/src/graphic/SharedPlaylistPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="77" column="94" lean-forward="true" selection-start-line="77" selection-start-column="94" selection-end-line="77" selection-end-column="94" />
+        <state relative-caret-position="308">
+          <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
           <folding>
-            <element signature="method#login#0;class#LoginPanel#0" />
-            <element signature="method#colorNull#0;class#LoginPanel#0" />
-            <element signature="e#2618#2833#0" expanded="true" />
-            <element signature="e#2832#2833#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="512" column="93" lean-forward="true" selection-start-line="512" selection-start-column="93" selection-end-line="512" selection-end-column="93" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#20873#21435#0" />
+            <element signature="e#23719#24325#0" />
           </folding>
         </state>
       </provider>

@@ -510,7 +510,7 @@ public class MainPanel implements PlaylistLinkable {
     }
 
     private void initFrame() {
-        frame = new JFrame("Jpotify");
+        frame = new JFrame("Jpotify::::"+StorageManager.getInstance().getClient().getName());
         newFrameInitialSettings(frame, mainPanel);
 
         frame.addWindowStateListener(event -> {
