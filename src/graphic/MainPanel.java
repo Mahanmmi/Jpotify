@@ -4,9 +4,7 @@ import ch.randelshofer.quaqua.QuaquaManager;
 import javazoom.jl.decoder.JavaLayerException;
 import logic.media.Media;
 import logic.media.MediaData;
-import logic.network.client.Client;
 import logic.network.server.ServerData;
-import logic.network.server.ServerManager;
 import logic.storage.playlist.Playlist;
 import logic.storage.playlist.PlaylistElement;
 import logic.storage.playlist.UserPlaylist;
@@ -31,7 +29,7 @@ public class MainPanel implements PlaylistLinkable {
     private JPanel volumePanel;
     private JPanel musicButtonsPanel;
     private JSlider volumeSlider;
-    private JButton volumeButton;
+    private JButton lyricsButton;
     private JButton lastTrackButton;
     private JButton nextTrackButton;
     private JButton play_pause;
@@ -120,8 +118,8 @@ public class MainPanel implements PlaylistLinkable {
         lastTrackButton.setSize(lastTrackButton.getWidth(), lastTrackButton.getHeight() + 10);
         lastTrackButton.setIcon(new ImageIcon("./resources/New Icons/Actions-media-seek-backward-icon.png"));
 
-        volumeButton.setSize(volumeButton.getWidth(), volumeButton.getHeight() + 10);
-        volumeButton.setIcon(new ImageIcon("./resources/New Icons/speaker-icon.png"));
+        lyricsButton.setSize(lyricsButton.getWidth(), lyricsButton.getHeight() + 10);
+        lyricsButton.setIcon(new ImageIcon("./resources/New Icons/icon_info.png"));
 
         play_pause.setSize(play_pause.getWidth(), play_pause.getHeight() + 10);
         play_pause.setIcon(new ImageIcon("./resources/New Icons/Actions-media-playback-start-icon.png"));
@@ -360,6 +358,9 @@ public class MainPanel implements PlaylistLinkable {
                 replayButtun.setIcon(new ImageIcon("./resources/New Icons/replay-icon-active.png"));
             }
             updateGUISongDetails();
+        });
+        lyricsButton.addActionListener(event -> {
+            new LyricsPanel(Media.getNowPlaying());
         });
     }
 
