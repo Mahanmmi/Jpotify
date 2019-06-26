@@ -27,6 +27,16 @@ public class ClientRequestHandler {
                 }
                 break;
             }
+            case SONG:{
+                for (ServerManager.ClientManager activeSocket : activeSockets) {
+                    if(activeSocket.getName().equals(request.getTargetName())){
+                        ServerRequest serverRequest = new ServerRequest(ServerRequestType.SONG,request.getIndexInPlaylist(),request.getClientName());
+                        activeSocket.sendRequest(serverRequest);
+                        break;
+                    }
+                }
+                break;
+            }
         }
     }
 }

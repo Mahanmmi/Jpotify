@@ -5,6 +5,10 @@ import logic.network.server.ServerData;
 import logic.network.server.ServerResponse;
 import logic.storage.StorageManager;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -29,9 +33,24 @@ public class ServerResponseHandler {
                 System.out.println("Client update data Done");
                 break;
             }
-            case PLAYLIST:{
+            case PLAYLIST: {
                 //noinspection unchecked
-                new SharedPlaylistPanel(response.getName(),(ArrayList<String>) response.getSentData());
+                new SharedPlaylistPanel(response.getName(), (ArrayList<String>) response.getSentData());
+                break;
+            }
+            case SONG: {
+                File downloadDirectory = new File("./downloads");
+                int name = downloadDirectory.list().length + 1;
+                File downloadFile = new File("./downloads/" + name + ".mp3");
+                try {
+                    FileOutputStream out = new FileOutputStream(downloadFile);
+                    out.write((byte[]) response.getSentData());
+                    out.flush();
+                    out.close();
+                    StorageManager.getInstance().addMedia(downloadFile);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 break;
             }
         }

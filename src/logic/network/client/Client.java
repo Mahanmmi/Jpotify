@@ -58,7 +58,7 @@ public class Client implements Runnable {
             outputStream.writeObject(response);
             outputStream.flush();
         } catch (IOException e) {
-            System.out.println("ERROR: setNameAndLogin : " + e.getMessage());
+            System.out.println("ERROR: createNewUser : " + e.getMessage());
         }
     }
 
@@ -90,7 +90,17 @@ public class Client implements Runnable {
             outputStream.writeObject(request);
             outputStream.flush();
         } catch (IOException e) {
-            System.out.println("ERROR: sendCloseSocket : " + e.getMessage());
+            System.out.println("ERROR: requestGetPlaylist : " + e.getMessage());
+        }
+    }
+
+    public void requestGetSong(String targetName,int index){
+        ClientRequest request = new ClientRequest(ClientRequestType.SONG,targetName,name,index);
+        try {
+            outputStream.writeObject(request);
+            outputStream.flush();
+        } catch (IOException e) {
+            System.out.println("ERROR: requestGetSong : " + e.getMessage());
         }
     }
 
@@ -99,7 +109,7 @@ public class Client implements Runnable {
             outputStream.writeObject(response);
             outputStream.flush();
         } catch (IOException e) {
-            System.out.println("ERROR: sendNowPlayingSong : " + e.getMessage());
+            System.out.println("ERROR: sendResponse : " + e.getMessage());
         }
     }
 

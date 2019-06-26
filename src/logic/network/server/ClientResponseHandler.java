@@ -54,6 +54,15 @@ class ClientResponseHandler {
         }
     }
 
+    private void sendSong(){
+        for (ServerManager.ClientManager activeSocket : ServerManager.getInstance().getActiveSockets()) {
+            if(activeSocket.getName().equals(response.getClientName())){
+                ServerResponse serverResponse = new ServerResponse(ServerResponseType.SONG,response.getSentData(),response.getRequester());
+                activeSocket.sendResponse(serverResponse);
+            }
+        }
+    }
+
     void handle() {
         switch (response.getType()) {
             case NOW_PLAYING_SONG: {
@@ -78,6 +87,12 @@ class ClientResponseHandler {
                 System.out.println("Send Playlist");
                 sendPlaylist();
                 System.out.println("Send Playlist Done");
+                break;
+            }
+            case SONG:{
+                System.out.println("Send Song");
+                sendSong();
+                System.out.println("Send Song Done");
                 break;
             }
             case CLOSE: {

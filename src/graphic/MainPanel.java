@@ -369,9 +369,7 @@ public class MainPanel implements PlaylistLinkable {
         searchField.setBackground(Color.LIGHT_GRAY);
 
 
-        albumList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        albumList.setLayoutOrientation(JList.VERTICAL_WRAP);
-        albumList.setVisibleRowCount(-1);
+
         albumList.addListSelectionListener(event -> {
             if (!albumList.isSelectionEmpty()) {
                 StorageManager.getInstance().getAlbumHashMap().get(albumList.getSelectedValue()).getClicked();
@@ -380,9 +378,7 @@ public class MainPanel implements PlaylistLinkable {
         });
 
 
-        playlistList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        playlistList.setLayoutOrientation(JList.VERTICAL_WRAP);
-        playlistList.setVisibleRowCount(-1);
+
         playlistList.addListSelectionListener(event -> {
             if (!playlistList.isSelectionEmpty()) {
                 StorageManager.getInstance().getPlaylistHashMap().get(playlistList.getSelectedValue()).getClicked();
@@ -428,6 +424,12 @@ public class MainPanel implements PlaylistLinkable {
     }
 
     private void setListPanelListener() {
+        albumList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        albumList.setLayoutOrientation(JList.HORIZONTAL_WRAP);
+        albumList.setVisibleRowCount(-1);
+        playlistList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        playlistList.setLayoutOrientation(JList.VERTICAL_WRAP);
+        playlistList.setVisibleRowCount(-1);
         searchField.setFocusable(true);
         searchField.addKeyListener(new KeyAdapter() {
             @Override
