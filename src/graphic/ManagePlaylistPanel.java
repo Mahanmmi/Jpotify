@@ -14,6 +14,7 @@ public class ManagePlaylistPanel {
     private JButton cancelButton;
     private JList playlistList;
     private JPanel panel;
+    private JButton addSongButton;
     private JFrame frame;
 
     @SuppressWarnings("unchecked")
@@ -41,6 +42,10 @@ public class ManagePlaylistPanel {
         });
         editButton.addActionListener(event -> {
             new EditPlaylist(parent,playlists.get(playlistList.getSelectedValue()));
+            frame.dispose();
+        });
+        addSongButton.addActionListener(e -> {
+            new AddSongPlaylistPanel(parent,playlists.get(playlistList.getSelectedValue()));
             frame.dispose();
         });
         frame.setVisible(true);

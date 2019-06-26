@@ -4,6 +4,8 @@ import logic.media.Media;
 import logic.storage.playlist.Playlist;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class EditPlaylist {
@@ -13,6 +15,7 @@ public class EditPlaylist {
     private JButton downButton;
     private JButton doneButton;
     private JList mediaList;
+    private JButton removeButton;
     private JFrame frame;
     private Playlist target;
 
@@ -64,12 +67,19 @@ public class EditPlaylist {
                 mediaList.setSelectedIndex(currentIndex + 1);
             }
         });
+        removeButton.addActionListener(e -> {
+            int currentIndex = mediaList.getSelectedIndex();
+            mediaArrayList.remove(currentIndex);
+            mediaList.clearSelection();
+            setListContent();
+        });
 
         doneButton.addActionListener(e -> {
             parent.doRemovePlaylist(target.getName());
             parent.doAddPlaylistLink(target.getName(), target.getPlaylistMedia());
             frame.dispose();
         });
+
         frame.setVisible(true);
     }
 }
