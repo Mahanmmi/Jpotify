@@ -26,9 +26,7 @@ public class Media implements Showable {
     private static boolean isMute = false;
     private static boolean isShuffling = false;
     private static boolean isReplaying = false;
-    private static Mp3File mp3File;
     private static Playlist currentPlaylist;
-
     public static Playlist getCurrentPlaylist() {
         return currentPlaylist;
     }
@@ -80,6 +78,7 @@ public class Media implements Showable {
         Media.isReplaying = isReplaying;
     }
 
+
     private String address;
     private String title;
     private String artist;
@@ -88,6 +87,7 @@ public class Media implements Showable {
     private int genre;
     private int time;
     private ImageIcon icon;
+    private Mp3File mp3File;
 
     public boolean isFave() {
         return StorageManager.getInstance().getPlaylistHashMap().get("Favorite").getPlaylistMedia().contains(this);
@@ -123,7 +123,6 @@ public class Media implements Showable {
         try {
             mp3File = new Mp3File(address);
             this.time = (int) mp3File.getLengthInSeconds();
-
             if (mp3File.hasId3v1Tag()) {
 
 
