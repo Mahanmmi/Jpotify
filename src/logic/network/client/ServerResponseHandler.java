@@ -17,8 +17,8 @@ public class ServerResponseHandler {
 
     void handle(){
         switch (response.getType()) {
-            case NOW_PLAYING_SONG: {
-                serverData.get(response.getName()).setLastSong(response.getSentData().toString());
+            case UPDATE_IN_DATA: {
+                serverData.replace(response.getName(),(ServerData) response.getSentData());
                 StorageManager.getInstance().getMainPanel().updateGUISongDetails();
             }
         }

@@ -7,7 +7,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -28,6 +27,15 @@ public class ServerManager {
 
     public static ServerManager getInstance() {
         return ourInstance;
+    }
+
+    public boolean isOnline(String name){
+        for (ClientManager activeSocket : activeSockets) {
+            if(activeSocket.getName().equals(name)){
+                return true;
+            }
+        }
+        return false;
     }
 
     private ServerManager() {
@@ -58,8 +66,17 @@ public class ServerManager {
 
     static class ClientManager implements Runnable {
         private Socket client;
+        private String name;
         private ObjectInputStream inputStream;
         private ObjectOutputStream outputStream;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
 
         public Socket getClient() {
             return client;
@@ -70,9 +87,9 @@ public class ServerManager {
             ServerManager.getInstance().activeSockets.add(this);
         }
 
-        void getNotified(String song, String srcName) {
+        void getNotified(String name, ServerData data) {
             try {
-                outputStream.writeObject(new ServerResponse(ServerResponseType.NOW_PLAYING_SONG, song, srcName));
+                outputStream.writeObject(new ServerResponse(ServerResponseType.UPDATE_IN_DATA, data, name));
                 outputStream.flush();
             } catch (IOException e) {
                 e.printStackTrace();

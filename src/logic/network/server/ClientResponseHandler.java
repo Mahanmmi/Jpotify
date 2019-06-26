@@ -9,7 +9,7 @@ import java.util.HashMap;
 class ClientResponseHandler {
     private ServerManager.ClientManager source;
     private ClientResponse response;
-    private HashMap<String,ServerData> allActivity;
+    private HashMap<String, ServerData> allActivity;
 
     ClientResponseHandler(ServerManager.ClientManager source, ClientResponse response) {
         this.source = source;
@@ -17,22 +17,44 @@ class ClientResponseHandler {
         allActivity = ServerManager.getInstance().getAllActivity();
     }
 
-    private void notifyAllClients() {
+    private void notifyAllClients(String name, ServerData data) {
+        for (ServerManager.ClientManager activeSocket : ServerManager.getInstance().getActiveSockets()) {
+            activeSocket.getNotified(name, data);
+        }
+    }
+
+    private void setClientLastSong() {
         String song = (String) response.getSentData();
         String name = response.getClientName();
         ServerData data = allActivity.get(name);
         data.setLastSong(song);
-        for (ServerManager.ClientManager activeSocket : ServerManager.getInstance().getActiveSockets()) {
-//                if (activeSocket != source) {
-            activeSocket.getNotified(song, name);
-//                }
-        }
+        notifyAllClients(name, data);
     }
 
-    void handle(){
+    private void createNewUser(){
+        source.setName(response.getClientName());
+        allActivity.put(response.getClientName(),(ServerData) response.getSentData());
+        notifyAllClients(response.getClientName(),(ServerData) response.getSentData());
+    }
+
+    private void setUserOnline(){
+        source.setName(response.getClientName());
+        allActivity.get(response.getClientName()).setLastOnline(new Date());
+        notifyAllClients(response.getClientName(), allActivity.get(response.getClientName()));
+    }
+
+    void handle() {
         switch (response.getType()) {
             case NOW_PLAYING_SONG: {
-                notifyAllClients();
+                setClientLastSong();
+                break;
+            }
+            case NEW_USER: {
+                createNewUser();
+                break;
+            }
+            case LOGIN:{
+                setUserOnline();
                 break;
             }
             case CLOSE: {

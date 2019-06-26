@@ -5,6 +5,8 @@ import javazoom.jl.decoder.JavaLayerException;
 import logic.media.Media;
 import logic.media.MediaData;
 import logic.network.client.Client;
+import logic.network.server.ServerData;
+import logic.network.server.ServerManager;
 import logic.storage.playlist.Playlist;
 import logic.storage.playlist.PlaylistElement;
 import logic.storage.playlist.UserPlaylist;
@@ -211,8 +213,18 @@ public class MainPanel implements PlaylistLinkable {
 
     private void setFriendActivityListComponents(){
         ArrayList<String> listComps = new ArrayList<>();
-        for (Map.Entry<String, String> entry : StorageManager.getInstance().getClient().getFriendsActivity().entrySet()) {
-            listComps.add(entry.getKey() + " played " + entry.getValue());
+        for (Map.Entry<String, ServerData> entry : StorageManager.getInstance().getClient().getServerData().entrySet()) {
+            String name = entry.getKey();
+            ServerData data = entry.getValue();
+            if(!name.equals(StorageManager.getInstance().getClient().getName())){
+                String online;
+                if(ServerManager.getInstance().isOnline(name)){
+                    online = " is online and played: ";
+                }else {
+                    online = " was online at " + data.getLastOnline().toString() + " and played: ";
+                }
+                listComps.add(entry.getKey() + online + data.getLastSong());
+            }
         }
         friendActivityList.setListData(listComps.toArray());
     }

@@ -5,5 +5,5 @@ import java.io.Serializable;
 public enum ServerResponseType implements Serializable {
     SONG,
     PLAYLIST,
-    NOW_PLAYING_SONG
+    UPDATE_IN_DATA
 }
