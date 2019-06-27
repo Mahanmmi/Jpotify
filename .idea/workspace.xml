@@ -2,77 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1568b705-ce1f-4e4c-bd73-3d5cf63a7149" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jsoup_1_11_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graphic/LyricsPanel.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graphic/LyricsPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logic/media/LyricsGatherer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jpotify.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Jpotify.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/graphic/MainPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphic/MainPanel.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/graphic/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphic/MainPanel.java" afterDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/logic/network/server/ServerManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="132" column="86" selection-start-line="132" selection-start-column="86" selection-end-line="132" selection-end-column="86" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="362" column="51" lean-forward="true" selection-start-line="362" selection-start-column="51" selection-end-line="362" selection-end-column="51" />
+            <state relative-caret-position="320">
+              <caret line="587" column="18" selection-start-line="587" selection-start-column="18" selection-end-line="587" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2231#2557#0" />
+                <element signature="e#1928#2353#0" />
                 <element signature="e#2388#2389#0" expanded="true" />
                 <element signature="e#2420#2421#0" expanded="true" />
                 <element signature="e#2459#2460#0" expanded="true" />
                 <element signature="e#2493#2494#0" expanded="true" />
-                <element signature="e#2965#2996#0" expanded="true" />
-                <element signature="e#5352#6808#0" />
-                <element signature="e#6814#7550#0" />
-                <element signature="e#7556#8266#0" />
-                <element signature="e#7797#7798#0" expanded="true" />
-                <element signature="e#7862#7863#0" expanded="true" />
-                <element signature="e#8272#8302#0" expanded="true" />
-                <element signature="e#8272#8693#0" />
-                <element signature="e#8699#9658#0" />
-                <element signature="e#9664#10541#0" />
-                <element signature="e#10547#12375#0" />
-                <element signature="e#12381#12806#0" />
-                <element signature="e#13006#13578#0" />
-                <element signature="e#13623#14261#0" />
-                <element signature="e#14306#14787#0" />
-                <element signature="e#14830#15244#0" />
-                <element signature="e#15286#15696#0" />
-                <element signature="e#16556#16931#0" expanded="true" />
-                <element signature="e#16930#16931#0" expanded="true" />
+                <element signature="e#15821#17672#0" />
+                <element signature="e#17678#18392#0" />
+                <element signature="e#18398#19168#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/graphic/LyricsPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
+            <state relative-caret-position="238">
               <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -89,7 +59,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/logic/media/Media.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4692">
+            <state relative-caret-position="624">
               <caret line="292" column="30" selection-start-line="292" selection-start-column="30" selection-end-line="292" selection-end-column="30" />
               <folding>
                 <element signature="e#936#937#0" expanded="true" />
@@ -136,11 +106,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/logic/media/LyricsGatherer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
+            <state relative-caret-position="187">
               <caret line="18" column="166" selection-start-line="18" selection-start-column="166" selection-end-line="18" selection-end-column="166" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#318#326#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -154,8 +123,39 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/logic/media/PauseablePlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="100" column="70" selection-start-line="100" selection-start-column="70" selection-end-line="100" selection-end-column="70" />
+            <state relative-caret-position="193">
+              <caret line="98" column="35" lean-forward="true" selection-start-line="98" selection-start-column="35" selection-end-line="98" selection-end-column="35" />
+              <folding>
+                <element signature="e#4048#4049#0" expanded="true" />
+                <element signature="e#4080#4081#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/javazoom/jl/player/advanced/AdvancedPlayer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-204">
+              <caret line="44" column="30" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/javazoom/jl/decoder/Decoder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4131">
+              <caret line="354" column="6" lean-forward="true" selection-start-line="354" selection-start-column="6" selection-end-line="354" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/javazoom/jl/decoder/Equalizer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-206">
+              <caret line="49" column="56" selection-start-line="49" selection-start-column="56" selection-end-line="49" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -235,17 +235,19 @@
         <option value="$PROJECT_DIR$/src/graphic/AddSongPlaylistPanel.java" />
         <option value="$PROJECT_DIR$/src/graphic/AddSongPlaylistPanel.form" />
         <option value="$PROJECT_DIR$/src/graphic/LoginPanel.java" />
-        <option value="$PROJECT_DIR$/src/javazoom/jl/player/advanced/AdvancedPlayer.java" />
         <option value="$PROJECT_DIR$/src/logic/storage/StorageManager.java" />
         <option value="$PROJECT_DIR$/src/logic/storage/Album.java" />
         <option value="$PROJECT_DIR$/src/logic/storage/playlist/Playlist.java" />
         <option value="$PROJECT_DIR$/src/logic/media/Media.java" />
-        <option value="$PROJECT_DIR$/src/logic/media/PauseablePlayer.java" />
         <option value="$PROJECT_DIR$/src/logic/media/LyricsGatherer.java" />
-        <option value="$PROJECT_DIR$/src/graphic/MainPanel.form" />
-        <option value="$PROJECT_DIR$/src/graphic/MainPanel.java" />
         <option value="$PROJECT_DIR$/src/graphic/LyricsPanel.form" />
         <option value="$PROJECT_DIR$/src/graphic/LyricsPanel.java" />
+        <option value="$PROJECT_DIR$/src/javazoom/jl/player/advanced/AdvancedPlayer.java" />
+        <option value="$PROJECT_DIR$/src/javazoom/jl/decoder/Equalizer.java" />
+        <option value="$PROJECT_DIR$/src/logic/media/PauseablePlayer.java" />
+        <option value="$PROJECT_DIR$/src/javazoom/jl/decoder/Decoder.java" />
+        <option value="$PROJECT_DIR$/src/graphic/MainPanel.form" />
+        <option value="$PROJECT_DIR$/src/graphic/MainPanel.java" />
       </list>
     </option>
   </component>
@@ -261,6 +263,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -289,13 +292,6 @@
               <item name="Jpotify" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="graphic" type="462c0819:PsiDirectoryNode" />
-              <item name="LyricsPanel" type="e9f4de52:FormNode" />
-            </path>
-            <path>
-              <item name="Jpotify" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Jpotify" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="graphic" type="462c0819:PsiDirectoryNode" />
               <item name="MainPanel" type="e9f4de52:FormNode" />
             </path>
             <path>
@@ -315,14 +311,18 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561494660452" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/jsoup-1.11.2.jar!/" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -420,6 +420,7 @@
       <workItem from="1561461261492" duration="3217000" />
       <workItem from="1561474548783" duration="1849000" />
       <workItem from="1561484920327" duration="8759000" />
+      <workItem from="1561659695669" duration="3743000" />
     </task>
     <task id="LOCAL-00002" summary="Login panel client side done">
       <created>1561538765859</created>
@@ -484,30 +485,31 @@
       <option name="project" value="LOCAL" />
       <updated>1561570697657</updated>
     </task>
-    <task id="LOCAL-00011" summary="A bunch of small bugs fixed">
-      <created>1561449329265</created>
+    <task id="LOCAL-00011" summary="Lyrics added">
+      <created>1561574414157</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1561449329265</updated>
+      <updated>1561574414157</updated>
     </task>
-    <task id="LOCAL-00012" summary="Server added">
-      <created>1561461303980</created>
+    <task id="LOCAL-00012" summary="Lyrics added">
+      <created>1561574557219</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1561461303980</updated>
+      <updated>1561574557219</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36479000" />
+    <option name="totallyTimeSpent" value="41706000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23624161" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23959732" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -516,8 +518,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32719547" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49731544" visible="true" weight="0.27903682" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39836067" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49731544" visible="true" weight="0.27903682" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.398017" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -571,6 +573,9 @@
       <window_info anchor="right" id="Maven Projects" order="9" />
     </layout-to-restore>
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Timer fixed" />
     <MESSAGE value="some small bugs fixed" />
@@ -590,7 +595,8 @@
     <MESSAGE value="Get shared song done" />
     <MESSAGE value="Project core done!" />
     <MESSAGE value="Player bug fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Player bug fixed" />
+    <MESSAGE value="Lyrics added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lyrics added" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/graphic/SharedPlaylistPanel.form">
@@ -662,20 +668,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/javazoom/jl/decoder/Decoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-706">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/javazoom/jl/player/advanced/AdvancedPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="145" column="23" selection-start-line="145" selection-start-column="23" selection-end-line="145" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -849,7 +841,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/network/server/ServerManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
+        <state relative-caret-position="1887">
           <caret line="132" column="86" selection-start-line="132" selection-start-column="86" selection-end-line="132" selection-end-column="86" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -857,16 +849,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/media/PauseablePlayer.java">
+    <entry file="file://$PROJECT_DIR$/src/graphic/LyricsPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="100" column="70" selection-start-line="100" selection-start-column="70" selection-end-line="100" selection-end-column="70" />
+        <state relative-caret-position="238">
+          <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphic/LyricsPanel.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/media/LyricsGatherer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="18" column="166" selection-start-line="18" selection-start-column="166" selection-end-line="18" selection-end-column="166" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/media/Media.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4692">
+        <state relative-caret-position="624">
           <caret line="292" column="30" selection-start-line="292" selection-start-column="30" selection-end-line="292" selection-end-column="30" />
           <folding>
             <element signature="e#936#937#0" expanded="true" />
@@ -909,62 +917,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/javazoom/jl/decoder/Equalizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-206">
+          <caret line="49" column="56" selection-start-line="49" selection-start-column="56" selection-end-line="49" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/media/PauseablePlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="98" column="35" lean-forward="true" selection-start-line="98" selection-start-column="35" selection-end-line="98" selection-end-column="35" />
+          <folding>
+            <element signature="e#4048#4049#0" expanded="true" />
+            <element signature="e#4080#4081#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javazoom/jl/decoder/Decoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4131">
+          <caret line="354" column="6" lean-forward="true" selection-start-line="354" selection-start-column="6" selection-end-line="354" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javazoom/jl/player/advanced/AdvancedPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-204">
+          <caret line="44" column="30" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/graphic/MainPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="362" column="51" lean-forward="true" selection-start-line="362" selection-start-column="51" selection-end-line="362" selection-end-column="51" />
+        <state relative-caret-position="320">
+          <caret line="587" column="18" selection-start-line="587" selection-start-column="18" selection-end-line="587" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2231#2557#0" />
+            <element signature="e#1928#2353#0" />
             <element signature="e#2388#2389#0" expanded="true" />
             <element signature="e#2420#2421#0" expanded="true" />
             <element signature="e#2459#2460#0" expanded="true" />
             <element signature="e#2493#2494#0" expanded="true" />
-            <element signature="e#2965#2996#0" expanded="true" />
-            <element signature="e#5352#6808#0" />
-            <element signature="e#6814#7550#0" />
-            <element signature="e#7556#8266#0" />
-            <element signature="e#7797#7798#0" expanded="true" />
-            <element signature="e#7862#7863#0" expanded="true" />
-            <element signature="e#8272#8302#0" expanded="true" />
-            <element signature="e#8272#8693#0" />
-            <element signature="e#8699#9658#0" />
-            <element signature="e#9664#10541#0" />
-            <element signature="e#10547#12375#0" />
-            <element signature="e#12381#12806#0" />
-            <element signature="e#13006#13578#0" />
-            <element signature="e#13623#14261#0" />
-            <element signature="e#14306#14787#0" />
-            <element signature="e#14830#15244#0" />
-            <element signature="e#15286#15696#0" />
-            <element signature="e#16556#16931#0" expanded="true" />
-            <element signature="e#16930#16931#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphic/LyricsPanel.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/media/LyricsGatherer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="18" column="166" selection-start-line="18" selection-start-column="166" selection-end-line="18" selection-end-column="166" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#318#326#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphic/LyricsPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#15821#17672#0" />
+            <element signature="e#17678#18392#0" />
+            <element signature="e#18398#19168#0" />
           </folding>
         </state>
       </provider>

@@ -57,9 +57,33 @@ public class MainPanel implements PlaylistLinkable {
     private JLabel playlistLabel;
     private JLabel albumLabel;
     private JList friendActivityList;
+    private JProgressBar bar1;
+    private JProgressBar bar2;
+    private JProgressBar bar3;
+    private JProgressBar bar4;
+    private JProgressBar bar5;
+    private JProgressBar bar6;
+    private JProgressBar bar7;
+    private JProgressBar bar8;
+    private ArrayList<JProgressBar> jProgressBars = new ArrayList<>();
     private JFrame frame;
 
-    public void setArtWorkLAbel() {
+    private void addBars(){
+        jProgressBars.add(bar1);
+        jProgressBars.add(bar2);
+        jProgressBars.add(bar3);
+        jProgressBars.add(bar4);
+        jProgressBars.add(bar5);
+        jProgressBars.add(bar6);
+        jProgressBars.add(bar7);
+        jProgressBars.add(bar8);
+    }
+
+    public ArrayList<JProgressBar> getJProgressBars() {
+        return jProgressBars;
+    }
+
+    private void setArtWorkLAbel() {
         if (Media.getNowPlaying().getIcon() == null) {
             artWorkLabel.setIcon(new ImageIcon(new ImageIcon("./resources/New Icons/Music-icon.png").getImage().getScaledInstance(120, 120, Image.SCALE_DEFAULT)));
         } else {
@@ -561,6 +585,7 @@ public class MainPanel implements PlaylistLinkable {
         setMusicPanelIconsAndColors();
         setListsPanelSetting();
         setNetworkPanelListeners();
+        addBars();
         frame.setVisible(true);
 
     }

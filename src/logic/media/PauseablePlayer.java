@@ -9,6 +9,7 @@ import logic.storage.StorageManager;
 
 import javax.swing.*;
 import java.io.InputStream;
+import java.util.Random;
 
 public class PauseablePlayer {
 
@@ -99,6 +100,9 @@ public class PauseablePlayer {
                     currentFrame++;
                     time.setText(secToMinConverter(currentFrame * totalTime / totalFrames));
                     slider.setValue(currentFrame * 100 / totalFrames);
+                    for (JProgressBar jProgressBar : StorageManager.getInstance().getMainPanel().getJProgressBars()) {
+                        jProgressBar.setValue(new Random().nextInt(101));
+                    }
                     if (slider.getValue() == 100) {
                         Media.goNext();
                     }
