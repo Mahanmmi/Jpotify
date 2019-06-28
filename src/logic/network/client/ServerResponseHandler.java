@@ -8,6 +8,7 @@ import logic.storage.StorageManager;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -39,6 +40,13 @@ class ServerResponseHandler {
             }
             case SONG: {
                 File downloadDirectory = new File("./downloads");
+                if(!downloadDirectory.exists()){
+                    try {
+                        Files.createDirectory(downloadDirectory.toPath());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
                 int name;
                 try {
                     name = Objects.requireNonNull(downloadDirectory.list()).length + 1;

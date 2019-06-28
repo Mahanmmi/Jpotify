@@ -10,6 +10,7 @@ import logic.storage.playlist.PlaylistElement;
 import logic.storage.playlist.UserPlaylist;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.*;
 
 public class StorageManager {
@@ -35,6 +36,14 @@ public class StorageManager {
     }
 
     private StorageManager() {
+        File dataDirectory = new File("./data");
+        if(!dataDirectory.exists()){
+            try {
+                Files.createDirectory(dataDirectory.toPath());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         MEDIA_ADDRESSES = new File("./data/MEDIA_ADDRESSES.bin");
         MEDIA_DATAFILE = new File("./data/MEDIA_DATAFILE.bin");
         load();

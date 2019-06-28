@@ -62,7 +62,7 @@ public class MainPanel implements PlaylistLinkable {
     private ArrayList<JProgressBar> jProgressBars = new ArrayList<>();
     private JFrame frame;
 
-    private void addBars(){
+    private void addBars() {
         jProgressBars.add(bar1);
         jProgressBars.add(bar2);
         jProgressBars.add(bar3);
@@ -71,6 +71,10 @@ public class MainPanel implements PlaylistLinkable {
         jProgressBars.add(bar6);
         jProgressBars.add(bar7);
         jProgressBars.add(bar8);
+        for (JProgressBar jProgressBar : jProgressBars) {
+            jProgressBar.setMinimum(0);
+            jProgressBar.setMaximum(100);
+        }
     }
 
     public ArrayList<JProgressBar> getJProgressBars() {
@@ -177,6 +181,8 @@ public class MainPanel implements PlaylistLinkable {
     }
 
     private void setActionListenerToVolumeSlider() {
+        volumeSlider.setMinimum(-100);
+        volumeSlider.setMaximum(100);
         volumeSlider.putClientProperty("JSlider.isFilled", Boolean.TRUE);
         volumeSlider.addChangeListener(e -> volumeSlider.repaint());
         volumeSlider.addMouseListener(new MouseAdapter() {
@@ -252,10 +258,10 @@ public class MainPanel implements PlaylistLinkable {
         friendActivityList.setLayoutOrientation(JList.VERTICAL_WRAP);
         friendActivityList.setVisibleRowCount(-1);
         friendActivityList.addListSelectionListener(event -> {
-            if(!friendActivityList.isSelectionEmpty()){
-                String selectedName = ((String)friendActivityList.getSelectedValue()).split("::::")[0];
+            if (!friendActivityList.isSelectionEmpty()) {
+                String selectedName = ((String) friendActivityList.getSelectedValue()).split("::::")[0];
                 System.out.println(selectedName);
-                if(StorageManager.getInstance().getClient().getServerData().get(selectedName).isOnline()) {
+                if (StorageManager.getInstance().getClient().getServerData().get(selectedName).isOnline()) {
                     StorageManager.getInstance().getClient().requestGetPlaylist(selectedName);
                     System.out.println(selectedName);
                 }
@@ -387,14 +393,12 @@ public class MainPanel implements PlaylistLinkable {
         searchField.setBackground(Color.LIGHT_GRAY);
 
 
-
         albumList.addListSelectionListener(event -> {
             if (!albumList.isSelectionEmpty()) {
                 StorageManager.getInstance().getAlbumHashMap().get(albumList.getSelectedValue()).getClicked();
                 albumList.clearSelection();
             }
         });
-
 
 
         playlistList.addListSelectionListener(event -> {
@@ -490,7 +494,6 @@ public class MainPanel implements PlaylistLinkable {
         });
 
 
-
         JMenuItem addPlaylistMenuItem = new JMenuItem("Add playlist...");
         addPlaylistMenuItem.addActionListener(event -> {
             new AddPlaylistPanel(this);
@@ -529,7 +532,7 @@ public class MainPanel implements PlaylistLinkable {
     }
 
     private void initFrame() {
-        frame = new JFrame("Jpotify::::"+StorageManager.getInstance().getClient().getName());
+        frame = new JFrame("Jpotify::::" + StorageManager.getInstance().getClient().getName());
         newFrameInitialSettings(frame, mainPanel);
 
         frame.addWindowStateListener(event -> {

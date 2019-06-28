@@ -37,6 +37,9 @@ public class PauseablePlayer {
                     //  t.setDaemon(true);
                     t.setPriority(Thread.MAX_PRIORITY);
                     playerStatus = PLAYING;
+                    for (JProgressBar jProgressBar : StorageManager.getInstance().getMainPanel().getJProgressBars()){
+                        jProgressBar.setValue(0);
+                    }
                     t.start();
                     break;
                 case PAUSED:
@@ -103,6 +106,7 @@ public class PauseablePlayer {
 
                     for (JProgressBar jProgressBar : StorageManager.getInstance().getMainPanel().getJProgressBars()) {
                         int change = new Random().nextInt(21) - 10;
+                        System.out.println(change);
                         if (jProgressBar.getValue() + change > 100 || jProgressBar.getValue() + change < 0) {
                             change = -change;
                         }
