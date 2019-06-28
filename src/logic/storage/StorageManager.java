@@ -13,7 +13,12 @@ import java.io.*;
 import java.nio.file.Files;
 import java.util.*;
 
+/**
+ * StorageManager class is main part of our program
+ * implementing Singleton class
+ */
 public class StorageManager {
+    // static variable single_instance of type Singleton
     private static StorageManager ourInstance = new StorageManager();
     private final File MEDIA_ADDRESSES;
     private final File MEDIA_DATAFILE;
@@ -22,6 +27,7 @@ public class StorageManager {
     private HashMap<String, Album> albumHashMap = new HashMap<>();
     private HashMap<String, Playlist> playlistHashMap = new HashMap<>();
     private HashMap<String, MediaData> mediaDataHashMap = new HashMap<>();
+    //playList that we start our program
     private Playlist defaultPlaylist;
     private Client client;
 
@@ -36,6 +42,7 @@ public class StorageManager {
     }
 
     private StorageManager() {
+        //this directory contain our data for save and load
         File dataDirectory = new File("./data");
         if(!dataDirectory.exists()){
             try {
@@ -61,6 +68,9 @@ public class StorageManager {
         return client;
     }
 
+    /**
+     * this function connect a client to our server
+     */
     private void connectToServer() {
         try {
             client = new Client();
@@ -71,6 +81,9 @@ public class StorageManager {
         }
     }
 
+    /**
+     * this func create our defaultPlayList
+     */
     private void setInitialPlaylist() {
         defaultPlaylist = new AutoPlayList("", mediaArrayList);
         Media.setCurrentPlaylist(defaultPlaylist);
@@ -79,6 +92,12 @@ public class StorageManager {
         }
     }
 
+    /**
+     *  after running our program to load our data
+     * we create mediaArrayList that contain all our media
+     * we create mediaDAtaHashMap that contain all our media`s data
+     * and at the end sort our media
+     */
     private void load() {
         try {
             Scanner scanner = new Scanner(new FileReader(MEDIA_ADDRESSES));
@@ -112,6 +131,10 @@ public class StorageManager {
         sortMediaArrayList();
     }
 
+    /**
+     *  sort our MediaArrayList
+     * its synchronized to prevent adding any media during sorting
+     */
     public synchronized void sortMediaArrayList() {
         mediaArrayList.sort((a, b) -> {
             Date aDate = mediaDataHashMap.get(a.getAddress()).getLastPlayed();
@@ -120,6 +143,10 @@ public class StorageManager {
         });
     }
 
+    /**
+     *  add all song of a directory to our library
+     * @param directory the directory that we want all song it contains.
+     */
     public void addDirectory(File directory) {
         if (directory.isFile()) {
             addMedia(directory);
@@ -135,6 +162,10 @@ public class StorageManager {
         }
     }
 
+    /**
+     * add a media to our library
+     * @param media that media we want add to library
+     */
     public synchronized void addMedia(File media) {
         if (!media.getName().endsWith(".mp3") || !media.exists()) {
             return;
@@ -153,7 +184,7 @@ public class StorageManager {
             writer.println(media.getAbsolutePath());
             writer.flush();
         } catch (IOException e) {
-            System.out.println("Ridem amoo");
+            System.out.println("couldnt write address to file");
         }
         mediaArrayList.add(new Media(media.getAbsolutePath()));
         mediaDataHashMap.put(media.getAbsolutePath(), new MediaData(media.getAbsolutePath(), new ArrayList<>()));
@@ -182,6 +213,9 @@ public class StorageManager {
         return albumHashMap;
     }
 
+    /**
+     * create albums for our media
+     */
     private synchronized void generateAlbums() {
         albumHashMap = new HashMap<>();
         for (Media savedMedia : mediaArrayList) {
@@ -193,6 +227,11 @@ public class StorageManager {
         }
     }
 
+    /**
+     * find a media by address
+     * @param address this is the path of our media
+     * @return media that we looking for.
+     */
     private Media findMediaByAddress(String address) {
         for (Media media : mediaArrayList) {
             if (media.getAddress().equals(address)) {
@@ -202,6 +241,11 @@ public class StorageManager {
         return null;
     }
 
+    /**
+     * generate play list from mediaDataHashMap and using mediaData and
+     * add media to playList if exists our create playList and it first media and
+     * sort our playList
+     */
     private void generatePlaylists() {
         for (String address : mediaDataHashMap.keySet()) {
             Media media = findMediaByAddress(address);
@@ -260,6 +304,9 @@ public class StorageManager {
         }
     }
 
+    /**
+     * apply changes to our mediaDataHashMap
+     */
     public synchronized void updateMediaData() {
         for (Map.Entry<String, Playlist> entry : playlistHashMap.entrySet()) {
             String playListName = entry.getKey();
@@ -294,6 +341,9 @@ public class StorageManager {
         }
     }
 
+    /**
+     * its for last part of our program that save all thing we need for reloading
+     */
     public synchronized void saveAndQuit() {
         System.out.println(client);
         if (client != null) {
@@ -308,7 +358,7 @@ public class StorageManager {
             outputStream.writeObject(mediaDataHashMap);
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("ne nashod");
+            System.out.println("can't write mediaDataHashMap to MEDIA_DATAFILE");
         }
     }
 
