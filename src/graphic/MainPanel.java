@@ -59,6 +59,7 @@ public class MainPanel implements PlaylistLinkable {
     private JProgressBar bar6;
     private JProgressBar bar7;
     private JProgressBar bar8;
+    private JLabel musicTotalTime;
     private ArrayList<JProgressBar> jProgressBars = new ArrayList<>();
     private JFrame frame;
 
@@ -576,6 +577,10 @@ public class MainPanel implements PlaylistLinkable {
 
         updatePanelSizeAndColors();
         frame.setJMenuBar(initMenus());
+    }
+
+    public JLabel getMusicTotalTime() {
+        return musicTotalTime;
     }
 
     public MainPanel() {

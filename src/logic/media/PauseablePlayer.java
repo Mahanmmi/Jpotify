@@ -120,10 +120,12 @@ public class PauseablePlayer {
                 } else {
                     JSlider slider = StorageManager.getInstance().getMainPanel().getMusicSlider();
                     JLabel time = StorageManager.getInstance().getMainPanel().getTimeLabel();
+                    JLabel totalTimeLable=StorageManager.getInstance().getMainPanel().getMusicTotalTime();
                     int totalFrames = mp3File.getFrameCount();
                     long totalTime = mp3File.getLengthInSeconds();
                     currentFrame++;
                     time.setText(secToMinConverter(currentFrame * totalTime / totalFrames));
+                    totalTimeLable.setText(secToMinConverter(totalTime));
                     slider.setValue(currentFrame * 100 / totalFrames);
 
                     for (JProgressBar jProgressBar : StorageManager.getInstance().getMainPanel().getJProgressBars()) {
