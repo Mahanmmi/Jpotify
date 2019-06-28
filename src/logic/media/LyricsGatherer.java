@@ -14,7 +14,7 @@ public class LyricsGatherer {
     private final static String songLyricsURL = "http://www.songlyrics.com";
 
     public static List<String> getSongLyrics(String songArtist, String songTitle) throws IOException {
-        List<String> lyrics = new ArrayList<String>();
+        List<String> lyrics = new ArrayList<>();
 
         Document doc = Jsoup.connect(songLyricsURL + "/" + songArtist.replace(" ", "-").toLowerCase() + "/" + songTitle.replace(" ", "-").toLowerCase() + "-lyrics/").get();
         String title = doc.title();

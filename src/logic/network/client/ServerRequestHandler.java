@@ -11,10 +11,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ServerRequestHandler {
+class ServerRequestHandler {
     private ServerRequest request;
 
-    public ServerRequestHandler(ServerRequest request) {
+    ServerRequestHandler(ServerRequest request) {
         this.request = request;
     }
 

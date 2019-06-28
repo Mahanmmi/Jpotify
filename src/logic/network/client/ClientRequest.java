@@ -8,7 +8,7 @@ public class ClientRequest implements Serializable {
     private String clientName;
     private int indexInPlaylist;
 
-    public ClientRequest(ClientRequestType type, String targetName, String clientName, int indexInPlaylist) {
+    ClientRequest(ClientRequestType type, String targetName, String clientName, int indexInPlaylist) {
         this.type = type;
         this.targetName = targetName;
         this.clientName = clientName;

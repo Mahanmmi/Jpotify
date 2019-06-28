@@ -1,7 +1,5 @@
 package graphic;
 
-import logic.network.client.Client;
-import logic.network.server.ServerData;
 import logic.storage.StorageManager;
 
 import javax.swing.*;
@@ -61,9 +59,7 @@ public class LoginPanel {
             }
         });
 
-        loginButton.addActionListener(event -> {
-            login();
-        });
+        loginButton.addActionListener(event -> login());
 
         newUserButton.addActionListener(event -> {
             colorNull();

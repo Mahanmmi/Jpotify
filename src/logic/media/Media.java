@@ -1,7 +1,6 @@
 package logic.media;
 
 import javax.imageio.ImageIO;
-import javax.sound.sampled.*;
 import javax.swing.*;
 
 import com.mpatric.mp3agic.ID3v1;
@@ -23,10 +22,10 @@ public class Media implements Showable {
     private static PauseablePlayer mainPlayer = null;
     private static Media nowPlaying = null;
     private static boolean isPlaying = false;
-    private static boolean isMute = false;
     private static boolean isShuffling = false;
     private static boolean isReplaying = false;
     private static Playlist currentPlaylist;
+
     public static Playlist getCurrentPlaylist() {
         return currentPlaylist;
     }
@@ -54,14 +53,6 @@ public class Media implements Showable {
         Media.isPlaying = isPlaying;
     }
 
-    public static boolean isMute() {
-        return isMute;
-    }
-
-    public static void setMute(boolean isMute) {
-        Media.isMute = isMute;
-    }
-
     public static boolean isShuffling() {
         return isShuffling;
     }
@@ -83,9 +74,6 @@ public class Media implements Showable {
     private String title;
     private String artist;
     private String album;
-    private String year;
-    private int genre;
-    private int time;
     private ImageIcon icon;
     private Mp3File mp3File;
 
@@ -122,7 +110,6 @@ public class Media implements Showable {
         this.address = address;
         try {
             mp3File = new Mp3File(address);
-            this.time = (int) mp3File.getLengthInSeconds();
             if (mp3File.hasId3v1Tag()) {
 
 
@@ -155,16 +142,12 @@ public class Media implements Showable {
                 this.title = id3v1.getTitle();
                 this.artist = id3v1.getArtist();
                 this.album = id3v1.getAlbum();
-                this.genre = id3v1.getGenre();
-                this.year = id3v1.getYear();
             }
             if (mp3File.hasId3v2Tag()) {
                 ID3v2 id3v2 = mp3File.getId3v2Tag();
                 this.title = id3v2.getTitle();
                 this.artist = id3v2.getArtist();
                 this.album = id3v2.getAlbum();
-                this.genre = id3v2.getGenre();
-                this.year = id3v2.getYear();
 
                 byte[] imageData = id3v2.getAlbumImage();
                 if (imageData != null) {
@@ -210,16 +193,16 @@ public class Media implements Showable {
         return (float) Math.pow(10f, gainControl.getValue() / 20f);
     }*/
 
-   /* public void setVolume(float volume) {
-        if (volume < 0f || volume > 1f)
-            throw new IllegalArgumentException("Volume not valid: " + volume);
-        FloatControl gainControl = (FloatControl) ((Clip) mp3File).getControl(FloatControl.Type.MASTER_GAIN);
-        gainControl.setValue(20f * (float) Math.log10(volume));
-    }*/
-   public void adjustVolume(float volumeSlidPosition){
-       float volume=(float)(((6/10.0)*volumeSlidPosition)-20);
-       mainPlayer.changeVolume(volume);
-   }
+    /* public void setVolume(float volume) {
+         if (volume < 0f || volume > 1f)
+             throw new IllegalArgumentException("Volume not valid: " + volume);
+         FloatControl gainControl = (FloatControl) ((Clip) mp3File).getControl(FloatControl.Type.MASTER_GAIN);
+         gainControl.setValue(20f * (float) Math.log10(volume));
+     }*/
+    public void adjustVolume(float volumeSlidPosition) {
+        float volume = (float) (((6 / 10.0) * volumeSlidPosition) - 20);
+        mainPlayer.changeVolume(volume);
+    }
 
     public void seekTo(int MusicsliderPosition) throws FileNotFoundException, JavaLayerException {
         int startingFrame = (int) (MusicsliderPosition * mp3File.getFrameCount() / 100.0);
@@ -336,8 +319,8 @@ public class Media implements Showable {
                 '}';
     }
 
-
-    public static void main(String[] args) throws InterruptedException, JavaLayerException {
+/*
+    public static void main(String[] args) throws InterruptedException,  {
         Media media = new Media("E:/Music/Imagine-Dragons-Digital-128.mp3");
 
 //      new Media("./resources/media/Barobax - Shervin - www.telegram.me~IranSongs.mp3");
@@ -353,7 +336,7 @@ public class Media implements Showable {
 
 
 
-    /*   media.playFile();
+       media.playFile();
 
         System.out.println("ghsem");
 
@@ -362,6 +345,7 @@ public class Media implements Showable {
         Thread.sleep(2000);
         mainPlayer.resume();
         Thread.sleep(10000);
-       // media.setVolume(0.5f);*/
+       // media.setVolume(0.5f);
     }
+*/
 }

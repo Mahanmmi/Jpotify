@@ -17,7 +17,7 @@ public class ManagePlaylistPanel {
     private JButton addSongButton;
     private JFrame frame;
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"unchecked", "SuspiciousMethodCalls"})
     ManagePlaylistPanel(PlaylistLinkable parent) {
         frame = new JFrame("Manage playlists...");
         MainPanel.newFrameInitialSettings(frame,panel);

@@ -10,10 +10,9 @@ import java.util.List;
 public class LyricsPanel {
     private JPanel panel;
     private JTextArea lyricsArea;
-    private JFrame frame;
 
-    public LyricsPanel(Media song) {
-        frame = new JFrame(song.getTitle() + " - " + song.getArtist());
+    LyricsPanel(Media song) {
+        JFrame frame = new JFrame(song.getTitle() + " - " + song.getArtist());
         MainPanel.newFrameInitialSettings(frame, panel);
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         try {

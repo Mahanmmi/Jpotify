@@ -74,7 +74,7 @@ public class ServerManager {
             return client;
         }
 
-        ClientManager(Socket client) throws IOException {
+        ClientManager(Socket client) {
             this.client = client;
             ServerManager.getInstance().activeSockets.add(this);
         }

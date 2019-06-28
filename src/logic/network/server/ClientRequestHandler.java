@@ -4,12 +4,12 @@ import logic.network.client.ClientRequest;
 
 import java.util.ArrayList;
 
-public class ClientRequestHandler {
+class ClientRequestHandler {
     private ServerManager.ClientManager source;
     private ClientRequest request;
     private ArrayList<ServerManager.ClientManager> activeSockets;
 
-    public ClientRequestHandler(ServerManager.ClientManager source, ClientRequest request) {
+    ClientRequestHandler(ServerManager.ClientManager source, ClientRequest request) {
         this.source = source;
         this.request = request;
         activeSockets = ServerManager.getInstance().getActiveSockets();

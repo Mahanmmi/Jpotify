@@ -39,7 +39,7 @@ public class ServerData implements Serializable {
         isOnline = online;
     }
 
-    public String getUsername() {
+    String getUsername() {
         return username;
     }
 
@@ -51,7 +51,7 @@ public class ServerData implements Serializable {
         return lastSong;
     }
 
-    public void setLastSong(String lastSong) {
+    void setLastSong(String lastSong) {
         this.lastSong = lastSong;
     }
 

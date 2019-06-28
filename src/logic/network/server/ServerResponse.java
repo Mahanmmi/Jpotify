@@ -7,7 +7,7 @@ public class ServerResponse implements Serializable {
     private Object sentData;
     private String name;
 
-    public ServerResponse(ServerResponseType type, Object sentData, String name) {
+    ServerResponse(ServerResponseType type, Object sentData, String name) {
         this.type = type;
         this.sentData = sentData;
         this.name = name;

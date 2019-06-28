@@ -1,6 +1,5 @@
 package graphic;
 
-import be.tarsos.dsp.ui.layers.SpectrumLayer;
 import ch.randelshofer.quaqua.QuaquaManager;
 import javazoom.jl.decoder.JavaLayerException;
 import logic.media.Media;

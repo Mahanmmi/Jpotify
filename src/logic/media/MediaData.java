@@ -8,8 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class MediaData implements Serializable {
-    private String address;
-    //its array list because a song might be in several array list
+    //its array list because a song might be in several play list
     private ArrayList<PlaylistElement> elements;
 
     private Date lastPlayed;
@@ -23,17 +22,12 @@ public class MediaData implements Serializable {
     }
 
     public MediaData(String address, ArrayList<PlaylistElement> elements) {
-        this.address = address;
         this.elements = elements;
         lastPlayed = new Date(2000, Calendar.JANUARY,1);
     }
 
     public ArrayList<PlaylistElement> getElements() {
         return elements;
-    }
-
-    public String getAddress() {
-        return address;
     }
 
     @Override

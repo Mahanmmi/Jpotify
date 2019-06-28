@@ -11,11 +11,11 @@ public class Album implements Showable {
     private String albumName;
     private ArrayList<Media> albumSongs = new ArrayList<>();
 
-    public Album(String albumName) {
+    Album(String albumName) {
         this.albumName = albumName;
     }
 
-    public void addSong(Media media) {
+    void addSong(Media media) {
         System.out.println(albumName + " lol " + media);
         albumSongs.add(media);
     }

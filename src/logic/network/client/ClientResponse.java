@@ -8,14 +8,14 @@ public class ClientResponse implements Serializable {
     private String clientName;
     private String requester;
 
-    public ClientResponse(ClientResponseType type, Object sentData, String clientName) {
+    ClientResponse(ClientResponseType type, Object sentData, String clientName) {
         this.type = type;
         this.sentData = sentData;
         this.clientName = clientName;
         requester = "";
     }
 
-    public ClientResponse(ClientResponseType type, Object sentData, String clientName, String requester) {
+    ClientResponse(ClientResponseType type, Object sentData, String clientName, String requester) {
         this.type = type;
         this.sentData = sentData;
         this.clientName = clientName;

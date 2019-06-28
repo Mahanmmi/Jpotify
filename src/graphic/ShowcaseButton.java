@@ -6,7 +6,7 @@ import java.awt.*;
 public class ShowcaseButton extends JButton {
     private Showable content;
 
-    public ShowcaseButton(Showable content) {
+    ShowcaseButton(Showable content) {
         this.content = content;
         this.setPreferredSize(new Dimension(175, 175));
         this.setMaximumSize(new Dimension(175, 175));

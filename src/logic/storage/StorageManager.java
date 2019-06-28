@@ -1,10 +1,9 @@
 package logic.storage;
 
-import graphic.LoginPanel;
 import graphic.MainPanel;
-import logic.network.client.Client;
 import logic.media.Media;
 import logic.media.MediaData;
+import logic.network.client.Client;
 import logic.storage.playlist.AutoPlayList;
 import logic.storage.playlist.Playlist;
 import logic.storage.playlist.PlaylistElement;
@@ -85,9 +84,9 @@ public class StorageManager {
             ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(MEDIA_DATAFILE));
             //noinspection unchecked
             mediaDataHashMap = (HashMap<String, MediaData>) inputStream.readObject();
-            for (String s : mediaDataHashMap.keySet()) {
+//            for (String s : mediaDataHashMap.keySet()) {
 //                System.out.println("s = " + s + " : " + mediaDataHashMap.get(s));
-            }
+//            }
         } catch (IOException | ClassNotFoundException e) {
             //Ignore
         }

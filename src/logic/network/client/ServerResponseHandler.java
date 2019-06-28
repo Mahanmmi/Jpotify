@@ -6,16 +6,15 @@ import logic.network.server.ServerResponse;
 import logic.storage.StorageManager;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Objects;
 
-public class ServerResponseHandler {
+class ServerResponseHandler {
     private ServerResponse response;
 
-    public ServerResponseHandler(ServerResponse response) {
+    ServerResponseHandler(ServerResponse response) {
         this.response = response;
     }
 
@@ -40,7 +39,12 @@ public class ServerResponseHandler {
             }
             case SONG: {
                 File downloadDirectory = new File("./downloads");
-                int name = downloadDirectory.list().length + 1;
+                int name;
+                try {
+                    name = Objects.requireNonNull(downloadDirectory.list()).length + 1;
+                } catch (NullPointerException e){
+                    name = 1;
+                }
                 File downloadFile = new File("./downloads/" + name + ".mp3");
                 try {
                     FileOutputStream out = new FileOutputStream(downloadFile);

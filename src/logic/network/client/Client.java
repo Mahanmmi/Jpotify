@@ -25,10 +25,6 @@ public class Client implements Runnable {
         return serverData;
     }
 
-    public void setServerData(HashMap<String, ServerData> serverData) {
-        this.serverData = serverData;
-    }
-
     public Client() throws IOException {
         serverData = new HashMap<>();
         socket = new Socket("127.0.0.1", 18757);
@@ -104,7 +100,7 @@ public class Client implements Runnable {
         }
     }
 
-    public void sendResponse(ClientResponse response){
+    void sendResponse(ClientResponse response){
         try {
             outputStream.writeObject(response);
             outputStream.flush();
