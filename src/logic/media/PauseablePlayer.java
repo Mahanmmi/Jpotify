@@ -6,9 +6,14 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
 import logic.storage.StorageManager;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.InputStream;
 import java.util.Random;
 
+/**
+ * this class helps Media class to pause,resume,setVolume and play file
+ * 4 final static int field help to understand state of our player
+ */
 public class PauseablePlayer {
 
     private final static int NOTSTARTED = 0;
@@ -28,29 +33,7 @@ public class PauseablePlayer {
         currentFrame = startingFrame;
     }
 
-    void play() {
-        synchronized (playerLock) {
-            switch (playerStatus) {
-                case NOTSTARTED:
-                    final Runnable r = this::playInternal;
-                    final Thread t = new Thread(r);
-                    //  t.setDaemon(true);
-                    t.setPriority(Thread.MAX_PRIORITY);
-                    playerStatus = PLAYING;
-                    StorageManager.getInstance().getMainPanel().adjustVolume();
-                    for (JProgressBar jProgressBar : StorageManager.getInstance().getMainPanel().getJProgressBars()){
-                        jProgressBar.setValue(0);
-                    }
-                    t.start();
-                    break;
-                case PAUSED:
-                    resume();
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
+
 
     void pause() {
         synchronized (playerLock) {
@@ -78,6 +61,11 @@ public class PauseablePlayer {
     }
     */
 
+    /**
+     * gets an int as second and change it to minute
+     * @param secs this an int that shows number of second
+     * @return Strng that shows time
+     */
     private String secToMinConverter(long secs) {
         String min = Long.toString(secs / 60);
         String sec = Long.toString(secs % 60);
@@ -90,6 +78,36 @@ public class PauseablePlayer {
         return min + ":" + sec;
     }
 
+    /**
+     *
+     */
+    void play() {
+        synchronized (playerLock) {
+            switch (playerStatus) {
+                case NOTSTARTED:
+                    final Runnable r = this::playInternal;
+                    final Thread t = new Thread(r);
+                    //  t.setDaemon(true);
+                    t.setPriority(Thread.MAX_PRIORITY);
+                    playerStatus = PLAYING;
+                    StorageManager.getInstance().getMainPanel().adjustVolume();
+                    for (JProgressBar jProgressBar : StorageManager.getInstance().getMainPanel().getJProgressBars()){
+                        jProgressBar.setValue(0);
+                    }
+                    t.start();
+                    break;
+                case PAUSED:
+                    resume();
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    /**
+     *  plays file frame by frame and update musicSlider and sets th equalizer
+     */
     private void playInternal() {
         while (playerStatus != FINISHED) {
             try {
@@ -111,6 +129,14 @@ public class PauseablePlayer {
                         if (jProgressBar.getValue() + change > 100 || jProgressBar.getValue() + change < 0) {
                             change = -change;
                         }
+                        jProgressBar.setBackground(Color.BLACK);
+                        if (change<=33)
+                            jProgressBar.setForeground(Color.GREEN);
+                        else if(change<=66)
+                            jProgressBar.setForeground(Color.YELLOW);
+                        else
+                            jProgressBar.setForeground(Color.RED);
+
                         jProgressBar.setValue(jProgressBar.getValue() + change);
                     }
                     if (slider.getValue() == 100) {
