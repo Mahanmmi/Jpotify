@@ -174,7 +174,9 @@ public class PauseablePlayer {
     }
 
     void changeVolume(float f) {
+
         player.setVol(f);
+
     }
 
 
