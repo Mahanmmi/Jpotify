@@ -1,9 +1,7 @@
 package logic.media;
 
 import com.mpatric.mp3agic.Mp3File;
-import graphic.MainPanel;
 import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.Player;
 import javazoom.jl.player.advanced.AdvancedPlayer;
 import logic.storage.StorageManager;
 
@@ -58,7 +56,7 @@ public class PauseablePlayer {
         }
     }
 
-    void resume() {
+    private void resume() {
         synchronized (playerLock) {
             if (playerStatus == PAUSED) {
                 playerStatus = PLAYING;
@@ -67,12 +65,14 @@ public class PauseablePlayer {
         }
     }
 
+    /*
     void stop() {
         synchronized (playerLock) {
             playerStatus = FINISHED;
             playerLock.notifyAll();
         }
     }
+    */
 
     private String secToMinConverter(long secs) {
         String min = Long.toString(secs / 60);
@@ -100,8 +100,13 @@ public class PauseablePlayer {
                     currentFrame++;
                     time.setText(secToMinConverter(currentFrame * totalTime / totalFrames));
                     slider.setValue(currentFrame * 100 / totalFrames);
+
                     for (JProgressBar jProgressBar : StorageManager.getInstance().getMainPanel().getJProgressBars()) {
-                        jProgressBar.setValue(new Random().nextInt(101));
+                        int change = new Random().nextInt(21) - 10;
+                        if (jProgressBar.getValue() + change > 100 || jProgressBar.getValue() + change < 0) {
+                            change = -change;
+                        }
+                        jProgressBar.setValue(jProgressBar.getValue() + change);
                     }
                     if (slider.getValue() == 100) {
                         Media.goNext();
@@ -134,7 +139,7 @@ public class PauseablePlayer {
         }
     }
 
-    public void changeVolume(float f){
+    void changeVolume(float f) {
         player.setVol(f);
     }
 

@@ -1,5 +1,6 @@
 package graphic;
 
+import be.tarsos.dsp.ui.layers.SpectrumLayer;
 import ch.randelshofer.quaqua.QuaquaManager;
 import javazoom.jl.decoder.JavaLayerException;
 import logic.media.Media;
@@ -40,18 +41,12 @@ public class MainPanel implements PlaylistLinkable {
     private JSlider musicSlider;
     private JTextField searchField;
     private JButton searchButton;
-    private JPanel artworkPanel;
-    private JPanel albumsPanel;
-    private JPanel playlistsPanel;
     private JList playlistList;
     private JList albumList;
-    private JButton replayButtun;
+    private JButton replayButton;
     private JButton shuffleButton;
-    private JPanel sliderPanel;
-    private JPanel timepanel;
     private JLabel timeLabel;
     private JLabel artWorkLabel;
-    private JScrollPane showcasePane;
     private JPanel showcasePanel;
     private JLabel allSongLabel;
     private JLabel playlistLabel;
@@ -151,8 +146,8 @@ public class MainPanel implements PlaylistLinkable {
         shuffleButton.setSize(shuffleButton.getWidth(), shuffleButton.getHeight() + 10);
         shuffleButton.setIcon(new ImageIcon("./resources/New Icons/shuffle-icon.png"));
 
-        replayButtun.setSize(replayButtun.getWidth(), replayButtun.getHeight() + 10);
-        replayButtun.setIcon(new ImageIcon("./resources/New Icons/replay-icon.png"));
+        replayButton.setSize(replayButton.getWidth(), replayButton.getHeight() + 10);
+        replayButton.setIcon(new ImageIcon("./resources/New Icons/replay-icon.png"));
     }
 
     private void addAutoPlaylistsListeners() {
@@ -294,9 +289,9 @@ public class MainPanel implements PlaylistLinkable {
                 shuffleButton.setIcon(new ImageIcon("./resources/New Icons/shuffle-icon.png"));
             }
             if (Media.isReplaying()) {
-                replayButtun.setIcon(new ImageIcon("./resources/New Icons/replay-icon-active.png"));
+                replayButton.setIcon(new ImageIcon("./resources/New Icons/replay-icon-active.png"));
             } else {
-                replayButtun.setIcon(new ImageIcon("./resources/New Icons/replay-icon.png"));
+                replayButton.setIcon(new ImageIcon("./resources/New Icons/replay-icon.png"));
             }
 //            setShowcaseContent(new ArrayList<>(Media.getCurrentPlaylist().getPlaylistMedia()));
             musicTitle.setText(nowPlaying.getTitle());
@@ -373,21 +368,20 @@ public class MainPanel implements PlaylistLinkable {
             }
             updateGUISongDetails();
         });
-        replayButtun.addActionListener(event -> {
+        replayButton.addActionListener(event -> {
             if (Media.isReplaying()) {
                 Media.setReplaying(false);
-                replayButtun.setIcon(new ImageIcon("./resources/New Icons/replay-icon.png"));
+                replayButton.setIcon(new ImageIcon("./resources/New Icons/replay-icon.png"));
             } else {
                 Media.setReplaying(true);
-                replayButtun.setIcon(new ImageIcon("./resources/New Icons/replay-icon-active.png"));
+                replayButton.setIcon(new ImageIcon("./resources/New Icons/replay-icon-active.png"));
             }
             updateGUISongDetails();
         });
-        lyricsButton.addActionListener(event -> {
-            new LyricsPanel(Media.getNowPlaying());
-        });
+        lyricsButton.addActionListener(event -> new LyricsPanel(Media.getNowPlaying()));
     }
 
+    @SuppressWarnings("SuspiciousMethodCalls")
     private void setListsPanelSetting() {
         setListPanelListener();
         searchButton.setIcon(new ImageIcon("./resources/New Icons/magnifying-glass-icon.png"));
@@ -495,6 +489,7 @@ public class MainPanel implements PlaylistLinkable {
                 StorageManager.getInstance().addDirectory(directoryChooser.getSelectedFile());
             }
         });
+
 
 
         JMenuItem addPlaylistMenuItem = new JMenuItem("Add playlist...");

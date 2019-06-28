@@ -62,7 +62,7 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="84ed1" class="javax.swing.JButton" binding="replayButtun">
+              <component id="84ed1" class="javax.swing.JButton" binding="replayButton">
                 <constraints/>
                 <properties>
                   <background color="-11974327"/>
@@ -188,7 +188,7 @@
               </grid>
             </children>
           </grid>
-          <grid id="86629" binding="sliderPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+          <grid id="86629" layout-manager="BorderLayout" hgap="0" vgap="0">
             <constraints border-constraint="Center"/>
             <properties/>
             <border type="none"/>
@@ -199,7 +199,7 @@
                   <background color="-16777216"/>
                 </properties>
               </component>
-              <grid id="f9b57" binding="timepanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="f9b57" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="10" bottom="0" right="10"/>
                 <constraints border-constraint="West"/>
                 <properties>
@@ -239,7 +239,7 @@
             </properties>
             <border type="none"/>
             <children>
-              <grid id="3a068" binding="artworkPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="3a068" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
@@ -263,7 +263,7 @@
                   </component>
                 </children>
               </grid>
-              <grid id="448e7" binding="albumsPanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="448e7" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -301,7 +301,7 @@
                   </scrollpane>
                 </children>
               </grid>
-              <grid id="8e47" binding="playlistsPanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="8e47" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -404,7 +404,7 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <scrollpane id="8e32a" binding="showcasePane">
+                  <scrollpane id="8e32a">
                     <constraints border-constraint="Center"/>
                     <properties>
                       <background color="-16777216"/>
