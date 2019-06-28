@@ -83,7 +83,10 @@ public class StorageManager {
         try {
             Scanner scanner = new Scanner(new FileReader(MEDIA_ADDRESSES));
             while (scanner.hasNextLine()) {
-                mediaArrayList.add(new Media(scanner.nextLine()));
+                String address = scanner.nextLine();
+                if(new File(address).exists()) {
+                    mediaArrayList.add(new Media(address));
+                }
             }
         } catch (FileNotFoundException e) {
             System.out.println("FNF");

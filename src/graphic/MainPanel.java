@@ -180,6 +180,12 @@ public class MainPanel implements PlaylistLinkable {
         });
     }
 
+
+    public void adjustVolume(){
+        System.out.println("" + volumeSlider.getValue());
+        Media.getNowPlaying().adjustVolume(volumeSlider.getValue());
+    }
+
     private void setActionListenerToVolumeSlider() {
         volumeSlider.setMinimum(-100);
         volumeSlider.setMaximum(100);
@@ -188,14 +194,12 @@ public class MainPanel implements PlaylistLinkable {
         volumeSlider.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println("" + volumeSlider.getValue());
-                Media.getNowPlaying().adjustVolume(volumeSlider.getValue());
+                adjustVolume();
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                System.out.println("" + volumeSlider.getValue());
-                Media.getNowPlaying().adjustVolume(volumeSlider.getValue());
+                adjustVolume();
             }
         });
 
