@@ -37,5 +37,4 @@ public class LyricsGatherer {
         }
         return lyrics;
     }
-
 }
