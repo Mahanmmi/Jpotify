@@ -79,7 +79,8 @@ public class PauseablePlayer {
     }
 
     /**
-     *
+     *plays the media use a maxPriority teared
+     * and give playInternal as Runnable to thread
      */
     void play() {
         synchronized (playerLock) {
@@ -106,12 +107,14 @@ public class PauseablePlayer {
     }
 
     /**
-     *  plays file frame by frame and update musicSlider and sets th equalizer
+     *  plays file frame by frame and update musicSlider
+     *  by second and sets the equalizer
      */
     private void playInternal() {
         while (playerStatus != FINISHED) {
             try {
                 if (!player.decodeFrame()) {
+                    //its mean our media finished.
                     Media.goNext();
                     break;
                 } else {
@@ -130,14 +133,14 @@ public class PauseablePlayer {
                             change = -change;
                         }
                         jProgressBar.setBackground(Color.BLACK);
-                        if (change<=33)
+
+                        jProgressBar.setValue(jProgressBar.getValue() + change);
+                        if (jProgressBar.getValue() <=33)
                             jProgressBar.setForeground(Color.GREEN);
-                        else if(change<=66)
+                        else if(jProgressBar.getValue()<=66)
                             jProgressBar.setForeground(Color.YELLOW);
                         else
                             jProgressBar.setForeground(Color.RED);
-
-                        jProgressBar.setValue(jProgressBar.getValue() + change);
                     }
                     if (slider.getValue() == 100) {
                         Media.goNext();
