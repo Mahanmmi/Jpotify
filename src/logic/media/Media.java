@@ -17,6 +17,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
+/**
+ * this class get data from file and play,pause,seek and adjusting volume
+ *
+ */
 public class Media implements Showable {
     //Player related fields
     private static PauseablePlayer mainPlayer = null;
@@ -25,10 +29,17 @@ public class Media implements Showable {
     private static boolean isShuffling = false;
     private static boolean isReplaying = false;
     private static Playlist currentPlaylist;
+    private String address;
+    private String title;
+    private String artist;
+    private String album;
+    private ImageIcon icon;
+    private Mp3File mp3File;
 
     public static Playlist getCurrentPlaylist() {
         return currentPlaylist;
     }
+
 
     public static void setCurrentPlaylist(Playlist currentPlaylist) {
         Media.currentPlaylist = currentPlaylist;
@@ -69,38 +80,21 @@ public class Media implements Showable {
         Media.isReplaying = isReplaying;
     }
 
-
-    private String address;
-    private String title;
-    private String artist;
-    private String album;
-    private ImageIcon icon;
-    private Mp3File mp3File;
-
+    /**
+     * checks that playList is favoritePlayList or not
+     * @return a boolean that shows is favorite or not
+     */
     public boolean isFave() {
         return StorageManager.getInstance().getPlaylistHashMap().get("Favorite").getPlaylistMedia().contains(this);
     }
-
+    /**
+     * checks that playList is sharedPlayList or not
+     * @return a boolean that shows is shared or not
+     */
     public boolean isShared() {
         return StorageManager.getInstance().getPlaylistHashMap().get("Shared").getPlaylistMedia().contains(this);
     }
 
-
-
- /*   private Object myPropertiesReader(String prop) {
-        try {
-            AudioFileFormat baseFileFormat;
-            baseFileFormat = AudioSystem.getAudioFileFormat(file);
-            if (baseFileFormat instanceof TAudioFileFormat) {
-                Map properties = ((TAudioFileFormat) baseFileFormat).properties();
-
-                return properties.get(prop);
-            }
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-        return null;
-    }*/
 
     public ImageIcon getIcon() {
         return icon;
@@ -111,7 +105,7 @@ public class Media implements Showable {
         try {
             mp3File = new Mp3File(address);
             if (mp3File.hasId3v1Tag()) {
-
+                //this part is for reading data from ID3v1 files
 
          /*         File file=new File("address");
         byte metadata[]=new byte[128];
@@ -125,17 +119,12 @@ public class Media implements Showable {
             System.out.println("cant read file");
 
         }
-
-
         String id3=new String(metadata);
             this.title= id3.substring(3, 33);
 
-            this.artist= id3.substring(33, 62);
+            this.artist= id3.substring(33, 63);
 
-            this.album= id3.substring(63, 92);
-
-
-
+            this.album= id3.substring(63, 93);
     }
                  */
                 ID3v1 id3v1 = mp3File.getId3v1Tag();
@@ -151,7 +140,7 @@ public class Media implements Showable {
 
                 byte[] imageData = id3v2.getAlbumImage();
                 if (imageData != null) {
-                    System.out.println("debug:: imageData is not null");
+                    System.out.println("imageData is not null");
                     BufferedImage img = ImageIO.read(new ByteArrayInputStream(imageData));
                     icon = new ImageIcon(img);
 
@@ -163,6 +152,7 @@ public class Media implements Showable {
             System.out.println("s");
 
         }
+        //this part is for reading data from id3v1 files
        /* this.address = address;
         file = new File(address);
         System.out.println(file.getTargetName());
@@ -188,17 +178,11 @@ public class Media implements Showable {
         myByteReader(404, 100);
 */
     }
-  /*  public float getVolume() {
-        FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-        return (float) Math.pow(10f, gainControl.getValue() / 20f);
-    }*/
 
-    /* public void setVolume(float volume) {
-         if (volume < 0f || volume > 1f)
-             throw new IllegalArgumentException("Volume not valid: " + volume);
-         FloatControl gainControl = (FloatControl) ((Clip) mp3File).getControl(FloatControl.Type.MASTER_GAIN);
-         gainControl.setValue(20f * (float) Math.log10(volume));
-     }*/
+    /**
+     * sets volume playing file between -20,40
+     * @param volumeSlidPosition that declare volume of file
+     */
     public void adjustVolume(float volumeSlidPosition) {
         float volume = (float) (((6 / 10.0) * volumeSlidPosition) - 20);
         if (mainPlayer != null) {
@@ -206,8 +190,14 @@ public class Media implements Showable {
         }
     }
 
-    public void seekTo(int MusicsliderPosition) throws FileNotFoundException, JavaLayerException {
-        int startingFrame = (int) (MusicsliderPosition * mp3File.getFrameCount() / 100.0);
+    /**
+     * declare that which frame is starting frame to playFile
+     * @param MusicSliderPosition that declare percentage of seeking
+     * @throws FileNotFoundException
+     * @throws JavaLayerException
+     */
+    public void seekTo(int MusicSliderPosition) throws FileNotFoundException, JavaLayerException {
+        int startingFrame = (int) (MusicSliderPosition * mp3File.getFrameCount() / 100.0);
         mainPlayer.close();
         if (isPlaying) {
             mainPlayer = new PauseablePlayer(new FileInputStream(address), startingFrame, mp3File);
@@ -229,7 +219,6 @@ public class Media implements Showable {
                 e.printStackTrace();
             }
         }
-
         mainPlayer.play();
         doPlayingSongUpdates();
     }
@@ -321,6 +310,10 @@ public class Media implements Showable {
                 '}';
     }
 
+
+
+
+    // this part is for checking this class
 /*
     public static void main(String[] args) throws InterruptedException,  {
         Media media = new Media("E:/Music/Imagine-Dragons-Digital-128.mp3");

@@ -9,10 +9,20 @@ import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
 
+/**
+ * this class get lyrics from songLyrics site
+ */
 public class LyricsGatherer {
-
+    //this final string is our URL
     private final static String songLyricsURL = "http://www.songlyrics.com";
 
+    /**
+     * we have arrayList of String
+     * @param songArtist this is name of singer
+     * @param songTitle this title of song
+     * @return a list of string that contain our lyric
+     * @throws IOException
+     */
     public static List<String> getSongLyrics(String songArtist, String songTitle) throws IOException {
         List<String> lyrics = new ArrayList<>();
 
