@@ -47,6 +47,7 @@ public class LoginPanel {
     }
 
     LoginPanel() {
+        StorageManager.getInstance().getClient();
         frame = new JFrame("Login");
         MainPanel.newFrameInitialSettings(frame, panel);
 

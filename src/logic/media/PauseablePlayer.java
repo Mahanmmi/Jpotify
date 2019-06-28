@@ -23,7 +23,6 @@ public class PauseablePlayer {
 
     PauseablePlayer(final InputStream inputStream, int startingFrame, Mp3File mp3File) throws JavaLayerException {
         this.player = new AdvancedPlayer(inputStream);
-        StorageManager.getInstance().getMainPanel().adjustVolume();
         this.mp3File = mp3File;
         player.play(startingFrame, startingFrame);
         currentFrame = startingFrame;
@@ -38,6 +37,7 @@ public class PauseablePlayer {
                     //  t.setDaemon(true);
                     t.setPriority(Thread.MAX_PRIORITY);
                     playerStatus = PLAYING;
+                    StorageManager.getInstance().getMainPanel().adjustVolume();
                     for (JProgressBar jProgressBar : StorageManager.getInstance().getMainPanel().getJProgressBars()){
                         jProgressBar.setValue(0);
                     }

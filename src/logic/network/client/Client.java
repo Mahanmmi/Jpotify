@@ -81,7 +81,7 @@ public class Client implements Runnable {
     }
 
     public void requestGetPlaylist(String targetName) {
-        ClientRequest request = new ClientRequest(ClientRequestType.PLAYLIST,targetName,name,-1);
+        ClientRequest request = new ClientRequest(ClientRequestType.PLAYLIST, targetName, name, -1);
         try {
             outputStream.writeObject(request);
             outputStream.flush();
@@ -90,8 +90,9 @@ public class Client implements Runnable {
         }
     }
 
-    public void requestGetSong(String targetName,int index){
-        ClientRequest request = new ClientRequest(ClientRequestType.SONG,targetName,name,index);
+    public void requestGetSong(String targetName, int index) {
+        System.out.println("targetName: " + targetName);
+        ClientRequest request = new ClientRequest(ClientRequestType.SONG, targetName, name, index);
         try {
             outputStream.writeObject(request);
             outputStream.flush();
@@ -100,7 +101,7 @@ public class Client implements Runnable {
         }
     }
 
-    void sendResponse(ClientResponse response){
+    void sendResponse(ClientResponse response) {
         try {
             outputStream.writeObject(response);
             outputStream.flush();
@@ -127,7 +128,7 @@ public class Client implements Runnable {
                 Object input = inputStream.readObject();
                 if (input instanceof ServerResponse) {
                     new ServerResponseHandler((ServerResponse) input).handle();
-                } else if(input instanceof ServerRequest){
+                } else if (input instanceof ServerRequest) {
                     new ServerRequestHandler((ServerRequest) input).handle();
                 }
             } catch (EOFException ignore) {

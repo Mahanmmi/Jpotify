@@ -47,8 +47,8 @@ class ClientResponseHandler {
 
     private void sendPlaylist(){
         for (ServerManager.ClientManager activeSocket : ServerManager.getInstance().getActiveSockets()) {
-            if(activeSocket.getName().equals(response.getClientName())){
-                ServerResponse serverResponse = new ServerResponse(ServerResponseType.PLAYLIST,response.getSentData(),response.getRequester());
+            if(activeSocket.getName().equals(response.getRequester())){
+                ServerResponse serverResponse = new ServerResponse(ServerResponseType.PLAYLIST,response.getSentData(),response.getClientName());
                 activeSocket.sendResponse(serverResponse);
             }
         }
@@ -56,8 +56,8 @@ class ClientResponseHandler {
 
     private void sendSong(){
         for (ServerManager.ClientManager activeSocket : ServerManager.getInstance().getActiveSockets()) {
-            if(activeSocket.getName().equals(response.getClientName())){
-                ServerResponse serverResponse = new ServerResponse(ServerResponseType.SONG,response.getSentData(),response.getRequester());
+            if(activeSocket.getName().equals(response.getRequester())){
+                ServerResponse serverResponse = new ServerResponse(ServerResponseType.SONG,response.getSentData(),response.getClientName());
                 activeSocket.sendResponse(serverResponse);
             }
         }
@@ -100,6 +100,7 @@ class ClientResponseHandler {
                     System.out.println(source.getClient() + " : " + response.getClientName() + " : " + " CLOSED");
                     allActivity.get(response.getClientName()).setLastOnline(new Date());
                     allActivity.get(response.getClientName()).setOnline(false);
+                    notifyAllClients(response.getClientName(),allActivity.get(response.getClientName()));
                     ServerManager.getInstance().getActiveSockets().remove(source);
                     source.getClient().close();
                 } catch (IOException e) {
