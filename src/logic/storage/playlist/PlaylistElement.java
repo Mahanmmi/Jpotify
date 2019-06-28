@@ -2,6 +2,10 @@ package logic.storage.playlist;
 
 import java.io.Serializable;
 
+/**
+ * this class use in mediaData for recognizing media belongs to which class,and its
+ * position in playList
+ */
 public class PlaylistElement implements Serializable {
     private String playlistName;
     private String songAddress;

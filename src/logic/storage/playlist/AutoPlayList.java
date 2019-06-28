@@ -4,7 +4,11 @@ import logic.media.Media;
 
 import java.util.ArrayList;
 
-public class AutoPlayList extends Playlist {
+/**
+ * this class is for autoPlaylists: favorite and shared
+ */
+public class
+AutoPlayList extends Playlist {
     public AutoPlayList(String name) {
         super(name, new ArrayList<>());
     }

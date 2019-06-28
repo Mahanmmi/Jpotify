@@ -8,6 +8,11 @@ import javax.swing.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * this is abstract class that has a name for playList AND
+ * an arrayList for all media in our arrayList
+ * it implements serializable and showable
+ */
 public abstract class Playlist implements Serializable, Showable {
     private String name;
     private ArrayList<Media> playlistMedia;

@@ -41,6 +41,10 @@ public class StorageManager {
         return ourInstance;
     }
 
+    /**
+     * create our MEDIA_ADDRESSES and MEDIA_DATAFILE file
+     * call als functions that we need to load our data and connecting to server
+     */
     private StorageManager() {
         //this directory contain our data for save and load
         File dataDirectory = new File("./data");
