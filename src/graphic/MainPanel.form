@@ -235,7 +235,8 @@
                       <background color="-16777216"/>
                       <enabled value="false"/>
                       <focusable value="false"/>
-                      <text value=""/>
+                      <foreground color="-1"/>
+                      <text value="TIME"/>
                     </properties>
                   </component>
                 </children>
