@@ -6,6 +6,9 @@ import logic.storage.playlist.Playlist;
 import javax.swing.*;
 import java.util.ArrayList;
 
+/**
+ * this class contain 2 methods that contain edditing playList's Gui and logic
+ */
 public class EditPlaylist {
     private JPanel panel;
     private JButton cancelButton;
@@ -18,6 +21,9 @@ public class EditPlaylist {
     private Playlist target;
 
 
+    /**
+     * sets content of playList in a jlist
+     */
     @SuppressWarnings("unchecked")
     private void setListContent() {
         ArrayList<String> songs = new ArrayList<>();
@@ -27,6 +33,13 @@ public class EditPlaylist {
         mediaList.setListData(songs.toArray());
     }
 
+    /**
+     * change the position of a song in playList step by step by click on up or down and
+     * can remove a song from playList
+     * @param parent  @param parent this is instance of playListLinkable that we can give it object
+     * of classes that implements this interface
+     * @param target this is the playList that we want to edit.
+     */
     EditPlaylist(PlaylistLinkable parent, Playlist target) {
         this.target = target;
         frame = new JFrame("Edit playlist");
