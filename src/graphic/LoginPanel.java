@@ -7,6 +7,10 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
+/**
+ * this class create a frame for sign in or sign up
+ * gets  a user name and a password
+ */
 public class LoginPanel {
     private JPanel panel;
     private JTextField usernameField;
@@ -15,6 +19,9 @@ public class LoginPanel {
     private JButton loginButton;
     private JFrame frame;
 
+    /**
+     * gets username and password and checks them for log in if user is not new user
+     */
     private void login(){
         colorNull();
         String username = usernameField.getText();
@@ -30,6 +37,9 @@ public class LoginPanel {
         }
     }
 
+    /**
+     * change the backGround of textField to show that textFiled is empty
+     */
     private void colorNull(){
         String username = usernameField.getText();
         if (username == null) {
@@ -81,6 +91,9 @@ public class LoginPanel {
         frame.setVisible(true);
     }
 
+    /**
+     * frame dispose and log in to jpotify by a specific userName
+     */
     private void disposeAndLogin() {
         frame.dispose();
         StorageManager.getInstance().setMainPanel(new MainPanel());

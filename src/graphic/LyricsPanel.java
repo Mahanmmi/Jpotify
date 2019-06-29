@@ -7,6 +7,9 @@ import javax.swing.*;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * create a frame to show lyric of media
+ */
 public class LyricsPanel {
     private JPanel panel;
     private JTextArea lyricsArea;
