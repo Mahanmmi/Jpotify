@@ -2,6 +2,9 @@ package logic.network.client;
 
 import java.io.Serializable;
 
+/**
+ * This class models a client request(song or playlist) from server
+ */
 public class ClientRequest implements Serializable {
     private ClientRequestType type;
     private String targetName;

@@ -4,6 +4,9 @@ import logic.network.client.ClientRequest;
 
 import java.util.ArrayList;
 
+/**
+ * Handles client requests and send requests to target clients
+ */
 class ClientRequestHandler {
     private ServerManager.ClientManager source;
     private ClientRequest request;
@@ -15,6 +18,9 @@ class ClientRequestHandler {
         activeSockets = ServerManager.getInstance().getActiveSockets();
     }
 
+    /**
+     * Handle request by it's type
+     */
     void handle(){
         switch (request.getType()){
             case PLAYLIST:{

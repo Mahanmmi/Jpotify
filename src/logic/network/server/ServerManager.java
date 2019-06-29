@@ -11,6 +11,9 @@ import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * Server main class accept and manage clients
+ */
 public class ServerManager {
     private static ServerManager ourInstance;
     private ServerSocket server;
@@ -41,6 +44,10 @@ public class ServerManager {
         }
     }
 
+    /**
+     * Set server online and wait for clients to connect
+     * send connected clients thread to thread pool
+     */
     @SuppressWarnings("InfiniteLoopStatement")
     private void runServer() {
         System.out.println("logic.network.server running");
@@ -56,6 +63,9 @@ public class ServerManager {
         }
     }
 
+    /**
+     * Server side client handler class
+     */
     static class ClientManager implements Runnable {
         private Socket client;
         private String name;
@@ -79,6 +89,12 @@ public class ServerManager {
             ServerManager.getInstance().activeSockets.add(this);
         }
 
+        /**
+         * Notify it's client of a change in other client status
+         * @param name key is ServerData HashMap
+         * @param data new value in ServerData HashMap
+         *             data will be converted into a string and parsed in client side
+         */
         void getNotified(String name, ServerData data) {
             try {
                 String send = data.getUsername() + "<---->" + data.getPassword() + "<---->"
@@ -91,6 +107,10 @@ public class ServerManager {
             }
         }
 
+        /**
+         * Send it's client a server request
+         * @param request server request
+         */
         void sendRequest(ServerRequest request){
             try {
                 outputStream.writeObject(request);
@@ -100,6 +120,10 @@ public class ServerManager {
             }
         }
 
+        /**
+         * Send it's client a server response
+         * @param response server response
+         */
         void sendResponse(ServerResponse response){
             try {
                 outputStream.writeObject(response);
@@ -110,6 +134,9 @@ public class ServerManager {
         }
 
 
+        /**
+         * As long as client is online check for new requests and responses and handle them
+         */
         @Override
         public void run() {
             try {
@@ -140,6 +167,10 @@ public class ServerManager {
 
     }
 
+    /**
+     * Run Server
+     * @param args cmd args
+     */
     public static void main(String[] args) {
         ourInstance = new ServerManager();
         System.out.println(ourInstance);

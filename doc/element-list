@@ -1,0 +1,15 @@
+com.mpatric.mp3agic
+graphic
+javazoom.jl.converter
+javazoom.jl.decoder
+javazoom.jl.player
+javazoom.jl.player.advanced
+javazoom.spi
+javazoom.spi.mpeg.sampled.convert
+javazoom.spi.mpeg.sampled.file
+javazoom.spi.mpeg.sampled.file.tag
+logic.media
+logic.network.client
+logic.network.server
+logic.storage
+logic.storage.playlist
