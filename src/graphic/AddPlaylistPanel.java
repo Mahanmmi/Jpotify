@@ -8,9 +8,11 @@ import java.awt.*;
 import java.util.ArrayList;
 
 /**
- *
+ *this panel use for creating playList yo can add and remove song and
+ * set name for your playList
  */
 public class AddPlaylistPanel {
+    private final PlaylistLinkable parent;
     private JPanel panel;
     private JList allSongsList;
     private JList addedList;
@@ -24,6 +26,10 @@ public class AddPlaylistPanel {
     private ArrayList<Media> mediaArrayList = StorageManager.getInstance().getMediaArrayList();
 
 
+    /**
+     *generate 2 list on panel ,left list is for songs that added to playList and
+     * right list is all song that you cam chose them
+     */
     private void generateAllSongsList() {
         addedList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         addedList.setLayoutOrientation(JList.VERTICAL_WRAP);
@@ -39,6 +45,10 @@ public class AddPlaylistPanel {
         allSongsList.setListData(mediaTitles.toArray());
     }
 
+    /**
+     * when you add a song shows it in both left and right list
+     * adds song from all song to chosen list
+     */
     private void addToChosenList() {
         if(!allSongsList.isSelectionEmpty()) {
             int index = allSongsList.getSelectedIndex();
@@ -55,6 +65,9 @@ public class AddPlaylistPanel {
         }
     }
 
+    /**
+     * remove song from both mediaArrayList and chosen media list
+     */
     private void removeFromChosenList() {
         if(!addedList.isSelectionEmpty()) {
             int index = addedList.getSelectedIndex();
@@ -68,7 +81,14 @@ public class AddPlaylistPanel {
         }
     }
 
+    /**
+     * this func called in mainPanel to create playListPanel and add
+     * actionListener to button
+     * @param parent this is instance of playListLinkable that we can give it object
+     * of classes that implements this interface
+     */
     AddPlaylistPanel(PlaylistLinkable parent) {
+        this.parent = parent;
         initFrame();
         generateAllSongsList();
 
@@ -100,6 +120,9 @@ public class AddPlaylistPanel {
         });
     }
 
+    /**
+     * create frame
+     */
     private void initFrame() {
         frame = new JFrame("Add Playlist");
         MainPanel.newFrameInitialSettings(frame, panel);

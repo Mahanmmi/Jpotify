@@ -34,7 +34,6 @@ public class ShowcaseButton extends JButton {
         }
         this.setIcon(icon);
         this.addActionListener(event -> content.getClicked());
-
     }
 
     @Override
