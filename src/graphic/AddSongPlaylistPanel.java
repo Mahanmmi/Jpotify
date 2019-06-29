@@ -21,7 +21,7 @@ public class AddSongPlaylistPanel {
     private JList songList;
 
     /**
-     * this func create 2 list that contain playList song and all songs
+     * this func creates 2 list that contains playList song and all songs
      */
     @SuppressWarnings("unchecked")
     private void setListsContent() {
@@ -38,7 +38,7 @@ public class AddSongPlaylistPanel {
     }
 
     /**
-     * this func create frame to show panel and adding song to our target playList
+     * this func creates frame to show panel and adding song to our target playList
      * @param parent this is interface instance that could be object of any class that implements it
      * @param target this is the playList that we want add song to it.
      */
