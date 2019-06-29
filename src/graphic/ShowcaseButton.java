@@ -3,9 +3,19 @@ package graphic;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * this class create any element that show in meddle panel
+ * it could be album or media and extending JButton and
+ * has instance of Showable interface that sets by an object of a class
+ * that implement that interface
+ */
 public class ShowcaseButton extends JButton {
     private Showable content;
 
+    /**
+     * create a button and sets properties
+     * @param content that gives imageIcon and title for button
+     */
     ShowcaseButton(Showable content) {
         this.content = content;
         this.setPreferredSize(new Dimension(175, 175));
