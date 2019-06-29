@@ -6,6 +6,10 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 
+/**
+ * Handles client responses and update other clients status
+ * MOST IMPORTANT CLASS IN SERVER
+ */
 class ClientResponseHandler {
     private ServerManager.ClientManager source;
     private ClientResponse response;
@@ -17,6 +21,11 @@ class ClientResponseHandler {
         allActivity = ServerManager.getInstance().getAllActivity();
     }
 
+    /**
+     * Notify all clients of a change in ServerData
+     * @param name key in ServerData HashMap
+     * @param data new value in ServerData HashMap
+     */
     private void notifyAllClients(String name, ServerData data) {
         System.out.println(ServerManager.getInstance().getActiveSockets());
         for (ServerManager.ClientManager activeSocket : ServerManager.getInstance().getActiveSockets()) {
@@ -24,6 +33,9 @@ class ClientResponseHandler {
         }
     }
 
+    /**
+     * Update last played shared playlist song of a client
+     */
     private void setClientLastSong() {
         String song = (String) response.getSentData();
         String name = response.getClientName();
@@ -32,12 +44,18 @@ class ClientResponseHandler {
         notifyAllClients(name, allActivity.get(name));
     }
 
+    /**
+     * Create new user in server
+     */
     private void createNewUser(){
         source.setName(response.getClientName());
         allActivity.put(response.getClientName(),(ServerData) response.getSentData());
         notifyAllClients(response.getClientName(),(ServerData) response.getSentData());
     }
 
+    /**
+     * Notify clients that a user came online
+     */
     private void setUserOnline(){
         source.setName(response.getClientName());
         allActivity.get(response.getClientName()).setLastOnline(new Date());
@@ -45,6 +63,9 @@ class ClientResponseHandler {
         notifyAllClients(response.getClientName(), allActivity.get(response.getClientName()));
     }
 
+    /**
+     * Send a received playlist to it's requester
+     */
     private void sendPlaylist(){
         for (ServerManager.ClientManager activeSocket : ServerManager.getInstance().getActiveSockets()) {
             if(activeSocket.getName().equals(response.getRequester())){
@@ -54,6 +75,9 @@ class ClientResponseHandler {
         }
     }
 
+    /**
+     * Send a received song to it's requester
+     */
     private void sendSong(){
         for (ServerManager.ClientManager activeSocket : ServerManager.getInstance().getActiveSockets()) {
             if(activeSocket.getName().equals(response.getRequester())){
@@ -63,6 +87,9 @@ class ClientResponseHandler {
         }
     }
 
+    /**
+     * Handle response by it's type
+     */
     void handle() {
         switch (response.getType()) {
             case NOW_PLAYING_SONG: {

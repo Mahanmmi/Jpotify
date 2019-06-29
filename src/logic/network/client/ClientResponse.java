@@ -2,6 +2,9 @@ package logic.network.client;
 
 import java.io.Serializable;
 
+/**
+ * This class models a client update in status or response to server
+ */
 public class ClientResponse implements Serializable {
     private ClientResponseType type;
     private Object sentData;

@@ -5,6 +5,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * This class is a model of one client important data on server
+ */
 public class ServerData implements Serializable {
     private String username;
     private String password;

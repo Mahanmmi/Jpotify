@@ -12,6 +12,9 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * This class handles server responses and updates status
+ */
 class ServerResponseHandler {
     private ServerResponse response;
 
@@ -19,6 +22,9 @@ class ServerResponseHandler {
         this.response = response;
     }
 
+    /**
+     * Handles response by it's type
+     */
     void handle() {
         switch (response.getType()) {
             case UPDATE_IN_DATA: {

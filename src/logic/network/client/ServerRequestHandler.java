@@ -1,7 +1,6 @@
 package logic.network.client;
 
 import logic.media.Media;
-import logic.network.server.ServerManager;
 import logic.network.server.ServerRequest;
 import logic.storage.StorageManager;
 
@@ -11,6 +10,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * This class handles server requests and send responses
+ */
 class ServerRequestHandler {
     private ServerRequest request;
 
@@ -18,6 +20,9 @@ class ServerRequestHandler {
         this.request = request;
     }
 
+    /**
+     * Handles request by it's type
+     */
     void handle(){
         switch (request.getType()){
             case PLAYLIST:{
