@@ -21,7 +21,7 @@ import java.io.PrintStream;
 import java.util.*;
 
 /**
- * this class contains most important part of GUI
+ * this class contains most important part of GUI and implements playListLinkable
  */
 public class MainPanel implements PlaylistLinkable {
     private JPanel mainPanel;
