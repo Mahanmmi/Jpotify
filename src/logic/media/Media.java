@@ -81,14 +81,14 @@ public class Media implements Showable {
     }
 
     /**
-     * checks that playList is favoritePlayList or not
+     * checks that media is in favorite playList or not
      * @return a boolean that shows is favorite or not
      */
     public boolean isFave() {
         return StorageManager.getInstance().getPlaylistHashMap().get("Favorite").getPlaylistMedia().contains(this);
     }
     /**
-     * checks that playList is sharedPlayList or not
+     * checks that media is in shared playList or not
      * @return a boolean that shows is shared or not
      */
     public boolean isShared() {
@@ -320,7 +320,7 @@ public class Media implements Showable {
 
 
 
-    // this part is for checking this class
+    // this part is for checking this class and make it easy to check just this part
 /*
     public static void main(String[] args) throws InterruptedException,  {
         Media media = new Media("E:/Music/Imagine-Dragons-Digital-128.mp3");
