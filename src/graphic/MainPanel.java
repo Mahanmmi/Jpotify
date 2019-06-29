@@ -20,6 +20,9 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.util.*;
 
+/**
+ * this class contains most important part of GUI
+ */
 public class MainPanel implements PlaylistLinkable {
     private JPanel mainPanel;
     private JPanel listsPanel;
@@ -66,6 +69,9 @@ public class MainPanel implements PlaylistLinkable {
     private ArrayList<JProgressBar> jProgressBars = new ArrayList<>();
     private JFrame frame;
 
+    /**
+     * adding progressBars to theirs arrayList
+     */
     private void addBars() {
         jProgressBars.add(bar1);
         jProgressBars.add(bar2);
@@ -123,8 +129,6 @@ public class MainPanel implements PlaylistLinkable {
         bottomPanel.setMinimumSize(new Dimension(mainPanel.getWidth() - 5, mainPanel.getHeight() / 6));
         bottomPanel.setMaximumSize(new Dimension(mainPanel.getWidth() - 5, mainPanel.getHeight() / 6));
         bottomPanel.setPreferredSize(new Dimension(mainPanel.getWidth() - 5, mainPanel.getHeight() / 6));
-
-
         mainPanel.setBackground(Color.BLACK);
         listsPanel.setBackground(Color.BLACK);
         middlePanel.setBackground(Color.BLACK);
@@ -157,6 +161,9 @@ public class MainPanel implements PlaylistLinkable {
         replayButton.setIcon(new ImageIcon("./resources/New Icons/replay-icon.png"));
     }
 
+    /**
+     * this method set actionListener for favorite and shared icon and change their icons
+     */
     private void addAutoPlaylistsListeners() {
         favorite.addActionListener(event -> {
             Media nowPlaying = Media.getNowPlaying();
@@ -232,6 +239,9 @@ public class MainPanel implements PlaylistLinkable {
 //        });
     }
 
+    /**
+     * sets components of albumList and PlayListsList
+     */
     @SuppressWarnings("unchecked")
     private void setListsComponents() {
         ArrayList<String> albumNames = new ArrayList<>(StorageManager.getInstance().getAlbumHashMap().keySet());
@@ -278,6 +288,9 @@ public class MainPanel implements PlaylistLinkable {
         });
     }
 
+    /**
+     * after any change in program this function call to apply changes to GUI
+     */
     public synchronized void updateGUISongDetails() {
         Media nowPlaying = Media.getNowPlaying();
         if (nowPlaying != null) {
@@ -315,6 +328,11 @@ public class MainPanel implements PlaylistLinkable {
         }
     }
 
+    /**
+     * adds icon and title of songs or albums to as a button into middle panel
+     * this is synchronized to prevent adding new element during adding showCaseButtons
+     * @param content this is arrayList that contains things most add to middle panel (title and Icon)
+     */
     public synchronized void setShowcaseContent(ArrayList<Showable> content) {
         showcasePanel.removeAll();
         showcasePanel.setLayout(new GridLayout((content.size() + 1) / 2, 2));
@@ -326,6 +344,9 @@ public class MainPanel implements PlaylistLinkable {
         showcasePanel.repaint();
     }
 
+    /**
+     * adds listener to play_pause,next And last track,shuffle,lyric and playBack buttons
+     */
     private void addMusicPanelListeners() {
         setActionListenerToVolumeSlider();
         addAutoPlaylistsListeners();
@@ -469,6 +490,10 @@ public class MainPanel implements PlaylistLinkable {
     }
 
 
+    /**
+     * create a jMenue that contains add song,add directory,add playList.manage Directory
+     * @return JMenuBar that contains our JMenu
+     */
     private JMenuBar initMenus() {
         JMenuBar menuBar = new JMenuBar();
 
@@ -584,6 +609,9 @@ public class MainPanel implements PlaylistLinkable {
         return musicTotalTime;
     }
 
+    /**
+     * here we call all function we need to call to load our program
+     */
     public MainPanel() {
         initDarkTheme();
         initFrame();
