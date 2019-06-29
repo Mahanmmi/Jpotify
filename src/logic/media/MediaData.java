@@ -26,8 +26,8 @@ public class MediaData implements Serializable {
     }
 
     /**
-     * because oure sorting is comparative we declare a specified time for all song
-     * and compare them by distance of this date..
+     * because our sorting is comparative we declare a specified time for all song
+     * and compare them by distance of this date
      * @param address this is path of our song
      * @param elements this declare that media is in which playList
      */

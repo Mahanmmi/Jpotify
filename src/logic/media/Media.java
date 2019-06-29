@@ -223,6 +223,9 @@ public class Media implements Showable {
         doPlayingSongUpdates();
     }
 
+    /**
+     * this func updates data and GUI after playing a song
+     */
     private void doPlayingSongUpdates() {
         StorageManager.getInstance().getMediaDataHashMap().get(address).setLastPlayed(new Date());
         StorageManager.getInstance().sortMediaArrayList();
@@ -234,6 +237,10 @@ public class Media implements Showable {
         }
     }
 
+    /**
+     * switches to next media if its shuffling goes random
+     * if music finish it goes to next music automatically
+     */
     static void goNext() {
         mainPlayer.close();
         if (isReplaying()) {
