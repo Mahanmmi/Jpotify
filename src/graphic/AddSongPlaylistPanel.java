@@ -7,6 +7,10 @@ import logic.storage.playlist.Playlist;
 import javax.swing.*;
 import java.util.ArrayList;
 
+/**
+ * this class help for managing plyList when you created playlist and
+ * you want add more songs
+ */
 public class AddSongPlaylistPanel {
     private JFrame frame;
     private Playlist target;
@@ -16,6 +20,9 @@ public class AddSongPlaylistPanel {
     private JButton doneButton;
     private JList songList;
 
+    /**
+     * this func create 2 list that contain playList song and all songs
+     */
     @SuppressWarnings("unchecked")
     private void setListsContent() {
         ArrayList<String> songs = new ArrayList<>();
@@ -30,6 +37,11 @@ public class AddSongPlaylistPanel {
         songList.setListData(songs.toArray());
     }
 
+    /**
+     * this func create frame to show panel and adding song to our target playList
+     * @param parent this is interface instance that could be object of any class that implements it
+     * @param target this is the playList that we want add song to it.
+     */
     AddSongPlaylistPanel(PlaylistLinkable parent, Playlist target) {
         frame = new JFrame("Add song to playlist");
         MainPanel.newFrameInitialSettings(frame, panel);
@@ -41,6 +53,7 @@ public class AddSongPlaylistPanel {
         playlistSongs.setLayoutOrientation(JList.VERTICAL_WRAP);
         playlistSongs.setVisibleRowCount(-1);
         setListsContent();
+
 
 
         addSongButton.addActionListener(e -> {
