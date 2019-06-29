@@ -129,7 +129,7 @@ public class PauseablePlayer {
                     slider.setValue(currentFrame * 100 / totalFrames);
 
                     for (JProgressBar jProgressBar : StorageManager.getInstance().getMainPanel().getJProgressBars()) {
-                        int change = new Random().nextInt(21) - 10;
+                        int change = new Random().nextInt(17) - 8;
 //                        System.out.println(change);
                         if (jProgressBar.getValue() + change > 100 || jProgressBar.getValue() + change < 0) {
                             change = -change;

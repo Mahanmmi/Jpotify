@@ -14,7 +14,10 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.*;
 
 public class MainPanel implements PlaylistLinkable {
@@ -182,7 +185,7 @@ public class MainPanel implements PlaylistLinkable {
     }
 
 
-    public void adjustVolume(){
+    public void adjustVolume() {
         System.out.println("" + volumeSlider.getValue());
         Media.getNowPlaying().adjustVolume(volumeSlider.getValue());
     }
@@ -363,9 +366,7 @@ public class MainPanel implements PlaylistLinkable {
                 last = currentPlaylist.size() - 1;
             }
             Media.setNowPlaying(currentPlaylist.get(last));
-            if (Media.isPlaying()) {
-                Media.getNowPlaying().playFile();
-            }
+            Media.getNowPlaying().playFile();
             updateGUISongDetails();
         });
         shuffleButton.addActionListener(event -> {
@@ -629,6 +630,11 @@ public class MainPanel implements PlaylistLinkable {
 
     public static void main(String[] args) {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> StorageManager.getInstance().saveAndQuit(), "Shutdown-thread"));
+        try {
+            System.setErr(new PrintStream(new FileOutputStream(new File("./ERROR.txt"))));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 //        System.out.println(StorageManager.getInstance().getDefaultPlaylist().getPlaylistMedia());
         new LoginPanel();
 
