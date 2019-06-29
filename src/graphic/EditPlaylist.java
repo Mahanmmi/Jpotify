@@ -36,7 +36,7 @@ public class EditPlaylist {
     /**
      * change the position of a song in playList step by step by click on up or down and
      * can remove a song from playList
-     * @param parent  @param parent this is instance of playListLinkable that we can give it object
+     * @param parent   this is instance of playListLinkable that we can give it object
      * of classes that implements this interface
      * @param target this is the playList that we want to edit.
      */

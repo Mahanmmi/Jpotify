@@ -17,6 +17,11 @@ public class ManagePlaylistPanel {
     private JButton addSongButton;
     private JFrame frame;
 
+    /**
+     * create a frame for playList management that contains playList names and cancel,remove,edit and addSong button
+     * @param parent this is instance of playListLinkable that we can give it object
+     *  of classes that implements this interface
+     */
     @SuppressWarnings({"unchecked", "SuspiciousMethodCalls"})
     ManagePlaylistPanel(PlaylistLinkable parent) {
         frame = new JFrame("Manage playlists...");
@@ -32,22 +37,32 @@ public class ManagePlaylistPanel {
         playlistList.setLayoutOrientation(JList.VERTICAL_WRAP);
         playlistList.setVisibleRowCount(-1);
         playlistList.setListData(listData.toArray());
+
+
         cancelButton.addActionListener(event -> {
             parent.cancelPlaylistOperation();
             frame.dispose();
         });
+
+
         removeButton.addActionListener(event -> {
             parent.doRemovePlaylist((String) playlistList.getSelectedValue());
             frame.dispose();
         });
+
+
         editButton.addActionListener(event -> {
             new EditPlaylist(parent,playlists.get(playlistList.getSelectedValue()));
             frame.dispose();
         });
+
+
         addSongButton.addActionListener(e -> {
             new AddSongPlaylistPanel(parent,playlists.get(playlistList.getSelectedValue()));
             frame.dispose();
         });
+
+
         frame.setVisible(true);
     }
 }

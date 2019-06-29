@@ -56,6 +56,9 @@ public class LoginPanel {
         }
     }
 
+    /**
+     * sets actionListener for loginButton and newUser and set frame visible true
+     */
     LoginPanel() {
         StorageManager.getInstance().getClient();
         frame = new JFrame("Login");
