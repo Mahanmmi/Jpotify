@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * create a frame to show lyric of media
+ * create a frame to show lyric of media playing
  */
 public class LyricsPanel {
     private JPanel panel;
